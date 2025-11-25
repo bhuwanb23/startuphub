@@ -1,5 +1,64 @@
 // Login page constants
 
+export const USER_TYPES = [
+  {
+    id: 'startup',
+    name: 'Startup / Founder',
+    description: 'Raise funds, find mentors, and grow your business',
+    icon: '🚀',
+    color: 'from-orange-400 to-orange-600',
+  },
+  {
+    id: 'investor',
+    name: 'Investor',
+    description: 'Discover promising startups and investment opportunities',
+    icon: '💼',
+    color: 'from-blue-400 to-blue-600',
+  },
+  {
+    id: 'researcher',
+    name: 'Researcher / Innovator',
+    description: 'Commercialize research and collaborate with startups',
+    icon: '🔬',
+    color: 'from-purple-400 to-purple-600',
+  },
+  {
+    id: 'mentor',
+    name: 'Mentor / Expert',
+    description: 'Guide startups and share your expertise',
+    icon: '🎓',
+    color: 'from-green-400 to-green-600',
+  },
+  {
+    id: 'government',
+    name: 'Government Body',
+    description: 'Monitor innovation and manage policies',
+    icon: '🏛️',
+    color: 'from-yellow-400 to-yellow-600',
+  },
+  {
+    id: 'incubator',
+    name: 'Incubator / Accelerator',
+    description: 'Manage programs and support startups',
+    icon: '🏢',
+    color: 'from-indigo-400 to-indigo-600',
+  },
+  {
+    id: 'corporate',
+    name: 'Corporate Partner',
+    description: 'Find innovation partners and solutions',
+    icon: '🏢',
+    color: 'from-pink-400 to-pink-600',
+  },
+  {
+    id: 'university',
+    name: 'University',
+    description: 'Connect research with industry and startups',
+    icon: '🏫',
+    color: 'from-teal-400 to-teal-600',
+  },
+];
+
 export const SOCIAL_LOGIN_OPTIONS = [
   {
     id: 'google',
@@ -20,52 +79,3 @@ export const SOCIAL_LOGIN_OPTIONS = [
     color: '#0077B5',
   },
 ];
-
-export const FORM_FIELDS = {
-  login: [
-    {
-      id: 'email',
-      label: 'Email Address',
-      type: 'email',
-      placeholder: 'Enter your email',
-      required: true,
-    },
-    {
-      id: 'password',
-      label: 'Password',
-      type: 'password',
-      placeholder: 'Enter your password',
-      required: true,
-    },
-  ],
-  register: [
-    {
-      id: 'name',
-      label: 'Full Name',
-      type: 'text',
-      placeholder: 'Enter your full name',
-      required: true,
-    },
-    {
-      id: 'email',
-      label: 'Email Address',
-      type: 'email',
-      placeholder: 'Enter your email',
-      required: true,
-    },
-    {
-      id: 'password',
-      label: 'Password',
-      type: 'password',
-      placeholder: 'Create a password',
-      required: true,
-    },
-    {
-      id: 'confirmPassword',
-      label: 'Confirm Password',
-      type: 'password',
-      placeholder: 'Confirm your password',
-      required: true,
-    },
-  ],
-};
