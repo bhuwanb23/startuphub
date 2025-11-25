@@ -14,6 +14,12 @@ export const SIDEBAR_NAVIGATION = [
     path: '/startups/profile',
   },
   {
+    id: 'workflow',
+    name: 'Workflow Automation',
+    icon: '⚙️',
+    path: '/startups/workflow',
+  },
+  {
     id: 'ipr',
     name: 'IPR Automation',
     icon: '📜',

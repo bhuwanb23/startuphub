@@ -5,6 +5,7 @@ import Login from './pages/login/login';
 import Startup from './users/startups/startup';
 import Dashboard from './users/startups/pages/Dashboard';
 import Profile from './users/startups/pages/profile/Profile';
+import Workflow from './users/startups/pages/workflow/Workflow';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/startups/*" element={<Startup />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="workflow" element={<Workflow />} />
         <Route index element={<Dashboard />} />
       </Route>
     </Routes>
