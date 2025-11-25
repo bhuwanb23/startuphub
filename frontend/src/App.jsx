@@ -10,6 +10,7 @@ import IPR from './users/startups/pages/ipr/IPR';
 import Resources from './users/startups/pages/resources/Resources';
 import Market from './users/startups/pages/market/Market';
 import Growth from './users/startups/pages/growth/Growth';
+import Collaboration from './users/startups/pages/collaboration/Collaboration';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="resources" element={<Resources />} />
         <Route path="market" element={<Market />} />
         <Route path="growth" element={<Growth />} />
+        <Route path="collaboration" element={<Collaboration />} />
         <Route index element={<Dashboard />} />
       </Route>
     </Routes>
