@@ -7,6 +7,7 @@ import Dashboard from './users/startups/pages/Dashboard';
 import Profile from './users/startups/pages/profile/Profile';
 import Workflow from './users/startups/pages/workflow/Workflow';
 import IPR from './users/startups/pages/ipr/IPR';
+import Resources from './users/startups/pages/resources/Resources';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="workflow" element={<Workflow />} />
         <Route path="ipr" element={<IPR />} />
+        <Route path="resources" element={<Resources />} />
         <Route index element={<Dashboard />} />
       </Route>
     </Routes>
