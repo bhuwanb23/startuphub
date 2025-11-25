@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ toggleSidebar, handleLogout }) => {
+const StartupHeader = ({ toggleSidebar, handleLogout }) => {
   return (
     <header className="bg-white shadow-sm z-10">
       <div className="flex items-center justify-between p-4">
@@ -31,7 +31,7 @@ const Header = ({ toggleSidebar, handleLogout }) => {
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#FF8C42] to-[#FF6A00] flex items-center justify-center text-white font-bold">
                 ST
               </div>
-              <span className="hidden md:inline text-gray-700 font-medium">Startup Name</span>
+              <span className="hidden md:inline text-gray-700 font-medium">InnovateX</span>
               <svg className="hidden md:inline w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -55,4 +55,4 @@ const Header = ({ toggleSidebar, handleLogout }) => {
   );
 };
 
-export default Header;
+export default StartupHeader;

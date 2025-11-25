@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
+import StartupSidebar from './components/startup_sidebar';
+import StartupHeader from './components/startup_header';
 
-const StartupDashboard = () => {
+const Startup = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -19,12 +19,12 @@ const StartupDashboard = () => {
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      <StartupSidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <Header toggleSidebar={toggleSidebar} handleLogout={handleLogout} />
+        <StartupHeader toggleSidebar={toggleSidebar} handleLogout={handleLogout} />
         
         {/* Main content area */}
         <main className="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50">
@@ -35,4 +35,4 @@ const StartupDashboard = () => {
   );
 };
 
-export default StartupDashboard;
+export default Startup;

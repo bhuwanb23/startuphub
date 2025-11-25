@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SIDEBAR_NAVIGATION } from '../constants/navigation';
 
-const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
+const StartupSidebar = ({ sidebarOpen, toggleSidebar }) => {
   const location = useLocation();
 
   return (
@@ -69,7 +69,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
                 ST
               </div>
               <div>
-                <p className="font-medium text-gray-800">Startup Name</p>
+                <p className="font-medium text-gray-800">InnovateX</p>
                 <p className="text-sm text-gray-500">Founder</p>
               </div>
             </div>
@@ -80,4 +80,4 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   );
 };
 
-export default Sidebar;
+export default StartupSidebar;
