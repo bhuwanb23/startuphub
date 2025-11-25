@@ -34,7 +34,7 @@ const Market = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full min-h-[calc(100vh-100px)]">
       <div className="flex-1 flex flex-col md:flex-row">
         {/* Sidebar */}
         <div className="w-full md:w-64 flex-shrink-0 border-r border-gray-200">
@@ -46,7 +46,7 @@ const Market = () => {
         </div>
         
         {/* Main Content */}
-        <div className="flex-1 p-6 bg-white">
+        <div className="flex-1 p-6 bg-white overflow-y-auto">
           {renderActiveSection()}
         </div>
       </div>

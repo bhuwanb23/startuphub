@@ -8,6 +8,8 @@ import Profile from './users/startups/pages/profile/Profile';
 import Workflow from './users/startups/pages/workflow/Workflow';
 import IPR from './users/startups/pages/ipr/IPR';
 import Resources from './users/startups/pages/resources/Resources';
+import Market from './users/startups/pages/market/Market';
+import Growth from './users/startups/pages/growth/Growth';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="workflow" element={<Workflow />} />
         <Route path="ipr" element={<IPR />} />
         <Route path="resources" element={<Resources />} />
+        <Route path="market" element={<Market />} />
+        <Route path="growth" element={<Growth />} />
         <Route index element={<Dashboard />} />
       </Route>
     </Routes>
