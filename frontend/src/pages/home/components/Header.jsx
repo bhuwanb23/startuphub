@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useScrollEffect from '../hooks/useScrollEffect';
 
 const Header = () => {
   const { isScrolled } = useScrollEffect();
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -28,7 +34,10 @@ const Header = () => {
         </nav>
         
         <div className="flex items-center space-x-4">
-          <button className="text-gray-600 hover:text-[#FF6A00] font-medium transition-colors">
+          <button 
+            onClick={handleLoginClick}
+            className="text-gray-600 hover:text-[#FF6A00] font-medium transition-colors"
+          >
             Sign In
           </button>
           <button className="bg-gradient-to-r from-[#FF8C42] to-[#FF6A00] text-white px-5 py-2 rounded-lg font-medium hover:from-[#FF6A00] hover:to-[#F4A300] transition-all shadow-md hover:shadow-lg">
