@@ -15,6 +15,7 @@ import Collaboration from './users/startups/pages/collaboration/Collaboration';
 import Funding from './users/startups/pages/funding/Funding';
 import Tools from './users/startups/pages/tools/Tools';
 import Investor from './users/investors/investor';
+// Removed duplicate import
 
 function App() {
   return (
@@ -35,10 +36,7 @@ function App() {
         <Route path="tools" element={<Tools />} />
         <Route index element={<Dashboard />} />
       </Route>
-      <Route path="/investors/*" element={<Investor />}>
-        <Route path="dashboard" element={<Investor />} />
-        <Route index element={<Investor />} />
-      </Route>
+      <Route path="/investors/*" element={<Investor />} />
     </Routes>
   );
 }

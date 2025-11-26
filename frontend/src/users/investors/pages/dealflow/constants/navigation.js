@@ -2,23 +2,23 @@
 
 export const DEALFLOW_NAVIGATION = [
   {
-    id: 'pipeline',
-    name: 'Deal Pipeline',
-    icon: '📊',
-  },
-  {
-    id: 'matching',
-    name: 'AI Matching',
+    id: 'recommended',
+    name: 'AI-Recommended Startups',
     icon: '🤖',
   },
   {
-    id: 'tracking',
-    name: 'Deal Tracking',
-    icon: '📈',
+    id: 'ranking',
+    name: 'Deal Ranking Score',
+    icon: '📊',
   },
   {
-    id: 'analytics',
-    name: 'Deal Analytics',
-    icon: '🔍',
+    id: 'profile',
+    name: 'Founder Profile',
+    icon: '👤',
+  },
+  {
+    id: 'pipeline',
+    name: 'Pipeline Actions',
+    icon: '✅',
   },
 ];
