@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home/home';
 import Login from './pages/login/login';
+import InvestorLogin from './pages/login/investor_login';
 import Startup from './users/startups/startup';
 import Dashboard from './users/startups/pages/Dashboard';
 import Profile from './users/startups/pages/profile/Profile';
@@ -20,6 +21,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/login/investor" element={<InvestorLogin />} />
       <Route path="/startups/*" element={<Startup />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
@@ -34,6 +36,7 @@ function App() {
         <Route index element={<Dashboard />} />
       </Route>
       <Route path="/investors/*" element={<Investor />}>
+        <Route path="dashboard" element={<Investor />} />
         <Route index element={<Investor />} />
       </Route>
     </Routes>

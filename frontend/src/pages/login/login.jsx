@@ -14,6 +14,9 @@ const Login = () => {
     if (userType.id === 'startup') {
       // Navigate directly to the startup dashboard
       navigate('/startups/dashboard');
+    } else if (userType.id === 'investor') {
+      // Navigate to the investor login page
+      navigate('/login/investor');
     } else {
       setSelectedUserType(userType);
       // In a real app, you would navigate to a specific login page for this user type
