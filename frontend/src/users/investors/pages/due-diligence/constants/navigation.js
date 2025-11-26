@@ -2,28 +2,43 @@
 
 export const DUE_DILIGENCE_NAVIGATION = [
   {
-    id: 'checklists',
-    name: 'Checklists',
-    icon: '✅',
+    id: 'traction',
+    name: 'Traction Dashboard',
+    icon: '📈',
   },
   {
-    id: 'documents',
-    name: 'Document Review',
-    icon: '📄',
+    id: 'technology',
+    name: 'Technology Assessment',
+    icon: '💻',
   },
   {
-    id: 'financials',
-    name: 'Financial Analysis',
+    id: 'ipr',
+    name: 'IPR Strength Score',
+    icon: '🧠',
+  },
+  {
+    id: 'financial',
+    name: 'Financial Health Check',
     icon: '💰',
   },
   {
-    id: 'legal',
-    name: 'Legal Review',
-    icon: '⚖️',
+    id: 'market',
+    name: 'Market Analysis',
+    icon: '🌍',
   },
   {
     id: 'team',
     name: 'Team Evaluation',
     icon: '👥',
+  },
+  {
+    id: 'risk',
+    name: 'Risk & Compliance',
+    icon: '⚠️',
+  },
+  {
+    id: 'report',
+    name: 'Auto Report',
+    icon: '📝',
   },
 ];
