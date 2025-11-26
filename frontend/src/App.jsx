@@ -13,6 +13,7 @@ import Growth from './users/startups/pages/growth/Growth';
 import Collaboration from './users/startups/pages/collaboration/Collaboration';
 import Funding from './users/startups/pages/funding/Funding';
 import Tools from './users/startups/pages/tools/Tools';
+import Investor from './users/investors/investor';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         <Route path="funding" element={<Funding />} />
         <Route path="tools" element={<Tools />} />
         <Route index element={<Dashboard />} />
+      </Route>
+      <Route path="/investors/*" element={<Investor />}>
+        <Route index element={<Investor />} />
       </Route>
     </Routes>
   );
