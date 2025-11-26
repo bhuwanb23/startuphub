@@ -3,27 +3,32 @@
 export const COMMUNICATION_NAVIGATION = [
   {
     id: 'messages',
-    name: 'Messages',
+    name: 'Inbox',
+    icon: '📥',
+  },
+  {
+    id: 'chats',
+    name: 'Deal Chats',
     icon: '💬',
   },
   {
-    id: 'meetings',
-    name: 'Meetings',
-    icon: '📅',
-  },
-  {
     id: 'documents',
-    name: 'Shared Documents',
-    icon: '📄',
+    name: 'Shared Document Room',
+    icon: '📁',
   },
   {
-    id: 'activity',
-    name: 'Activity Feed',
-    icon: '🔥',
+    id: 'nda',
+    name: 'NDA Manager',
+    icon: '📜',
+  },
+  {
+    id: 'announcements',
+    name: 'Announcements',
+    icon: '📢',
   },
   {
     id: 'notifications',
-    name: 'Notifications',
+    name: 'Notification Center',
     icon: '🔔',
   },
 ];
