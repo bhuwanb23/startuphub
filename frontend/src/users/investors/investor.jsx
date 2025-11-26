@@ -8,6 +8,7 @@ import Portfolio from './pages/portfolio/Portfolio';
 import Collaboration from './pages/collaboration/Collaboration';
 import Tools from './pages/tools/Tools';
 import Communication from './pages/communication/Communication';
+import Insights from './pages/insights/Insights';
 
 const Investor = () => {
   return (
@@ -21,6 +22,7 @@ const Investor = () => {
         <Route path="/collaboration" element={<Collaboration />} />
         <Route path="/tools" element={<Tools />} />
         <Route path="/communication" element={<Communication />} />
+        <Route path="/insights" element={<Insights />} />
         <Route index element={<Dashboard />} />
       </Routes>
     </InvestorLayout>

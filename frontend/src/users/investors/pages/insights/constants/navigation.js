@@ -2,28 +2,43 @@
 
 export const INSIGHTS_NAVIGATION = [
   {
-    id: 'market',
-    name: 'Market Research',
-    icon: '📊',
-  },
-  {
-    id: 'sectors',
-    name: 'Sector Analysis',
-    icon: '📈',
-  },
-  {
     id: 'trends',
-    name: 'Trend Insights',
+    name: 'Emerging Trends',
     icon: '🔥',
   },
   {
-    id: 'competitors',
-    name: 'Competitor Analysis',
-    icon: '🔍',
+    id: 'predictions',
+    name: 'Market Predictions',
+    icon: '📈',
+  },
+  {
+    id: 'sectors',
+    name: 'Sector Scoreboard',
+    icon: '🥇',
+  },
+  {
+    id: 'competitive',
+    name: 'Competitive Landscape',
+    icon: '💡',
+  },
+  {
+    id: 'risk',
+    name: 'Risk Indicators',
+    icon: '⚠️',
   },
   {
     id: 'reports',
-    name: 'Research Reports',
+    name: 'Investment Reports',
     icon: '📋',
+  },
+  {
+    id: 'heatmap',
+    name: 'Investment Heatmaps',
+    icon: '🔥',
+  },
+  {
+    id: 'library',
+    name: 'Research Library',
+    icon: '📘',
   },
 ];
