@@ -5,6 +5,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import DealFlow from './pages/dealflow/DealFlow';
 import DueDiligenceIndex from './pages/due-diligence/index';
 import Portfolio from './pages/portfolio/Portfolio';
+import Collaboration from './pages/collaboration/Collaboration';
 
 const Investor = () => {
   return (
@@ -15,6 +16,7 @@ const Investor = () => {
         <Route path="/deal-flow" element={<DealFlow />} />
         <Route path="/due-diligence/*" element={<DueDiligenceIndex />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/collaboration" element={<Collaboration />} />
         <Route index element={<Dashboard />} />
       </Routes>
     </InvestorLayout>

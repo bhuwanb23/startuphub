@@ -2,28 +2,38 @@
 
 export const COLLABORATION_NAVIGATION = [
   {
-    id: 'partners',
-    name: 'Investor Network',
-    icon: '🤝',
+    id: 'government',
+    name: 'Government Hub',
+    icon: '🏛️',
   },
   {
-    id: 'co-investments',
-    name: 'Co-Investment Opportunities',
-    icon: '💼',
+    id: 'research',
+    name: 'Research Network',
+    icon: '🔬',
+  },
+  {
+    id: 'investors',
+    name: 'Co-Investor Market',
+    icon: '💰',
   },
   {
     id: 'syndicates',
-    name: 'Syndicate Management',
-    icon: '👥',
+    name: 'Syndicate Builder',
+    icon: '🧩',
   },
   {
-    id: 'messaging',
-    name: 'Messaging',
-    icon: '💬',
+    id: 'projects',
+    name: 'High-Impact Projects',
+    icon: '🚀',
   },
   {
-    id: 'deals',
-    name: 'Deal Sharing',
-    icon: '🔄',
+    id: 'funding',
+    name: 'Funding Opportunities',
+    icon: '🏦',
+  },
+  {
+    id: 'recommendations',
+    name: 'Co-funding Engine',
+    icon: '🤖',
   },
 ];
