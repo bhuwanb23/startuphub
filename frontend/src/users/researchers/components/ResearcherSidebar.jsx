@@ -5,14 +5,14 @@ const ResearcherSidebar = () => {
   const navigate = useNavigate();
   
   const menuItems = [
-    { id: 1, name: 'Dashboard', icon: '📊', path: '/dashboard' },
-    { id: 2, name: 'Innovation Repository', icon: '🔬', path: '/repository' },
-    { id: 3, name: 'IPR Support Suite', icon: '🧠', path: '/ipr' },
-    { id: 4, name: 'Grant Matchmaking', icon: '💰', path: '/grants' },
-    { id: 5, name: 'Collaboration Hub', icon: '🤝', path: '/collaboration' },
-    { id: 6, name: 'Market Insights', icon: '📈', path: '/insights' },
-    { id: 7, name: 'Research Tools', icon: '🛠️', path: '/tools' },
-    { id: 8, name: 'Communication', icon: '💬', path: '/communication' },
+    { id: 1, name: 'Dashboard', icon: '📊', path: '/researchers/dashboard' },
+    { id: 2, name: 'Innovation Repository', icon: '🔬', path: '/researchers/repository' },
+    { id: 3, name: 'IPR Support Suite', icon: '🧠', path: '/researchers/ipr' },
+    { id: 4, name: 'Grant Matchmaking', icon: '💰', path: '/researchers/grants' },
+    { id: 5, name: 'Collaboration Hub', icon: '🤝', path: '/researchers/collaboration' },
+    { id: 6, name: 'Market Insights', icon: '📈', path: '/researchers/insights' },
+    { id: 7, name: 'Research Tools', icon: '🛠️', path: '/researchers/tools' },
+    { id: 8, name: 'Communication', icon: '💬', path: '/researchers/communication' },
   ];
 
   return (
