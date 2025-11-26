@@ -4,6 +4,7 @@ import InvestorLayout from './components/InvestorLayout';
 import Dashboard from './pages/dashboard/Dashboard';
 import DealFlow from './pages/dealflow/DealFlow';
 import DueDiligenceIndex from './pages/due-diligence/index';
+import Portfolio from './pages/portfolio/Portfolio';
 
 const Investor = () => {
   return (
@@ -13,6 +14,7 @@ const Investor = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/deal-flow" element={<DealFlow />} />
         <Route path="/due-diligence/*" element={<DueDiligenceIndex />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route index element={<Dashboard />} />
       </Routes>
     </InvestorLayout>
