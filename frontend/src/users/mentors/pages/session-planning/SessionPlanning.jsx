@@ -1,211 +1,89 @@
 import React, { useState } from 'react';
+import SessionPlannerDashboard from './components/SessionPlannerDashboard';
+import AutomatedAgendaGenerator from './components/AutomatedAgendaGenerator';
+import MentorshipRoadmapBuilder from './components/MentorshipRoadmapBuilder';
+import SessionNotesRecorder from './components/SessionNotesRecorder';
+import ResourceSuggestionsPanel from './components/ResourceSuggestionsPanel';
+import StartupProgressEvaluation from './components/StartupProgressEvaluation';
+import SessionOutcomeReports from './components/SessionOutcomeReports';
+import ScheduleCalendar from './components/ScheduleCalendar';
 
 const SessionPlanning = () => {
-  const [sessions, setSessions] = useState([
-    {
-      id: 1,
-      title: 'Business Model Validation',
-      date: '2023-06-15',
-      time: '10:00 AM',
-      mentee: 'TechFlow Inc.',
-      status: 'Scheduled',
-      agenda: 'Review business model canvas and validate assumptions'
-    },
-    {
-      id: 2,
-      title: 'Pitch Deck Review',
-      date: '2023-06-18',
-      time: '2:00 PM',
-      mentee: 'GreenEnergy Solutions',
-      status: 'Completed',
-      agenda: 'Review pitch deck structure and content'
-    }
+  const [sessions] = useState([
+    { id: 1, startup: 'TechFlow Inc.', date: '2023-06-15', type: 'Business Model Review', agendaCreated: true, notesAdded: false, status: 'Scheduled' },
+    { id: 2, startup: 'GreenEnergy Solutions', date: '2023-06-18', type: 'Technical Architecture', agendaCreated: true, notesAdded: true, status: 'Completed' },
+    { id: 3, startup: 'HealthTrack', date: '2023-06-20', type: 'Product Demo', agendaCreated: false, notesAdded: false, status: 'Scheduled' },
+    { id: 4, startup: 'FinTech Startup', date: '2023-06-22', type: 'Funding Strategy', agendaCreated: false, notesAdded: false, status: 'Scheduled' },
+    { id: 5, startup: 'EduTech Platform', date: '2023-06-10', type: 'Market Validation', agendaCreated: true, notesAdded: true, status: 'Completed' }
   ]);
 
-  const [showForm, setShowForm] = useState(false);
-  const [newSession, setNewSession] = useState({
-    title: '',
-    date: '',
-    time: '',
-    mentee: '',
-    agenda: ''
-  });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [resourcePanelOpen, setResourcePanelOpen] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewSession(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleOpenPlanner = (session) => {
+    alert(`Opening planner for session: ${session ? session.startup : 'New Session'}`);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const session = {
-      id: sessions.length + 1,
-      ...newSession,
-      status: 'Scheduled'
-    };
-    setSessions([...sessions, session]);
-    setNewSession({ title: '', date: '', time: '', mentee: '', agenda: '' });
-    setShowForm(false);
+  const handleAgendaUpdate = (agendaItems) => {
+    alert('Agenda saved successfully!');
   };
 
   return (
-    <div className="p-6">
-      <div className="mb-6 flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800">Session Planning & Guidance Tools</h1>
-          <p className="text-gray-600">Plan and manage your mentoring sessions</p>
-        </div>
-        <button 
-          onClick={() => setShowForm(!showForm)}
-          className="px-4 py-2 bg-[#FF6A00] text-white rounded-md hover:bg-[#e05500] transition-colors"
-        >
-          {showForm ? 'Cancel' : 'Schedule New Session'}
-        </button>
-      </div>
-
-      {/* Session Form */}
-      {showForm && (
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <h2 className="text-lg font-semibold mb-4">Schedule New Session</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Session Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={newSession.title}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  required
-                />
+    <div className="p-4 bg-gray-50 min-h-screen">
+      <div className="mb-6">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800">Mentor Session Tools</h1>
+            <p className="text-gray-600">Plan and manage your mentoring sessions</p>
+          </div>
+          <div className="flex items-center space-x-4 mt-2 md:mt-0">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search session history..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-[#FF6A00] focus:border-[#FF6A00]"
+              />
+              <div className="absolute left-3 top-2.5 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                </svg>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Mentee</label>
-                <input
-                  type="text"
-                  name="mentee"
-                  value={newSession.mentee}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-                <input
-                  type="date"
-                  name="date"
-                  value={newSession.date}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
-                <input
-                  type="time"
-                  name="time"
-                  value={newSession.time}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Agenda</label>
-              <textarea
-                name="agenda"
-                value={newSession.agenda}
-                onChange={handleInputChange}
-                rows="3"
-                className="w-full p-2 border border-gray-300 rounded-md"
-                required
-              ></textarea>
             </div>
             <button 
-              type="submit"
-              className="px-4 py-2 bg-[#FF6A00] text-white rounded-md hover:bg-[#e05500] transition-colors"
+              onClick={() => setResourcePanelOpen(true)}
+              className="px-3 py-2 bg-[#FF6A00] text-white rounded-lg hover:bg-[#FF8C42] transition-colors font-medium text-sm"
             >
-              Schedule Session
+              Resources
             </button>
-          </form>
-        </div>
-      )}
-
-      {/* Upcoming Sessions */}
-      <div className="bg-white rounded-lg shadow mb-6">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold">Upcoming Sessions</h2>
-        </div>
-        <div className="divide-y divide-gray-200">
-          {sessions.filter(session => session.status === 'Scheduled').map(session => (
-            <div key={session.id} className="p-6">
-              <div className="flex justify-between">
-                <div>
-                  <h3 className="text-lg font-medium text-gray-900">{session.title}</h3>
-                  <p className="text-gray-600 mt-1">{session.agenda}</p>
-                  <div className="flex items-center mt-2 text-sm text-gray-500">
-                    <span className="mr-4">📅 {session.date} at {session.time}</span>
-                    <span>👥 {session.mentee}</span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-end">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                    {session.status}
-                  </span>
-                  <div className="mt-4 space-x-2">
-                    <button className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50">
-                      Reschedule
-                    </button>
-                    <button className="px-3 py-1 text-sm bg-[#FF6A00] text-white rounded-md hover:bg-[#e05500]">
-                      Join Session
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* Past Sessions */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold">Past Sessions</h2>
-        </div>
-        <div className="divide-y divide-gray-200">
-          {sessions.filter(session => session.status === 'Completed').map(session => (
-            <div key={session.id} className="p-6">
-              <div className="flex justify-between">
-                <div>
-                  <h3 className="text-lg font-medium text-gray-900">{session.title}</h3>
-                  <p className="text-gray-600 mt-1">{session.agenda}</p>
-                  <div className="flex items-center mt-2 text-sm text-gray-500">
-                    <span className="mr-4">📅 {session.date} at {session.time}</span>
-                    <span>👥 {session.mentee}</span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-end">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    {session.status}
-                  </span>
-                  <div className="mt-4">
-                    <button className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50">
-                      View Notes
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <SessionPlannerDashboard sessions={sessions} onOpenPlanner={handleOpenPlanner} />
+        <AutomatedAgendaGenerator startup="TechFlow Inc." onAgendaUpdate={handleAgendaUpdate} />
       </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <MentorshipRoadmapBuilder />
+        <SessionNotesRecorder />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <StartupProgressEvaluation />
+        <SessionOutcomeReports />
+      </div>
+
+      <div className="mb-6">
+        <ScheduleCalendar />
+      </div>
+
+      <ResourceSuggestionsPanel 
+        isOpen={resourcePanelOpen} 
+        onClose={() => setResourcePanelOpen(false)} 
+      />
     </div>
   );
 };
