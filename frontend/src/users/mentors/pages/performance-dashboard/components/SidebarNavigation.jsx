@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const SidebarNavigation = () => {
   const navItems = [
-    { id: 1, name: 'Startup Progress Score', path: '/mentor/dashboard/performance-dashboard' },
-    { id: 2, name: 'Session Impact Metrics', path: '/mentor/dashboard/performance-dashboard/performance/session-impact' },
-    { id: 3, name: 'Mentor Contribution Analytics', path: '/mentor/dashboard/performance-dashboard/performance/contribution-analytics' },
-    { id: 4, name: 'Feedback Received', path: '/mentor/dashboard/performance-dashboard/performance/feedback' },
-    { id: 5, name: 'Domain Impact Heatmap', path: '/mentor/dashboard/performance-dashboard/performance/domain-heatmap' },
-    { id: 6, name: 'Mentoring Hours Log', path: '/mentor/dashboard/performance-dashboard/performance/hours-log' },
-    { id: 7, name: 'Recognition & Badges', path: '/mentor/dashboard/performance-dashboard/performance/recognition' },
-    { id: 8, name: 'Mentor Leaderboard', path: '/mentor/dashboard/performance-dashboard/performance/leaderboard' }
+    { id: 1, name: 'Startup Progress Score', path: '/mentors/performance' },
+    { id: 2, name: 'Session Impact Metrics', path: '/mentors/performance/session-impact' },
+    { id: 3, name: 'Mentor Contribution Analytics', path: '/mentors/performance/contribution-analytics' },
+    { id: 4, name: 'Feedback Received', path: '/mentors/performance/feedback' },
+    { id: 5, name: 'Domain Impact Heatmap', path: '/mentors/performance/domain-heatmap' },
+    { id: 6, name: 'Mentoring Hours Log', path: '/mentors/performance/hours-log' },
+    { id: 7, name: 'Recognition & Badges', path: '/mentors/performance/recognition' },
+    { id: 8, name: 'Mentor Leaderboard', path: '/mentors/performance/leaderboard' }
   ];
 
   return (
