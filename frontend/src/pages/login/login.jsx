@@ -20,6 +20,9 @@ const Login = () => {
     } else if (userType.id === 'researcher') {
       // Navigate directly to the researcher dashboard
       navigate('/researchers/dashboard');
+    } else if (userType.id === 'mentor') {
+      // Navigate directly to the mentor dashboard
+      navigate('/mentors/dashboard');
     } else {
       setSelectedUserType(userType);
       // In a real app, you would navigate to a specific login page for this user type

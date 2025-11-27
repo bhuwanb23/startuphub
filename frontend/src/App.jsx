@@ -16,6 +16,7 @@ import Funding from './users/startups/pages/funding/Funding';
 import Tools from './users/startups/pages/tools/Tools';
 import Investor from './users/investors/investor';
 import Researcher from './users/researchers/researcher';
+import Mentor from './users/mentors/mentors';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       </Route>
       <Route path="/investors/*" element={<Investor />} />
       <Route path="/researchers/*" element={<Researcher />} />
+      <Route path="/mentors/*" element={<Mentor />} />
     </Routes>
   );
 }
