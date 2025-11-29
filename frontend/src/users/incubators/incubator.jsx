@@ -20,7 +20,7 @@ const Incubator = () => {
       <Routes>
         <Route path="/dashboard" element={<IncubatorDashboard />} />
         <Route path="/intake/*" element={<StartupIntake />} />
-        <Route path="/cohorts" element={<CohortManagement />} />
+        <Route path="/cohorts/*" element={<CohortManagement />} />
         <Route path="/analytics" element={<ProgressAnalytics />} />
         <Route path="/matching" element={<MentorInvestorMatching />} />
         <Route path="/funding" element={<FundingSupport />} />
