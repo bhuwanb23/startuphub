@@ -18,6 +18,7 @@ import Investor from './users/investors/investor';
 import Researcher from './users/researchers/researcher';
 import Mentor from './users/mentors/mentors';
 import Incubator from './users/incubators/incubator';
+import University from './users/universities/university';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
       <Route path="/researchers/*" element={<Researcher />} />
       <Route path="/mentors/*" element={<Mentor />} />
       <Route path="/incubators/*" element={<Incubator />} />
+      <Route path="/universities/*" element={<University />} />
     </Routes>
   );
 }
