@@ -1,3 +1,1 @@
-import MentorTools from './MentorTools';
-
-export default MentorTools;
+export { default } from './MentorTools';
