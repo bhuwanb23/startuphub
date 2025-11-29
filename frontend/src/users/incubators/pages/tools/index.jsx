@@ -11,4 +11,4 @@ const IncubatorTools = () => {
   );
 };
 
-export default IncubatorTools;
+export { default } from './IncubatorTools';
