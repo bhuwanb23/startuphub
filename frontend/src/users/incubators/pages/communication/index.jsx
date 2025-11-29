@@ -11,4 +11,5 @@ const IncubatorCommunication = () => {
   );
 };
 
-export default IncubatorCommunication;
+// Export the main CommunicationCenter component
+export { default } from './CommunicationCenter';
