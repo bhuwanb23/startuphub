@@ -11,4 +11,4 @@ const CollaborationHub = () => {
   );
 };
 
-export default CollaborationHub;
+export { default } from './CollaborationHub';

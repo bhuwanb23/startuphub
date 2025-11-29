@@ -25,7 +25,7 @@ const Incubator = () => {
         <Route path="/matching/*" element={<MentorInvestorMatching />} />
         <Route path="/funding/*" element={<FundingSupport />} />
         <Route path="/resources/*" element={<ResourceManager />} />
-        <Route path="/collaboration" element={<CollaborationHub />} />
+        <Route path="/collaboration/*" element={<CollaborationHub />} />
         <Route path="/tools" element={<IncubatorTools />} />
         <Route path="/communication" element={<IncubatorCommunication />} />
         <Route path="/" element={<IncubatorDashboard />} />
