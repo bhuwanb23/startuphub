@@ -18,7 +18,7 @@ const Mentors = () => {
         <Route path="/dashboard" element={<MentorDashboard />} />
         <Route path="/startup-matching" element={<StartupMatching />} />
         <Route path="/session-planning" element={<SessionPlanning />} />
-        <Route path="/performance" element={<PerformanceDashboard />} />
+        <Route path="/performance/*" element={<PerformanceDashboard />} />
         <Route path="/collaboration/*" element={<CollaborationWorkspace />} />
         <Route path="/tools" element={<MentorTools />} />
         <Route path="/communication" element={<CommunicationCenter />} />

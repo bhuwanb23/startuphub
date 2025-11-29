@@ -9,54 +9,15 @@ import DiscussionChannels from './components/DiscussionChannels';
 import WorkspaceRooms from './components/WorkspaceRooms';
 import BestPractices from './components/BestPractices';
 
-// Create a component that uses useLocation to determine which component to render
-const WorkspaceContent = () => {
-  const location = useLocation();
-  
-  // Extract the last part of the path to determine which component to show
-  // For paths like /mentors/collaboration/knowledge-sharing, we want 'knowledge-sharing'
-  // For paths like /mentors/collaboration, we want 'shared-resource-library' (default)
-  const pathParts = location.pathname.split('/').filter(part => part !== '');
-  let viewType = 'shared-resource-library';
-  
-  // Find the collaboration part and get what comes after it
-  const collaborationIndex = pathParts.indexOf('collaboration');
-  if (collaborationIndex !== -1 && collaborationIndex < pathParts.length - 1) {
-    viewType = pathParts[collaborationIndex + 1];
-  } else if (collaborationIndex !== -1 && pathParts[pathParts.length - 1] === 'collaboration') {
-    viewType = 'shared-resource-library';
-  }
-  
-  const renderComponent = () => {
-    switch (viewType) {
-      case 'shared-resource-library':
-        return <SharedResourceLibrary />;
-      case 'knowledge-sharing':
-        return <KnowledgeSharingBoard />;
-      case 'guidebook-templates':
-        return <GuidebookTemplates />;
-      case 'co-author-docs':
-        return <CoAuthorDocuments />;
-      case 'whiteboard':
-        return <SharedWhiteboard />;
-      case 'discussion-channels':
-        return <DiscussionChannels />;
-      case 'workspace-rooms':
-        return <WorkspaceRooms />;
-      case 'best-practices':
-        return <BestPractices />;
-      default:
-        return <SharedResourceLibrary />;
-    }
-  };
-
+// Create a component that includes the sidebar and renders the appropriate content
+const WorkspaceLayout = ({ children }) => {
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       <div className="lg:w-1/4">
         <SidebarNavigation />
       </div>
       <div className="lg:w-3/4">
-        {renderComponent()}
+        {children}
       </div>
     </div>
   );
@@ -72,7 +33,46 @@ const CollaborationWorkspace = () => {
       
       {/* Using Routes directly without wrapping in Router since parent Router exists */}
       <Routes>
-        <Route path="/" element={<WorkspaceContent />} />
+        <Route path="/" element={
+          <WorkspaceLayout>
+            <SharedResourceLibrary />
+          </WorkspaceLayout>
+        } />
+        <Route path="/knowledge-sharing" element={
+          <WorkspaceLayout>
+            <KnowledgeSharingBoard />
+          </WorkspaceLayout>
+        } />
+        <Route path="/guidebook-templates" element={
+          <WorkspaceLayout>
+            <GuidebookTemplates />
+          </WorkspaceLayout>
+        } />
+        <Route path="/co-author-docs" element={
+          <WorkspaceLayout>
+            <CoAuthorDocuments />
+          </WorkspaceLayout>
+        } />
+        <Route path="/whiteboard" element={
+          <WorkspaceLayout>
+            <SharedWhiteboard />
+          </WorkspaceLayout>
+        } />
+        <Route path="/discussion-channels" element={
+          <WorkspaceLayout>
+            <DiscussionChannels />
+          </WorkspaceLayout>
+        } />
+        <Route path="/workspace-rooms" element={
+          <WorkspaceLayout>
+            <WorkspaceRooms />
+          </WorkspaceLayout>
+        } />
+        <Route path="/best-practices" element={
+          <WorkspaceLayout>
+            <BestPractices />
+          </WorkspaceLayout>
+        } />
       </Routes>
     </div>
   );

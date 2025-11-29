@@ -14,12 +14,24 @@ import MentorLeaderboard from './components/MentorLeaderboard';
 const DashboardContent = () => {
   const location = useLocation();
   
-  // Extract the last part of the path to determine which component to show
-  const pathParts = location.pathname.split('/');
-  const currentView = pathParts[pathParts.length - 1] || '';
+  // For the root path, show the default component
+  if (location.pathname === '/' || location.pathname === '') {
+    return (
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div className="lg:w-1/4">
+          <SidebarNavigation />
+        </div>
+        <div className="lg:w-3/4">
+          <StartupProgressScore />
+        </div>
+      </div>
+    );
+  }
   
-  // Handle the root path separately
-  const viewType = currentView === '' ? 'startup-progress' : currentView;
+  // Extract the view type from the path
+  // Remove leading slash and get the first segment
+  const pathSegments = location.pathname.replace(/^\//, '').split('/');
+  const viewType = pathSegments[0] || 'startup-progress';
   
   const renderComponent = () => {
     switch (viewType) {
@@ -67,7 +79,7 @@ const PerformanceDashboard = () => {
       {/* Using Routes directly without wrapping in Router since parent Router exists */}
       <Routes>
         <Route path="/" element={<DashboardContent />} />
-        <Route path="/performance/*" element={<DashboardContent />} />
+        <Route path="*" element={<DashboardContent />} />
       </Routes>
     </div>
   );
