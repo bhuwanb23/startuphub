@@ -3,14 +3,20 @@ import {
   BookOpen,
   Building2,
   CalendarDays,
+  Compass,
   HandCoins,
+  HelpCircle,
   Landmark,
   Layers,
+  Map,
+  Newspaper,
   Radar,
   Rocket,
+  ShieldCheck,
   Sparkles,
   TrendingUp,
   Users,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -30,21 +36,6 @@ export type NavItem = {
 };
 
 export const NAV: NavItem[] = [
-  { label: "About", href: "/about" },
-  { label: "Lifecycle", href: "/lifecycle" },
-  { label: "Platform", href: "/platform" },
-  {
-    label: "Solutions",
-    footer: { label: "All solutions →", href: "/solutions" },
-    children: [
-      { label: "Founders", href: "/solutions/founders", desc: "Idea to scale, every stage", icon: Rocket },
-      { label: "Incubators", href: "/solutions/incubators", desc: "Programs, cohorts & impact", icon: Building2 },
-      { label: "Investors", href: "/solutions/investors", desc: "Deal flow & intelligence", icon: HandCoins },
-      { label: "Mentors", href: "/solutions/mentors", desc: "Guide the next wave", icon: Users },
-      { label: "Corporates", href: "/solutions/corporates", desc: "Scout, pilot & partner", icon: Landmark },
-      { label: "Government", href: "/solutions/government", desc: "Programs & ecosystem data", icon: Landmark },
-    ],
-  },
   {
     label: "Explore",
     footer: { label: "Browse the ecosystem →", href: "/explore/startups" },
@@ -53,23 +44,38 @@ export const NAV: NavItem[] = [
       { label: "Incubators", href: "/explore/incubators", desc: "Programs & facilities", icon: Building2 },
       { label: "Investors", href: "/explore/investors", desc: "Capital by stage & thesis", icon: HandCoins },
       { label: "Mentors", href: "/explore/mentors", desc: "Operators & experts", icon: Users },
-      { label: "Resources", href: "/explore/resources", desc: "Tools, credits & templates", icon: Layers, soon: true },
+      { label: "Resources", href: "/explore/resources", desc: "Tools, credits & templates", icon: Layers },
+      { label: "Opportunities", href: "/opportunities", desc: "Funding calls & challenges", icon: Sparkles },
+      { label: "Ecosystem Map", href: "/ecosystem", desc: "The network, visualized", icon: Map },
     ],
   },
   {
     label: "Intelligence",
     children: [
-      { label: "Market Intelligence", href: "/intelligence/market", desc: "Sectors, funding & signals", icon: TrendingUp },
-      { label: "Ecosystem Insights", href: "/intelligence/insights", desc: "Reports on the network", icon: Radar, soon: true },
+      { label: "Market Intelligence", href: "/intelligence/market", desc: "Sectors, funding & IP signals", icon: TrendingUp },
+      { label: "Ecosystem Insights", href: "/intelligence/insights", desc: "Live network analytics", icon: Radar },
     ],
   },
   {
-    label: "More",
+    label: "Platform",
+    footer: { label: "Why StartupHub →", href: "/platform" },
     children: [
-      { label: "Opportunities", href: "/opportunities", desc: "Funding calls & challenges", icon: Sparkles, soon: true },
-      { label: "Events", href: "/events", desc: "Demo days & meetups", icon: CalendarDays, soon: true },
-      { label: "Knowledge Hub", href: "/knowledge-hub", desc: "Guides & playbooks", icon: BookOpen, soon: true },
-      { label: "Success Stories", href: "/success-stories", desc: "Founders, in their words", icon: Award, soon: true },
+      { label: "Features", href: "/platform", desc: "All 11 connected modules", icon: Workflow },
+      { label: "Startup Lifecycle", href: "/lifecycle", desc: "Idea to scale in 11 stages", icon: Compass },
+      { label: "Solutions", href: "/solutions", desc: "For every ecosystem role", icon: Users },
+      { label: "IPR & Innovation Hub", href: "/ipr", desc: "Patents, filing & IP education", icon: ShieldCheck },
     ],
   },
+  {
+    label: "Resources",
+    children: [
+      { label: "Knowledge Hub", href: "/knowledge-hub", desc: "Guides, playbooks & templates", icon: BookOpen },
+      { label: "Startup Showcase", href: "/showcase", desc: "The ecosystem's finest", icon: Sparkles },
+      { label: "Events", href: "/events", desc: "Demo days & meetups", icon: CalendarDays },
+      { label: "Success Stories", href: "/success-stories", desc: "Founders, in their words", icon: Award },
+      { label: "News & Updates", href: "/news", desc: "The ecosystem this week", icon: Newspaper },
+      { label: "FAQ", href: "/faq", desc: "Answers, fast", icon: HelpCircle },
+    ],
+  },
+  { label: "About", href: "/about" },
 ];
