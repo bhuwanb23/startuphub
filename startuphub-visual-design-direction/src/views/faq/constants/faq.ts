@@ -1,0 +1,29 @@
+export type Faq = { cat: string; q: string; a: string };
+
+export const faqCategories = [
+  "StartupHub", "Founders", "Incubation", "IPR", "Funding", "Investors", "Mentors", "Organizations",
+];
+
+export const faqs: Faq[] = [
+  { cat: "StartupHub", q: "What exactly is StartupHub?", a: "A connected ecosystem platform for startups. Eleven modules cover the journey from idea to scale — lifecycle tooling, IPR, resources, market access, funding and intelligence — with directories and public data open to everyone." },
+  { cat: "StartupHub", q: "Is StartupHub free to use?", a: "The public ecosystem — directories, opportunities, events, map and insights — is free forever. Working tools (lifecycle, matching, resource claims, deal rooms) come with paid plans starting at ₹999/month, with a 14-day trial." },
+  { cat: "StartupHub", q: "Who is StartupHub for?", a: "Ten audiences: founders, incubators, mentors, IPR experts, investors, government institutions, resource providers, corporates, universities and talent. Each gets a dedicated, role-shaped experience on the same network." },
+  { cat: "StartupHub", q: "How is my data used and protected?", a: "Public fields are only what you explicitly publish. Financials, documents and contact details stay locked until you approve a request, per person. We never sell data, and you can export or delete everything anytime." },
+  { cat: "Founders", q: "I'm at idea stage. Is it too early to join?", a: "No — that's the best time. The lifecycle starts at Idea with structured capture, validation experiments and mentor office hours. Founders who join before MVP move measurably faster." },
+  { cat: "Founders", q: "How do I get listed in the startup directory?", a: "Create a free account, complete your startup profile and request verification. Verification typically completes within 48 hours and your public profile goes live immediately after." },
+  { cat: "Founders", q: "Will StartupHub take equity in my startup?", a: "No. StartupHub is a platform, not an investor in your company. Programs run by partner accelerators may have their own terms, which are always shown upfront before you apply." },
+  { cat: "Incubation", q: "How do incubator applications work?", a: "You apply to programs with your verified startup profile — one profile, many applications. Programs see your stage, traction and validation evidence upfront, which is why response rates are 3× faster than cold applications." },
+  { cat: "Incubation", q: "Can my incubator run programs on StartupHub?", a: "Yes. Organization plans include cohort tooling, mentor operations, resource allocation, milestone tracking and funder-ready impact reports. Most programs are live within a week." },
+  { cat: "IPR", q: "When should a startup file its first patent?", a: "Before the first public disclosure that matters — demo days, launch posts, detailed pitch decks. A provisional filing locks your date for 12 months while you refine. Our audit tells you exactly what's worth protecting in 20 minutes." },
+  { cat: "IPR", q: "What does the IPR desk cost?", a: "Patentability search is free with any paid plan. Filing packs are fixed-fee from ₹14,999 (provisional, attorney-reviewed), and members get 30–50% off depending on plan. No hourly billing, ever." },
+  { cat: "IPR", q: "Who owns the IP filed through StartupHub?", a: "You do — always. The IPR desk is a service layer: filings are made in your company's name and the portfolio lives in your account." },
+  { cat: "Funding", q: "How does investor matching work?", a: "Your readiness score, stage, sector and raise size are matched against investors' live theses. Introductions happen only when both sides opt in — which is why our match-to-meeting rate is 4× the cold-email baseline." },
+  { cat: "Funding", q: "What is a readiness score?", a: "A transparent 0–100 assessment built from validation evidence, traction, IP coverage, team completeness and market signals. It's what investors see before your deck — and it updates as you build." },
+  { cat: "Funding", q: "Can StartupHub guarantee I'll get funded?", a: "No one honest can. What we guarantee: verified data attached to your profile, matched introductions at the right stage, and a deal room that removes friction. Startups on the platform close meaningfully faster than the ecosystem average." },
+  { cat: "Investors", q: "How is deal flow different here?", a: "Every startup arrives with verified traction, an active readiness score and visible IP status. Deals are thesis-matched and double opt-in — you see fewer, better companies instead of more noise." },
+  { cat: "Investors", q: "What does diligence look like on the platform?", a: "Deal rooms come pre-assembled: metrics history, filings, cap table summary and references, all founder-verified. Most funds tell us it removes 60–80% of first-pass diligence effort." },
+  { cat: "Mentors", q: "What's the commitment for mentors?", a: "You set it — sessions per month, formats and stages you enjoy. Structured engagements run 6–12 weeks with clear goals and clean endings. Most mentors give 3–4 hours a month." },
+  { cat: "Mentors", q: "Is mentorship paid or voluntary?", a: "Both exist and it's your choice per engagement. Voluntary office hours feed the ecosystem; structured deep engagements can be paid or advisory-equity, negotiated transparently on-platform." },
+  { cat: "Organizations", q: "How do governments measure program impact?", a: "Organization dashboards show outcome-level data per scheme: survival rates, capital raised, jobs created and IP filed — exportable, auditable and updated live rather than annually." },
+  { cat: "Organizations", q: "Can we white-label StartupHub for our region?", a: "Yes — Enterprise plans support custom domains, branding, SSO and data residency. Several state missions already run their public ecosystem portals on StartupHub infrastructure." },
+];
