@@ -9,12 +9,16 @@ const partners = [
   "Vertex Global",
 ];
 
-export default function TrustStrip() {
+export default function TrustStrip({
+  label = "Powering the ecosystem behind 10,000+ startups",
+}: {
+  label?: string;
+}) {
   const row = [...partners, ...partners];
   return (
-    <section className="border-y border-line bg-white py-10">
+    <section className="border-b border-line bg-white py-10">
       <p className="mb-7 text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-        Powering the ecosystem behind 10,000+ startups
+        {label}
       </p>
       <div className="marquee-root mask-x-fade overflow-hidden">
         <div className="anim-marquee flex w-max items-center gap-14 pr-14">
