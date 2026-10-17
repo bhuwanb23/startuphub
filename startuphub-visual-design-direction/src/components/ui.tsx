@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/motion";
 
@@ -134,7 +135,7 @@ export function ButtonLink({
     ghost: "text-slate-600 hover:text-ink hover:bg-slate-100/70",
   };
   return (
-    <a
+    <Link
       href={href}
       className={cn(
         "group/btn inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200",
@@ -144,7 +145,7 @@ export function ButtonLink({
       )}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
