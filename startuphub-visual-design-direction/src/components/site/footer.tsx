@@ -35,21 +35,11 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Platform",
     links: [
-      { label: "Overview", href: "/platform" },
+      { label: "Features", href: "/platform" },
       { label: "Lifecycle", href: "/lifecycle" },
-      { label: "Market Intelligence", href: "/intelligence/market" },
-      { label: "Opportunities", href: "/opportunities" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Founders", href: "/solutions/founders" },
-      { label: "Incubators", href: "/solutions/incubators" },
-      { label: "Investors", href: "/solutions/investors" },
-      { label: "Mentors", href: "/solutions/mentors" },
-      { label: "Corporates", href: "/solutions/corporates" },
-      { label: "Government", href: "/solutions/government" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "IPR Hub", href: "/ipr" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {
@@ -60,15 +50,38 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Investors", href: "/explore/investors" },
       { label: "Mentors", href: "/explore/mentors" },
       { label: "Resources", href: "/explore/resources" },
+      { label: "Opportunities", href: "/opportunities" },
+      { label: "Events", href: "/events" },
     ],
   },
   {
-    title: "Company",
+    title: "Intelligence",
+    links: [
+      { label: "Market Intelligence", href: "/intelligence/market" },
+      { label: "Ecosystem Insights", href: "/intelligence/insights" },
+      { label: "Ecosystem Map", href: "/ecosystem" },
+      { label: "Startup Showcase", href: "/showcase" },
+      { label: "Reports", href: "/intelligence/market#reports" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Knowledge Hub", href: "/knowledge-hub" },
+      { label: "Guides", href: "/knowledge-hub" },
+      { label: "Templates", href: "/knowledge-hub" },
+      { label: "Success Stories", href: "/success-stories" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Organization",
     links: [
       { label: "About", href: "/about" },
-      { label: "Knowledge Hub", href: "/knowledge-hub" },
-      { label: "Events", href: "/events" },
-      { label: "Success Stories", href: "/success-stories" },
+      { label: "Partners", href: "/partners" },
+      { label: "Contact", href: "/contact" },
+      { label: "Support", href: "/contact" },
+      { label: "News", href: "/news" },
     ],
   },
 ];
@@ -121,7 +134,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 xl:grid-cols-5">
             {columns.map((col) => (
               <div key={col.title}>
                 <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">

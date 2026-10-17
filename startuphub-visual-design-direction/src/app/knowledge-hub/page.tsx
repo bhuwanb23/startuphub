@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { BookOpen } from "lucide-react";
-import SoonView from "@/components/soon";
+import { KnowledgeHubView } from "@/views/knowledge-hub/knowledge-hub";
 
 export const metadata: Metadata = {
   title: "Knowledge Hub — StartupHub",
-  description: "Guides, playbooks and templates for every startup stage.",
+  description:
+    "Articles, guides, startup playbooks, IPR guides, funding guides, market research, templates, case studies and reports.",
 };
 
 export default function Page() {
-  return (
-    <SoonView
-      icon={BookOpen}
-      title="The Knowledge Hub is being written."
-      desc="Practical playbooks from operators who've done it — validation, IPR, fundraising, growth and everything between."
-      features={["Stage-by-stage playbooks", "Fundraising guides", "IPR explainers", "Template downloads"]}
-    />
-  );
+  return <KnowledgeHubView />;
 }
