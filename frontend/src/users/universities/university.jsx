@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import UniversityLayout from './components/UniversityLayout';
 
 // Import page components
-import UniversityDashboard from './pages/dashboard';
-import ResearchCommercialization from './pages/ipr';
+import { UniversityDashboard } from './pages/dashboard';
+import { IPRHub } from './pages/ipr';
 import StudentInnovation from './pages/students';
 import IndustryPartnership from './pages/partnerships';
 import GrantFunding from './pages/grants';
@@ -19,7 +19,7 @@ const University = () => {
     <UniversityLayout>
       <Routes>
         <Route path="/dashboard" element={<UniversityDashboard />} />
-        <Route path="/ipr/*" element={<ResearchCommercialization />} />
+        <Route path="/ipr/*" element={<IPRHub />} />
         <Route path="/students/*" element={<StudentInnovation />} />
         <Route path="/partnerships/*" element={<IndustryPartnership />} />
         <Route path="/grants/*" element={<GrantFunding />} />
@@ -28,7 +28,7 @@ const University = () => {
         <Route path="/curriculum/*" element={<CurriculumHub />} />
         <Route path="/tools" element={<UniversityTools />} />
         <Route path="/communication/*" element={<UniversityCommunication />} />
-        <Route path="/" element={<UniversityDashboard />} />
+        <Route index element={<UniversityDashboard />} />
       </Routes>
     </UniversityLayout>
   );

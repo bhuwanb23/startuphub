@@ -1,13 +1,15 @@
 import React from 'react';
-import InstitutionSnapshot from './components/InstitutionSnapshot';
-import ActiveResearchProjects from './components/ActiveResearchProjects';
-import StudentStartupOverview from './components/StudentStartupOverview';
-import PatentActivitySummary from './components/PatentActivitySummary';
-import IncubationMetrics from './components/IncubationMetrics';
-import FacultyContributions from './components/FacultyContributions';
-import GrantsOverview from './components/GrantsOverview';
-import EventsDeadlines from './components/EventsDeadlines';
-import NotificationsAlerts from './components/NotificationsAlerts';
+import {
+  InstitutionSnapshot,
+  ActiveResearchProjects,
+  StudentStartupOverview,
+  PatentActivitySummary,
+  IncubationMetrics,
+  FacultyContributions,
+  GrantsOverview,
+  EventsDeadlines,
+  NotificationsAlerts
+} from './components';
 
 const UniversityDashboard = () => {
   return (

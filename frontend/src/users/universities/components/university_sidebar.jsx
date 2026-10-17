@@ -5,16 +5,16 @@ const UniversitySidebar = () => {
   const navigate = useNavigate();
   
   const menuItems = [
-    { id: 1, name: 'University Dashboard', icon: '📊', path: '/universities/dashboard' },
-    { id: 2, name: 'Research Commercialization', icon: '💡', path: '/universities/ipr' },
-    { id: 3, name: 'Student Innovation Tracking', icon: '👨‍🎓', path: '/universities/students' },
-    { id: 4, name: 'Industry Partnerships', icon: '🤝', path: '/universities/partnerships' },
-    { id: 5, name: 'Grant & Funding Management', icon: '💰', path: '/universities/grants' },
-    { id: 6, name: 'Facility & Lab Management', icon: '🔬', path: '/universities/facilities' },
-    { id: 7, name: 'Research Analytics', icon: '📈', path: '/universities/analytics' },
-    { id: 8, name: 'Curriculum Hub', icon: '📚', path: '/universities/curriculum' },
-    { id: 9, name: 'University Tools', icon: '🧰', path: '/universities/tools' },
-    { id: 10, name: 'Communication Center', icon: '💬', path: '/universities/communication' },
+    { id: 1, name: 'University Dashboard', icon: '📊', path: '/university/dashboard' },
+    { id: 2, name: 'Research Commercialization', icon: '💡', path: '/university/ipr' },
+    { id: 3, name: 'Student Innovation Tracking', icon: '👨‍🎓', path: '/university/students' },
+    { id: 4, name: 'Industry Partnerships', icon: '🤝', path: '/university/partnerships' },
+    { id: 5, name: 'Grant & Funding Management', icon: '💰', path: '/university/grants' },
+    { id: 6, name: 'Facility & Lab Management', icon: '🔬', path: '/university/facilities' },
+    { id: 7, name: 'Research Analytics', icon: '📈', path: '/university/analytics' },
+    { id: 8, name: 'Curriculum Hub', icon: '📚', path: '/university/curriculum' },
+    { id: 9, name: 'University Tools', icon: '🧰', path: '/university/tools' },
+    { id: 10, name: 'Communication Center', icon: '💬', path: '/university/communication' },
   ];
 
   return (

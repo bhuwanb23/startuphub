@@ -1,0 +1,17 @@
+export { default as IPRLanding } from './IPRLanding';
+export { default as PatentDraftingAssistant } from './ipr-tools/PatentDraftingAssistant';
+export { default as PriorArtSearch } from './ipr-tools/PriorArtSearch';
+export { default as ClaimGenerationTools } from './ipr-tools/ClaimGenerationTools';
+export { default as IPRFilingWorkflow } from './ipr-tools/IPRFilingWorkflow';
+export { default as IPStatusRenewalTracker } from './ipr-tools/IPStatusRenewalTracker';
+export { default as FacultyResearchIPScore } from './ipr-tools/FacultyResearchIPScore';
+export { default as LicensingOpportunities } from './tech-transfer/LicensingOpportunities';
+export { default as TechTransferReadiness } from './tech-transfer/TechTransferReadiness';
+export { default as IndustryFitRecommendations } from './tech-transfer/IndustryFitRecommendations';
+export { default as MarketFitReport } from './reports/MarketFitReport';
+export { default as CommercialPotentialScore } from './reports/CommercialPotentialScore';
+export { default as ResearchPaperUpload } from './repository/ResearchPaperUpload';
+export { default as PrototypeSubmission } from './repository/PrototypeSubmission';
+export { default as ExperimentLogs } from './repository/ExperimentLogs';
+export { default as LabNoteArchive } from './repository/LabNoteArchive';
+export { default as ResearchReviewSystem } from './repository/ResearchReviewSystem';

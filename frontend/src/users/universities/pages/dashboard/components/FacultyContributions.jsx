@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDashboardData } from '../hooks/useDashboardData';
+import { useDashboardData } from '../hooks';
 
 const FacultyContributions = () => {
   const { data, loading, error } = useDashboardData();
