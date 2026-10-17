@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
 import { ArrowGlyph, Container, Logo } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,15 @@ const roles = [
   "Corporate",
   "University / Research",
   "Talent / Professional",
+];
+
+/* Demo account picker — clicking any profile logs straight into that role's workspace */
+const demoAccounts = [
+  { name: "Ravi Sharma", role: "Founder / Startup", org: "Lumen AI", dashboard: "/founder" },
+  { name: "Meera Iyer", role: "Incubator", org: "StartupHub Labs", dashboard: "/incubator" },
+  { name: "Vikram Sethi", role: "Investor", org: "Northgate Partners", dashboard: "/investor" },
+  { name: "Priya Nair", role: "Mentor / Expert", org: "ex-CTO, ZetaPay", dashboard: "/mentor" },
+  { name: "Dr. Kavita Rao", role: "IPR Expert", org: "StartupHub IPR Desk", dashboard: "/ipr-expert" },
 ];
 
 function GoogleIcon({ className }: { className?: string }) {
@@ -95,6 +105,8 @@ const inputCls =
 export function AuthView({ mode }: { mode: "login" | "register" }) {
   const isLogin = mode === "login";
   const [role, setRole] = useState(roles[0]);
+  const router = useRouter();
+  const pathnameDashboard = "/founder";
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
 
@@ -210,9 +222,55 @@ export function AuthView({ mode }: { mode: "login" | "register" }) {
         </button>
       </form>
 
-      <p className="mt-6 rounded-xl border border-line bg-soft px-4 py-3 text-center text-[12px] text-slate-400">
-        Demo build — full authentication activates with the platform launch.
-      </p>
+      {isLogin && (
+        <div className="mt-8 border-t border-line pt-6">
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-accent">
+              Demo mode
+            </span>
+            <p className="text-[12px] font-medium text-slate-500">
+              One-click login — jump into any workspace
+            </p>
+          </div>
+          <div className="mt-4 space-y-2">
+            {demoAccounts.map((d) => {
+              const active = pathnameDashboard === d.dashboard;
+              return (
+                <button
+                  key={d.name}
+                  type="button"
+                  onClick={() => router.push(d.dashboard)}
+                  className={cn(
+                    "group flex w-full items-center gap-3 rounded-xl border p-3 text-left transition-all",
+                    active
+                      ? "border-accent bg-accent-mist"
+                      : "border-line bg-white hover:border-accent/40 hover:bg-accent-mist/50"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "grid h-9 w-9 shrink-0 place-items-center rounded-full text-[12px] font-bold transition-colors",
+                      active ? "bg-accent text-white" : "bg-accent-soft text-accent group-hover:bg-accent group-hover:text-white"
+                    )}
+                  >
+                    {d.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-ink">
+                      {d.name}
+                      <span className="rounded bg-slate-100 px-1.5 py-px text-[9.5px] font-bold uppercase tracking-wide text-slate-500">
+                        {d.role}
+                      </span>
+                    </span>
+                    <span className="block truncate text-[11.5px] text-slate-400">{d.org}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-accent" />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </AuthShell>
   );
 }
