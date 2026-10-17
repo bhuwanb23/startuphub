@@ -1,35 +1,12 @@
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import TrustStrip from "@/components/trust-strip";
-import Lifecycle from "@/components/lifecycle";
-import Platform from "@/components/platform";
-import Stats from "@/components/stats";
-import Ecosystem from "@/components/ecosystem";
-import Intelligence from "@/components/intelligence";
-import Showcase from "@/components/showcase";
-import Resources from "@/components/resources";
-import Stories from "@/components/stories";
-import CTA from "@/components/cta";
-import Footer from "@/components/footer";
+import type { Metadata } from "next";
+import { HomeView } from "@/views/home/home";
 
-export default function HomePage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustStrip />
-        <Lifecycle />
-        <Platform />
-        <Stats />
-        <Ecosystem />
-        <Intelligence />
-        <Showcase />
-        <Resources />
-        <Stories />
-        <CTA />
-      </main>
-      <Footer />
-    </>
-  );
+export const metadata: Metadata = {
+  title: "StartupHub — One connected ecosystem for every stage of your startup journey",
+  description:
+    "Build. Protect. Validate. Scale. StartupHub connects idea validation, incubation, IPR, resources, market, funding and growth into one platform.",
+};
+
+export default function Page() {
+  return <HomeView />;
 }
