@@ -7,6 +7,34 @@
 
 ---
 
+## 0. Phase 1 evidence corpus - `_exports/phase1/` (7 files)
+
+Built by `build/build_phase1.py` from `build/data_p1_iic.py`. Start with the analysis markdown.
+
+| File | Contents |
+|---|---|
+| `_exports/phase1/md/iic_corpus_analysis.md` | **The Phase 1 findings write-up.** 5 findings derived from 36 institutional IIC annual reports |
+| `_exports/phase1/csv/iic_reports_wide.csv` | 36 documents x 42 cols - one row per document |
+| `_exports/phase1/csv/iic_metrics_long.csv` | 1,112 tidy document-metric rows - chart-ready, with a `status` column separating `reported` / `approximate` / `not_reported` |
+| `_exports/phase1/csv/iic_contradictions.csv` | 6 self-reported inconsistencies found *inside single documents* |
+| `_exports/phase1/csv/iic_absence_vocabulary.csv` | 13 instances of how institutions wrote "nothing happened" |
+| `_exports/phase1/json/iic_corpus.json` | Full nested records incl. metrics notes, quotes, pending extractions |
+| `_exports/phase1/json/iic_corpus_schema.json` | Field definitions, metric semantics, and 3 known defects of the corpus itself |
+
+**Corpus state:** 36 of 40 target documents, 34 distinct institutions, 25 fully parsed.
+
+**The five findings, in one line each:**
+
+1. `ideas generated` is not one measurement - implied idea-to-prototype conversion spans 0.0% to 262.5% across 19 institutions, and one exceeds 100%, which is impossible.
+2. Six same-document contradictions, including NIT Calicut reporting both 55 and 17 startups and both Rs 1.51 lakh and Rs 16 lakh awareness spend in one PDF.
+3. No controlled vocabulary for absence - at least seven ways to write "nothing happened" in the same mandated form, including one numeric money field filled with a 13-item prose narrative.
+4. Grant money swamps awareness money and is often the wrong money - one institution's "innovation grant" figure reconciles exactly to two unrelated DBT academic grants.
+5. Activity counts do not predict outcomes - 94 activities produced zero IPs at one institution; 42 activities produced 843 ideas at another.
+
+**Data-integrity rule enforced by the exporter:** a missing metric is never defaulted to zero. See Decision Log D-014.
+
+---
+
 ## 1. Quick start — what to open first
 
 | If you want… | Open |

@@ -1,0 +1,7 @@
+﻿doc_ids,institution,field,value_a,value_b,ratio,scope,source_of_conflict
+IIC-001 / IIC-001b,NIT Calicut,startups_total,"55 startups incubated (13 student/alumni, 4 faculty, 38 other)",17 Student & Faculty Start-ups/Ventures established,3.2x,"same PDF, 2024-25",Narrative section vs IIC-portal KPI form.
+IIC-001 / IIC-001b,NIT Calicut,amount_inr (awareness spend),"INR 151,488 spent of INR 228,212 available","INR 16,00,000",10.6x,"same PDF, 2024-25",Budget narrative vs IIC-portal KPI form.
+IIC-001 / IIC-001b,NIT Calicut,grant_total_inr,"INR 228,212 total available (implied ceiling)","INR 50,00,000",21.9x,"same PDF, 2024-25",Budget narrative vs IIC-portal KPI form.
+IIC-011,Institute of Science Nagpur,activities_total,16 (10 IIC + 4 self-driven + 2 celebration),02,8.0x,"same PDF, 2024-25",Narrative section vs KPI form.
+IIC-029,MIET Jammu,amount_inr (awareness spend),"Rs 4,10,000 (digits)","Three Lakh Twenty Thousands only = INR 3,20,000 (words)",1.28x,"same field, 2023-24","Figure vs amount-in-words within one field. The WORDS are the non-standard form; adjacent grant field has no such mismatch, so this is an error not a house convention."
+IIC-001,NIT Calicut,patents_filed,48 filed in FY 2023-24,24 filed between 1 Jan and 31 Jul 2024,n/a - overlapping windows,2023-24 report,Two different reporting windows in one document. Not a contradiction but a live double-count risk for anyone summing this report.

@@ -1,0 +1,14 @@
+﻿institution,field,word,doc_id,note
+Kanoria Jaipur,startups_total,NA,IIC-027,"Same form uses 'Nil' for prototypes, IPs and technology transfers."
+Kanoria Jaipur,prototypes_developed; ips_total; startups_total; grant,Nil,IIC-027,"Four adjacent fields, four 'Nil's."
+SSCET,amount_inr; grant_total_inr,In-progress,IIC-024,Report filed after year close. The form has no vocabulary for 'we did not do this'.
+SSCET,startups_total,Nil,IIC-024,
+WCC Chennai,startups_total,In process,IIC-033,
+Brainware University,tech_transfers,NA,IIC-032,
+Brainware University,startups_total,Nil,IIC-032,
+SIES CoMS,ideas; prototypes; IPs; startups; grant; tech_transfers,(blank dash),IIC-023,Six consecutive fields left as a dash rather than zero.
+MMCOP Pune,amount_inr; grant_total_inr,RS. 3 L+ / RS. 7 L+,IIC-035,Lower bound supplied where an exact amount was not tracked.
+Teresa's College,grant_total_inr,"(13-item narrative, no number)",IIC-031,Numeric field filled with prose spanning six funding sources and one pending patent.
+Scottish Church Kolkata,amount_inr; grant_total_inr,number + sponsor + purpose,IIC-012,"'Rs. 30,000 sponsored by Microbiologists Society India for supporting an awareness seminar'. Sponsor identity carried inside a money field."
+IPS Academy Indore,amount_inr,Amount proposed to be spent,IIC-022,Budget intent (INR 8 lakh) filed in a field that elsewhere carries actuals.
+Institute of Science Nagpur,grant_total_inr,00,IIC-011,Numeric zero - the only institution that used a real zero.
