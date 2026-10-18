@@ -38,11 +38,12 @@ Three rules govern everything:
 research/
 ├── todo.md                          The 34-phase master plan (unchanged)
 ├── ASSETS.md                        ⭐ INDEX of every generated file and format
-├── _exports/                        ⭐ ALL non-markdown output (regenerable)
+├── _exports/                        ⭐ ALL machine output (regenerable, never hand-edited)
 │   ├── xlsx/                        6 Excel workbooks
 │   ├── docx/                        5 Word documents
-│   ├── csv/                         11 CSV files, 253 rows
+│   ├── csv/                         11 Phase 0 CSVs, 253 rows
 │   ├── json/                        9 datasets
+│   ├── phase1/                      ⭐ Phase 1 corpus: csv + json + schema (NO prose)
 │   ├── charts/                      9 data charts (PNG)
 │   ├── diagrams/                    5 Mermaid diagrams (mmd + svg + png)
 │   ├── datasets/                    raw dataset samples
@@ -83,7 +84,9 @@ research/
 │   ├── E_Visual_Evidence/          not started
 │   │   ├── Infographics/           not started
 │   │   └── Form_Wireframes/        not started
-│   └── F_Synthesis/                not started
+│   └── F_Synthesis/                ← WRITTEN FINDINGS
+│       ├── README.md                     synthesis hub
+│       └── IIC_Corpus_Analysis.md        the five corpus findings
 │
 ├── 02_Landscape_Map/                How big is each segment, really?
 │   ├── Segment_Census.md            ← START HERE for denominators

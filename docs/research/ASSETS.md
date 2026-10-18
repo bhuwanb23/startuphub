@@ -7,19 +7,20 @@
 
 ---
 
-## 0. Phase 1 evidence corpus - `_exports/phase1/` (7 files)
+## 0. Phase 1 evidence corpus
 
-Built by `build/build_phase1.py` from `build/data_p1_iic.py`. Start with the analysis markdown.
+**Split follows the repository rule: the 14 topic folders hold summaries, `_exports/` holds data.**
 
-| File | Contents |
+| Written summary (topic folder) | Machine data (`_exports/`) |
 |---|---|
-| `_exports/phase1/md/iic_corpus_analysis.md` | **The Phase 1 findings write-up.** 5 findings derived from 36 institutional IIC annual reports |
-| `_exports/phase1/csv/iic_reports_wide.csv` | 36 documents x 42 cols - one row per document |
-| `_exports/phase1/csv/iic_metrics_long.csv` | 1,112 tidy document-metric rows - chart-ready, with a `status` column separating `reported` / `approximate` / `not_reported` |
-| `_exports/phase1/csv/iic_contradictions.csv` | 6 self-reported inconsistencies found *inside single documents* |
-| `_exports/phase1/csv/iic_absence_vocabulary.csv` | 13 instances of how institutions wrote "nothing happened" |
-| `_exports/phase1/json/iic_corpus.json` | Full nested records incl. metrics notes, quotes, pending extractions |
-| `_exports/phase1/json/iic_corpus_schema.json` | Field definitions, metric semantics, and 3 known defects of the corpus itself |
+| `01_Problem_Research/F_Synthesis/IIC_Corpus_Analysis.md` - the five findings | `_exports/phase1/csv/iic_reports_wide.csv` - 36 documents x 42 cols |
+| `01_Problem_Research/A_Institutional_Problems/` - 10 graded analyses | `_exports/phase1/csv/iic_metrics_long.csv` - 1,112 tidy rows, chart-ready |
+| `01_Problem_Research/F_Synthesis/README.md` - synthesis hub | `_exports/phase1/csv/iic_contradictions.csv` - 6 same-document inconsistencies |
+| `01_Problem_Research/01_Evidence_Corpus/README.md` - corpus index | `_exports/phase1/csv/iic_absence_vocabulary.csv` - 13 expressions of absence |
+| `01_Evidence_Vault/Quotes/Phase1_Institutional_Quotes.md` - 12 quotes | `_exports/phase1/json/iic_corpus.json` + `iic_corpus_schema.json` |
+| | `_exports/raw/phase1_iic_corpus_RAW.json` - unedited extraction layer |
+
+Built by `build/build_phase1.py` from `build/data_p1_iic.py`, `data_p1_registry.py`, `data_p1_problems.py`.
 
 **Corpus state:** 36 of 40 target documents, 34 distinct institutions, 25 fully parsed.
 

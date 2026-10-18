@@ -37,6 +37,23 @@ STEPS = [
 ]
 
 
+def audit_layering() -> list:
+    """Enforce the repo rule: summaries live in the 14 topic folders, data in _exports.
+
+    The only markdown allowed inside _exports/ is raw/*_RAW.md - unedited
+    extraction, which is data by definition. Anything else with prose in it is a
+    summary that has been written to the wrong place.
+    """
+    ex = ROOT / "_exports"
+    stray = []
+    for p in ex.rglob("*.md"):
+        rel = p.relative_to(ex).as_posix()
+        if rel.startswith("raw/") and "_RAW" in p.name:
+            continue
+        stray.append(rel)
+    return stray
+
+
 def main() -> int:
     t0 = time.time()
     print("=" * 78)
@@ -55,6 +72,14 @@ def main() -> int:
             err = (r.stderr or "").strip()[-800:]
             print(f"!! FAILED (exit {r.returncode})\n{err}")
             failed.append(script)
+
+    stray = audit_layering()
+    if stray:
+        print(f"\n!! LAYERING VIOLATION - prose found inside _exports/ ({len(stray)}):")
+        for s in stray:
+            print(f"   - _exports/{s}")
+        print("   Summaries belong in the 00_-14_ topic folders. Move it and rebuild.")
+        failed.append("layering")
 
     ex = ROOT / "_exports"
     counts = {ext: len(list(ex.rglob(f"*.{ext}")))
@@ -78,7 +103,8 @@ def main() -> int:
     print("    _exports/charts/            9 data charts (PNG)")
     print("    _exports/diagrams/svg/      5 Mermaid diagrams (SVG + PNG)")
     print("    _exports/json/              9 structured datasets")
-    print("    _exports/phase1/md/iic_corpus_analysis.md   Phase 1 corpus findings")
+    print("    01_Problem_Research/F_Synthesis/IIC_Corpus_Analysis.md   Phase 1 corpus findings")
+    print("    _exports/phase1/            Phase 1 corpus data (csv + json + schema)")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 
