@@ -1,0 +1,21 @@
+﻿segment,count,unit,as_of,source_id,reliability,conflict,notes
+All HEIs (AISHE frame),64756,institutions,2023-24,GOV-001,HIGH,False,Latest published AISHE edition. 2024-25 still in error-rectification.
+Colleges,48246,institutions,2023-24,GOV-002,HIGH,False,"70.0% private unaided, 12.9% private aided, 17.1% government. 4,787 (10.3%) exclusively for women."
+Standalone institutions,15221,institutions,2023-24,GOV-002,HIGH,False,Only 77.4% responded — the weakest category.
+Universities,1289,institutions,2023-24,GOV-002,HIGH,True,"UGC's different frame says 1,153. Do not mix. See OQ-06."
+Autonomous colleges,578,institutions,unlabelled,GOV-005,MEDIUM,True,Dashboard vintage unlabelled; exceeds published AISHE 2023-24 totals. See OQ-07.
+AICTE technical institutions,8489,institutions,Apr 2026,GOV-004,MEDIUM,True,PRS Tier 2 compilation. AICTE dashboard returned HTTP 404. Engineering-college-only count UNVERIFIED. See OQ-02.
+Medical colleges,823,institutions,Apr 2026,GOV-004,MEDIUM,False,NMC.
+Teacher training institutions,17752,institutions,Apr 2026,GOV-004,MEDIUM,False,NCTE.
+IICs established,6400,councils,Nov 2022,GOV-006,HIGH,True,LAST OFFICIAL PIB COUNT — four years stale. Current figure UNVERIFIED. See OQ-01 — BLOCKING.
+Atal Incubation Centres + ACICs,103,centres,Mar 2026,GOV-008,HIGH,True,"83 AIC + 20 ACIC across 28 S/UTs. AIM site says 72; AIC page says 69. Incubated 6,782 startups."
+Atal Tinkering Labs,10000,labs,Jan 2026,GOV-009,HIGH,False,Across 733 districts; 1.1 crore+ students.
+DST TBIs,175,incubators,Jan 2026,GOV-010,HIGH,True,'175+' PIB; DST page says 'more than 160'; ISTI says 164. Name the source whenever citing.
+MeitY Startup Hub incubators,517,incubators,Dec 2025,GOV-012,HIGH,False,"Closest official national incubator count. Also 329+ labs, 6,148+ startups."
+BIRAC BioNEST bio-incubators,74,incubators,current,GOV-011,HIGH,True,Same page's table footer reads 'Showing 1 to 10 of 75'.
+DPIIT-recognised startups,223000,startups,31 Mar 2026,GOV-013,HIGH,False,"23.36 lakh+ direct jobs; 1.07 lakh (48%) women-led. 55,200+ recognised in FY2025-26."
+Startups incubated in AICs,6782,startups,Mar 2026,GOV-008,HIGH,False,">2,000 women-led / socially inclusive."
+Startups supported by DST NIDHI,12000,startups,Jan 2026,GOV-010,HIGH,False,"1,30,000+ jobs; 1,100+ IP."
+Kerala IEDCs,375,IEDCs,current,GOV-042,HIGH,False,Across colleges and universities. Most developed institution-facing state programme.
+Institutionally-attributable recognised startups,5490,ventures,2024-2026,GOV-030,MEDIUM,False,"Deduplicated distinct ventures across 204 institutions (from 6,817 rows). Most reachable cohort. Tier 3 source."
+Registered innovation facilities,3249,IPR/TTO offices,current,GOV-007,HIGH,False,"Plus 5,157 pre-incubation and 3,083 incubation facilities."

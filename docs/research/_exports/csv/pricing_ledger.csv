@@ -1,0 +1,53 @@
+﻿vendor,plan,amount,unit,inr_annualised,confidence,market,notes
+NestLens Orbit,Orbit Launch,75000,INR/year,75000,VERIFIED,India,"Every Orbit feature, 25,000 applications/yr, 5 admin seats. THE COMPETITIVE ANCHOR."
+NestLens Orbit,Orbit Starter,99000,INR/year,99000,VERIFIED,India,Added capacity.
+NestLens Orbit,Orbit Growth,125000,INR/year,125000,VERIFIED,India,Added capacity.
+NestLens Orbit,Orbit Scale,250000,INR/year,250000,VERIFIED,India,"1 lakh applications, 40 admin seats, 15 programmes, API, white-label."
+NestLens Orbit,Orbit OS (CONFLICTING),359988,INR/year,359988,VERIFIED,India,"CONFLICTING price on their own domain: 'Orbit OS Rs 29,999/month (Rs 2,99,999/year)'. Exploitable."
+Incubatee (SCIP),Platform subscription,300000,INR/year,300000,VERIFIED,India,"Rs 25,000/month."
+Incubatee (SCIP),One-time upfront,75000,INR one-time,75000,VERIFIED,India,Implementation.
+Incubatee (SCIP),Mobile app,10000,INR one-time,10000,VERIFIED,India,
+Incubatee (SCIP),Admin user,10200,INR/year,10200,VERIFIED,India,Rs 850/month. Mentors and startups NOT billed.
+IncubatX,Foundation,150000,INR/year,150000,VERIFIED,India,"Rs 10,000-15,000/month (midpoint). Up to 4 cohorts."
+IncubatX,Accelerator,420000,INR/year,420000,VERIFIED,India,"Rs 30,000-40,000/month. Grants/CSR/funding modules, matchmaking."
+IncubatX,Executive AI,660000,INR/year,660000,VERIFIED,India,"Rs 50,000-60,000/month. Dedicated implementation."
+IncubatX,Media Kit add-on,180000,INR/year,180000,VERIFIED,India,"Rs 15,000/month. Odd monetisation for SaaS; suggests services business."
+Accubate,Entry (third-party listed),128880,INR/year,128880,LISTED,India,Capterra/GetApp starting $149/month. NOT PUBLIC on own site (pricing page bug).
+AcceleratorApp,Core platform,539000,INR/year,539000,LISTED,Global,From $499/month. Sales-gated. ISO 27001 certified. Yale/MIT/Max Planck.
+AcceleratorApp,Funding module - Essential,657000,INR/year,657000,VERIFIED,Global,"$549/month. 1 programme, +$99/mo per extra, +$49/mo per Funding seat."
+AcceleratorApp,Funding module - Professional,1077000,INR/year,1077000,VERIFIED,Global,"$899/month. 3 programmes, whitelabel, advanced reporting."
+Founderhood,Free,0,USD/month,0,VERIFIED,Global,"1 admin, 15 startups/program, unlimited programs. Best free tier in category."
+Founderhood,Starter,214200,INR/year,214200,VERIFIED,Global,"$199/month, 25 startups/program, Zoom."
+Founderhood,Starter - UNIVERSITY -15%,182070,INR/year,182070,VERIFIED,Global,~$169/month. THE CREDIBLE GLOBAL PRICE OBJECTION.
+Founderhood,Premium,698680,INR/year,698680,VERIFIED,Global,"$649/month, 5 admins, 50 startups/program, alumni management, branding."
+VentureLink,Lite,0,USD/month,0,VERIFIED,Global,"Free forever. 1 programme, 100 applications, 5 mentors."
+VentureLink,Core monthly,194400,INR/year,194400,VERIFIED,Global,$180/month. NO PER-USER FEES. Plus $500 one-time setup.
+VentureLink,Core annual,155700,INR/year,155700,VERIFIED,Global,"$1,730/year + $500 setup."
+incuTrack,Starter,81000,INR/year,81000,VERIFIED,US,$75/mo quarterly. Fully featured incubator CRM.
+incuTrack,Premier,270000,INR/year,270000,VERIFIED,US,"$250/mo quarterly. Adds economic impact, milestones, room inventory, key control."
+incuTrack,Setup (all tiers),53550,INR one-time,53550,VERIFIED,US,"$595 one-time, includes six-month training subscription."
+incuTrack,Mentor Matching add-on,32400,INR/year,32400,VERIFIED,US,$30/month + $90 setup. Mentorship is a PAID ADD-ON.
+RiserNest,Starter (per team),359100,INR/year,359100,VERIFIED,Europe,"EUR 399/month, up to 30 teams."
+RiserNest,Professional (per team),1350000,INR/year,1350000,VERIFIED,Europe,"EUR 1,500/month, 100+ teams. Two contradictory models on one page."
+RiserNest,Starter (per user),432000,INR/year,432000,VERIFIED,Europe,EUR 40/user/month. Contradicts the 'no per-seat' claim.
+Innoloft / LoftOS,Free,0,USD/month,0,VERIFIED,Europe,Up to 5 users. DIY alternative.
+Innoloft / LoftOS,Starter,31320,INR/year,31320,VERIFIED,Europe,"$29/month, 25 users. THE DIY THREAT."
+Innoloft / LoftOS,Team,376920,INR/year,376920,VERIFIED,Europe,"$349/month, 250 users, custom domain."
+Innoloft / LoftOS,Professional,916920,INR/year,916920,VERIFIED,Europe,"$849/month, 1,000 users, analytics, exports."
+Elsevier Pure,Core Module (Tier 1),2620000,INR/year,2620000,VERIFIED,UK,"GBP 19,406/yr for 1-999 researchers. Public G-Cloud price list."
+Elsevier Pure,Core Module (Tier 5),7896000,INR/year,7896000,VERIFIED,UK,"GBP 58,504/yr for 7,000-9,999 researchers."
+Elsevier Pure,Minimum Indian deployment,4460000,INR/year,4460000,VERIFIED,UK,"Core + Portal + Reporting = GBP 33,016/yr. Does NOT manage startups."
+Elsevier Pure,Mandatory onboarding,4350000,INR one-time,4350000,VERIFIED,UK,"GBP 13,500 setup + GBP 18,750 management startup = GBP 32,250 one-off."
+IdeaScale,Engage (2-year term),1170000,INR/2yr,585000,LISTED,Global,"USD 12,999 for TWO years = ~USD 6,500/yr. No free plan."
+IdeaScale,Transform (2-year term),5850000,INR/2yr,2925000,LISTED,Global,"USD 64,999 for TWO years. Corporate intrapreneurial."
+BrightWork 365,Divisions tier,11880,INR/year/user,11880,VERIFIED,Global,"$11/user/month annual. M365-native. No IPR, no intake."
+Notion,Plus (8 editors),86400,INR/year,86400,VERIFIED,Global,"$10/member/month. AUDIT LOG ENTERPRISE-ONLY, no retroactive history."
+Superhuman Docs,Pro (2 Doc Makers),25920,INR/year,25920,VERIFIED,Global,"$12/Doc Maker/month. Audit events, SCIM, SAML, SOC 2, HIPAA all Enterprise-only."
+Airtable,Team (8 editors),172800,INR/year,172800,VERIFIED,Global,"$20/editor/month. Automation runs capped at 25,000."
+Trello,Standard (10 users),54000,INR/year,54000,VERIFIED,Global,$5/user/month. THE FLOOR WE CANNOT UNDERCUT.
+ClickUp,Unlimited (10 users),75600,INR/year,75600,VERIFIED,Global,"$7/user/month. AI separate: Brain $9/user/mo, Everything $28."
+Monday.com,Basic (10 seats),97200,INR/year,97200,VERIFIED,Global,$9/seat/month. AI credit-metered.
+Asana,Starter (10 users),118920,INR/year,118920,VERIFIED,Global,$10.99/user/month. AUDIT LOGS ENTERPRISE-ONLY.
+Google Workspace,Business Starter (per user),2400,INR/year/user,2400,MEDIUM,India,"Rs 1,918-3,240/user/yr. But Sheets arrives bundled - marginal cost Rs 0."
+Excel / Sheets / WhatsApp / Drive,Consumer tier,0,INR/year,0,VERIFIED,India,THE FREE INCUMBENT. Excel zero marginal cost; WhatsApp business messaging from Rs 0.115/message from 1 Oct 2026.
+Campus ERP (typical),Per-student model,20000,INR/year/student,20000,LOW,India,"Rs 500-2,000/student/yr. Per-student tax: 'nothing changed, the school just grew.'"

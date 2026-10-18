@@ -1,0 +1,223 @@
+# ASSETS — everything generated from the Phase 0 research
+
+**All machine-readable and presentation-ready outputs live in [`_exports/`](_exports/).** Everything here is **derived** from the markdown research files — change the `.md`, re-run `python build/build_all.py`, and every format regenerates.
+
+**Rebuild everything:** `python build/build_all.py` (13s)
+**Compiled:** 18 October 2026 · 100 files · 8.4 MB
+
+---
+
+## 1. Quick start — what to open first
+
+| If you want… | Open |
+|---|---|
+| The story, written out | 📄 [`_exports/docx/StartupHub_Phase0_Findings.docx`](_exports/docx/StartupHub_Phase0_Findings.docx) |
+| Everything in one workbook | 📊 [`_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx`](_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx) — 12 sheets |
+| A slide | 🖼️ [`_exports/charts/`](_exports/charts/) — 9 PNGs, 200 DPI |
+| A diagram | 📐 [`_exports/diagrams/svg/`](_exports/diagrams/svg/) — 5 SVGs, scales cleanly |
+| The data to pivot | 📋 [`_exports/csv/`](_exports/csv/) — 11 CSVs, 253 rows |
+| To code against it | `{}` [`_exports/json/`](_exports/json/) — 9 datasets + JSON Schemas |
+| To verify nothing was faked | 🔐 [`_exports/raw/manifest.json`](_exports/raw/manifest.json) — 100 files, SHA-256 |
+
+---
+
+## 2. Word documents — `_exports/docx/` (5 files)
+
+| File | Contents | Orientation |
+|---|---|---|
+| **`StartupHub_Phase0_Findings.docx`** | ⭐ **The pitch-facing synthesis.** Five findings, the positioning, where not to compete, what we don't know, exploitable weaknesses, next steps. 9 embedded charts | Portrait |
+| **`StartupHub_Competitor_Pack.docx`** | All 15 competitor dossiers + comparison matrix + positioning chart | Landscape |
+| **`StartupHub_Segment_Census.docx`** | Every denominator with caveats, conflicts flagged in red | Portrait |
+| **`StartupHub_Source_Register.docx`** | All 76 sources with full URLs, evidence tiers | Landscape |
+| **`StartupHub_Positioning_Gaps.docx`** | The 13 gaps, one page each | Portrait |
+
+---
+
+## 3. Excel — `_exports/xlsx/` (6 workbooks)
+
+### `StartupHub_Research_Database_MASTER.xlsx` — 12 sheets
+
+| Sheet | Rows | Notes |
+|---|---|---|
+| `README` | — | Findings summary, blocking unknowns, evidence tier standard |
+| `Sources` | 76 | Every cited source. `conflict=TRUE` cells shaded red |
+| `Segment_Census` | 20 | Conflicts shaded amber, unreliable values shaded |
+| `University_Types` | 10 | AISHE 2023-24 breakdown |
+| `Startups_By_State` | 10 | Top 10 published, 31 Mar 2026 |
+| `Competitors` | 15 | Full dossiers + 15 scored feature columns |
+| `Feature_Matrix` | 15 | The comparison table. **Zeros shaded red** — read the three empty columns |
+| `Pricing_Ledger` | 52 | Every real cited price, INR-annualised |
+| `Positioning_Gaps` | 13 | CRITICAL shaded red, HIGH amber |
+| `Problem_Evidence` | 12 | Graded DOCUMENTARY / INFERRED / ASSUMED |
+| `Open_Questions` | 18 | BLOCKING shaded red |
+| `Decision_Log` | 12 | Decision + evidence + reversal condition |
+
+### Topic workbooks
+
+| File | Sheets |
+|---|---|
+| `01_Segment_Census.xlsx` | README · Segment_Census · University_Types · Startups_By_State |
+| `02_Competitor_Matrix.xlsx` | README · Competitors · Feature_Matrix |
+| `03_Pricing_Evidence.xlsx` | README · Pricing_Ledger |
+| `04_Problem_Evidence.xlsx` | README · Problem_Evidence |
+| `05_Open_Questions_Decisions.xlsx` | README · Open_Questions · Decision_Log |
+
+All sheets: frozen header row, autofilter, wrapped text, colour-coded severity.
+
+---
+
+## 4. Data charts — `_exports/charts/` (9 PNG, 200 DPI)
+
+| # | File | Use in |
+|---|---|---|
+| 1 | `01_segment_sizes.png` | **Market slide** — segment sizes span three orders of magnitude; conflicts flagged amber |
+| 2 | `02_price_band.png` | **Business model slide** — ₹0 → ₹44.6L log scale, defensible band shaded |
+| 3 | `03_gap_matrix.png` | **Competition slide** — 11 vendors × 15 features; the 3 empty columns boxed in red |
+| 4 | `04_startups_by_state.png` | Market context |
+| 5 | `05_competitor_positioning.png` | **Strategy slide** — India-compliance vs credibility quadrant, StartupHub target plotted |
+| 6 | `06_problem_evidence.png` | Problem slide — which problems are documented vs assumed |
+| 7 | `07_positioning_gaps.png` | Differentiation slide — 13 gaps by competitor coverage |
+| 8 | `08_open_questions.png` | **Risk slide** — 18 open questions, 3 blocking |
+| 9 | `09_mandate_chain.png` | ⭐ **The core problem slide** — what institutions must report vs what no system holds |
+
+---
+
+## 5. Diagrams — `_exports/diagrams/` (5 × 3 formats)
+
+Each exists as **`.mmd` source · `.svg` vector · `.png` 2× raster**.
+
+| # | Diagram | SVG / PNG |
+|---|---|---|
+| 1 | `01_the_indian_innovation_ecosystem` | Government → Institution → Startup → Ecosystem, with the system-of-record gap marked |
+| 2 | `02_the_structural_gap_what_is_required_vs_what_soft` | ⭐ **Core thesis** — required reports → unit of record → what exists nowhere |
+| 3 | `03_competitive_positioning` | Quadrant chart |
+| 4 | `04_the_price_band` | Flow diagram of the price ladder |
+| 5 | `05_today_s_workflow_vs_startuphub_s` | Current-state vs target workflow |
+
+**Folders:** `src/*.mmd` · `svg/*.svg` · `png/*.png` (3600px wide, 2× scale)
+**Theme:** `theme.json` — slide-friendly light palette, Segoe UI/Inter stack
+
+> Diagrams are **original work** derived from cited public sources and may be used freely. Third-party logos are **not** included — government emblems are governed by the Government Emblems Act 1950 and vendor logos are trademarked. Use wordmarks, which is what these do.
+
+---
+
+## 6. Structured data — `_exports/csv/` and `_exports/json/`
+
+### CSV (11 files, 253 rows)
+
+| File | Rows | Key columns |
+|---|---|---|
+| `source_registry.csv` | 76 | `id, area, claim, org, stype, tier, reliability, url, pub, access, segment, conflict, notes` |
+| `segment_census.csv` | 20 | `segment, count, unit, as_of, source_id, reliability, conflict, notes` |
+| `competitors.csv` | 15 | 22 descriptive columns |
+| `competitor_feature_matrix.csv` | 15 | 15 scored dimensions × 6 context columns |
+| `pricing_ledger.csv` | 52 | `vendor, plan, amount, unit, inr_annualised, confidence, market, notes` |
+| `positioning_gaps.csv` | 13 | `gap_id, title, severity, competitors_with, evidence, gap_detail, why_india, nearest_competitor, verdict` |
+| `problem_evidence.csv` | 12 | `num, area, grade, evidence_count, evidence, inference, still_needs, source_ids` |
+| `open_questions.csv` | 18 | `id, priority, area, title, what_we_know, why_it_blocks, what_would_settle_it, source_ids, status` |
+| `decision_log.csv` | 12 | `id, date, topic, decision, evidence, reverses_if, status` |
+| `university_types.csv` | 10 | AISHE 2023-24 |
+| `startups_by_state.csv` | 10 | 31 Mar 2026 |
+
+All UTF-8 **with BOM** so Excel opens them correctly on Windows.
+
+### JSON (9 datasets + 9 schemas)
+
+| File | Shape |
+|---|---|
+| `startuphub_research_phase0.json` | **Master bundle** — meta, counts, 5 headline findings, 12 key numbers, full price band |
+| `source_registry.json` | `{meta, records[76]}` |
+| `segment_census.json` | `{meta, records[20]}` |
+| `competitors.json` | `{meta, scoring, feature_dimensions, records[15]}` |
+| `pricing_ledger.json` | `{meta, records[52], india_price_ladder, competitive_anchor, todo_md_assumption, gap_note}` |
+| `positioning_gaps.json` | `{meta, records[13]}` |
+| `open_questions.json` | `{meta, blocking_count, records[18]}` |
+| `decision_log.json` | `{meta, records[12]}` |
+| `problem_evidence.json` | `{meta, grades, warning, records[12]}` |
+
+### JSON Schemas — `_exports/raw/schema/` (9 files)
+
+Draft 2020-12. Every dataset has a typed field reference, record count, and enumeration of allowed values. Regenerated on every build.
+
+---
+
+## 7. Datasets — `_exports/datasets/`
+
+| File | Contents |
+|---|---|
+| `nirf_dpiit_startups_SAMPLE.csv` | ⭐ **10 real rows** from the Factly/Dataful NIRF DPIIT startup dataset preview. Columns: `ranking_year, institute_id, institute_name, state, city, name_of_venture, year_of_recognition, registration_number` |
+| `nirf_dpiit_startups_SAMPLE.meta.json` | Dataset metadata, distinct-value counts, **five analyst caveats**, and why it matters |
+
+> **The full 6,817-row dataset is paywalled and was not downloaded.** Only the publicly visible preview rows are captured. Full statistics: 204 distinct `institute_id`, 202 distinct `institute_name` (a **0.98% dirty-record rate**), 5,490 distinct ventures, 4,538 registration numbers, 26 states, 80 cities.
+>
+> **Highest-priority primary-data task:** extract the NIRF PDF corpus — institutions publish their own Data Capture System submissions openly (verified at NIT Rourkela, IIM Goa, JBIET, Rajah Serfoji Government College).
+
+---
+
+## 8. Raw research — `_exports/raw/` (6 files, 2.6 MB)
+
+Unedited research output, preserved verbatim so claims can be traced back to what was actually retrieved.
+
+| File | Stream |
+|---|---|
+| `phase0_research_SEGMENT_CENSUS_RAW.md` | Institution counts, government data, schemes (2.3 MB) |
+| `phase0_research_DIRECT_COMPETITORS_RAW.md` | 11 competitor dossiers + comparison table + gap synthesis |
+| `phase0_research_INDIRECT_AND_GLOBAL_RAW.md` | Indirect alternatives + global vendors |
+| `phase0_research_ECOSYSTEM_PLATFORMS_RAW.md` | Government platforms + structural gap analysis |
+| `phase0_research_*_EXTRACT_RAW.md` (2) | Recovered tails of truncated reports |
+| `manifest.json` | ⭐ **Every file in the project with SHA-256** — md, csv, json, xlsx, docx, svg, png, mmd |
+
+---
+
+## 9. Build pipeline — `build/`
+
+Re-runnable. Everything is reproducible from source.
+
+| File | Does |
+|---|---|
+| `build_all.py` | Runs everything, reports a summary |
+| `render_diagrams.py` | Extracts ```mermaid blocks from the `.md` → `.mmd` → SVG + PNG via mermaid-cli |
+| `build_data.py` | CSV + JSON from the canonical data modules |
+| `build_xlsx.py` | 6 Excel workbooks with colour-coded formatting |
+| `build_charts.py` | 9 matplotlib charts |
+| `build_docx.py` | 5 Word documents with embedded charts |
+| `build_raw.py` | Schemas, dataset samples, SHA-256 manifest |
+| `data_sources.py` | ⭐ 76 source records — canonical |
+| `data_market.py` | Segments, university types, pricing ledger, 13 gaps — canonical |
+| `data_competition.py` | 15 competitor dossiers, 18 open questions — canonical |
+| `data_governance.py` | 12 decisions, 12 problem areas — canonical |
+
+**The four `data_*.py` modules are the single source of truth.** The markdown files are the narrative; these are the facts. Both cite the same IDs.
+
+**Dependencies:** `python-docx` · `xlsxwriter` · `matplotlib` · `@mermaid-js/mermaid-cli` (npm)
+
+---
+
+## 10. Reproducibility & integrity
+
+- **SHA-256 manifest.** `_exports/raw/manifest.json` hashes all 100 files. Verify with:
+  ```powershell
+  Get-Content _exports/raw/manifest.json | ConvertFrom-Json | % { $_.files } | % {
+    $h = (Get-FileHash $_.path -Algorithm SHA256).Hash.ToLower()
+    if ($h -ne $_.sha256) { "MISMATCH: $($_.path)" }
+  }
+  ```
+- **Single source of truth.** Edit `build/data_*.py`, re-run `build_all.py`, and CSV/JSON/XLSX/DOCX/charts all stay in sync.
+- **No fabricated data.** Every figure traces to a row in `source_registry.csv` with a URL, an as-of date, and a reliability grade. Negative findings are recorded as findings.
+- **Conflicts are never collapsed.** Rows flagged `conflict=TRUE` must always be cited with their source and date.
+
+---
+
+## 11. Known limitations of this export layer
+
+| Limitation | Impact | Fix |
+|---|---|---|
+| The NIRF dataset is paywalled — only 10 preview rows captured | Cannot size the elite cohort precisely | Extract the public NIRF PDF corpus (Phase 0 next action #2) |
+| All G2/Capterra quotes are search-index excerpts | Both sites return HTTP 403 to automated fetch | Re-verify directly before any customer-facing use |
+| `mmdc` lives in a temp directory | Diagrams won't rebuild if that folder is cleared | `npm install @mermaid-js/mermaid-cli` and update `MMDC` in `render_diagrams.py` |
+| No automated test suite | Silent regressions in the build | Add a row-count assertion pass to `build_raw.py` |
+| Company logo URLs recorded, assets not downloaded | Copyright/trademark exposure | Deliberate. Link to official press pages instead |
+
+---
+
+Back to [Research Index](00_Research_Index/README.md) · [Phase 0 Findings](13_Synthesis/Phase0_Findings.md)
