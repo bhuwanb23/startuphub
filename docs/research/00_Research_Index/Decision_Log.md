@@ -176,3 +176,27 @@ Every competitor tracks "stage" as a free-text or dropdown field. Nobody models 
 **Why it matters.** Two reasons. (1) The output ratios differ violently by segment — Vivekanandha College ran 112 activities to produce 1 IP; REC Raghu ran 94 to produce 0. A segment-blind view averages these into meaninglessness. (2) It bounds the addressable market honestly instead of assuming the NIT/engineering framing in `todo.md`. Per D-002 the beachhead stays unfrozen until evidence narrows it, and this is the evidence.
 
 **Reverses if.** ARIIA data shows non-technical IICs are systematically excluded from the scheme's benefit (i.e. they file but are not ranked). Then they are in the reporting population but not the ranked one, and must be tracked as two distinct populations.
+
+---
+
+## D-016 - 2026-10-18 - Phase 1 must use the repository-wide tier standard, not a private one
+
+**Decision.** Reverted a tier scheme invented during the Phase 1 corpus build. All 36 IIC annual reports are graded **T1** under the existing standard in `00_Research_Index/README.md` section 3. Corpus classes map as: IIC reports / ARIIA-NIRF forms / tenders = T1; academic literature = T2; vendor case studies = T4.
+
+**Evidence.** The first version of `build/data_p1_iic.py` defined `T2 = "institutional primary document"`. That directly contradicted the repository standard, where **T2 is "high-quality secondary"** (peer-reviewed work, IIM/IIIT research, consulting) and **T1 is "primary - the origin of the fact"**. Left uncorrected, the same label T2 would have meant two different things across the repo, breaking every filter, count and grade-based query against `Source_Registry.csv`.
+
+**Why it counts as primary.** An institution's own published annual report is the origin of the fact about that institution's reporting behaviour. This mirrors how Phase 0 already treated official vendor pricing pages as T1 - the vendor is the origin of the fact about its own pricing.
+
+**Reverses if.** Never. A repository needs exactly one tier vocabulary. If Phase 3 interviews become load-bearing evidence, they are T1 by the existing standard ("our own interviews and pilot data"), which this decision is consistent with.
+
+---
+
+## D-017 - 2026-10-18 - Section A problems carry a machine-checked evidence grade
+
+**Decision.** Every Section A problem record carries an `evidence_grade` of `DOCUMENTED` (2+ primary documents cited by corpus id), `SINGLE-SOURCE` (one), or `HYPOTHESIS` (not evidenced). `build/data_p1_problems.py::validation()` fails the build if a `DOCUMENTED` problem cites fewer than two corpus ids, if a severity is outside the scale, if a quoted `Q-P1-nnn` or corpus id does not resolve, or if Section A does not cover problems 1-10 exactly.
+
+**Evidence.** The first draft of the Section A analysis had three problems whose confidence was indistinguishable from the well-evidenced ones - all in the same table, all formatted the same. `P-A03` (incubator cohorts) is the clearest: it is an **absence-of-evidence finding**. The IIC form does not ask about cohorts, so their absence from 36 reports proves nothing about whether institutions manage them. Presented alongside `P-A07` it would have read as equally solid, and it would have been used to justify a product bet.
+
+**Why it matters.** todo.md Phase 1 explicitly forbids writing "Institutions have this problem." The grading field is how that instruction becomes mechanically enforced rather than aspirational. It also makes Phase 3 falsifiable: when interviews arrive, HYPOTHESIS and SINGLE-SOURCE records are exactly the ones Phase 3 must test or overturn.
+
+**Reverses if.** Never. Evidence grading is the point of the repository.

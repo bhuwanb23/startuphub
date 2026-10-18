@@ -2,8 +2,8 @@
 
 **Purpose:** the single navigation point for all StartupHub research. Every document in this repository should be reachable from here, and every factual claim should be traceable to a row in `Source_Registry.csv`.
 
-**Current phase:** Phase 0 — Landscape Sweep & Competitive Deep Dive
-**Status:** Phase 0 complete (initial pass)
+**Current phase:** Phase 1 — Problem Research (in progress)
+**Status:** Phase 0 complete. Phase 1 Section A complete; Sections B–F not started.
 **Last updated:** 18 October 2026
 
 > ### 📦 Want data, not prose?
@@ -64,10 +64,26 @@ research/
 │   └── Open_Questions.md            unresolved conflicts and gaps
 │
 ├── 01_Evidence_Vault/               THE PROOF LAYER — quotations only, no opinion
-│   ├── Quotes/                      verbatim, attributed
+│   ├── Quotes/                      verbatim, attributed  ← 12 Phase 1 quotes
 │   ├── Datasets/                    raw CSVs
 │   ├── Screenshots/                 portal captures
 │   └── Diagrams/                    rendered assets
+│
+├── 01_Problem_Research/             ← PHASE 1 (current phase)
+│   ├── 01_Evidence_Corpus/          mined documents, indexed by class and parse status
+│   │   ├── Institutional_IIC_Reports/     36 docs mined  ← PRIMARY CORPUS
+│   │   ├── ARIIA_NIRF_Forms/             not started
+│   │   ├── Academic_Literature/           3 refs logged, not yet mined
+│   │   ├── Procurement_Tenders/           not started
+│   │   └── Vendor_Case_Studies_T4/        not started
+│   ├── A_Institutional_Problems/    ← 10 analyses, DONE
+│   ├── B_Operational_Problems/     not started
+│   ├── C_Evidence_Register/        not started
+│   ├── D_Quotes/                   not started
+│   ├── E_Visual_Evidence/          not started
+│   │   ├── Infographics/           not started
+│   │   └── Form_Wireframes/        not started
+│   └── F_Synthesis/                not started
 │
 ├── 02_Landscape_Map/                How big is each segment, really?
 │   ├── Segment_Census.md            ← START HERE for denominators
@@ -167,7 +183,7 @@ url, publication_date, access_date, geography, customer_segment, notes
 | Phase | Topic | Status | Primary output |
 |---|---|---|---|
 | **0** | **Positioning + landscape + competitors** | ✅ **Complete (initial pass)** | `04_Competitor_DeepDive/`, `02_Landscape_Map/Segment_Census.md` |
-| 1 | Problem research | 🟡 Seeded | `03_Problem_Evidence/` |
+| 1 | Problem research | 🟡 **Section A done, corpus mined** | `01_Problem_Research/A_Institutional_Problems/`, `01_Evidence_Vault/Quotes/` |
 | 2 | Customer research (roles) | ⬜ Not started | `08_User_Roles/` |
 | 3 | User interviews | ⬜ Not started | — |
 | 4 | Segmentation + ICP | ⬜ Not started (blocked on Phase 3) | — |
@@ -215,3 +231,15 @@ When a later phase produces evidence:
 3. Write the analysis into the topic folder, citing the registry ID.
 4. If it contradicts something, append to `Open_Questions.md` — do not silently overwrite.
 5. If it changes a decision, append to `Decision_Log.md` with the old and new position.
+
+### Phase 1 additions
+
+6. **Grade every problem.** Section A records carry `DOCUMENTED` / `SINGLE-SOURCE` / `HYPOTHESIS`.
+   `build/data_p1_problems.py::validation()` fails the build if a `DOCUMENTED` problem cites fewer
+   than two corpus ids, or if a quote or corpus id does not resolve. See Decision Log D-017.
+7. **Never let a second tier scheme exist.** Tiers come from section 3 of this file only. See D-016.
+8. **A missing number is never zero.** See D-014.
+9. **Same-document contradictions are kept, not reconciled.** See D-013.
+10. **Quotes from PDF text layers are flagged** `recheck_before_external_use = TRUE`. Machine
+    extraction scrambles ligatures, bullets and Devanagari. Re-verify against the page before any
+    external use.
