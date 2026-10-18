@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""
+StartupHub research — full build.
+
+Runs every generator in order and reports a summary.
+Requires: python-docx, openpyxl (unused), xlsxwriter, matplotlib, and @mermaid-js/mermaid-cli.
+
+Usage:  python build/build_all.py
+"""
+
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+HERE = Path(__file__).resolve().parent
+
+STEPS = [
+    ("Mermaid diagrams -> SVG + PNG", "render_diagrams.py"),
+    ("Structured data -> CSV + JSON", "build_data.py"),
+    ("Excel workbooks", "build_xlsx.py"),
+    ("Data charts -> PNG", "build_charts.py"),
+    ("Word documents", "build_docx.py"),
+    ("Raw evidence layer + manifest", "build_raw.py"),
+]
+
+
+def main() -> int:
+    t0 = time.time()
+    print("=" * 78)
+    print("  STARTUPHUB RESEARCH — FULL BUILD")
+    print("=" * 78)
+    failed = []
+    for i, (label, script) in enumerate(STEPS, 1):
+        print(f"\n[{i}/{len(STEPS)}] {label}")
+        print("-" * 78)
+        r = subprocess.run([sys.executable, str(HERE / script)],
+                           cwd=str(ROOT), capture_output=True, text=True, encoding="utf-8", errors="replace")
+        out = (r.stdout or "").strip()
+        if out:
+            print(out)
+        if r.returncode != 0:
+            err = (r.stderr or "").strip()[-800:]
+            print(f"!! FAILED (exit {r.returncode})\n{err}")
+            failed.append(script)
+
+    ex = ROOT / "_exports"
+    counts = {ext: len(list(ex.rglob(f"*.{ext}")))
+              for ext in ("md", "csv", "json", "xlsx", "docx", "svg", "png", "mmd")}
+    size = sum(p.stat().st_size for p in ex.rglob("*") if p.is_file())
+
+    print("\n" + "=" * 78)
+    print(f"  BUILD COMPLETE in {time.time() - t0:.0f}s" if not failed else
+          f"  BUILD FINISHED WITH {len(failed)} FAILURE(S) in {time.time() - t0:.0f}s")
+    print("=" * 78)
+    print(f"  _exports/  —  {size / 1024 / 1024:.1f} MB")
+    for ext, n in counts.items():
+        if n:
+            print(f"    .{ext:5s} {n:4d}")
+    if failed:
+        print(f"\n  FAILED: {failed}")
+        return 1
+    print("\n  Entry points:")
+    print("    _exports/docx/StartupHub_Phase0_Findings.docx")
+    print("    _exports/xlsx/StartupHub_Research_Database_MASTER.xlsx")
+    print("    _exports/charts/            9 data charts (PNG)")
+    print("    _exports/diagrams/svg/      5 Mermaid diagrams (SVG + PNG)")
+    print("    _exports/json/              9 structured datasets")
+    print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
