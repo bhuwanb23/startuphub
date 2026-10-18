@@ -16,12 +16,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 HERE = Path(__file__).resolve().parent
 
+# Sub-process output is decoded as UTF-8 (several generators emit rupee signs and
+# typographic dashes). The Windows console defaults to cp1252 and will raise
+# UnicodeEncodeError on print, so force UTF-8 with replacement rather than
+# letting one generator's box-drawing characters kill the whole build.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 STEPS = [
     ("Mermaid diagrams -> SVG + PNG", "render_diagrams.py"),
     ("Structured data -> CSV + JSON", "build_data.py"),
     ("Excel workbooks", "build_xlsx.py"),
     ("Data charts -> PNG", "build_charts.py"),
     ("Word documents", "build_docx.py"),
+    ("Phase 1 - IIC annual report corpus", "build_phase1.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -67,6 +78,7 @@ def main() -> int:
     print("    _exports/charts/            9 data charts (PNG)")
     print("    _exports/diagrams/svg/      5 Mermaid diagrams (SVG + PNG)")
     print("    _exports/json/              9 structured datasets")
+    print("    _exports/phase1/md/iic_corpus_analysis.md   Phase 1 corpus findings")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 
