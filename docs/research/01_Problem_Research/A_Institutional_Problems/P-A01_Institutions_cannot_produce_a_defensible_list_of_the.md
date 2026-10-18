@@ -74,4 +74,4 @@ None of the 11 direct competitors surveyed in Phase 0 model a venture-with-a-lif
 | `IIC-032` | Brainware University | Private deemed university | West Bengal | 2023-24 |
 | `IIC-007` | ICFAI University Tripura | Private deemed university | Tripura | 2023-24 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

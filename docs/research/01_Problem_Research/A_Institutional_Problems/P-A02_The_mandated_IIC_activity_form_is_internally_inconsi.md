@@ -88,4 +88,4 @@ This is the strongest evidenced problem in Phase 1. A product that makes the gov
 | `IIC-028` | Rathinam College of Pharmacy | Pharmacy college | Tamil Nadu | 2024-25 |
 | `IIC-024` | SSCET | Engineering college | Telangana | 2024-25 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

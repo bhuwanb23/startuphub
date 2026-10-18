@@ -64,4 +64,4 @@ Cannot be claimed yet. This is a candidate differentiator for Phase 4 segmentati
 | `IIC-016` | CMRIT | Autonomous engineering college | Tamil Nadu | 2024-25 |
 | `IIC-012` | Scottish Church Kolkata | Undergraduate college | West Bengal | 2024-25 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

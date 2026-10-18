@@ -83,4 +83,4 @@ Directly supports the Phase 0 positioning decision D-007 (sell against an existi
 | `IIC-011` | Institute of Science Nagpur | Autonomous science college | Maharashtra | 2024-25 |
 | `IIC-004` | Kongu Engineering College | Autonomous engineering college | Tamil Nadu | 2023-24 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

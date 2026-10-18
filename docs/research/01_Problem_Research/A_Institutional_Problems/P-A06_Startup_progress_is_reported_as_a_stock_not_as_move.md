@@ -73,4 +73,4 @@ Every competitor surveyed in Phase 0 tracks intake and programme milestones, not
 | `IIC-032` | Brainware University | Private deemed university | West Bengal | 2023-24 |
 | `IIC-033` | WCC Chennai | Arts and science college (non-technical) | Tamil Nadu | 2023-24 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

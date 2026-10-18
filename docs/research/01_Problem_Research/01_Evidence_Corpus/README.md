@@ -83,4 +83,4 @@ Target: **40 documents.** Currently **36** (25 parsed, 9 partial, 2 pending KPI 
 2. **Same-document contradictions are kept as two records**, never reconciled. See D-013.
 3. **A source that will not parse is logged as `unparseable`, not estimated.**
 
-Derived analysis: `_exports/phase1/md/iic_corpus_analysis.md`
+Derived analysis: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md)

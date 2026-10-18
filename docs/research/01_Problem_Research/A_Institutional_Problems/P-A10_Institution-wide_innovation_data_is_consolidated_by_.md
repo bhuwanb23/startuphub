@@ -68,4 +68,4 @@ This is the strongest version of the Phase 0 thesis and it is now independently 
 | `IIC-001` | NIT Calicut | NIT (central) | Kerala | 2024-25 |
 | `IIC-023` | SIES CoMS | Management college (non-technical) | Maharashtra | 2024-25 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

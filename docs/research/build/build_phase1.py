@@ -419,7 +419,10 @@ def write_analysis():
       f"{stats['target_documents']}, with {stats['header_only']} documents still pending KPI "
       "extraction.")
     A("")
-    path = OUT / "md" / "iic_corpus_analysis.md"
+    # Analysis is a SUMMARY, so it goes in a topic folder, never in _exports.
+    # _exports holds machine output (csv/json/xlsx/docx/png/svg) and the raw
+    # extraction layer. See 00_Research_Index/README.md section 2b.
+    path = PROB / "F_Synthesis" / "IIC_Corpus_Analysis.md"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(L), encoding="utf-8")
     return path
@@ -566,7 +569,7 @@ def write_corpus_index():
           "1. **A missing metric means not read, never zero.** See Decision Log D-014.",
           "2. **Same-document contradictions are kept as two records**, never reconciled. See D-013.",
           "3. **A source that will not parse is logged as `unparseable`, not estimated.**", "",
-          "Derived analysis: `_exports/phase1/md/iic_corpus_analysis.md`", ""]
+          "Derived analysis: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md)", ""]
     p = cdir / "README.md"
     p.write_text("\n".join(L), encoding="utf-8")
     return stats
@@ -626,7 +629,7 @@ def write_problem_analyses():
             L.append(f"| `{r['id']}` | {r['short_name']} | {r['institution_type']} | "
                      f"{r['state']} | {r['year'] or '-'} |")
         L += ["", "Full records: `_exports/phase1/csv/iic_reports_wide.csv`. "
-              "Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.", ""]
+              "Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).", ""]
 
         path = adir / f"{p['id']}_{p['title'][:52].replace(' ', '_').replace(',', '').replace('/', '')}.md"
         path.write_text("\n".join(L), encoding="utf-8")
@@ -685,6 +688,57 @@ def write_problem_index(written, adir):
           "Section B (operational problems) and Section C (evidence register) have not been written.",
           "Corpus index: [`../01_Evidence_Corpus/README.md`](../01_Evidence_Corpus/README.md)", ""]
     (adir / "README.md").write_text("\n".join(L), encoding="utf-8")
+
+
+def write_synthesis_index():
+    """01_Problem_Research/F_Synthesis/README.md - the Phase 1 synthesis hub."""
+    fdir = PROB / "F_Synthesis"
+    fdir.mkdir(parents=True, exist_ok=True)
+    s = D.CORPUS_STATS()
+    L = ["# Phase 1 Synthesis", "",
+         "The written findings layer for Phase 1. Machine-readable output lives in "
+         "`_exports/phase1/`; this folder holds the documents a human reads.", "",
+         "## Documents", "",
+         "| Document | What it is |", "|---|---|",
+         "| [`IIC_Corpus_Analysis.md`](IIC_Corpus_Analysis.md) | Five findings derived from the "
+         f"{s['documents']}-document institutional IIC annual report corpus "
+         f"({s['parsed']} fully parsed) |", "",
+         "## Companion folders", "",
+         "| Folder | Holds |", "|---|---|",
+         "| [`../01_Evidence_Corpus/`](../01_Evidence_Corpus/README.md) | The mined documents, "
+         "indexed by class and extraction status |",
+         "| [`../A_Institutional_Problems/`](../A_Institutional_Problems/README.md) | The ten "
+         "written problem analyses, each evidence-graded |",
+         "| `../../01_Evidence_Vault/Quotes/` | 12 verbatim attributed quotes |",
+         "| `../../00_Research_Index/Source_Registry.csv` | All 36 documents registered as `P1-*` |",
+         "| `../../_exports/phase1/` | CSV, JSON and JSON Schema - the machine-readable form |", "",
+         "## The five corpus findings, briefly", "",
+         "1. **`ideas generated` is not one measurement.** Implied idea-to-prototype conversion spans "
+         "0.0% to 262.5% across 19 institutions; one exceeds 100%, which is impossible for a "
+         "same-year funnel.",
+         "2. **Six same-document contradictions.** NIT Calicut's single PDF reports both 55 and 17 "
+         "startups, and both Rs 1.51 lakh and Rs 16 lakh awareness spend.",
+         "3. **No controlled vocabulary for absence.** At least seven ways to write \"nothing "
+         "happened\" in the same mandated form, including one numeric money field filled with a "
+         "13-item prose narrative.",
+         "4. **Grant money is often the wrong money.** One institution's \"innovation grant\" "
+         "reconciles exactly to two unrelated DBT academic grants.",
+         "5. **Activity counts do not predict outcomes.** 94 activities produced zero IPs at one "
+         "institution; 42 activities produced 843 ideas at another.", "",
+         "## The critical limitation", "",
+         "**No user interviews have been conducted.** Phase 3 has not started. Everything in Phase 1 "
+         "is documentary analysis of documents institutions published about themselves. That is "
+         "real evidence about reporting behaviour. It is not evidence about what users say they "
+         "struggle with, and it must not be presented as such.", "",
+         "The most important open question created by this corpus is internal tooling: no retrieved "
+         "document reveals what sits *upstream* of the IIC form. We have only ever seen the export. "
+         "Until Phase 3 establishes it, todo.md Section B's \"Excel dependency\" claims remain "
+         "unevidenced.", "",
+         "---", "",
+         "Back to [Research Index](../../00_Research_Index/README.md)", ""]
+    p = fdir / "README.md"
+    p.write_text("\n".join(L), encoding="utf-8")
+    return p
 
 
 def write_raw_layer():
@@ -790,7 +844,7 @@ def main():
     print(f"  json/iic_corpus_schema.json       field definitions + known defects")
 
     p = write_analysis()
-    print(f"  md/iic_corpus_analysis.md         {p.stat().st_size:,} bytes")
+    print(f"  01_Problem_Research/F_Synthesis/IIC_Corpus_Analysis.md   {p.stat().st_size:,} bytes")
 
     print()
     print("  -- writing into the research tree --")
@@ -806,6 +860,9 @@ def main():
           f"{len(written)} analyses + README")
     for p, path in written:
         print(f"      {p['id']}  {p['evidence_grade']:<14} {p['severity']:<9} {path.name}")
+
+    write_synthesis_index()
+    print("  01_Problem_Research/F_Synthesis/README.md          synthesis hub")
 
     reg_rows = build_registry_rows()
     before, added = merge_registry(reg_rows)

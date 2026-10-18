@@ -118,18 +118,34 @@ research/
 
 ---
 
-## 2b. The two layers
+## 2b. The two layers — and the one rule that separates them
 
 There are exactly two kinds of file in this repository, and the distinction matters:
 
 | Layer | Location | What it is | Edit it by |
 |---|---|---|---|
-| **Narrative** | `*.md` in the topic folders | The reasoning. Why a number matters, what it contradicts, what it implies | Writing |
+| **Narrative** | `*.md` in the topic folders (`00_` … `14_`) | The reasoning. Why a number matters, what it contradicts, what it implies | Writing |
 | **Data** | `build/data_*.py` | The facts. Every figure, every source, every score | The canonical Python modules |
 
-Everything in `_exports/` is **derived** from the data layer and regenerates with one command. That means the CSV, JSON, Excel, Word and chart versions of a claim can never drift from the markdown — there is a single source of truth per fact, and the narrative is commentary on top of it.
+### Where output goes
 
-**Never hand-edit a file in `_exports/`.** Change `build/data_*.py` (or the `.md`) and re-run `python build/build_all.py`.
+> **The 14 topic folders hold the summaries. `_exports/` holds the data.**
+
+| You are writing… | It goes in |
+|---|---|
+| A README, an analysis, a synthesis, a written finding | the matching topic folder (`00_` … `14_`) |
+| A CSV, JSON, XLSX, DOCX, PNG, SVG, MMD | `_exports/`, via `build/build_all.py` |
+| Unedited retrieved material and the SHA-256 manifest | `_exports/raw/` |
+
+**`_exports/` contains no written analysis.** If a document has prose in it, it belongs in a topic
+folder. The only markdown in `_exports/` is `raw/*_RAW.md` — unedited extraction, which is data by
+definition.
+
+**Never hand-edit a file in `_exports/`.** Change `build/data_*.py` (or the `.md`) and re-run
+`python build/build_all.py`. Everything in `_exports/` is **derived** and regenerates with one
+command, so the CSV, JSON, Excel, Word and chart versions of a claim can never drift from the
+markdown — there is a single source of truth per fact, and the narrative is commentary on top of it.
+
 
 ---
 

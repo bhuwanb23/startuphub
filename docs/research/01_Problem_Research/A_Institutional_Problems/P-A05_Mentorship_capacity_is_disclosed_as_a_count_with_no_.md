@@ -66,4 +66,4 @@ Phase 0 noted that no competitor separates a public mentor from a confidential e
 | `IIC-025` | VIPS Women | Pharmacy college | Andhra Pradesh | 2024-25 |
 | `IIC-010` | BIT Mesra | Deemed university (private) | Jharkhand | 2023-24 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

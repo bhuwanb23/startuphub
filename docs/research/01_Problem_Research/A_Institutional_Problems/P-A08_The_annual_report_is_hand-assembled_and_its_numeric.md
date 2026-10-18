@@ -96,4 +96,4 @@ This reframes the product. The competitor set sells dashboards and intake. The u
 | `IIC-012` | Scottish Church Kolkata | Undergraduate college | West Bengal | 2024-25 |
 | `IIC-029` | MIET Jammu | Autonomous engineering college | Jammu and Kashmir | 2023-24 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).

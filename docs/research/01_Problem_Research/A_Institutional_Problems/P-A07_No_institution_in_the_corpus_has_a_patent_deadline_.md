@@ -89,4 +89,4 @@ This is the strongest strategic finding in Phase 1 and it corroborates the Phase
 | `IIC-015` | KIT CoE | Engineering college | Tamil Nadu | - |
 | `IIC-011` | Institute of Science Nagpur | Autonomous science college | Maharashtra | 2024-25 |
 
-Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+Full records: `_exports/phase1/csv/iic_reports_wide.csv`. Derived findings: [`../../F_Synthesis/IIC_Corpus_Analysis.md`](../../F_Synthesis/IIC_Corpus_Analysis.md).
