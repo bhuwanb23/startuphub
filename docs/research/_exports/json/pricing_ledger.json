@@ -1,0 +1,570 @@
+{
+  "meta": {
+    "project": "StartupHub",
+    "phase": "Phase 0 — Positioning, Landscape Sweep & Competitive Deep Dive",
+    "phase_number": 0,
+    "status": "Complete (initial pass)",
+    "compiled": "2026-10-18",
+    "access_date": "2026-10-18",
+    "geography": "India",
+    "evidence_grading": {
+      "1": "Primary — government publications, official statistics, official pricing pages, statutes, our own interviews/pilot data",
+      "2": "High-quality secondary — IIM/IIIT research, established consulting, World Bank/OECD, peer-reviewed",
+      "3": "Market intelligence — Tracxn, Crunchbase, Factly/Dataful, SaaS directories (G2, Capterra, GetApp)",
+      "4": "Community — vendor blogs, LinkedIn, Reddit, YouTube, review-site excerpts"
+    },
+    "reliability_markers": {
+      "VERIFIED": "read directly from a primary source",
+      "LISTED": "third-party directory, not the vendor",
+      "NOT_PUBLIC": "gated behind login or sales call",
+      "UNVERIFIED": "could not be confirmed; do not cite externally"
+    },
+    "fx_assumption": "USD_INR=90, GBP_INR=135 - directional only",
+    "exported_at": "2026-10-18T17:33:17+00:00",
+    "record_count": 52,
+    "RULE": "Never present a competitor's asking price as evidence of what an institution would pay. They are different quantities."
+  },
+  "records": [
+    {
+      "vendor": "NestLens Orbit",
+      "plan": "Orbit Launch",
+      "amount": 75000,
+      "unit": "INR/year",
+      "inr_annualised": 75000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Every Orbit feature, 25,000 applications/yr, 5 admin seats. THE COMPETITIVE ANCHOR."
+    },
+    {
+      "vendor": "NestLens Orbit",
+      "plan": "Orbit Starter",
+      "amount": 99000,
+      "unit": "INR/year",
+      "inr_annualised": 99000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Added capacity."
+    },
+    {
+      "vendor": "NestLens Orbit",
+      "plan": "Orbit Growth",
+      "amount": 125000,
+      "unit": "INR/year",
+      "inr_annualised": 125000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Added capacity."
+    },
+    {
+      "vendor": "NestLens Orbit",
+      "plan": "Orbit Scale",
+      "amount": 250000,
+      "unit": "INR/year",
+      "inr_annualised": 250000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "1 lakh applications, 40 admin seats, 15 programmes, API, white-label."
+    },
+    {
+      "vendor": "NestLens Orbit",
+      "plan": "Orbit OS (CONFLICTING)",
+      "amount": 359988,
+      "unit": "INR/year",
+      "inr_annualised": 359988,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "CONFLICTING price on their own domain: 'Orbit OS Rs 29,999/month (Rs 2,99,999/year)'. Exploitable."
+    },
+    {
+      "vendor": "Incubatee (SCIP)",
+      "plan": "Platform subscription",
+      "amount": 300000,
+      "unit": "INR/year",
+      "inr_annualised": 300000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 25,000/month."
+    },
+    {
+      "vendor": "Incubatee (SCIP)",
+      "plan": "One-time upfront",
+      "amount": 75000,
+      "unit": "INR one-time",
+      "inr_annualised": 75000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Implementation."
+    },
+    {
+      "vendor": "Incubatee (SCIP)",
+      "plan": "Mobile app",
+      "amount": 10000,
+      "unit": "INR one-time",
+      "inr_annualised": 10000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": ""
+    },
+    {
+      "vendor": "Incubatee (SCIP)",
+      "plan": "Admin user",
+      "amount": 10200,
+      "unit": "INR/year",
+      "inr_annualised": 10200,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 850/month. Mentors and startups NOT billed."
+    },
+    {
+      "vendor": "IncubatX",
+      "plan": "Foundation",
+      "amount": 150000,
+      "unit": "INR/year",
+      "inr_annualised": 150000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 10,000-15,000/month (midpoint). Up to 4 cohorts."
+    },
+    {
+      "vendor": "IncubatX",
+      "plan": "Accelerator",
+      "amount": 420000,
+      "unit": "INR/year",
+      "inr_annualised": 420000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 30,000-40,000/month. Grants/CSR/funding modules, matchmaking."
+    },
+    {
+      "vendor": "IncubatX",
+      "plan": "Executive AI",
+      "amount": 660000,
+      "unit": "INR/year",
+      "inr_annualised": 660000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 50,000-60,000/month. Dedicated implementation."
+    },
+    {
+      "vendor": "IncubatX",
+      "plan": "Media Kit add-on",
+      "amount": 180000,
+      "unit": "INR/year",
+      "inr_annualised": 180000,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "Rs 15,000/month. Odd monetisation for SaaS; suggests services business."
+    },
+    {
+      "vendor": "Accubate",
+      "plan": "Entry (third-party listed)",
+      "amount": 128880,
+      "unit": "INR/year",
+      "inr_annualised": 128880,
+      "confidence": "LISTED",
+      "market": "India",
+      "notes": "Capterra/GetApp starting $149/month. NOT PUBLIC on own site (pricing page bug)."
+    },
+    {
+      "vendor": "AcceleratorApp",
+      "plan": "Core platform",
+      "amount": 539000,
+      "unit": "INR/year",
+      "inr_annualised": 539000,
+      "confidence": "LISTED",
+      "market": "Global",
+      "notes": "From $499/month. Sales-gated. ISO 27001 certified. Yale/MIT/Max Planck."
+    },
+    {
+      "vendor": "AcceleratorApp",
+      "plan": "Funding module - Essential",
+      "amount": 657000,
+      "unit": "INR/year",
+      "inr_annualised": 657000,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$549/month. 1 programme, +$99/mo per extra, +$49/mo per Funding seat."
+    },
+    {
+      "vendor": "AcceleratorApp",
+      "plan": "Funding module - Professional",
+      "amount": 1077000,
+      "unit": "INR/year",
+      "inr_annualised": 1077000,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$899/month. 3 programmes, whitelabel, advanced reporting."
+    },
+    {
+      "vendor": "Founderhood",
+      "plan": "Free",
+      "amount": 0,
+      "unit": "USD/month",
+      "inr_annualised": 0,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "1 admin, 15 startups/program, unlimited programs. Best free tier in category."
+    },
+    {
+      "vendor": "Founderhood",
+      "plan": "Starter",
+      "amount": 214200,
+      "unit": "INR/year",
+      "inr_annualised": 214200,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$199/month, 25 startups/program, Zoom."
+    },
+    {
+      "vendor": "Founderhood",
+      "plan": "Starter - UNIVERSITY -15%",
+      "amount": 182070,
+      "unit": "INR/year",
+      "inr_annualised": 182070,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "~$169/month. THE CREDIBLE GLOBAL PRICE OBJECTION."
+    },
+    {
+      "vendor": "Founderhood",
+      "plan": "Premium",
+      "amount": 698680,
+      "unit": "INR/year",
+      "inr_annualised": 698680,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$649/month, 5 admins, 50 startups/program, alumni management, branding."
+    },
+    {
+      "vendor": "VentureLink",
+      "plan": "Lite",
+      "amount": 0,
+      "unit": "USD/month",
+      "inr_annualised": 0,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "Free forever. 1 programme, 100 applications, 5 mentors."
+    },
+    {
+      "vendor": "VentureLink",
+      "plan": "Core monthly",
+      "amount": 194400,
+      "unit": "INR/year",
+      "inr_annualised": 194400,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$180/month. NO PER-USER FEES. Plus $500 one-time setup."
+    },
+    {
+      "vendor": "VentureLink",
+      "plan": "Core annual",
+      "amount": 155700,
+      "unit": "INR/year",
+      "inr_annualised": 155700,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$1,730/year + $500 setup."
+    },
+    {
+      "vendor": "incuTrack",
+      "plan": "Starter",
+      "amount": 81000,
+      "unit": "INR/year",
+      "inr_annualised": 81000,
+      "confidence": "VERIFIED",
+      "market": "US",
+      "notes": "$75/mo quarterly. Fully featured incubator CRM."
+    },
+    {
+      "vendor": "incuTrack",
+      "plan": "Premier",
+      "amount": 270000,
+      "unit": "INR/year",
+      "inr_annualised": 270000,
+      "confidence": "VERIFIED",
+      "market": "US",
+      "notes": "$250/mo quarterly. Adds economic impact, milestones, room inventory, key control."
+    },
+    {
+      "vendor": "incuTrack",
+      "plan": "Setup (all tiers)",
+      "amount": 53550,
+      "unit": "INR one-time",
+      "inr_annualised": 53550,
+      "confidence": "VERIFIED",
+      "market": "US",
+      "notes": "$595 one-time, includes six-month training subscription."
+    },
+    {
+      "vendor": "incuTrack",
+      "plan": "Mentor Matching add-on",
+      "amount": 32400,
+      "unit": "INR/year",
+      "inr_annualised": 32400,
+      "confidence": "VERIFIED",
+      "market": "US",
+      "notes": "$30/month + $90 setup. Mentorship is a PAID ADD-ON."
+    },
+    {
+      "vendor": "RiserNest",
+      "plan": "Starter (per team)",
+      "amount": 359100,
+      "unit": "INR/year",
+      "inr_annualised": 359100,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "EUR 399/month, up to 30 teams."
+    },
+    {
+      "vendor": "RiserNest",
+      "plan": "Professional (per team)",
+      "amount": 1350000,
+      "unit": "INR/year",
+      "inr_annualised": 1350000,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "EUR 1,500/month, 100+ teams. Two contradictory models on one page."
+    },
+    {
+      "vendor": "RiserNest",
+      "plan": "Starter (per user)",
+      "amount": 432000,
+      "unit": "INR/year",
+      "inr_annualised": 432000,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "EUR 40/user/month. Contradicts the 'no per-seat' claim."
+    },
+    {
+      "vendor": "Innoloft / LoftOS",
+      "plan": "Free",
+      "amount": 0,
+      "unit": "USD/month",
+      "inr_annualised": 0,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "Up to 5 users. DIY alternative."
+    },
+    {
+      "vendor": "Innoloft / LoftOS",
+      "plan": "Starter",
+      "amount": 31320,
+      "unit": "INR/year",
+      "inr_annualised": 31320,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "$29/month, 25 users. THE DIY THREAT."
+    },
+    {
+      "vendor": "Innoloft / LoftOS",
+      "plan": "Team",
+      "amount": 376920,
+      "unit": "INR/year",
+      "inr_annualised": 376920,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "$349/month, 250 users, custom domain."
+    },
+    {
+      "vendor": "Innoloft / LoftOS",
+      "plan": "Professional",
+      "amount": 916920,
+      "unit": "INR/year",
+      "inr_annualised": 916920,
+      "confidence": "VERIFIED",
+      "market": "Europe",
+      "notes": "$849/month, 1,000 users, analytics, exports."
+    },
+    {
+      "vendor": "Elsevier Pure",
+      "plan": "Core Module (Tier 1)",
+      "amount": 2620000,
+      "unit": "INR/year",
+      "inr_annualised": 2620000,
+      "confidence": "VERIFIED",
+      "market": "UK",
+      "notes": "GBP 19,406/yr for 1-999 researchers. Public G-Cloud price list."
+    },
+    {
+      "vendor": "Elsevier Pure",
+      "plan": "Core Module (Tier 5)",
+      "amount": 7896000,
+      "unit": "INR/year",
+      "inr_annualised": 7896000,
+      "confidence": "VERIFIED",
+      "market": "UK",
+      "notes": "GBP 58,504/yr for 7,000-9,999 researchers."
+    },
+    {
+      "vendor": "Elsevier Pure",
+      "plan": "Minimum Indian deployment",
+      "amount": 4460000,
+      "unit": "INR/year",
+      "inr_annualised": 4460000,
+      "confidence": "VERIFIED",
+      "market": "UK",
+      "notes": "Core + Portal + Reporting = GBP 33,016/yr. Does NOT manage startups."
+    },
+    {
+      "vendor": "Elsevier Pure",
+      "plan": "Mandatory onboarding",
+      "amount": 4350000,
+      "unit": "INR one-time",
+      "inr_annualised": 4350000,
+      "confidence": "VERIFIED",
+      "market": "UK",
+      "notes": "GBP 13,500 setup + GBP 18,750 management startup = GBP 32,250 one-off."
+    },
+    {
+      "vendor": "IdeaScale",
+      "plan": "Engage (2-year term)",
+      "amount": 1170000,
+      "unit": "INR/2yr",
+      "inr_annualised": 585000,
+      "confidence": "LISTED",
+      "market": "Global",
+      "notes": "USD 12,999 for TWO years = ~USD 6,500/yr. No free plan."
+    },
+    {
+      "vendor": "IdeaScale",
+      "plan": "Transform (2-year term)",
+      "amount": 5850000,
+      "unit": "INR/2yr",
+      "inr_annualised": 2925000,
+      "confidence": "LISTED",
+      "market": "Global",
+      "notes": "USD 64,999 for TWO years. Corporate intrapreneurial."
+    },
+    {
+      "vendor": "BrightWork 365",
+      "plan": "Divisions tier",
+      "amount": 11880,
+      "unit": "INR/year/user",
+      "inr_annualised": 11880,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$11/user/month annual. M365-native. No IPR, no intake."
+    },
+    {
+      "vendor": "Notion",
+      "plan": "Plus (8 editors)",
+      "amount": 86400,
+      "unit": "INR/year",
+      "inr_annualised": 86400,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$10/member/month. AUDIT LOG ENTERPRISE-ONLY, no retroactive history."
+    },
+    {
+      "vendor": "Superhuman Docs",
+      "plan": "Pro (2 Doc Makers)",
+      "amount": 25920,
+      "unit": "INR/year",
+      "inr_annualised": 25920,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$12/Doc Maker/month. Audit events, SCIM, SAML, SOC 2, HIPAA all Enterprise-only."
+    },
+    {
+      "vendor": "Airtable",
+      "plan": "Team (8 editors)",
+      "amount": 172800,
+      "unit": "INR/year",
+      "inr_annualised": 172800,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$20/editor/month. Automation runs capped at 25,000."
+    },
+    {
+      "vendor": "Trello",
+      "plan": "Standard (10 users)",
+      "amount": 54000,
+      "unit": "INR/year",
+      "inr_annualised": 54000,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$5/user/month. THE FLOOR WE CANNOT UNDERCUT."
+    },
+    {
+      "vendor": "ClickUp",
+      "plan": "Unlimited (10 users)",
+      "amount": 75600,
+      "unit": "INR/year",
+      "inr_annualised": 75600,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$7/user/month. AI separate: Brain $9/user/mo, Everything $28."
+    },
+    {
+      "vendor": "Monday.com",
+      "plan": "Basic (10 seats)",
+      "amount": 97200,
+      "unit": "INR/year",
+      "inr_annualised": 97200,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$9/seat/month. AI credit-metered."
+    },
+    {
+      "vendor": "Asana",
+      "plan": "Starter (10 users)",
+      "amount": 118920,
+      "unit": "INR/year",
+      "inr_annualised": 118920,
+      "confidence": "VERIFIED",
+      "market": "Global",
+      "notes": "$10.99/user/month. AUDIT LOGS ENTERPRISE-ONLY."
+    },
+    {
+      "vendor": "Google Workspace",
+      "plan": "Business Starter (per user)",
+      "amount": 2400,
+      "unit": "INR/year/user",
+      "inr_annualised": 2400,
+      "confidence": "MEDIUM",
+      "market": "India",
+      "notes": "Rs 1,918-3,240/user/yr. But Sheets arrives bundled - marginal cost Rs 0."
+    },
+    {
+      "vendor": "Excel / Sheets / WhatsApp / Drive",
+      "plan": "Consumer tier",
+      "amount": 0,
+      "unit": "INR/year",
+      "inr_annualised": 0,
+      "confidence": "VERIFIED",
+      "market": "India",
+      "notes": "THE FREE INCUMBENT. Excel zero marginal cost; WhatsApp business messaging from Rs 0.115/message from 1 Oct 2026."
+    },
+    {
+      "vendor": "Campus ERP (typical)",
+      "plan": "Per-student model",
+      "amount": 20000,
+      "unit": "INR/year/student",
+      "inr_annualised": 20000,
+      "confidence": "LOW",
+      "market": "India",
+      "notes": "Rs 500-2,000/student/yr. Per-student tax: 'nothing changed, the school just grew.'"
+    }
+  ],
+  "india_price_ladder_inr_annualised": [
+    2400,
+    10000,
+    10200,
+    20000,
+    75000,
+    75000,
+    99000,
+    125000,
+    128880,
+    150000,
+    180000,
+    250000,
+    300000,
+    359988,
+    420000,
+    660000
+  ],
+  "competitive_anchor_inr": 75000,
+  "todo_md_assumption_inr": 120000,
+  "gap_note": "todo.md's unvalidated Rs 1.2L assumption sits ABOVE the cheapest credible Indian incumbent (Orbit Launch, Rs 75,000)."
+}

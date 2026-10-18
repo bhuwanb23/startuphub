@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "project": "StartupHub",
+    "phase": "Phase 0 — Positioning, Landscape Sweep & Competitive Deep Dive",
+    "phase_number": 0,
+    "status": "Complete (initial pass)",
+    "compiled": "2026-10-18",
+    "access_date": "2026-10-18",
+    "geography": "India",
+    "evidence_grading": {
+      "1": "Primary — government publications, official statistics, official pricing pages, statutes, our own interviews/pilot data",
+      "2": "High-quality secondary — IIM/IIIT research, established consulting, World Bank/OECD, peer-reviewed",
+      "3": "Market intelligence — Tracxn, Crunchbase, Factly/Dataful, SaaS directories (G2, Capterra, GetApp)",
+      "4": "Community — vendor blogs, LinkedIn, Reddit, YouTube, review-site excerpts"
+    },
+    "reliability_markers": {
+      "VERIFIED": "read directly from a primary source",
+      "LISTED": "third-party directory, not the vendor",
+      "NOT_PUBLIC": "gated behind login or sales call",
+      "UNVERIFIED": "could not be confirmed; do not cite externally"
+    },
+    "fx_assumption": {
+      "USD_INR": 90,
+      "GBP_INR": 135,
+      "note": "directional only"
+    },
+    "exported_at": "2026-10-18T17:33:17+00:00"
+  },
+  "counts": {
+    "sources": 76,
+    "segments": 20,
+    "competitors": 15,
+    "pricing_records": 52,
+    "positioning_gaps": 13,
+    "open_questions": 18,
+    "decisions": 12,
+    "problem_areas": 12
+  },
+  "headline_findings": [
+    "India digitised innovation ACCOUNTABILITY, not innovation OPERATIONS. Every mandated system is a compliance ledger keyed on events and snapshots; none is a system of record keyed on a venture over time.",
+    "The IIC portal has a menu item 'IPR/TTO Centres' that registers a TTO's existence and floor area - and has no field anywhere to record a single patent. Zero of 11 direct competitors have an IPR module.",
+    "The market is NOT empty. NestLens Orbit publishes INR 75,000/yr all-in. todo.md's assumed Rs 1.2L sits ABOVE the cheapest credible Indian incumbent.",
+    "Three capabilities have zero competitors across 11 vendors: IPR lifecycle, TRL as a first-class object, and YUKTI-NIR/IIC/ARIIA export. All three are MANDATED by India today.",
+    "The real competitor is free and it is WhatsApp. IISc's own IIC page links students to a WhatsApp group."
+  ],
+  "key_numbers": {
+    "heis_total": 64756,
+    "universities_aishe_2023_24": 1289,
+    "colleges_aishe_2023_24": 48246,
+    "iics_last_official_2022": 6400,
+    "dpiit_recognised_startups_mar_2026": 223000,
+    "institutionally_attributable_ventures": 5490,
+    "nirf_institutions_in_dataset": 204,
+    "meiTY_incubators_dec_2025": 517,
+    "dst_tbis_2026": 175,
+    "aic_acic_centres": 103,
+    "hei_patent_filings_fy23": 15383,
+    "hei_patent_filings_fy25": 33675,
+    "patent_filing_growth_pct": 119,
+    "tpo_offices_registered": 3249
+  },
+  "price_band_inr_annualised": {
+    "free_incumbent": 0,
+    "trello_10_users": 54000,
+    "orbit_launch_ANCHOR": 75000,
+    "notion_plus_8_editors": 86400,
+    "todo_md_assumption_UNVALIDATED": 120000,
+    "founderhood_starter_university_discount": 182070,
+    "acceleratorapp_core": 539000,
+    "incubatee_year_one": 395200,
+    "elsevier_pure_min_indian": 4460000
+  }
+}

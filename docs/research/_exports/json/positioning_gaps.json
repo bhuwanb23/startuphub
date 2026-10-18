@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "project": "StartupHub",
+    "phase": "Phase 0 — Positioning, Landscape Sweep & Competitive Deep Dive",
+    "phase_number": 0,
+    "status": "Complete (initial pass)",
+    "compiled": "2026-10-18",
+    "access_date": "2026-10-18",
+    "geography": "India",
+    "evidence_grading": {
+      "1": "Primary — government publications, official statistics, official pricing pages, statutes, our own interviews/pilot data",
+      "2": "High-quality secondary — IIM/IIIT research, established consulting, World Bank/OECD, peer-reviewed",
+      "3": "Market intelligence — Tracxn, Crunchbase, Factly/Dataful, SaaS directories (G2, Capterra, GetApp)",
+      "4": "Community — vendor blogs, LinkedIn, Reddit, YouTube, review-site excerpts"
+    },
+    "reliability_markers": {
+      "VERIFIED": "read directly from a primary source",
+      "LISTED": "third-party directory, not the vendor",
+      "NOT_PUBLIC": "gated behind login or sales call",
+      "UNVERIFIED": "could not be confirmed; do not cite externally"
+    },
+    "fx_assumption": {
+      "USD_INR": 90,
+      "GBP_INR": 135,
+      "note": "directional only"
+    },
+    "exported_at": "2026-10-18T17:33:17+00:00",
+    "record_count": 13
+  },
+  "records": [
+    {
+      "gap_id": "GAP-01",
+      "title": "IPR / patent portfolio management",
+      "severity": "CRITICAL",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "IIC portal registers an 'IPR/TTO Centre' by existence and floor area with no field to record a patent (GOV-022). NIRF demands 'Patents Commercialized & Technology Transferred' and 'Income from Technology Transferred' (GOV-028). ARIIA demands 'Patent Application No' and 'Year of Patent Application' (GOV-032). HEI patent filings +119% in two years (GOV-007). MeitY mandates IP due diligence (GOV-038). IIT Madras filed 431 patents in one year (COMP-027). Zero of 11 competitors have an IPR module.",
+      "gap_detail": "invention disclosure -> prior-art search -> drafting handoff -> filing status and deadline tracking (Indian + international) -> prosecution -> grant -> annuity -> technology transfer/licensing with royalty tracking -> revenue share to the Section-8/SPV entity -> co-ownership splits between institute, faculty and startup",
+      "why_india": "ARIIA fields mandated; 3,249 registered TTO offices; IIC IPR Cells; MeitY diligence; NIDHI-PRAYAS institutional NOC requirement; HEI filings +119% in two years",
+      "nearest_competitor": "Questel, Iptizen, Dor-Kluster (IP docketing for Western law firms); Incu Sweden (a patent data field, not a workflow)",
+      "verdict": "NOBODY HAS JOINED IP DOCKETING TO INCUBATION PROGRAMME MANAGEMENT"
+    },
+    {
+      "gap_id": "GAP-02",
+      "title": "TRL as a first-class, reportable object",
+      "severity": "CRITICAL",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "YUKTI-NIR bands submissions Idea/PoC (TRL 1-4), Innovation/Prototype (TRL 5-9), Business/Startup and routes to different national programmes (GOV-023). ARIIA asks for 'Stage of Innovation (TRL Stage)' (GOV-032). MeitY uses TRL as the investment-readiness benchmark (GOV-038). TIDE 2.0, NIDHI and BIRAC tranches tied to TRL progression. IncubatX claims 240+ schemes but matches on sector/stage/team, NOT TRL (COMP-005).",
+      "gap_detail": "auto-suggest TRL from submission evidence; track progression 1->9 over time; map current TRL to ELIGIBLE funding schemes (BIRAC BIG at higher TRL, NIDHI-PRAYAS at lower, MeitY TIDE for deep tech, DST for prototype); export YUKTI-NIR-ready and ARIIA-ready records automatically",
+      "why_india": "Three separate government requirements make TRL non-optional",
+      "nearest_competitor": "Incu (Sweden) - maturity levels, but no funding-scheme mapping",
+      "verdict": "EVERY PLATFORM TRACKS 'STAGE' AS FREE TEXT. NOBODY MODELS TRL."
+    },
+    {
+      "gap_id": "GAP-03",
+      "title": "YUKTI-NIR / IIC / ARIIA submission and verification workflow",
+      "severity": "CRITICAL",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "IIC has 17 menus and no venture-entity module (GOV-018). 'IIC login credentials and the YUKTI login credentials are different' (GOV-025). YUKTI-NIR has an HEI-side 'Add Verifier' workflow with Recommended/Not-Recommended status gating YIC eligibility (GOV-023). Verified innovations auto-pool into ARIIA Section 4 ranking (GOV-024). NIRF has ~11 screens PER DISCIPLINE (GOV-028). No public API anywhere in the stack (GOV-043).",
+      "gap_detail": "one-click, schema-mapped export to YUKTI-NIR across all three categories; live ARIIA Section 4 tracker; IIC activity calendar and scoring model; Innovation Ambassador training register - all sourced from the same startup record",
+      "why_india": "Government mandate, and verified YUKTI-NIR entries improve the institution's ARIIA ranking - a budget line that already exists",
+      "nearest_competitor": "None. Zero of eleven.",
+      "verdict": "HIGHEST-VALUE, MOST-DEFENSIBLE FEATURE IN THE CATEGORY - AND COMPLETELY OPEN"
+    },
+    {
+      "gap_id": "GAP-04",
+      "title": "Unified mandate-spanning reporting",
+      "severity": "HIGH",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "One institution must file to ARIIA, NIRF Innovation, IIC/MoE, AICTE/NBA/NAAC, DST/NIDHI/BIRAC/TIDE grant utilisation, CSR Schedule VII, AIC/Atal, Governing Body packs and DPIIT recognition. Gohorto: 'Universities don't just run isolated programs; they manage a complex ecosystem that includes Incubator -> Accelerator -> Hackathon -> Entrepreneurship courses -> Grant programs -> Industry partnerships. Each of these areas has different teams, budgets, and timelines.' Platforms report ONE frame. ERPs report COMPLIANCE.",
+      "gap_detail": "a single KPI frame across all mandate spans on one screen, with evidence trails",
+      "why_india": "India has 69,233 separate compliances and 6,618 independent filings under ~1,500 Acts (COMP-028)",
+      "nearest_competitor": "Accubate (Enterprise multi-site) is closest on structure",
+      "verdict": "NOBODY REPORTS THE WHOLE INSTITUTIONAL INNOVATION PORTFOLIO AT ONCE"
+    },
+    {
+      "gap_id": "GAP-05",
+      "title": "Government-grant disbursement ledger traced to a receipt",
+      "severity": "HIGH",
+      "competitors_with": 2,
+      "competitors_total": 11,
+      "evidence": "EcoSync has source->programme->tranche with over-allocation blocked at entry (COMP-003). Orbit has NIDHI/DST-TBI/BIRAC/RKVY ledgers (COMP-002). AcceleratorApp has tranches and capital calls (COMP-007). But MeitY mandates utilisation 'aligns with what was approved' (GOV-038); BIRAC carries a 5% royalty on net sales until cumulative repayment; DST penalises 'inability to meet targets'; unspent balance reversion is a real audit failure.",
+      "gap_detail": "utilisation tracking against the approved investment plan; royalty/revenue-share obligations; disbursement conditioned on milestone achievement with evidence; unspent/lapsed balance reversion; simultaneous tracking of multiple pots (central + state + CSR + university corpus) with different rules",
+      "why_india": "Every major scheme requires an institution or incubator to track money, milestones and outcomes",
+      "nearest_competitor": "EcoSync and AcceleratorApp both have pieces",
+      "verdict": "COVER WITH SCHEME-MATCHING, NOT A GENERAL LEDGER"
+    },
+    {
+      "gap_id": "GAP-06",
+      "title": "Faculty, Innovation Ambassadors and the non-startup innovator",
+      "severity": "HIGH",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "MIC trained 60,000+ faculty as Innovation Ambassadors (GOV-007). Student Innovative Project programmes are projects, not companies. IPR Cell workloads cover faculty inventors. NIDHI-PRAYAS explicitly requires an institutional NOC from employed/full-time-student applicants (GOV-037). No platform has a first-class faculty/innovator entity - all eleven build from 'startup application'.",
+      "gap_detail": "a faculty profile that follows an invention from disclosure through to a licensed startup and royalty income",
+      "why_india": "Faculty are the SOURCE of everything downstream: inventions -> disclosures -> patents -> licences -> startups",
+      "nearest_competitor": "None",
+      "verdict": "COMPLETELY UNOCCUPIED, AND UPSTREAM OF THE WHOLE FUNNEL"
+    },
+    {
+      "gap_id": "GAP-07",
+      "title": "Mentor logistics at scale - NDA-tiered visibility",
+      "severity": "HIGH",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "Mentorship is universally a directory plus calendar. In a university/IIC context mentors are external and require conflict-of-interest declaration, NDA and IP non-disclosure before seeing pre-incubation ideas; must log hours against scheme utilisation rules; must sign a confidentiality agreement - exactly what AICTE's YUKTI-NIR NDA templates address ('PATENT / INVENTION NON-DISCLOSURE AGREEMENT'); subject to conflict checks against their own IP holdings.",
+      "gap_detail": "separate 'public mentor' from 'confidential expert under NDA' visibility tiers; log mentorship as a fundable scheme cost",
+      "why_india": "A SINGLE NDA LEAKAGE COULD VOID AN IPR CLAIM",
+      "nearest_competitor": "incuTrack sells Mentor Matching as a $30/mo add-on; RiserNest has overload visibility. Neither has visibility tiers.",
+      "verdict": "A REAL INSTITUTIONAL FEAR THAT NOBODY HAS SOLVED"
+    },
+    {
+      "gap_id": "GAP-08",
+      "title": "AI that is auditable instead of just advertised",
+      "severity": "MEDIUM",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "IncubatX: 'AI-Enabled Intelligence OS' with demo data on its live dashboard (COMP-005). Gohorto: '85% faster application processing' on 3 reviews, one vendor-referred (COMP-009). AcceleratorApp: a page literally titled 'LLM Info'. Accubate scored 2/5 on AI by a competitor. EcoSync, Incubatee, Founderhood, VentureLink, incuTrack, RiserNest: no AI at all. EcoSync's counter-position: 'Two evaluators scoring out of ten with no shared rubric produce numbers that look comparable and are not.' (COMP-003)",
+      "gap_detail": "an AI copilot that drafts reports with cell-level provenance, flags reviewer drift, and shows why each score moved",
+      "why_india": "For Indian institutions, AI that cannot produce a citation trail is WORSE than no AI - it destroys the audit defensibility that panel evaluation exists to provide",
+      "nearest_competitor": "Orbit's Sarvam-powered Indian-language MOM transcription is the one genuinely novel India-specific AI feature found",
+      "verdict": "NOTHING IN THE CATEGORY OFFERS DEFENSIBLE AI"
+    },
+    {
+      "gap_id": "GAP-09",
+      "title": "Unincorporated pre-incubation state",
+      "severity": "MEDIUM",
+      "competitors_with": 0,
+      "competitors_total": 11,
+      "evidence": "Every platform assumes a registered entity. But in a university most of the funnel is BEFORE incorporation - a student idea, a final-year project, a faculty research idea, a hackathon winner, a Smart India Hackathon team (SIH: 1,39,844 teams registered, 1,520 winners - GOV-007).",
+      "gap_detail": "distinct pre-incubation entity model; incorporation readiness workflow (DPIIT recognition, GST, PAN, bank account, Shops and Establishments, Udyam); faculty-student IP split agreement; joint-incubation agreement; co-incubation MoU",
+      "why_india": "DPIIT recognition, GST and Udyam gate access to every scheme; university tech-transfer IP splits are contentious and must be documented",
+      "nearest_competitor": "Incubatee mentions 'Sign incubation agreements' as a single line item on its pricing table",
+      "verdict": "THE BIGGEST STRUCTURAL HOLE IN EVERY PLATFORM"
+    },
+    {
+      "gap_id": "GAP-10",
+      "title": "Guaranteed migration off forms/spreadsheets/WhatsApp",
+      "severity": "MEDIUM",
+      "competitors_with": 1,
+      "competitors_total": 11,
+      "evidence": "Every incumbent runs open Q and A forms and reference-based application numbers. IISc's own IIC page links students to a WhatsApp group (COMP-024). In Indian incubators the WhatsApp group IS the operational database. Incu (Sweden) is the only vendor stating it will import existing data during onboarding. Migrating is manual, unpaid work the BUYER must do.",
+      "gap_detail": "guaranteed, free-or-subsidised migration including WhatsApp group -> structured records",
+      "why_india": "It is the #1 real blocker to any sale in India",
+      "nearest_competitor": "Incu (Sweden) only, for generic Cases/Ideas/Persons",
+      "verdict": "DOING THIS REMOVES THE SINGLE BIGGEST OBJECTION IN AN INDIAN INSTITUTIONAL SALE"
+    },
+    {
+      "gap_id": "GAP-11",
+      "title": "Departments and multi-campus sub-tenancy",
+      "severity": "MEDIUM",
+      "competitors_with": 1,
+      "competitors_total": 11,
+      "evidence": "Institutions have multiple departments each with its own IIC coordinator, budget, mentor panel and internal politics, plus affiliated colleges, multiple campuses, and a Section-8/SPV that legally owns the IP while departments own the research. Accubate (Enterprise) has multi-site management - genuinely the closest. EcoSync: 'a pilot across two campuses... those are priced case by case' - an exception, not a feature. Everyone else is single-tenant.",
+      "gap_detail": "first-class sub-tenant-per-department architecture; consolidated institutional roll-up; departmental P&L; per-coordinator permission scoping; SPV-vs-department IP ownership modelling",
+      "why_india": "Large institutions are exactly the highest-value accounts",
+      "nearest_competitor": "Accubate Enterprise",
+      "verdict": "STRUCTURAL, NOT A FEATURE"
+    },
+    {
+      "gap_id": "GAP-12",
+      "title": "Deployment model an Indian university can actually buy",
+      "severity": "MEDIUM",
+      "competitors_with": 2,
+      "competitors_total": 11,
+      "evidence": "Government IIC/TBI: Rs 0-1L/yr via GeM, must satisfy data-localisation norms. Private/deemed university IIC: Rs 1-3L/yr. University-wide: Rs 3-10L/yr. Today's market answers nothing below Rs 1.2L/yr (IncubatX Foundation), Rs 6.25L+ with implementation (Incubatee), or sales-gated nothing. Nobody packages on-premise/Indian data residency at an affordable price. Nobody prices for 'institution-sized free tier for founders, paid for institutions' - every major platform sells seats and penalises exactly the population an incubator has most of.",
+      "gap_detail": "on-premise / Indian data residency as a standard affordable option; no-per-seat institutional pricing; published procurement-ready India price list",
+      "why_india": "Only Incubatee, IncubatX and Orbit publish an India price list",
+      "nearest_competitor": "VentureLink ('no per-user fees') and Incubatee (mentors/startups unbilled) have the right shape",
+      "verdict": "A NEAR-UNIVERSAL PROCUREMENT REQUIREMENT THAT NOBODY PRICES"
+    },
+    {
+      "gap_id": "GAP-13",
+      "title": "A verifiable Indian reference institution",
+      "severity": "MEDIUM",
+      "competitors_with": 1,
+      "competitors_total": 11,
+      "evidence": "EcoSync, Orbit, Incubatee, IncubatX, RiserNest, VentureLink: ZERO third-party reviews. Gohorto: 3 reviews, one vendor-referred. Founderhood: 1 G2 + 2 Capterra. AcceleratorApp: none found. incuTrack: 10 G2 (3.8), recent ones calling it 'quite outdated'. Accubate: 26 Capterra (4.8) - the only real base, but no Indian institution is named among its marquee logos. AcceleratorApp has the best academic logos and ZERO Indian institutions.",
+      "gap_detail": "one published, verifiable Indian university case study with named referees",
+      "why_india": "No competitor can prove a large Indian institution runs on their software",
+      "nearest_competitor": "Accubate - 26 reviews but documentation-poor with a broken pricing page",
+      "verdict": "WORTH MORE THAN ANY FEATURE ON THE COMPARISON TABLE - AND IT TAKES MONTHS, SO START EARLY"
+    }
+  ]
+}

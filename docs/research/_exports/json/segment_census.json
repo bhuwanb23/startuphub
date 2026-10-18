@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "project": "StartupHub",
+    "phase": "Phase 0 — Positioning, Landscape Sweep & Competitive Deep Dive",
+    "phase_number": 0,
+    "status": "Complete (initial pass)",
+    "compiled": "2026-10-18",
+    "access_date": "2026-10-18",
+    "geography": "India",
+    "evidence_grading": {
+      "1": "Primary — government publications, official statistics, official pricing pages, statutes, our own interviews/pilot data",
+      "2": "High-quality secondary — IIM/IIIT research, established consulting, World Bank/OECD, peer-reviewed",
+      "3": "Market intelligence — Tracxn, Crunchbase, Factly/Dataful, SaaS directories (G2, Capterra, GetApp)",
+      "4": "Community — vendor blogs, LinkedIn, Reddit, YouTube, review-site excerpts"
+    },
+    "reliability_markers": {
+      "VERIFIED": "read directly from a primary source",
+      "LISTED": "third-party directory, not the vendor",
+      "NOT_PUBLIC": "gated behind login or sales call",
+      "UNVERIFIED": "could not be confirmed; do not cite externally"
+    },
+    "fx_assumption": {
+      "USD_INR": 90,
+      "GBP_INR": 135,
+      "note": "directional only"
+    },
+    "exported_at": "2026-10-18T17:33:17+00:00",
+    "record_count": 20,
+    "note": "conflict=true marks rows where sources disagree. Never collapse these into a single number."
+  },
+  "records": [
+    {
+      "segment": "All HEIs (AISHE frame)",
+      "count": 64756,
+      "unit": "institutions",
+      "as_of": "2023-24",
+      "source_id": "GOV-001",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Latest published AISHE edition. 2024-25 still in error-rectification."
+    },
+    {
+      "segment": "Colleges",
+      "count": 48246,
+      "unit": "institutions",
+      "as_of": "2023-24",
+      "source_id": "GOV-002",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "70.0% private unaided, 12.9% private aided, 17.1% government. 4,787 (10.3%) exclusively for women."
+    },
+    {
+      "segment": "Standalone institutions",
+      "count": 15221,
+      "unit": "institutions",
+      "as_of": "2023-24",
+      "source_id": "GOV-002",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Only 77.4% responded — the weakest category."
+    },
+    {
+      "segment": "Universities",
+      "count": 1289,
+      "unit": "institutions",
+      "as_of": "2023-24",
+      "source_id": "GOV-002",
+      "reliability": "HIGH",
+      "conflict": true,
+      "notes": "UGC's different frame says 1,153. Do not mix. See OQ-06."
+    },
+    {
+      "segment": "Autonomous colleges",
+      "count": 578,
+      "unit": "institutions",
+      "as_of": "unlabelled",
+      "source_id": "GOV-005",
+      "reliability": "MEDIUM",
+      "conflict": true,
+      "notes": "Dashboard vintage unlabelled; exceeds published AISHE 2023-24 totals. See OQ-07."
+    },
+    {
+      "segment": "AICTE technical institutions",
+      "count": 8489,
+      "unit": "institutions",
+      "as_of": "Apr 2026",
+      "source_id": "GOV-004",
+      "reliability": "MEDIUM",
+      "conflict": true,
+      "notes": "PRS Tier 2 compilation. AICTE dashboard returned HTTP 404. Engineering-college-only count UNVERIFIED. See OQ-02."
+    },
+    {
+      "segment": "Medical colleges",
+      "count": 823,
+      "unit": "institutions",
+      "as_of": "Apr 2026",
+      "source_id": "GOV-004",
+      "reliability": "MEDIUM",
+      "conflict": false,
+      "notes": "NMC."
+    },
+    {
+      "segment": "Teacher training institutions",
+      "count": 17752,
+      "unit": "institutions",
+      "as_of": "Apr 2026",
+      "source_id": "GOV-004",
+      "reliability": "MEDIUM",
+      "conflict": false,
+      "notes": "NCTE."
+    },
+    {
+      "segment": "IICs established",
+      "count": 6400,
+      "unit": "councils",
+      "as_of": "Nov 2022",
+      "source_id": "GOV-006",
+      "reliability": "HIGH",
+      "conflict": true,
+      "notes": "LAST OFFICIAL PIB COUNT — four years stale. Current figure UNVERIFIED. See OQ-01 — BLOCKING."
+    },
+    {
+      "segment": "Atal Incubation Centres + ACICs",
+      "count": 103,
+      "unit": "centres",
+      "as_of": "Mar 2026",
+      "source_id": "GOV-008",
+      "reliability": "HIGH",
+      "conflict": true,
+      "notes": "83 AIC + 20 ACIC across 28 S/UTs. AIM site says 72; AIC page says 69. Incubated 6,782 startups."
+    },
+    {
+      "segment": "Atal Tinkering Labs",
+      "count": 10000,
+      "unit": "labs",
+      "as_of": "Jan 2026",
+      "source_id": "GOV-009",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Across 733 districts; 1.1 crore+ students."
+    },
+    {
+      "segment": "DST TBIs",
+      "count": 175,
+      "unit": "incubators",
+      "as_of": "Jan 2026",
+      "source_id": "GOV-010",
+      "reliability": "HIGH",
+      "conflict": true,
+      "notes": "'175+' PIB; DST page says 'more than 160'; ISTI says 164. Name the source whenever citing."
+    },
+    {
+      "segment": "MeitY Startup Hub incubators",
+      "count": 517,
+      "unit": "incubators",
+      "as_of": "Dec 2025",
+      "source_id": "GOV-012",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Closest official national incubator count. Also 329+ labs, 6,148+ startups."
+    },
+    {
+      "segment": "BIRAC BioNEST bio-incubators",
+      "count": 74,
+      "unit": "incubators",
+      "as_of": "current",
+      "source_id": "GOV-011",
+      "reliability": "HIGH",
+      "conflict": true,
+      "notes": "Same page's table footer reads 'Showing 1 to 10 of 75'."
+    },
+    {
+      "segment": "DPIIT-recognised startups",
+      "count": 223000,
+      "unit": "startups",
+      "as_of": "31 Mar 2026",
+      "source_id": "GOV-013",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "23.36 lakh+ direct jobs; 1.07 lakh (48%) women-led. 55,200+ recognised in FY2025-26."
+    },
+    {
+      "segment": "Startups incubated in AICs",
+      "count": 6782,
+      "unit": "startups",
+      "as_of": "Mar 2026",
+      "source_id": "GOV-008",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": ">2,000 women-led / socially inclusive."
+    },
+    {
+      "segment": "Startups supported by DST NIDHI",
+      "count": 12000,
+      "unit": "startups",
+      "as_of": "Jan 2026",
+      "source_id": "GOV-010",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "1,30,000+ jobs; 1,100+ IP."
+    },
+    {
+      "segment": "Kerala IEDCs",
+      "count": 375,
+      "unit": "IEDCs",
+      "as_of": "current",
+      "source_id": "GOV-042",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Across colleges and universities. Most developed institution-facing state programme."
+    },
+    {
+      "segment": "Institutionally-attributable recognised startups",
+      "count": 5490,
+      "unit": "ventures",
+      "as_of": "2024-2026",
+      "source_id": "GOV-030",
+      "reliability": "MEDIUM",
+      "conflict": false,
+      "notes": "Deduplicated distinct ventures across 204 institutions (from 6,817 rows). Most reachable cohort. Tier 3 source."
+    },
+    {
+      "segment": "Registered innovation facilities",
+      "count": 3249,
+      "unit": "IPR/TTO offices",
+      "as_of": "current",
+      "source_id": "GOV-007",
+      "reliability": "HIGH",
+      "conflict": false,
+      "notes": "Plus 5,157 pre-incubation and 3,083 incubation facilities."
+    }
+  ]
+}

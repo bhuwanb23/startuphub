@@ -6,6 +6,16 @@
 **Status:** Phase 0 complete (initial pass)
 **Last updated:** 18 October 2026
 
+> ### 📦 Want data, not prose?
+> Every finding below is also available as **Excel, CSV, JSON, Word, SVG, PNG and PowerPoint-ready charts**.
+> Go to **[`ASSETS.md`](../ASSETS.md)** — or jump straight to:
+> - 📊 [`_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx`](../_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx) — all 12 sheets
+> - 📄 [`_exports/docx/StartupHub_Phase0_Findings.docx`](../_exports/docx/StartupHub_Phase0_Findings.docx) — the written synthesis
+> - 🖼️ [`_exports/charts/`](../_exports/charts/) — 9 slide-ready PNGs
+> - 🔐 [`_exports/raw/manifest.json`](../_exports/raw/manifest.json) — every file SHA-256 hashed
+>
+> Rebuild everything with `python build/build_all.py`.
+
 ---
 
 ## 1. What this repository is for
@@ -27,6 +37,26 @@ Three rules govern everything:
 ```
 research/
 ├── todo.md                          The 34-phase master plan (unchanged)
+├── ASSETS.md                        ⭐ INDEX of every generated file and format
+├── _exports/                        ⭐ ALL non-markdown output (regenerable)
+│   ├── xlsx/                        6 Excel workbooks
+│   ├── docx/                        5 Word documents
+│   ├── csv/                         11 CSV files, 253 rows
+│   ├── json/                        9 datasets
+│   ├── charts/                      9 data charts (PNG)
+│   ├── diagrams/                    5 Mermaid diagrams (mmd + svg + png)
+│   ├── datasets/                    raw dataset samples
+│   └── raw/                         unedited research output + SHA-256 manifest
+├── build/                           ⭐ reproducible build pipeline
+│   ├── build_all.py                 runs everything (13s)
+│   ├── render_diagrams.py           mmd -> svg + png
+│   ├── build_data.py                -> csv + json
+│   ├── build_xlsx.py                -> xlsx
+│   ├── build_charts.py              -> png charts
+│   ├── build_docx.py                -> docx
+│   ├── build_raw.py                 -> schemas + manifest
+│   └── data_*.py                    ⭐ canonical data (single source of truth)
+│
 ├── 00_Research_Index/               ← YOU ARE HERE
 │   ├── README.md                    this file
 │   ├── Source_Registry.csv          every source, with tier + access date
@@ -69,6 +99,21 @@ research/
 ├── 13_Synthesis/                    cross-cutting findings + narrowing candidates
 └── 14_Assets/                       diagrams, logos, chart sources
 ```
+
+---
+
+## 2b. The two layers
+
+There are exactly two kinds of file in this repository, and the distinction matters:
+
+| Layer | Location | What it is | Edit it by |
+|---|---|---|---|
+| **Narrative** | `*.md` in the topic folders | The reasoning. Why a number matters, what it contradicts, what it implies | Writing |
+| **Data** | `build/data_*.py` | The facts. Every figure, every source, every score | The canonical Python modules |
+
+Everything in `_exports/` is **derived** from the data layer and regenerates with one command. That means the CSV, JSON, Excel, Word and chart versions of a claim can never drift from the markdown — there is a single source of truth per fact, and the narrative is commentary on top of it.
+
+**Never hand-edit a file in `_exports/`.** Change `build/data_*.py` (or the `.md`) and re-run `python build/build_all.py`.
 
 ---
 
