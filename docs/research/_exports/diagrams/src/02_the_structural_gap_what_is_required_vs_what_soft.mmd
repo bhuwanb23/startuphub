@@ -1,0 +1,61 @@
+graph LR
+    subgraph REQ["WHAT INSTITUTIONS ARE REQUIRED TO REPORT"]
+        R1["IIC<br/>16+ activities/yr<br/>evidence pack each<br/>⭐ 1-5 star rating"]
+        R2["YUKTI-NIR<br/>TRL 1-4 / 5-9 / Startup<br/>HEI-side verifier<br/>⭐ AUTO-FLOWS TO ARIIA"]
+        R3["NIRF Innovation<br/>6 parameters<br/>~11 screens PER DISCIPLINE<br/>⭐ SU = 20 x f(DPIIT startups)"]
+        R4["ARIIA<br/>100+ indicators, 5 categories<br/>incl. Patent Application No"]
+        R5["DST / BIRAC / MeitY<br/>grant utilisation<br/>audited certificates · PFMS"]
+        R6["AISHE<br/>institutional registry<br/>AISHE code = the key"]
+    end
+
+    subgraph UNIT["THE UNIT OF RECORD — different everywhere"]
+        U1["the activity/event"]
+        U2["the innovation snapshot"]
+        U3["the spreadsheet row"]
+        U4["institution-year aggregate"]
+        U5["the recognition certificate"]
+    end
+
+    subgraph MISSING["WHAT EXISTS NOWHERE"]
+        M1["❌ venture entity<br/>with STATE OVER TIME"]
+        M2["❌ venture survival<br/>'how many are still alive?'"]
+        M3["❌ patent docket<br/>deadlines · renewals · annuity"]
+        M4["❌ TRL progression 1→9"]
+        M5["❌ grant source → tranche → receipt"]
+        M6["❌ retroactive audit trail"]
+    end
+
+    subgraph FIX["STARTUPHUB — the wedge"]
+        F1["Single venture record<br/>entered ONCE"]
+        F2["→ generates all 6<br/>mandated submissions"]
+        F3["→ IPR docket + TRL engine<br/>nobody else has"]
+    end
+
+    R1 --> U1
+    R2 --> U2
+    R3 --> U3
+    R4 --> U4
+    R5 --> U5
+    R6 --> U4
+
+    U1 & U2 & U3 & U4 & U5 --> M1
+    M1 --> M2
+    U1 --> M3
+    U2 --> M4
+    U5 --> M5
+    U1 --> M6
+
+    F1 --> F2
+    F2 -.->|"replaces"| U1
+    F3 -.->|"fills"| M3
+    F3 -.->|"fills"| M4
+
+    classDef req fill:#1e3a5f,stroke:#3b82f6,color:#fff
+    classDef unit fill:#3f2d0a,stroke:#f59e0b,color:#fff
+    classDef miss fill:#7f1d1d,stroke:#ef4444,color:#fff,stroke-width:2px
+    classDef fix fill:#134e4a,stroke:#10b981,color:#fff,stroke-width:3px
+
+    class R1,R2,R3,R4,R5,R6 req
+    class U1,U2,U3,U4,U5 unit
+    class M1,M2,M3,M4,M5,M6 miss
+    class F1,F2,F3 fix

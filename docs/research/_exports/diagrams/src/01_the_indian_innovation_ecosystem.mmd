@@ -1,0 +1,86 @@
+graph TB
+    subgraph GOV["GOVERNMENT LAYER"]
+        DPIIT["DPIIT<br/>Startup India · BHASKAR"]
+        MOE["MoE · MIC<br/>IIC Portal · YUKTI-NIR"]
+        AIM["NITI Aayog · AIM<br/>ARIIA · ATL · AIC"]
+        NIRF["MoE<br/>NIRF Innovation"]
+        DST["DST<br/>NIDHI · TBIs"]
+        MEITY["MeitY<br/>TIDE 2.0 · GENESIS"]
+        BIRAC["BIRAC<br/>BIG · BioNEST"]
+        STATE["State Missions<br/>31 of 36 states"]
+    end
+
+    subgraph INST["INSTITUTION LAYER — StartupHub's customer"]
+        HEI["University / College<br/>1,289 universities<br/>48,246 colleges"]
+        IIC["Institution's Innovation Council<br/>6,400+ (2022, stale)"]
+        INC["Incubation / Pre-Incubation<br/>3,083 · 5,157 facilities"]
+        TTO["IPR / TTO<br/>3,249 offices"]
+        DEPT["Departments<br/>each own coordinator + budget"]
+    end
+
+    subgraph CORE["THE GAP"]
+        SOR["⚠️ SYSTEM OF RECORD<br/>for the venture entity<br/>exists nowhere"]
+    end
+
+    subgraph STARTUP["STARTUP LAYER"]
+        PRE["Pre-Incubation<br/>unincorporated"]
+        V1["Idea → Validation<br/>TRL 1-4"]
+        V2["Incubation<br/>TRL 5-9"]
+        V3["IPR / Patent<br/>TRL 10"]
+        V4["Funding → Market<br/>DPIIT recognised"]
+        V5["Growth"]
+    end
+
+    subgraph ECO["ECOSYSTEM PARTICIPANTS"]
+        MENTOR["Mentors<br/>NDA-gated"]
+        IPRX["IPR Professionals<br/>Patent Agents"]
+        INV["Investors"]
+        CORP["Corporates · CSR"]
+        RES["Resources<br/>Labs · Space · Tools"]
+    end
+
+    DPIIT -->|"recognition number"| V4
+    DPIIT -.->|"⚠️ no institution dashboard"| HEI
+    MOE -->|"16+ activities/yr<br/>council-meeting GATE"| IIC
+    MOE -->|"TRL banding<br/>auto-flows to ARIIA"| TTO
+    AIM -->|"100+ indicators"| HEI
+    NIRF -->|"~11 screens PER DISCIPLINE"| HEI
+    DST -->|"grant + audited utilisation"| INC
+    MEITY -->|"₹15-50L grants"| INC
+    BIRAC -->|"₹50L BIG grants"| V1
+    STATE -->|"separate IDs<br/>no API"| HEI
+
+    HEI --> IIC
+    IIC --> INC
+    IIC --> TTO
+    DEPT -->|"spreadsheets + WhatsApp"| IIC
+    DEPT -.->|"manual consolidation"| CORE
+
+    INC --> PRE
+    PRE --> V1
+    V1 --> V2
+    V2 --> V3
+    V3 --> V4
+    V4 --> V5
+
+    MENTOR -->|"session hours logged<br/>against scheme utilisation"| V2
+    TTO -->|"disclosure → patent<br/>→ licence → royalty"| V3
+    IPRX --> V3
+    INV --> V4
+    CORP --> V2
+    RES --> V1
+
+    SOR -.->|"should sit HERE"| V1
+    SOR -.->|"should sit HERE"| V3
+
+    classDef gov fill:#1e3a5f,stroke:#3b82f6,color:#fff
+    classDef inst fill:#134e4a,stroke:#14b8a6,color:#fff
+    classDef gap fill:#7f1d1d,stroke:#ef4444,color:#fff,stroke-width:3px
+    classDef startup fill:#3f2d0a,stroke:#f59e0b,color:#fff
+    classDef eco fill:#2e1a47,stroke:#a855f7,color:#fff
+
+    class DPIIT,MOE,AIM,NIRF,DST,MEITY,BIRAC,STATE gov
+    class HEI,IIC,INC,TTO,DEPT inst
+    class SOR gap
+    class PRE,V1,V2,V3,V4,V5 startup
+    class MENTOR,IPRX,INV,CORP,RES eco

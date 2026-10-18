@@ -1,0 +1,68 @@
+flowchart TB
+    subgraph NOW["CURRENT PROCESS — reconstructed from official forms"]
+        N1["Student idea<br/>WhatsApp group"]
+        N2["IIC coordinator<br/>asks in group"]
+        N3["Coordinator types into<br/>GOOGLE SHEET"]
+        N4["Department coordinator<br/>emails own spreadsheet"]
+        N5["Coordinator copy-pastes<br/>into master file ⚠️"]
+        N6["Re-types same startup<br/>into NIRF form<br/>PER DISCIPLINE"]
+        N7["Re-types into<br/>YUKTI-NIR<br/>DIFFERENT LOGIN"]
+        N8["Hand-builds ARIIA<br/>submission PDF"]
+        N9["Tracked patents in a<br/>PRIVATE REGISTER<br/>re-keyed every year"]
+        N10["Mentorship in WhatsApp<br/>threads 📱"]
+        N11["Reports in Word<br/>month-end blackout"]
+    end
+
+    N1 --> N2 --> N3 --> N4 --> N5
+    N3 --> N6
+    N5 --> N6
+    N5 --> N7
+    N6 --> N8
+    N9 --> N6
+    N10 --> N11
+    N5 --> N11
+
+    subgraph PAIN["PAIN POINTS"]
+        P1["Duplicate entry 3-6x/yr"]
+        P2["No relational integrity<br/>same startup, divergent rows"]
+        P3["No permissions model<br/>mentors see everything"]
+        P4["No audit trail<br/>impossible to evidence"]
+        P5["Council-meeting minutes<br/>GATE all activity filing"]
+        P6["Cannot answer<br/>'how many are still alive?'"]
+    end
+
+    subgraph SH["STARTUPHUB PROCESS"]
+        S1["Idea / innovation<br/>captured once"]
+        S2["Venture record<br/>+ TRL engine"]
+        S3["IPR docket<br/>deadlines tracked"]
+        S4["Mentor sessions<br/>NDA-tiered visibility"]
+        S5["Grants ledger<br/>source → tranche → receipt"]
+    end
+
+    subgraph OUT["MANDATED SUBMISSIONS — generated as a by-product"]
+        O1["IIC activity pack"]
+        O2["YUKTI-NIR → auto-pools to ARIIA"]
+        O3["NIRF Innovation — entered once, all disciplines"]
+        O4["ARIIA submission"]
+        O5["DST / BIRAC utilisation report"]
+    end
+
+    S1 --> S2 --> S3
+    S2 --> S4
+    S2 --> S5
+    S3 --> O2
+    S2 --> O1
+    S2 --> O2
+    S2 --> O3
+    S2 --> O4
+    S5 --> O5
+
+    classDef now fill:#450a0a,stroke:#ef4444,color:#fff
+    classDef pain fill:#78350f,stroke:#f59e0b,color:#fff
+    classDef sh fill:#134e4a,stroke:#10b981,color:#fff
+    classDef out fill:#1e3a5f,stroke:#3b82f6,color:#fff
+
+    class N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11 now
+    class P1,P2,P3,P4,P5,P6 pain
+    class S1,S2,S3,S4,S5 sh
+    class O1,O2,O3,O4,O5 out
