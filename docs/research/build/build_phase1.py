@@ -29,6 +29,7 @@ ROOT = HERE.parent
 
 import data_p1_iic as D        # noqa: E402
 import data_p1_registry as R   # noqa: E402
+import data_p1_problems as PR  # noqa: E402
 
 OUT = ROOT / "_exports" / "phase1"
 VAULT = ROOT / "01_Evidence_Vault"
@@ -571,6 +572,121 @@ def write_corpus_index():
     return stats
 
 
+def write_problem_analyses():
+    """01_Problem_Research/A_Institutional_Problems/ - the ten written analyses."""
+    errs = PR.validation()
+    if errs:
+        raise SystemExit("Problem records failed validation:\n  - " + "\n  - ".join(errs))
+
+    adir = PROB / "A_Institutional_Problems"
+    adir.mkdir(parents=True, exist_ok=True)
+    quotes_by_id = {q["qid"]: q for q in R.QUOTES}
+    corpus_by_id = {r["id"]: r for r in D.IIC_REPORTS}
+    written = []
+
+    for p in PR.PROBLEMS:
+        L = [f"# {p['id']} - {p['title']}", "",
+             f"**Evidence grade:** `{p['evidence_grade']}` - {PR.EVIDENCE_GRADES[p['evidence_grade']]}",
+             "",
+             f"**Severity:** `{p['severity']}` - {PR.SEVERITY_SCALE[p['severity']]}",
+             "",
+             f"**Corpus documents cited:** {', '.join('`' + c + '`' for c in p['cited_corpus_ids'])}",
+             "",
+             "> **Not an observed user problem.** Phase 3 user interviews have not been conducted. "
+             "This is documentary analysis of what institutions publish about themselves. Do not "
+             "present it to a third party as an observed user problem.", "",
+             "---", "", "## Statement", "", p["statement"], "",
+             "## Evidence", ""]
+        for e in p["evidence"]:
+            L.append(f"- {e}")
+        L += ["", "### What is still missing", "", p["evidence_gap"], "",
+              "## Who experiences it", "", p["who_experiences_it"], "",
+              f"## Severity - {p['severity']}", "", p["severity_justification"], "",
+              "## Frequency", "", p["frequency"], "",
+              "## Current workaround", "", p["current_workaround"], "",
+              "## Quantified cost", "", p["quantified_cost"], "",
+              "## Failure consequence", "", p["failure_consequence"], "",
+              "## Potential fixer", "", p["potential_fixer"], "",
+              "## Competitive implication", "", p["competitive_implication"], ""]
+
+        if p["quotes"]:
+            L += ["## Verbatim evidence quoted", ""]
+            for qid in p["quotes"]:
+                q = quotes_by_id[qid]
+                L += [f"**{qid}** - {q['institution']} ({q['year']}), `{q['doc_id']}`", "",
+                      f"> {q['quote']}", "",
+                      f"<{q['url']}> - accessed {q['access_date']}, tier {q['tier']}. "
+                      "Extracted from a PDF text layer: **re-verify visually before external use.**",
+                      ""]
+
+        L += ["## Source documents", "", "| Corpus ID | Institution | Type | State | Year |",
+              "|---|---|---|---|---|"]
+        for c in p["cited_corpus_ids"]:
+            r = corpus_by_id[c]
+            L.append(f"| `{r['id']}` | {r['short_name']} | {r['institution_type']} | "
+                     f"{r['state']} | {r['year'] or '-'} |")
+        L += ["", "Full records: `_exports/phase1/csv/iic_reports_wide.csv`. "
+              "Derived findings: `_exports/phase1/md/iic_corpus_analysis.md`.", ""]
+
+        path = adir / f"{p['id']}_{p['title'][:52].replace(' ', '_').replace(',', '').replace('/', '')}.md"
+        path.write_text("\n".join(L), encoding="utf-8")
+        written.append((p, path))
+
+    write_problem_index(written, adir)
+    return written
+
+
+def write_problem_index(written, adir):
+    grades = PR.grade_counts()
+    sevs = PR.severity_counts()
+    L = ["# Section A - Ten Institutional Problems", "",
+         "todo.md Section A asks for evidence on ten institutional problems. This folder holds one "
+         "analysis per problem, each built to the same nine fields.", "",
+         "## Read this first", "",
+         "**No user interviews have been conducted.** Phase 3 has not started. Everything here is "
+         "documentary analysis of documents institutions published about themselves. This is "
+         "evidence about *reporting behaviour*, which is real and useful, but it is not the same "
+         "thing as evidence about what users say they struggle with. Phase 3 may revise these "
+         "rankings substantially - that is the correct outcome, not a problem with the work.", "",
+         "## Evidence grades", "",
+         "| Grade | Meaning |", "|---|---|"]
+    for g, m in PR.EVIDENCE_GRADES.items():
+        L.append(f"| `{g}` | {m} |")
+    L += ["", f"Distribution: "
+          + ", ".join(f"{v} {k}" for k, v in sorted(grades.items(), key=lambda kv: -kv[1])) + ".", "",
+          "### Severity distribution", "",
+          "| Severity | Meaning | n |", "|---|---|---|"]
+    for s in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
+        if sevs.get(s):
+            L.append(f"| `{s}` | {PR.SEVERITY_SCALE[s]} | {sevs[s]} |")
+    L += ["", "## The ten problems", "",
+          "| # | ID | Problem | Grade | Severity |", "|---|---|---|---|---|"]
+    for p, _ in written:
+        L.append(f"| {p['number']} | [`{p['id']}`]({p['id']}_"
+                 f"{p['title'][:52].replace(' ', '_').replace(',', '').replace('/', '')}.md) "
+                 f"| {p['title']} | `{p['evidence_grade']}` | `{p['severity']}` |")
+    L += ["", "## What is strongest and what is weakest", "",
+          "**Strongest.** `P-A07` (IP deadlines and IP records) is the only CRITICAL. It is the "
+          "strongest finding in Phase 1 because it is corroborated from two independent directions: "
+          "peer-reviewed TTO literature on the cost of missed prosecution deadlines, and 36 "
+          "institutional reports in which no deadline field appears. It also independently confirms "
+          "the Phase 0 thesis that no competitor has an IPR module.", "",
+          "**Weakest, and deliberately labelled.** `P-A03` (incubator cohorts) is graded HYPOTHESIS "
+          "and `P-A05` (mentorship) is SINGLE-SOURCE. Both describe plausible institutional problems "
+          "that this corpus **cannot** evidence. P-A03 in particular is an absence-of-evidence "
+          "finding: the IIC form does not ask about cohorts, so their absence from the reports "
+          "proves nothing about whether institutions manage them.", "",
+          "**The gap that matters most.** `P-A10` shows institutional data is consolidated manually "
+          "across departments, but no retrieved document reveals any institution's *internal* "
+          "tooling. We have only ever seen the export. Until Phase 3 establishes what sits "
+          "upstream - Excel, an ERP, or paper - todo.md Section B's \"Excel dependency\" claims "
+          "remain unevidenced and must not be asserted in any external material.", "",
+          "---", "",
+          "Section B (operational problems) and Section C (evidence register) have not been written.",
+          "Corpus index: [`../01_Evidence_Corpus/README.md`](../01_Evidence_Corpus/README.md)", ""]
+    (adir / "README.md").write_text("\n".join(L), encoding="utf-8")
+
+
 def write_raw_layer():
     """_exports/raw/ - the raw work layer. Machine-extracted text, not edited."""
     raw = ROOT / "_exports" / "raw"
@@ -590,6 +706,9 @@ def write_raw_layer():
         registry_rows=build_registry_rows(),
         quotes=R.QUOTES,
         academic_evidence=R.ACADEMIC_EVIDENCE,
+        problem_analyses_section_a=PR.PROBLEMS,
+        problem_grade_scale=PR.EVIDENCE_GRADES,
+        problem_severity_scale=PR.SEVERITY_SCALE,
     )
     p.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return p
@@ -681,6 +800,12 @@ def main():
     stats = write_corpus_index()
     print(f"  01_Problem_Research/01_Evidence_Corpus/README.md   "
           f"{stats['documents']}/{stats['target_documents']} docs indexed")
+
+    written = write_problem_analyses()
+    print(f"  01_Problem_Research/A_Institutional_Problems/       "
+          f"{len(written)} analyses + README")
+    for p, path in written:
+        print(f"      {p['id']}  {p['evidence_grade']:<14} {p['severity']:<9} {path.name}")
 
     reg_rows = build_registry_rows()
     before, added = merge_registry(reg_rows)
