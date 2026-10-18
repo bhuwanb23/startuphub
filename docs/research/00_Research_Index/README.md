@@ -1,0 +1,172 @@
+# StartupHub — Research Index
+
+**Purpose:** the single navigation point for all StartupHub research. Every document in this repository should be reachable from here, and every factual claim should be traceable to a row in `Source_Registry.csv`.
+
+**Current phase:** Phase 0 — Landscape Sweep & Competitive Deep Dive
+**Status:** Phase 0 complete (initial pass)
+**Last updated:** 18 October 2026
+
+---
+
+## 1. What this repository is for
+
+The master plan is in [`../todo.md`](../todo.md) — 34 research phases ending in a defensible pitch.
+
+This repository is organised **by type of evidence**, not by phase. That is deliberate: a claim gathered in Phase 9 and a claim gathered in Phase 20 belong in the same place if they prove the same thing. Phases are *when we look*; folders are *where evidence lives*.
+
+Three rules govern everything:
+
+1. **No naked claims.** Every factual assertion carries a source, an access date, and a tier grade. An assertion without a source is marked `⚠️ UNVERIFIED` — it is not deleted, it is flagged.
+2. **Contradictions are logged, not smoothed.** If two sources disagree, both go in `Open_Questions.md`. We do not average them.
+3. **Nothing is narrowed prematurely.** Segment shortlisting happens from evidence, at the end, in `13_Synthesis/`.
+
+---
+
+## 2. Folder map
+
+```
+research/
+├── todo.md                          The 34-phase master plan (unchanged)
+├── 00_Research_Index/               ← YOU ARE HERE
+│   ├── README.md                    this file
+│   ├── Source_Registry.csv          every source, with tier + access date
+│   ├── Decision_Log.md              what we decided and on what evidence
+│   └── Open_Questions.md            unresolved conflicts and gaps
+│
+├── 01_Evidence_Vault/               THE PROOF LAYER — quotations only, no opinion
+│   ├── Quotes/                      verbatim, attributed
+│   ├── Datasets/                    raw CSVs
+│   ├── Screenshots/                 portal captures
+│   └── Diagrams/                    rendered assets
+│
+├── 02_Landscape_Map/                How big is each segment, really?
+│   ├── Segment_Census.md            ← START HERE for denominators
+│   ├── Universities/
+│   ├── Engineering_Colleges/
+│   ├── IIC_and_TBI/
+│   ├── Incubators_Accelerators/
+│   ├── Startups_and_Cohorts/
+│   └── Government_Schemes/
+│
+├── 03_Problem_Evidence/             Problem → hard evidence (feeds Phase 1)
+├── 04_Competitor_DeepDive/          ← the highest-value Phase 0 output
+│   ├── 00_INDEX.md                  read this first
+│   ├── Direct/                      11 dossiers
+│   ├── Ecosystem_Platforms/         the mandatory government stack
+│   ├── Indirect_Alternatives/       what they use if we don't exist
+│   ├── Global/                      international players
+│   ├── Pricing_Evidence.md          every real, cited price
+│   └── Positioning_Map.md           where the white space is
+│
+├── 05_Government_Data/              DPIIT, MoE/MIC, AICTE, UGC, DST, MeitY, states
+├── 06_Pricing_Evidence/             pricing deep-dive (Phase 8)
+├── 07_Workflow_CurrentState/        how institutions actually work today
+├── 08_User_Roles/                   who uses / decides / pays / approves
+├── 09_Market_Data/                  raw market inputs (feeds Phase 7)
+├── 10_AI_Opportunity/               where AI genuinely creates value
+├── 11_Legal_Policy_Tech/            DPDP, procurement, tenancy, security
+├── 12_Partners_Ecosystem/           IIC networks, DST-TBIs, state missions
+├── 13_Synthesis/                    cross-cutting findings + narrowing candidates
+└── 14_Assets/                       diagrams, logos, chart sources
+```
+
+---
+
+## 3. Evidence grading standard
+
+Adapted from todo.md Phase 32. Applied to every row in `Source_Registry.csv`.
+
+| Tier | Meaning | Examples | Use for |
+|---|---|---|---|
+| **T1 — Primary** | The origin of the fact | Government publications, official statistics, official pricing pages, statutes/gazettes, our own interviews and pilot data | Market sizing, compliance claims, pricing |
+| **T2 — High-quality secondary** | Reputable analysis of primary data | IIM/IIIT research, established consulting, World Bank/OECD, peer-reviewed work | Framing, triangulation |
+| **T3 — Market intelligence** | Commercially motivated | Tracxn, Crunchbase, Factly/Dataful, SaaS directories (G2, Capterra, GetApp) | Vendor sizing, review sentiment — **never** for market size |
+| **T4 — Community** | Anecdotal, unverified | Vendor blogs, LinkedIn posts, Reddit, YouTube, review-site excerpts | Sentiment, complaints, discovery of leads — **never** for any number in the pitch |
+
+### Reliability markers used in documents
+
+- 🟢 **VERIFIED** — read directly from a primary source
+- 🟡 **LISTED** — third-party directory, not the vendor
+- 🔴 **NOT PUBLIC** — gated behind login/sales call
+- ⚠️ **UNVERIFIED** — could not be confirmed; do not cite externally
+
+### Additional honesty rules
+
+- **Access date is mandatory.** Government portals change without notice; a figure without a date is not citable.
+- **Conflicts get named, not resolved by convenience.** See `Open_Questions.md`.
+- **Absence of evidence is recorded as a finding.** "No peer-reviewed literature quantifies Indian institutional reporting burden" is itself a research result and is logged as such.
+
+---
+
+## 4. Citation format
+
+Inside documents:
+
+```
+Claim → Source Organisation, Title, As-of Date. <URL> [Tier, Reliability]
+Example: 2.23 lakh+ DPIIT-recognised startups as of 31 Mar 2026.
+         PIB/DPIIT. <https://pib.gov.in/PressReleasePage.aspx?PRID=2253019> [T1, HIGH]
+```
+
+In the registry, `Source_Registry.csv` uses these columns:
+
+```
+id, research_area, claim_supported, source_org, source_type, tier, reliability,
+url, publication_date, access_date, geography, customer_segment, notes
+```
+
+---
+
+## 5. Status board
+
+| Phase | Topic | Status | Primary output |
+|---|---|---|---|
+| **0** | **Positioning + landscape + competitors** | ✅ **Complete (initial pass)** | `04_Competitor_DeepDive/`, `02_Landscape_Map/Segment_Census.md` |
+| 1 | Problem research | 🟡 Seeded | `03_Problem_Evidence/` |
+| 2 | Customer research (roles) | ⬜ Not started | `08_User_Roles/` |
+| 3 | User interviews | ⬜ Not started | — |
+| 4 | Segmentation + ICP | ⬜ Not started (blocked on Phase 3) | — |
+| 5 | Market research | 🟡 Seeded | `02_Landscape_Map/` |
+| 6 | Government data | 🟡 Seeded | `05_Government_Data/` |
+| 7 | TAM/SAM/SOM | ⬜ Deliberately deferred | `09_Market_Data/` |
+| 8 | Pricing | 🟡 Seeded | `06_Pricing_Evidence/` |
+| 9 | Competitors | ✅ **Done in Phase 0** | `04_Competitor_DeepDive/` |
+| 10 | Competitor matrix | ✅ Done | `04_Competitor_DeepDive/Positioning_Map.md` |
+| 11 | Competitor user reviews | 🟡 Partial (thin — see Open Questions) | dossiers |
+| 12 | Feature gap | ✅ Done | `04_.../Positioning_Map.md` |
+| 13–15 | Journey / JTBD / workflow | ⬜ Not started | `07_Workflow_CurrentState/` |
+| 16–18 | Financial model | ⬜ Blocked on pricing validation | `09_Market_Data/` |
+| 19 | GTM | ⬜ Not started | `12_Partners_Ecosystem/` |
+| 20 | Pilot | ⬜ Not started | — |
+| 21 | MVP | ⬜ Deliberately deferred | — |
+| 22–26 | Tech / AI / legal / security / IPR | ⬜ Not started | `10_`, `11_`, `15_` |
+| 27 | Policy | 🟡 Seeded | `05_Government_Data/` |
+| 28 | Ecosystem mapping | ✅ Done | `01_Evidence_Vault/Diagrams/` |
+| 29 | Market alternatives | ✅ Done | `04_.../Indirect_Alternatives/` |
+| 30 | Validation scorecard | ⬜ Blocked on Phase 3 interviews | — |
+| 31–32 | Evidence DB + source hierarchy | ✅ Done | `Source_Registry.csv` |
+| 33 | Final folder structure | ✅ Done | this file |
+| 34 | 30 final questions | ⬜ Partial (Q12–21 largely answerable now) | `13_Synthesis/` |
+
+---
+
+## 6. How to use this repository
+
+- **Building the pitch?** Start at `13_Synthesis/Phase0_Findings.md` — it is written to be quoted.
+- **Sizing a market?** `02_Landscape_Map/Segment_Census.md` has the denominators, with conflicts flagged.
+- **Answering "who does this already?"** `04_Competitor_DeepDive/00_INDEX.md`.
+- **Looking for a quote?** `01_Evidence_Vault/Quotes/`.
+- **Checking whether a number is safe to publish?** `Source_Registry.csv` → find the claim → read the reliability column.
+- **Challenging an assumption?** `Decision_Log.md` shows what we believed and why, so it can be overturned on evidence.
+
+---
+
+## 7. Working agreement for future phases
+
+When a later phase produces evidence:
+
+1. Log the source in `Source_Registry.csv` first.
+2. Put the verbatim material in `01_Evidence_Vault/`.
+3. Write the analysis into the topic folder, citing the registry ID.
+4. If it contradicts something, append to `Open_Questions.md` — do not silently overwrite.
+5. If it changes a decision, append to `Decision_Log.md` with the old and new position.
