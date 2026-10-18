@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "open_questions",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "Unresolved conflicts and gaps. Nothing here is silently resolved.",
+  "record_count": 18,
+  "fields": {
+    "id": "string",
+    "priority": "BLOCKING|HIGH|MEDIUM|LOW",
+    "area": "string",
+    "title": "string",
+    "what_we_know": "string",
+    "why_it_blocks": "string",
+    "what_would_settle_it": "string",
+    "interim_handling": "string",
+    "source_ids": "semicolon-separated FK list",
+    "status": "OPEN|ACCEPTED"
+  }
+}

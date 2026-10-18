@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "competitors",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "Competitor dossiers with feature-coverage scores.",
+  "record_count": 15,
+  "feature_scores": {
+    "scale": "0=Absent 1=Partial 2=Good 3=Strong",
+    "dimensions": [
+      "portfolio",
+      "incubation",
+      "panel_eval_audit",
+      "mentorship",
+      "ipr",
+      "trl",
+      "resources",
+      "programme",
+      "milestones",
+      "funding_ledger",
+      "reporting",
+      "ai",
+      "integrations",
+      "india_compliance",
+      "mandated_export"
+    ]
+  },
+  "fields": {
+    "name": "string",
+    "vendor": "string",
+    "origin": "string",
+    "founded": "string",
+    "category": "string",
+    "url": "string",
+    "price_model": "string",
+    "price_low_inr": "integer|null",
+    "price_high_inr": "integer|null",
+    "pricing_confidence": "VERIFIED|LISTED|NOT_PUBLIC",
+    "indian_customers": "integer",
+    "reviews": "string",
+    "iso_cert": "string",
+    "white_label": "string",
+    "strengths": "string",
+    "weaknesses": "string",
+    "complaints": "string",
+    "does_not_do": "string",
+    "threat_level": "string"
+  }
+}

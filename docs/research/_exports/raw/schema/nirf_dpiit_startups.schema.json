@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nirf_dpiit_startups",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "NIRF institution-wise DPIIT-recognised startup dataset (PAYWALLED - sample rows only obtained).",
+  "record_count": "6817 (not downloaded)",
+  "fields": {
+    "ranking_year": "integer",
+    "institute_id": "string",
+    "institute_name": "string",
+    "state": "string",
+    "city": "string|null",
+    "name_of_venture": "string",
+    "year_of_recognition": "integer",
+    "registration_number": "string"
+  },
+  "meta": {
+    "dataset_name": "NIRF - Year and institution-wise details of startups recognised by DPIIT / Startup India",
+    "publisher": "Factly Media & Research (dataful.in)",
+    "url": "https://dataful.in/datasets/20553",
+    "last_updated": "2026-07-20",
+    "access_date": "2026-10-18",
+    "tier": 3,
+    "reliability": "MEDIUM",
+    "rows_total": 6817,
+    "columns": 8,
+    "time_period": "2024-2026",
+    "granularity": "Year, Institution",
+    "distinct": {
+      "ranking_year": 3,
+      "institute_id": 204,
+      "institute_name": 202,
+      "name_of_venture": 5490,
+      "registration_number": 4538,
+      "state": 26,
+      "city": 80
+    },
+    "paywalled": true,
+    "downloaded": false,
+    "sample_rows_obtained": 10,
+    "stated_limitation": "The data pertains only to those universities/colleges/institutions whose detailed NIRF submissions is uploaded to the NIRF portal.",
+    "analyst_caveats": [
+      "6,817 rows are NOT 6,817 startups. They are startup-rows across THREE ranking years. Deduplicated distinct ventures is approximately 5,490.",
+      "The universe is 204 institutions — a self-selected subset of ~1,200 universities and ~46,000 colleges. This is the innovation-active ELITE, not the HEI population.",
+      "Three snapshots with NO longitudinal join key. A startup appearing in both 2024 and 2026 may be one venture or two.",
+      "institute_id (204 distinct) and institute_name (202 distinct) disagree — a 0.98% dirty-record rate in a government-derived dataset, before any cross-portal join.",
+      "No institute_id to AISHE code crosswalk exists."
+    ],
+    "why_this_matters": [
+      "The elite segment is real and IDENTIFIABLE TODAY: 204 institutions produced ~5,490 DPIIT-recognised startups over three years. Highest startup density, highest willingness to pay, most reachable segment in the entire census.",
+      "The data is machine-extractable: institutions publish their own NIRF Data Capture System PDFs on the open web (verified live at NIT Rourkela, IIM Goa, JBIET, Rajah Serfoji Government College).",
+      "A commercial intermediary has already monetised it. That is both proof of concept for StartupHub's own data asset and a warning that the pure-data play is partly occupied."
+    ],
+    "next_action": "Extract the full NIRF PDF corpus into 01_Evidence_Vault/Datasets/. Highest-priority primary-data task in the project.",
+    "source_id": "GOV-030"
+  }
+}

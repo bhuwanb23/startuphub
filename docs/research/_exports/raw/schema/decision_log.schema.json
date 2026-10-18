@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "decision_log",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "Decisions made, the evidence behind them, and what would reverse them.",
+  "record_count": 12,
+  "fields": {
+    "id": "string",
+    "date": "ISO date",
+    "topic": "string",
+    "decision": "string",
+    "evidence": "string",
+    "reverses_if": "string",
+    "status": "string"
+  }
+}

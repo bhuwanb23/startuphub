@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "positioning_gaps",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "13 capabilities no competitor in the market covers.",
+  "record_count": 13,
+  "fields": {
+    "gap_id": "string",
+    "title": "string",
+    "severity": "CRITICAL|HIGH|MEDIUM",
+    "competitors_with": "integer",
+    "competitors_total": "integer",
+    "evidence": "string",
+    "gap_detail": "string",
+    "why_india": "string",
+    "nearest_competitor": "string",
+    "verdict": "string"
+  }
+}

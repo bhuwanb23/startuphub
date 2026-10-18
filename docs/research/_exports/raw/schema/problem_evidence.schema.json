@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "problem_evidence",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "The 12 problem areas, graded by evidence strength.",
+  "record_count": 12,
+  "fields": {
+    "num": "integer",
+    "area": "string",
+    "grade": "DOCUMENTARY|INFERRED|ASSUMED",
+    "evidence_count": "integer",
+    "evidence": "string",
+    "inference": "string",
+    "still_needs": "string",
+    "source_ids": "semicolon-separated FK list"
+  }
+}

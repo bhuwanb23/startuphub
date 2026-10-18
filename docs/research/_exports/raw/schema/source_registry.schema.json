@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "source_registry",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "Every source cited in the StartupHub research, with tier and reliability grade.",
+  "record_count": 76,
+  "fields": {
+    "id": "string (unique, e.g. GOV-001 / COMP-001)",
+    "area": "string",
+    "claim": "string",
+    "org": "string",
+    "stype": "string",
+    "tier": "integer 1-4",
+    "reliability": "HIGH|MEDIUM|LOW",
+    "url": "string|null",
+    "pub": "ISO date or empty",
+    "access": "ISO date",
+    "segment": "string",
+    "conflict": "boolean (sources disagree)",
+    "notes": "string"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "segment_census",
+  "generated_at": "2026-10-18T17:34:17+00:00",
+  "project": "StartupHub",
+  "phase": 0,
+  "description": "Every denominator for the Indian institutional innovation ecosystem.",
+  "record_count": 20,
+  "fields": {
+    "segment": "string",
+    "count": "integer",
+    "unit": "string",
+    "as_of": "string",
+    "source_id": "string FK -> source_registry.id",
+    "reliability": "HIGH|MEDIUM|LOW",
+    "conflict": "boolean",
+    "notes": "string"
+  }
+}
