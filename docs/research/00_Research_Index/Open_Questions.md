@@ -166,6 +166,64 @@ Zero Indian campus ERP vendors have a genuine startup-incubation module (`COMP-0
 
 ---
 
+## Phase 1 — raised by the IIC annual report corpus (added 2026-10-18)
+
+Evidence base: `_exports/phase1/` — 36 documents, 34 distinct institutions, 25 fully parsed. See `iic_corpus_analysis.md`.
+
+### OQ-19 · `ideas generated` has no common definition, so no cross-institution benchmark exists
+**What we know.** Across 19 institutions publishing both `ideas generated` and `prototypes developed`, the implied conversion ranges from **0.0% to 262.5%** (`IIC-007`). A rate above 100% is arithmetically impossible for a same-year funnel, so at least one of the two fields is counting a different population than its label implies. Institutions reporting 33–38% describe a plausible funnel; institutions reporting 87–100% do not.
+
+**Why it matters.** Any Phase 1 benchmark, ranking, or "how are institutions doing?" chart built on these fields is invalid. This does not affect StartupHub's product thesis — it strengthens it — but it does block Phase 2 segmentation work that assumes comparable outcomes.
+
+**What would settle it.** The IIC-portal field definition/help text; a direct question to two or three of the outlier institutions (EGSPEC, ICFAI Tripura, NIT Andhra Pradesh); or MIC guidance on whether `ideas generated` counts individual submissions or intake headcount.
+
+---
+
+### OQ-20 · Which figure is authoritative when an institution's own narrative and KPI form disagree?
+**What we know.** Six same-document inconsistencies are catalogued in `_exports/phase1/csv/iic_contradictions.csv`. Sharpest: **NIT Calicut's single 2024-25 PDF** states both 55 startups and 17 startups, and both ₹1,51,488 and ₹16,00,000 awareness spend. **Institute of Science Nagpur** states 16 activities in narrative and 02 in its KPI form. **MIET Jammu** writes "Rs 4,10,000" in digits and "Three Lakh Twenty Thousands only" in words in the same field.
+
+**Why it matters.** If the IIC portal form is the submission of record and the narrative is decoration, the portal is authoritative. If ARIIA verification reads the portal and the institution's own board reads the narrative, neither is. This determines whether a reconciliation tool is solving a real problem or a cosmetic one.
+
+**What would settle it.** Confirmation of which artefact ARIIA assessors actually read; whether the IIC portal performs any validation; and whether MIC reviews submissions at all beyond star banding.
+
+---
+
+### OQ-21 · The corpus may be unrepresentative in an unknown direction
+**What we know.** All 36 documents come from institutions that publish a reasonably complete IIC report. That is a self-selecting population. It is unknown whether these are better-resourced institutions, or simply better reporters, or institutions whose IIC coordinator happens to enjoy writing.
+
+**Why it matters.** Every rate in the Phase 1 corpus analysis — conversion, grant ratios, activity-to-output — is conditional on this bias. If well-reporting institutions are systematically better funded, the corpus overstates institutional capability and understates the pain.
+
+**What would settle it.** Comparing the corpus against the ARIIA distribution: if low-star institutions are systematically absent from the corpus, the bias is toward capability. Also: a manual scan of a random sample of *non*-publishing IICs to see what they hold instead.
+
+---
+
+### OQ-22 · What is the actual filing rate? Most IICs may never file a report.
+**What we know.** The corpus contains 34 institutions. The last official IIC count is **>6,400 (Nov 2022, OQ-01)**. If even 20% of IICs file a readable annual report, that is ~1,300 documents — far more than the ~40 targeted here.
+
+**Why it matters.** Filing rate is a demand-side sizing input and also a product-adoption signal: a mandate nobody complies with is not a mandate a product can monetise.
+
+**What would settle it.** Authenticated access to `iic.mic.gov.in/institute-list` (OQ-01), which would show how many institutions have an active IIC record at all.
+
+---
+
+### OQ-23 · International IP filings have no home in the reporting schema
+**What we know.** Institute of Science Nagpur's report leads with a **UK Design registration (No. 6381983, 31 July 2024)** as its flagship innovation (`IIC-011`). The IIC reporting vocabulary observed across 36 documents is uniformly domestic: Indian patent application numbers, Indian design numbers, copyright.
+
+**Why it matters.** Any IP record created inside a system built only on the IIC vocabulary risks not capturing a foreign filing that the institution considers its most valuable asset.
+
+**What would settle it.** A check of whether any corpus institution files US/EU/WIPO filings, and whether those ever appear in an annual report.
+
+---
+
+### OQ-24 · Is the grant field ever validated? It has demonstrably absorbed the wrong money.
+**What we know.** Dr. N.G.P. Arts and Science College (IIC-030) reported ₹2,16,81,371 as "Amount grant or fund supported to student & faculty lead innovations, start-ups and IPR". That figure reconciles **exactly** to two unrelated DBT academic grants (₹1,25,95,438 + ₹62,30,583). Teresa's College (IIC-031) put a 13-item multi-source narrative in the same field instead of a number. EGSPEC reported a 52.0x grant-to-awareness ratio; three institutions reported exactly zero.
+
+**Why it matters.** The field cannot be used as a market-size proxy, an ROI denominator, or a "how much innovation money flows" statistic. If it is never validated, it is a free-text box with a number-shaped label.
+
+**What would settle it.** Whether ARIIA scoring reads this field; whether MIC reconciles it against any other source; whether any institution has been asked to substantiate it.
+
+---
+
 ## Closed
 
 _(none yet — nothing has been resolved out of this file; resolutions move to Decision_Log as D-entries with a "supersedes OQ-nn" note)_
