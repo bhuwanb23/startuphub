@@ -1,0 +1,32 @@
+{
+  "generated": "2026-10-18",
+  "description": "One record per IIC annual report document. An institution may appear more than once (different years, or two records for the same PDF when its narrative and KPI form disagree - see `contradiction_of`).",
+  "fields": {
+    "id": "Stable corpus identifier.",
+    "institution": "Full legal/official name as published.",
+    "institution_type": "NIT/engineering/pharmacy/arts-science/management. Segment sizing input.",
+    "state": "Indian state or UT.",
+    "year": "Reporting year or academic year of the document.",
+    "iic_id": "IIC portal identifier where the institution published it. Often absent.",
+    "star_rating": "ARIIA/IIC star band, self-reported by the institution.",
+    "url": "Direct document URL, retrieved 2026-10-18.",
+    "evidence_tier": "T1 government primary, T2 institutional primary, T3 peer-reviewed, T4 vendor.",
+    "parse_status": "One of: access_denied, header_only, not_found, parsed, partial, unparseable.",
+    "metrics": "Only values actually read from the document. Absent key = not read, NOT zero.",
+    "metrics_note": "Interpretation guard. Read this before quoting any figure.",
+    "contradiction_of": "Set when this record captures a value that conflicts with another record.",
+    "pending_extraction": "What still has to be read from this document.",
+    "quote_candidates": "Verbatim strings usable as evidence quotes, with their source context."
+  },
+  "metric_semantics": {
+    "amount_inr": "Rupees spent on promotion/awareness of innovation & entrepreneurship on campus. Field name in source: 'Amount spent on promotion and awareness generation'.",
+    "grant_total_inr": "Rupees of grant or fund support reaching student/faculty-led innovation, startups and IPR. NOTE: observed to absorb unrelated large government research grants.",
+    "activities_total": "Count of I&E and IPR activities. May be stated in narrative, KPI form, or both, and may disagree.",
+    "ips_total": "Combined generated/published/granted IP count as the institution summarises it. Institutions frequently mix current-year and cumulative in this field."
+  },
+  "known_defects": [
+    "amount_inr and grant_total_inr are reported by 22 of 36 documents; the rest use prose or ranges.",
+    "'ideas generated' is not a consistent measurement - see iic_corpus_analysis.md section 3.",
+    "Six same-document contradictions are catalogued in iic_contradictions.csv."
+  ]
+}
