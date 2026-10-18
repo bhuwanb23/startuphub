@@ -1,0 +1,1373 @@
+#!/usr/bin/env python3
+"""StartupHub Phase 1 - institutional IIC annual report corpus.
+
+Every record here was extracted from a document the researcher actually opened
+and read. Metrics that could not be confirmed from the retrieved text are left
+out of `metrics` and recorded in `pending_extraction` instead. Nothing is
+inferred from a comparable institution, and nothing is filled in from memory.
+
+Amounts are stored as plain numbers in `metrics` (amount_inr) so the pipeline
+never has to parse a currency symbol or a lakh/crore abbreviation. The display
+layer is responsible for formatting.
+"""
+
+# Evidence tier definitions, per Phase 1 scope (Tier 4 = vendor marketing).
+TIERS = {
+    "T1": "Government / regulator primary document (IIC portal report, tender, gazette, official filing).",
+    "T2": "Institutional primary document published by the institution itself (annual report, policy, audited disclosure).",
+    "T3": "Peer-reviewed academic literature or recognised think-tank study.",
+    "T4": "Vendor-published case study or marketing material. Directional only, never load-bearing.",
+}
+
+# Parse status vocabulary for the corpus tracker.
+PARSE_STATUS = {
+    "parsed": "Document retrieved and the cited metrics were read directly from its text.",
+    "partial": "Document retrieved; some sections read, others still to be extracted.",
+    "header_only": "Document located and identified, but KPI tables not yet read.",
+    "unparseable": "Retrieved but text could not be extracted (scanned image, corrupt, login-gated).",
+    "access_denied": "URL reachable but content is behind auth, paywall, or removed.",
+    "not_found": "Cited URL no longer resolves.",
+}
+
+# --------------------------------------------------------------------------
+# IIC annual report corpus
+# --------------------------------------------------------------------------
+# year = reporting year of the document (academic year where applicable).
+# star_rating = ARIIA/IIC star band awarded to the institution for that year.
+# `metrics` holds ONLY values read from the retrieved text.
+# --------------------------------------------------------------------------
+
+IIC_REPORTS = [
+    dict(
+        id="IIC-001",
+        institution="National Institute of Technology Calicut",
+        short_name="NIT Calicut",
+        institution_type="NIT (central)",
+        state="Kerala",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://nitc.ac.in/imgserver/uploads/attachments/Ed__44cab2fb-596f-4726-9b77-8122bc273b37_.pdf",
+        archive_url="https://nitc.ac.in/institution-innovation-council",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=67,
+            activities_iic_calendar=32,
+            activities_mic_driven=9,
+            activities_self_driven=10,
+            activities_celebration=16,
+            ideas_generated=155,
+            innovation_ambassadors_selected=66,
+            ia_basic_training_completed=57,
+            ia_advanced_training_completed=15,
+            demos_day_projects=57,
+            demos_day_top_projects_awarded=10,
+            startups_total=55,
+            startups_student_alumni=13,
+            startups_faculty=4,
+            startups_other=38,
+            patents_filed=75,
+            patents_granted=36,
+            patents_published=39,
+            patents_in_process=10,
+            faculty_mentors=29,
+            amount_inr=151488,
+            amount_inr_denominator=228212,
+            monitoring_meetings=12,
+        ),
+        metrics_note=(
+            "amount_inr and amount_inr_denominator are the same single figure pair from the "
+            "report's own budget narrative: INR 151,488 spent out of a stated INR 228,212 "
+            "available. Retained as numerator/denominator rather than collapsed into one "
+            "number because the ratio is itself the interesting signal."
+        ),
+        corroborating_context=(
+            "TBI context cited inside the report: 115 startups incubated, 1500+ jobs. "
+            "CIEI reports 48 patent applications and 25 grants in FY 2023-24 plus 8 startups "
+            "supported. Treat the 55-startup IIC figure as IIC-scoped, not campus-wide."
+        ),
+        pending_extraction="Named IPR/TTO staffing detail and whether an IIC-operated patent register exists.",
+        quote_candidates=[
+            "Under IIC 7.0, in the year 2024-25, the Institution's Innovation Council (IIC) at "
+            "NIT Calicut successfully organized a total of 67 activities including 32 activities "
+            "as part of its IIC calendar.",
+        ],
+    ),
+    dict(
+        id="IIC-001b",
+        institution="National Institute of Technology Calicut",
+        short_name="NIT Calicut",
+        institution_type="NIT (central)",
+        state="Kerala",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://nitc.ac.in/imgserver/uploads/attachments/Ed__44cab2fb-596f-4726-9b77-8122bc273b37_.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            startups_form_kpi=17,
+            amount_inr_form_kpi=1600000,
+            grant_total_inr_form_kpi=5000000,
+            tech_transfers=2,
+        ),
+        metrics_note=(
+            "*** CONTRADICTS IIC-001, WHICH IS THE SAME PDF. *** The narrative section of this "
+            "report says 55 startups are incubated in the TBI (13 student/alumni, 4 faculty, 38 "
+            "other) and that IIC spend was INR 151,488 of INR 228,212. The IIC-portal KPI form "
+            "in the same document says 17 startups, INR 16,00,000 awareness spend and INR 50,00,000 "
+            "grant support. Same institution, same year, same PDF: startup count differs 3.2x and "
+            "awareness spend differs 10.6x. Do NOT reconcile these - the divergence is the finding."
+        ),
+        contradiction_of="IIC-001",
+        contradiction_field="startups_total; amount_inr",
+        pending_extraction="None. The contradiction is fully evidenced within one document.",
+        quote_candidates=[
+            "No. of Student & Faculty Start-ups/Ventures established: 17",
+            "Amount spent on promotion and awareness generation on Innovation Entrepreneurship "
+            "in the campus: Rs 16,00,000/- (Rupees Sixteen Lakhs)",
+        ],
+    ),
+    dict(
+        id="IIC-002",
+        institution="National Institute of Technology Calicut",
+        short_name="NIT Calicut",
+        institution_type="NIT (central)",
+        state="Kerala",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://nitc.ac.in/imgserver/uploads/attachments/Ed__1307b021-1d66-41a0-9bd6-c97cd283618e_.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=63,
+            activities_iic_calendar=30,
+            activities_mic_driven=7,
+            activities_self_driven=9,
+            activities_celebration=16,
+            ideas_generated=90,
+            startups_total=8,
+            patents_filed=48,
+            patents_granted=25,
+            patents_filed_jan_jul_2024=24,
+            student_projects_funded=81,
+        ),
+        metrics_note=(
+            "The report's own financial year and calendar-year windows overlap. 48 filings are "
+            "stated for FY 2023-24; a separate 24 filings are stated for 1 Jan to 31 Jul 2024. "
+            "These are different windows and MUST NOT be summed."
+        ),
+        pending_extraction="Full IP register table (titles, inventors, status, year of filing).",
+        quote_candidates=[
+            "During the financial year 2023-2024, 48 patent applications were submitted and 25 "
+            "patents were granted.",
+        ],
+    ),
+    dict(
+        id="IIC-003",
+        institution="National Institute of Technology Andhra Pradesh",
+        short_name="NIT Andhra Pradesh",
+        institution_type="NIT (central)",
+        state="Andhra Pradesh",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://nitandhra.ac.in/main/iic/IIC%20NIT-ANP%20Annual%20Report%202024-2025.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            activities_total=5,
+            ideas_generated=2,
+            prototypes_developed=2,
+            patents_filed=6,
+            startups_total=1,
+            amount_inr=4584000,
+            tech_transfers=0,
+            ia_training_completed=5,
+        ),
+        metrics_note=(
+            "*** SPENDING-TO-OUTPUT OUTLIER. *** INR 45,84,000 of awareness spend against 2 ideas "
+            "and 2 prototypes - the highest awareness spend per idea in the corpus by roughly two "
+            "orders of magnitude. Paired with NIT Calicut (IIC-001) this is the sharpest "
+            "within-programme contrast available: two NITs, same ministry, one spending "
+            "INR 45.84 lakh to report 2 ideas, the other INR 1.51 lakh to report 155. Also the "
+            "only corpus institution running a named expert talk on TRL and lab-tech "
+            "commercialisation, i.e. it has TRL vocabulary without TRL data."
+        ),
+        pending_extraction="Whether the INR 45.84 lakh is IIC-only or shared with a larger centre.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-004",
+        institution="Kongu Engineering College",
+        short_name="Kongu Engineering College",
+        institution_type="Autonomous engineering college",
+        state="Tamil Nadu",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://kongu.ac.in/kongu.ac.in/ief/docs/AnnualReport_2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_ie=55,
+            activities_ipr=4,
+            activities_total=59,
+            ideas_generated=458,
+            prototypes_developed=152,
+            ips_generated=13,
+            ips_published=8,
+            ips_granted=5,
+            startups_total=20,
+            amount_inr=675200,
+            grant_innovations_inr=1000874,
+            grant_startups_inr=10260000,
+            grant_ipr_inr=120500,
+            grant_prior_year_innovations_inr=1006000,
+            grant_prior_year_startups_inr=7705000,
+            grant_prior_year_ipr_inr=197920,
+        ),
+        metrics_note=(
+            "Highest ideas-to-prototype conversion in the corpus so far: 152/458 = 33.2%. "
+            "Also the only institution so far that splits grant money three ways "
+            "(innovation / startup / IPR), which makes its IPR grant line directly comparable "
+            "to the other two lines."
+        ),
+        pending_extraction="Star rating for the year.",
+        quote_candidates=[
+            "No. of different types of I&E and IPR activities Conducted a. I&E Activities: 55 "
+            "b. IPR Activities: 4",
+        ],
+    ),
+    dict(
+        id="IIC-005",
+        institution="Manav Rachna University",
+        short_name="Manav Rachna University",
+        institution_type="Private deemed university",
+        state="Haryana",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://manavrachna.edu.in/assets/pdf/ANNUAL-REPORT-IIC-6.0-2023_24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_iic_calendar=17,
+            activities_mic_driven=5,
+            activities_self_driven=27,
+            activities_celebration=5,
+            activities_total=54,
+            ideas_generated=24,
+            prototypes_developed=9,
+            ips_filed=16,
+            ips_published=15,
+            ips_granted=22,
+            startups_total=8,
+            amount_inr=242373,
+            grant_total_inr=2712850,
+            yukti_registered_students=87,
+            yukti_ideas_poc=24,
+            yukti_innovations=9,
+            yukti_startups=8,
+        ),
+        metrics_note=(
+            "One of only two corpus institutions to publish a named IPR/TTO Centre with a named "
+            "in-charge and a direct email. Grant spend (INR 27.1 lakh) is 11.2x its awareness "
+            "spend (INR 2.4 lakh) - the opposite ratio to PIET (IIC-006), which is a useful "
+            "pairing rather than a trend."
+        ),
+        pending_extraction="Whether the named IPR Cell holds the patent register itself or forwards to TTO.",
+        quote_candidates=[
+            "School of Law faculty assist with patent searches, drafting, and filing, and conduct "
+            "training and workshops on intellectual property rights (IPR).",
+        ],
+    ),
+    dict(
+        id="IIC-006",
+        institution="PIET Poornima",
+        short_name="PIET Poornima",
+        institution_type="Engineering college",
+        state="Rajasthan",
+        year="2023-24",
+        iic_id=None,
+        star_rating=3.5,
+        url="http://www.piet.poornima.org/PIET_NAAC_SSSR/IIC/reports/Annual_Report_2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=33,
+            ideas_generated=40,
+            prototypes_developed=35,
+            ips_total=45,
+            startups_total=15,
+            amount_inr=61000,
+            grant_total_inr=284000,
+            registered_individuals=143,
+            portal_ideas_submitted=42,
+            portal_innovations_submitted=43,
+            portal_startups_submitted=13,
+            grant_prior_years_total_inr=0,
+        ),
+        metrics_note=(
+            "Four-year series present in one table, which makes it the best longitudinal "
+            "source in the corpus. Also the only institution whose grant line is explicitly "
+            "zero across 2020-21 to 2023-24 while awareness spend rose 30,000 -> 2,84,000. "
+            "star_rating recorded as 3.5: the source text reads '33.5-star rating' for 2022-23, "
+            "which is a typo in the source (ARIIA tops out at 5) and is NOT recorded here."
+        ),
+        pending_extraction="Confirm 3.5-star band against the ARIIA listing for the correct year.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-007",
+        institution="ICFAI University, Tripura",
+        short_name="ICFAI University Tripura",
+        institution_type="Private deemed university",
+        state="Tripura",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://iutripura.edu.in/assets/pdf/IIC-Annual-Activity-Report-for-the-Academic-Year-2023%E2%80%9324.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            ideas_generated=24,
+            prototypes_developed=63,
+            ips_total=6,
+            startups_established=0,
+            startups_pipeline=5,
+            amount_inr=30000,
+            grant_total_inr=454835,
+        ),
+        metrics_note=(
+            "Only institution in the corpus that splits startups into 'established' and "
+            "'pipeline' - an explicit acknowledgement that the two are different things. "
+            "Also the only one reporting prototypes (63) exceeding ideas generated (24), "
+            "which suggests inherited projects counted alongside new ideas. Both facts are "
+            "reporting-schema observations, not performance judgements."
+        ),
+        pending_extraction="Patent-by-patent table (already located, 6 rows, needs clean transcription).",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-008",
+        institution="Regent Education and Research Foundation Group of Institutions",
+        short_name="Regent RERFGI",
+        institution_type="Private university group",
+        state="Gujarat",
+        year="2024-25",
+        iic_id=None,
+        star_rating=3,
+        url="https://www.regent.ac.in/storage/475/1760255758.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=78,
+            ips_filed=16,
+            ips_granted=6,
+            ips_published=3,
+            tech_transfers=2,
+            startups_total=2,
+        ),
+        metrics_note=(
+            "Rare in the corpus: splits IP filings into granted / published / filed rather than "
+            "a single total. 6+3+7=16, so the unpublished balance is 7."
+        ),
+        pending_extraction="Activity split by type (calendar / MIC / self-driven / celebration).",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-009",
+        institution="V.C. Engineering College",
+        short_name="VC Engineering College",
+        institution_type="Engineering college",
+        state="Kerala",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://vcenggw.ac.in/pdf/iic/2023-24/Annual-Report-2023-2024.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            patents_granted=16,
+            patents_filed=9,
+        ),
+        metrics_note=(
+            "ONLY the 2023-24 row is trusted. The four-year IP table extracted as "
+            "'16 / 2023-2024 / 09 / 48 / 2022-2023 / 12 / 16 / 2021-2022 / 24 / 2020-2021 / "
+            "06 / 06' - the granted-vs-filed column assignment for the three earlier years is "
+            "not recoverable from the extracted text. Those years are deliberately omitted "
+            "rather than guessed."
+        ),
+        pending_extraction="Re-extract the 2020-21 to 2022-23 IP rows from the table image.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-010",
+        institution="Birla Institute of Technology and Science, Mesra",
+        short_name="BIT Mesra",
+        institution_type="Deemed university (private)",
+        state="Jharkhand",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://bitmesra.ac.in/UploadedDocuments/adminiic/files/Final%20_IIC%20Annual%20Report%20%202023-2024.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            patents_granted=3,
+            patents_published=60,
+            patents_filed=68,
+            startups_supported=7,
+            grant_per_startup_inr=100000,
+            grant_startups_total_inr=700000,
+            mous_signed=25,
+            technical_clubs_funded=30,
+            sponsored_research_projects=18.26,
+        ),
+        metrics_note=(
+            "Only institution in the corpus that states a uniform per-team grant (INR 1 lakh "
+            "x 7 teams). sponsored_research_projects = 18.26 is a decimal count in the source "
+            "text; recorded verbatim rather than silently rounded to 18."
+        ),
+        pending_extraction="Full activity list; ideas/prototypes generated.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-011",
+        institution="Institute of Science, Nagpur",
+        short_name="Institute of Science Nagpur",
+        institution_type="Autonomous science college",
+        state="Maharashtra",
+        year="2024-25",
+        iic_id="IC202218420",
+        star_rating=3,
+        url="https://iscnagpur.ac.in/pdf/Annual%20Report%202024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_iic_calendar=10,
+            activities_self_driven=4,
+            activities_celebration=2,
+            activities_total_narrative=16,
+            activities_total_form_kpi=2,
+            ideas_generated=3,
+            prototypes_developed=1,
+            ips_total=1,
+            startups_total=1,
+            amount_inr=40000,
+            grant_total_inr=0,
+            tech_transfers=0,
+            star_rating_prior_year=3,
+            uk_design_registrations=1,
+        ),
+        metrics_note=(
+            "*** CONTRADICTS ITSELF. *** The narrative says 10 IIC + 4 self-driven + 2 celebration "
+            "= 16 activities. The KPI form in the same document says 'activities Conducted: 02'. "
+            "An 8x gap between the two halves of one report. Also the only corpus entry that "
+            "reports a foreign design registration (UK Design No. 6381983) - evidence that "
+            "international filings exist but have no home in the IIC reporting vocabulary."
+        ),
+        contradiction_of=None,
+        contradiction_field="activities_total",
+        pending_extraction="Ideas, prototypes, IP and startup counts for the year.",
+        quote_candidates=[
+            "Amount grant or fund supported to student & Faculty lead Innovations, start-ups and "
+            "IPR: 00",
+            "Officially registered as a UK Design (No. 6381983) on 31 July 2024.",
+        ],
+    ),
+    dict(
+        id="IIC-012",
+        institution="Scottish Church College",
+        short_name="Scottish Church Kolkata",
+        institution_type="Undergraduate college",
+        state="West Bengal",
+        year="2024-25",
+        iic_id=None,
+        star_rating=1,
+        url="https://www.scottishchurch.ac.in/docs/IIC/20251229_IIC_Annual_Report_2024_25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="header_only",
+        metrics=dict(
+            star_rating=1,
+            activities_total=8,
+            ideas_generated=12,
+            prototypes_developed=1,
+            ips_total=0,
+            startups_total=1,
+            amount_inr=30000,
+            grant_total_inr=100000,
+            tech_transfers=1,
+            breakthrough_items_pending_registration=8,
+        ),
+        metrics_note=(
+            "*** NUMERIC / PROSE MISMATCH INSIDE ONE FIELD. *** The awareness field reads "
+            "'Rs. 30,000 sponsored by Microbiologists Society India' - a number PLUS an external "
+            "sponsor PLUS a purpose, because the form asks only for a number. The grant field "
+            "similarly reads 'Rs. 1 lakh grant procured in 2024 from WBSCST, Govt. of West Bengal "
+            "for supporting IPR filing to students'. Eight innovations are listed as 'breakthrough' "
+            "while explicitly 'on the process of being registered for IP/trademarks' - i.e. "
+            "counted as innovation outcomes while not yet IP."
+        ),
+        pending_extraction="None. Header, KPIs and narrative all read.",
+        quote_candidates=[
+            "These products are on the process of being registered for IP/trademarks and copyright "
+            "accordingly through the Indian Patent Office, Kolkata.",
+        ],
+    ),
+    dict(
+        id="IIC-013",
+        institution="St. Paul's College of Pharmacy",
+        short_name="St Paul's College of Pharmacy",
+        institution_type="Pharmacy college",
+        state="Kerala",
+        year="2023-24",
+        iic_id="IC202115868",
+        star_rating=3.5,
+        url="https://stpaulscollege.ac.in/wp-content/uploads/2025/01/IIC-Annual-Report-2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            activities_iic_calendar=32,
+            activities_self_driven=21,
+            activities_mic_driven=10,
+            sih_teams_2024=11,
+            yukti_products=15,
+            yukti_ideas_selected=15,
+            star_rating_prior_year=3.5,
+            star_rating_prior_year_prior=3,
+        ),
+        metrics_note=(
+            "Pharmacy discipline, not engineering - included deliberately to test whether the "
+            "reporting schema is discipline-specific. It is not: same activity/idea/prototype/"
+            "IP/startup vocabulary."
+        ),
+        pending_extraction="Ideas, prototypes, IP, startup and spend figures for 2023-24.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-014",
+        institution="Sri Venkateswara College of Pharmacy",
+        short_name="SV College of Pharmacy Chittoor",
+        institution_type="Pharmacy college",
+        state="Andhra Pradesh",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://svcop.in/wp-content/uploads/2025/03/IIC-ANNUAL-REPORT-2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="header_only",
+        metrics=dict(),
+        metrics_note=(
+            "Retained despite a weak metric yield because it is the clearest current example of "
+            "an institution whose stated IIC purpose is compliance-first: 'vision to prepare the "
+            "institute for Atal Ranking of Institution on Innovation achievement framework' is "
+            "listed above innovation intent."
+        ),
+        pending_extraction="All KPI counts.",
+        quote_candidates=[
+            "Sri Venkateswara College of Pharmacy has established IIC under the guidelines of "
+            "MHRD of Govt. India with vision to prepare the institute for ATAL Ranking of "
+            "Institution on Innovation achievement frame work.",
+        ],
+    ),
+    dict(
+        id="IIC-015",
+        institution="Karpaga Vinayaga College of Engineering and Technology",
+        short_name="KIT CoE",
+        institution_type="Engineering college",
+        state="Tamil Nadu",
+        year=None,
+        iic_id=None,
+        star_rating=None,
+        url="https://www.kitcoek.in/documents/About/mandatory-disclosure-v2/18.15%20xv%20Innovation%20Cell.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(),
+        metrics_note=(
+            "Included for a SCHEMA reason, not a volume reason. This is a mandatory-disclosure "
+            "IP register, and its columns are: title, IP type, registration number, date filed, "
+            "and a Yes/No 'Commercialized / Transferred to Industry / Startup / Society?' column. "
+            "That last column is the whole Phase 1 thesis in one spreadsheet header."
+        ),
+        pending_extraction="Year of the register; total IP count; count of Yes.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-016",
+        institution="C.M.R. Institute of Technology",
+        short_name="CMRIT",
+        institution_type="Autonomous engineering college",
+        state="Tamil Nadu",
+        year="2024-25",
+        iic_id="IC201811190",
+        star_rating=None,
+        url="https://www.cmrit.ac.in/wp-content/uploads/2026/02/IIC-Annual-Report-2024-25-as-on-15th-oct-2025.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=164,
+            ideas_generated=400,
+            prototypes_developed=70,
+            patents_filed=183,
+            patents_published=44,
+            patents_granted=2,
+            designs_filed=55,
+            designs_granted=1,
+            startups_total=9,
+            tech_transfers=15,
+            amount_inr=247994,
+            grant_total_inr=730270,
+            program_impl_cost_inr=544224,
+            infrastructure_cost_inr=1380899,
+            grant_supported_cost_inr=311210,
+            external_funding_inr=4943369,
+            own_resource_spend_inr=3214598,
+            yukti_poc_submitted=50,
+            yukti_innovation_submitted=70,
+            yukti_startup_submitted=7,
+            yukti_ideas_recommended=162,
+            yukti_top_submitted=10,
+            msme_ih4_teams=4,
+            msme_ih4_grant_each_inr=1500000,
+            incubation_students_supported=25,
+            incubation_faculty_supported=46,
+            incubation_external_startups=5,
+        ),
+        metrics_note=(
+            "Richest funding breakdown in the corpus: awareness, grant, programme, infrastructure "
+            "and own-vs-external split all published. Also the only entry that publishes the full "
+            "YUKTI funnel - 127 submissions -> 162 recommended -> 10 forwarded - which is the "
+            "first hard evidence that the submission funnel REJECTS ideas. Conversion from "
+            "submitted to forwarded is 7.9%; from recommended to forwarded is 6.2%."
+        ),
+        pending_extraction="Star rating for 2024-25.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-017",
+        institution="KCG College of Technology",
+        short_name="KCG College of Technology",
+        institution_type="Engineering college",
+        state="Tamil Nadu",
+        year="2024-25",
+        iic_id="IC201810669",
+        star_rating=None,
+        url="https://kcgcollege.ac.in/pdf/IIC-Annual-Report-2024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=95,
+            ideas_generated=102,
+            prototypes_developed=56,
+            ips_published=40,
+            ips_granted=15,
+            startups_total=13,
+            amount_inr=1352131,
+            grant_total_inr=5200000,
+            tech_transfers=12,
+            iedc_grant_inr=4450000,
+            startups_supported_cumulative=25,
+            doctoral_faculty=75,
+        ),
+        metrics_note=(
+            "Second-richest funding split. Grant-to-awareness ratio 3.8x. 56/102 = 54.9% "
+            "idea-to-prototype, inside the plausible band established by Kongu (33.2%) and "
+            "Manav Rachna (37.5%), unlike PIET (87.5%) and ICFAI (262.5%)."
+        ),
+        pending_extraction="Star rating for 2024-25.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-018",
+        institution="SIGCE",
+        short_name="SIGCE",
+        institution_type="Engineering college",
+        state="Tamil Nadu",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://sigce.edu.in/wp-content/uploads/2026/08/IIC-ANNUAL-REPORT-2024-2025.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            ideas_generated=18,
+            prototypes_developed=10,
+            ips_total=1,
+            startups_total=1,
+            amount_inr=25000,
+            grant_total_inr=0,
+            tech_transfers=0,
+        ),
+        metrics_note=(
+            "Cleanest zero in the corpus: awareness spend of INR 25,000 with grant support of "
+            "exactly 0 and zero technology transfers. Useful as the floor case."
+        ),
+        pending_extraction="Activity count and breakdown.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-019",
+        institution="Raghu Engineering College",
+        short_name="REC Raghu",
+        institution_type="Autonomous engineering college",
+        state="Andhra Pradesh",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://www.raghuenggcollege.com/documents/iic-7.0/95_REC-IIC-Annual-Report-2024-2025.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=94,
+            ideas_generated=7,
+            prototypes_developed=4,
+            ips_total=0,
+            startups_total=4,
+        ),
+        metrics_note=(
+            "Highest activity count among the low-output group: 94 activities produced 7 ideas, 4 "
+            "prototypes and ZERO IPs, but still 4 startups. 94:4 = 23.5 activities per startup. "
+            "Direct counter-example to 'more activities equals more innovation output'."
+        ),
+        pending_extraction="Amount spent; star rating.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-020",
+        institution="Narsimha Reddy Engineering College",
+        short_name="NRCM",
+        institution_type="Engineering college",
+        state="Telangana",
+        year="2024-25",
+        iic_id=None,
+        star_rating=3.5,
+        url="https://www.nrcmec.org/pdf/IIC/Reports/Annual%20Report%202024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            activities_total=70,
+            ideas_generated=50,
+            prototypes_developed=50,
+            ips_total=30,
+            startups_total=2,
+        ),
+        metrics_note=(
+            "100% idea-to-prototype conversion (50/50). The corpus now spans 33.2% to 262.5% on "
+            "what is nominally the same field, which is itself the strongest single piece of "
+            "evidence that the field is not measuring one thing."
+        ),
+        pending_extraction=(
+            "The KPI table's two money rows extracted as bare '3' and '2' with the column labels "
+            "detached. Almost certainly INR lakhs but the unit is not recoverable - deliberately "
+            "left as unassigned rather than assumed."
+        ),
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-021",
+        institution="Shree L.R. Tiwari College of Engineering",
+        short_name="SLRTCE",
+        institution_type="Engineering college",
+        state="Maharashtra",
+        year="2024-25",
+        iic_id="IC2020144xxx",
+        star_rating=None,
+        url="https://slrtce.in/wp-content/uploads/2025/09/ANNUAL-REPORT-2024-25-IIC.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            activities_total=65,
+            ips_total=6,
+            amount_inr=30000,
+        ),
+        metrics_note=(
+            "IIC ID recorded as truncated: the source shows '020144' with surrounding digits lost "
+            "in extraction. Left marked truncated rather than reconstructed to a plausible-looking "
+            "9-digit ID."
+        ),
+        pending_extraction="Full IIC ID; ideas, prototypes, startups, grant amount.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-022",
+        institution="IPS Academy, Institute of Engineering and Science",
+        short_name="IPS Academy Indore",
+        institution_type="Autonomous engineering college",
+        state="Madhya Pradesh",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://ies.ipsacademy.org/wp-content/uploads/2025/10/2024-25%20IIC%20Report.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            ideas_generated=488,
+            prototypes_developed=125,
+            ips_total=12,
+            startups_total=2,
+            amount_proposed_inr=800000,
+            grant_total_inr=20000,
+            arlia_rank_year=2021,
+            iics_mentored=5,
+            sih_wins=4,
+            msme_hackathon_grant_inr=3000000,
+        ),
+        metrics_note=(
+            "Highest idea count in the corpus (488) and second-lowest startup count relative to "
+            "it (2). 488 ideas -> 125 prototypes -> 12 IPs -> 2 startups. Funnel drop of 74% at "
+            "the last step. ALSO: the awareness figure is labelled 'Amount PROPOSED to be spent' "
+            "at INR 8 lakh while grant support actually reported is INR 20,000 - a 40x gap "
+            "between the activity budget and the money that reached innovators."
+        ),
+        pending_extraction="Activity count and breakdown; actual vs proposed spend.",
+        quote_candidates=[
+            "Amount proposed to be spent on promotion and awareness generation on Innovation "
+            "Entrepreneurship, infrastructure in the campus 8 Lakhs",
+        ],
+    ),
+    dict(
+        id="IIC-023",
+        institution="S.I.E.S. College of Management Studies",
+        short_name="SIES CoMS",
+        institution_type="Management college (non-technical)",
+        state="Maharashtra",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://www.siescoms.edu.in/docs/IIC%20Annual%20Report%2024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=2,
+            amount_inr=50000,
+            ips_total=None,
+            ideas_generated=None,
+            startups_total=None,
+            grant_total_inr=None,
+        ),
+        metrics_note=(
+            "*** SEGMENT BOUNDARY EVIDENCE. *** A management college (non-technical, so outside "
+            "AICTE's technical-institute remit) still files an IIC report. It ran 2 activities, "
+            "spent INR 50,000 - more than twice SIGCE's entire INR 25,000 spend for ~19 activities "
+            "- and left EVERY outcome field blank (dash, not zero). Zero-event, high-spend, no "
+            "reported outcomes. Included specifically to bound the addressable segment."
+        ),
+        pending_extraction="Confirm dashes are genuinely blank rather than an extraction failure.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-024",
+        institution="Shree Sathyam College of Engineering and Technology",
+        short_name="SSCET",
+        institution_type="Engineering college",
+        state="Telangana",
+        year="2024-25",
+        iic_id="IC202218297",
+        star_rating=None,
+        url="https://shreesathyam.edu.in/files/attach/iic/iic-annual-report-2024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=42,
+            ips_total=7,
+            startups_total=0,
+            amount_inr=None,
+            grant_total_inr=None,
+            iic_members=40,
+            innovation_ambassadors=30,
+            faculty_mentors_mentees=2,
+        ),
+        metrics_note=(
+            "*** MISSING-DATA EVIDENCE. *** Writes 'In-progress' in the awareness-spend and "
+            "grant-support fields and 'Nil' for startups established, on a report filed after the "
+            "year closed. The reporting form has no vocabulary for 'we did not do this' other "
+            "than prose in the wrong field. 40 IIC members and 30 innovation ambassadors produced "
+            "2 mentors."
+        ),
+        pending_extraction="Actual spend figures if a later revision exists.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-025",
+        institution="Vijaya Institute of Pharmaceutical Sciences for Women",
+        short_name="VIPS Women",
+        institution_type="Pharmacy college",
+        state="Andhra Pradesh",
+        year="2024-25",
+        iic_id="IC201912172",
+        star_rating=None,
+        url="https://vipw.in/images/864804e152b87a519a1505dc10daab3e.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            ideas_generated=60,
+            ips_total=42,
+            amount_inr=50000,
+            grant_total_inr=100000,
+            activities_mic_driven=10,
+            activities_self_driven=15,
+            activities_celebration=10,
+            activities_total=35,
+            iic_members_faculty=12,
+            iic_members_students=13,
+            innovation_ambassadors=12,
+            faculty_mentors=5,
+            ih4_ideas_received=17,
+            ih4_forwarded=12,
+            indeathon_ideas=45,
+            ih5_ideas_received=59,
+            ih5_recommended=29,
+            yukti_registrations=28,
+            yukti_submissions=15,
+            yukti_recommended=5,
+        ),
+        metrics_note=(
+            "Second institution publishing a full hackathon funnel. MSME Idea Hackathon 5.0: 59 "
+            "ideas received, 29 recommended, submitted upstream. YUKTI: 28 registered, 15 "
+            "submitted, 5 recommended. Note the funnel is not monotonic across schemes - the "
+            "institution forwards 12 of 17 IH4 ideas (71%) but only 5 of 15 YUKTI submissions "
+            "(33%). Two different screens, two different selectivity rates, one coordinator."
+        ),
+        pending_extraction="Prototype count; startup count (both absent from the KPI table).",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-026",
+        institution="Vivekanandha Arts and Science College for Women",
+        short_name="Vivekanandha College",
+        institution_type="Arts and science college (non-technical)",
+        state="Tamil Nadu",
+        year="2024-25",
+        iic_id="IC202115926",
+        star_rating=None,
+        url="https://www.viaasrtt.ac.in/pdf/iic/iic_annualreport_2024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=112,
+            ideas_generated=48,
+            prototypes_developed=10,
+            ips_total=1,
+            amount_inr=30000,
+        ),
+        metrics_note=(
+            "Non-technical arts-and-science college running 112 activities - the second-highest "
+            "activity count in the corpus - to produce 1 IP. 112:1. Paired with SIES CoMS (IIC-023) "
+            "this establishes that the non-technical IIC segment exists, files reports, and "
+            "produces near-zero IP, which is a segment-sizing input, not just an outlier."
+        ),
+        pending_extraction="Startup count; grant amount; star rating.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-027",
+        institution="Kanoria PG Mahila Mahavidyalaya",
+        short_name="Kanoria Jaipur",
+        institution_type="PG women's college (non-technical)",
+        state="Rajasthan",
+        year="2024-25",
+        iic_id="IC202428336",
+        star_rating=2,
+        url="https://kanoriacollege.in/documents/IIC/IIC%20Annual%20Reports/IIC%20Annual%20Report%202024-25.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=79,
+            activities_iic_calendar=31,
+            activities_mic_driven=10,
+            activities_self_driven=26,
+            activities_celebration=12,
+            ideas_generated=21,
+            prototypes_developed=0,
+            ips_total=0,
+            startups_total=0,
+            amount_inr=120000,
+            grant_total_inr=0,
+            tech_transfers=0,
+        ),
+        metrics_note=(
+            "First reporting year (council established 2023-24, 2-star). Uses 'Nil' for "
+            "prototypes, IPs, startups and technology transfers, but writes 'NA' for startups - "
+            "three different words for three absences in adjacent fields of the same form. "
+            "79 activities to 0 IPs."
+        ),
+        pending_extraction="None.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-028",
+        institution="Rathinam College of Pharmacy",
+        short_name="Rathinam College of Pharmacy",
+        institution_type="Pharmacy college",
+        state="Tamil Nadu",
+        year="2024-25",
+        iic_id=None,
+        star_rating=None,
+        url="https://rathinamcollegeofpharmacy.com/wp-content/uploads/2026/03/IIC-7.0-Report.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(activities_listed=50),
+        metrics_note=(
+            "*** TAXONOMY SOURCE, NOT A VOLUME SOURCE. *** This report publishes its full activity "
+            "register with three mandatory columns beyond the count: quarter, activity driver "
+            "(IIC calendar / MIC driven / self-driven / celebration), and a forced theme label "
+            "from a fixed five-value vocabulary - 'Innovation & Design Thinking', 'Pre incubation "
+            "& Incubation management', 'Entrepreneurship & startup', 'IPR & Technology transfer', "
+            "'Celebration Activity'. That closed vocabulary is itself a constraint: a workshop on "
+            "TRL is filed under 'Innovation & Design Thinking' even though it is the institution's "
+            "only TRL-relevant activity. Also visible: 8 of 50 rows are national-day "
+            "celebrations that are not innovation activity in any operational sense."
+        ),
+        pending_extraction="Theme-label distribution across the 50 rows.",
+        quote_candidates=[
+            "Expert talk on \"Process of Innovation Development & Technology Readiness Level "
+            "(TRL)\" & \"Commercialisation of Lab Technologies & Tech Transfer\"",
+        ],
+    ),
+    dict(
+        id="IIC-029",
+        institution="Model Institute of Engineering and Technology",
+        short_name="MIET Jammu",
+        institution_type="Autonomous engineering college",
+        state="Jammu and Kashmir",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://mietjmu.in/IIC/IIC%20Annual%20Report%202023-24%20Version%202.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            prototypes_developed=57,
+            startups_total=1,
+            amount_inr=410000,
+            amount_inr_words=320000,
+            grant_total_inr=750000,
+            tech_transfers=1,
+        ),
+        metrics_note=(
+            "*** NUMERAL / WORDS MISMATCH INSIDE ONE FIELD. *** The awareness-spend field reads "
+            "'Rs 4,10,000 ( Three Lakh Twenty Thousands only )'. The figure and the amount written "
+            "out disagree by INR 90,000 - and the words are the ones that contradict the digits, "
+            "so there is no tie-breaker in the source. The adjacent grant field does NOT have "
+            "this problem ('Rs 7,50,00' vs 'Seven Lakh fifty thousand' agree), which shows the "
+            "mismatch is an error rather than a house convention. Only one startup in the year, "
+            "PI360, which is also the sole technology transfer."
+        ),
+        pending_extraction="Corrected awareness figure via IIC portal if published.",
+        quote_candidates=[
+            "Amount spent on promotion and awareness generation on Innovation Entrepreneurship in "
+            "the campus: Rs 4,10,000 ( Three Lakh Twenty Thousands only )",
+        ],
+    ),
+    dict(
+        id="IIC-030",
+        institution="Dr. N.G.P. Arts and Science College",
+        short_name="Dr NGP ASC",
+        institution_type="Autonomous arts and science college",
+        state="Tamil Nadu",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://www.drngpasc.ac.in/pdf/IIC/report/2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="partial",
+        metrics=dict(
+            amount_inr=285100,
+            grant_total_inr=21681371,
+            grant_major_projects=2,
+            grant_component_dbt_star=12595438,
+            grant_component_dbt_star_addl=6230583,
+        ),
+        metrics_note=(
+            "*** HIGHEST GRANT-TO-AWARENESS RATIO IN THE CORPUS: 76.0x *** (INR 21.68 lakh grant "
+            "vs INR 2.85 lakh awareness). Crucially, the grant figure is NOT innovation money - "
+            "it reconciles exactly to two large DBT academic grants (INR 1,25,95,438 + "
+            "INR 62,30,583 = INR 2,16,81,371). So the 'Amount grant or fund supported to student & "
+            "faculty lead innovations, start-ups and IPR' field has absorbed unrelated government "
+            "research funding. A compliance field large enough to swallow the wrong money."
+        ),
+        pending_extraction="Ideas, prototypes, IPs, startups for the year.",
+        quote_candidates=[
+            "Amount grant or fund supported to student & Faculty lead Innovations, start-ups and "
+            "IPR: Rs. 2,16,81,371/-",
+        ],
+    ),
+    dict(
+        id="IIC-031",
+        institution="Teresa's College",
+        short_name="Teresa's College",
+        institution_type="Arts and science college (non-technical)",
+        state="Kerala",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://teresas.ac.in/wp-content/uploads/2025/03/IIC-Annual-Report-23-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            amount_inr=342624,
+            grant_field_is_narrative=True,
+            grant_narrative_items=13,
+            grant_narrative_distinct_sources=6,
+            grant_narrative_largest_inr=4214874,
+            patent_pending_mention=1,
+        ),
+        metrics_note=(
+            "*** THE STRONGEST SINGLE DOCUMENT IN THE CORPUS. *** The numeric field 'Amount grant "
+            "or fund supported to student & Faculty lead Innovations, start-ups and IPR' contains "
+            "NO NUMBER. It contains a 13-item bulleted narrative of grants from six different "
+            "sources (DST, Cochin Shipyard CSR, AICTE YUKTI, KSUM x3, ICSSR, NCERT, SERB, UNDP "
+            "Green Innovation Fund, Nidhi Prayas, Federal Bank CSR), plus a YIP prize of Rs 75,000, "
+            "plus one student 'currently working through the procedure to see if the concept can be "
+            "patented'. The field is a money field. It cannot accept a multi-source portfolio with "
+            "mixed units and pending IP status, so the coordinator wrote an essay instead. "
+            "Awareness spend was still entered cleanly as Rs 3,42,624 in the adjacent field - "
+            "proof the failure is specific to grant data, not general data-entry failure."
+        ),
+        pending_extraction="None. The narrative and the adjacent field were both read.",
+        quote_candidates=[
+            "Amount grant or fund supported to student & Faculty lead Innovations, start-ups and "
+            "IPR",
+            "She is currently working through the procedure to see if the concept can be patented.",
+        ],
+    ),
+    dict(
+        id="IIC-032",
+        institution="Brainware University",
+        short_name="Brainware University",
+        institution_type="Private deemed university",
+        state="West Bengal",
+        year="2023-24",
+        iic_id=None,
+        star_rating=None,
+        url="https://www.brainwareuniversity.ac.in/pdfs/iic/iic-annual-report-2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=76,
+            ideas_generated=190,
+            prototypes_developed=70,
+            patents_published=91,
+            patents_granted=8,
+            startups_total=0,
+            amount_inr=274927.5,
+            grant_total_inr=615534,
+            tech_transfers=None,
+        ),
+        metrics_note=(
+            "*** 91 patents PUBLISHED vs only 8 GRANTED, and ZERO startups. *** The largest "
+            "publication-to-grant drop-off in the corpus: 8.8% of published filings were granted. "
+            "Also writes 'NA' (not 'Nil') for technology transfers, a fourth distinct "
+            "absence-vocabulary term alongside Nil / In-process / In-progress / dash."
+        ),
+        pending_extraction="Why 0 startups despite 91 publications.",
+        quote_candidates=[
+            "No of Patent Published: 91 No of Patent Granted: 8",
+        ],
+    ),
+    dict(
+        id="IIC-033",
+        institution="Women's Christian College",
+        short_name="WCC Chennai",
+        institution_type="Arts and science college (non-technical)",
+        state="Tamil Nadu",
+        year="2023-24",
+        iic_id="IC201810962",
+        star_rating=None,
+        url="https://wcc.edu.in/wp-content/uploads/IIC/IIC-6.0-ANNUAL-REPORT-2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=84,
+            ideas_generated=25,
+            prototypes_developed=1,
+            ips_total=5,
+            patents_published=2,
+            patents_granted=5,
+            startups_total=0,
+            amount_inr=67205,
+            grant_total_inr=164412,
+            tech_transfers=0,
+        ),
+        metrics_note=(
+            "84 activities, 25 ideas, 1 prototype. Second-lowest conversion in the corpus (4%). "
+            "Startups field reads 'In process' - a fifth absence-vocabulary term. Note the IP "
+            "triplet '5, 2 and 5' means 5 generated / 2 published / 5 granted, i.e. more "
+            "granted than published, which is only possible because grants include pre-2023 "
+            "backlog. A single field silently mixes current-year and cumulative counts."
+        ),
+        pending_extraction="None.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-034",
+        institution="Engineering College Greater Noida / EGSPEC",
+        short_name="EGSPEC",
+        institution_type="Engineering college",
+        state="Uttar Pradesh",
+        year="2023-24",
+        iic_id=None,
+        star_rating=4,
+        url="https://firebasestorage.googleapis.com/v0/b/egspec-website.appspot.com/o/egspec%2Factivities%2Fiic%2Fiic-60-annual-report-2023-24-egspec.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=42,
+            ideas_generated=843,
+            prototypes_developed=784,
+            ips_total=30,
+            startups_total=2,
+            amount_inr=150000,
+            grant_total_inr=7800000,
+            tech_transfers=12,
+            prior_year_activities=29,
+            prior_year_ideas=540,
+            prior_year_prototypes=431,
+            prior_year_ips=10,
+            prior_year_startups=2,
+            prior_year_amount_inr=125000,
+            prior_year_grant_inr=4600000,
+            prior_year_tech_transfers=8,
+            star_rating_2018_19=4,
+        ),
+        metrics_note=(
+            "*** THE HIGHEST-OUTPUT INSTITUTION IN THE CORPUS. *** 843 ideas and 784 prototypes "
+            "from 42 activities. Its 93.0% idea-to-prototype rate is the second most implausible "
+            "figure in the corpus (after ICFAI's 262.5%) and sits alongside 42 activities - "
+            "roughly a third of what CMRIT ran to report 400 ideas. Either 'ideas generated' at "
+            "this institution means something categorically different (a bulk intake number rather "
+            "than individual submissions), or the two figures are not comparable. Both readings "
+            "damage comparability, which is the point. Star rating fell from 4 (2018-19) to a "
+            "current band recorded here as 4. Grant spend of INR 78 lakh against INR 1.5 lakh "
+            "awareness is 52x."
+        ),
+        pending_extraction="Definition of 'ideas generated' at this institution.",
+        quote_candidates=[],
+    ),
+    dict(
+        id="IIC-035",
+        institution="Marathwada Mitra Mandal's College of Pharmacy",
+        short_name="MMCOP Pune",
+        institution_type="Pharmacy college",
+        state="Maharashtra",
+        year="2023-24",
+        iic_id="IC202012981",
+        star_rating=None,
+        url="https://mmcop.edu.in/wp-content/uploads/2024/10/IIC-report-2023-24.pdf",
+        access_date="2026-10-18",
+        evidence_tier="T2",
+        parse_status="parsed",
+        metrics=dict(
+            activities_total=6,
+            ideas_generated=18,
+            prototypes_developed=10,
+            ips_total=5,
+            patents_published=1,
+            patents_granted=15,
+            startups_total=2,
+            amount_inr_approx=300000,
+            grant_inr_approx=700000,
+            tech_transfers=3,
+        ),
+        metrics_note=(
+            "*** APPROXIMATE-VALUE EVIDENCE. *** Both money fields are written as ranges: 'RS. 3 L+' "
+            "and 'RS. 7 L+'. The form asks for an amount; the coordinator supplied a lower bound "
+            "because the exact figure was not known or not tracked. Stored here as "
+            "amount_inr_approx / grant_inr_approx rather than as exact rupee values - inflating "
+            "them to 300000 and 700000 would be a fabricated precision. Also note 15 patents "
+            "granted against 5 IPs 'generated', another current-vs-cumulative mixing."
+        ),
+        pending_extraction="Exact spend if a later revision exists.",
+        quote_candidates=[],
+    ),
+]
+
+# --------------------------------------------------------------------------
+# Cross-corpus derived comparisons. Recomputed, not hand-maintained.
+# --------------------------------------------------------------------------
+
+def conversion_rate(institution_id, key="prototype_rate"):
+    """Idea -> prototype conversion, computed from whatever is in the corpus."""
+    r = _by_id(institution_id)
+    m = r.get("metrics", {})
+    ideas = m.get("ideas_generated")
+    protos = m.get("prototypes_developed")
+    if not ideas or protos is None or ideas == 0:
+        return None
+    return round(100.0 * protos / ideas, 1)
+
+
+def grant_to_awareness_ratio(institution_id):
+    """How many rupees of support per rupee of awareness spend.
+
+    Returns None where either leg is missing. A high number is not automatically
+    good - it can equally mean awareness spend was neglected.
+    """
+    r = _by_id(institution_id)
+    m = r.get("metrics", {})
+    aware = m.get("amount_inr")
+    grant = m.get("grant_total_inr")
+    if not aware or grant is None or aware == 0:
+        return None
+    return round(float(grant) / float(aware), 1)
+
+
+def _by_id(rid):
+    for r in IIC_REPORTS:
+        if r["id"] == rid:
+            return r
+    raise KeyError(rid)
+
+
+CORPUS_STATS = lambda: dict(  # noqa: E731 - tiny helper, kept inline for readability
+    documents=len(IIC_REPORTS),
+    parsed=len([r for r in IIC_REPORTS if r["parse_status"] == "parsed"]),
+    partial=len([r for r in IIC_REPORTS if r["parse_status"] == "partial"]),
+    header_only=len([r for r in IIC_REPORTS if r["parse_status"] == "header_only"]),
+    with_any_amount=len([r for r in IIC_REPORTS
+                         if r.get("metrics", {}).get("amount_inr")]),
+    with_grant_split=len([r for r in IIC_REPORTS
+                          if r.get("metrics", {}).get("grant_total_inr")]),
+    named_iic_id=len([r for r in IIC_REPORTS if r.get("iic_id")]),
+    with_star_rating=len([r for r in IIC_REPORTS if r.get("star_rating")]),
+    target_documents=40,
+)
