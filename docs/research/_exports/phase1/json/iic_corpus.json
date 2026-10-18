@@ -2,10 +2,10 @@
   "generated": "2026-10-18",
   "generated_by": "build/build_phase1.py",
   "evidence_tiers": {
-    "T1": "Government / regulator primary document (IIC portal report, tender, gazette, official filing).",
-    "T2": "Institutional primary document published by the institution itself (annual report, policy, audited disclosure).",
-    "T3": "Peer-reviewed academic literature or recognised think-tank study.",
-    "T4": "Vendor-published case study or marketing material. Directional only, never load-bearing."
+    "T1": "Primary - the origin of the fact. Government publications and official statistics, official portals, statutes and tenders, official vendor pricing pages, and documents an institution publishes about itself (its own IIC annual report, its own submitted NIRF/ARIIA form). Use for market sizing, compliance claims and pricing.",
+    "T2": "High-quality secondary - reputable analysis of primary data. Peer-reviewed academic work, IIM/IIIT research, established consulting, World Bank/OECD. Use for framing and triangulation, never as the sole support for a number in the pitch.",
+    "T3": "Market intelligence - commercially motivated. Tracxn, Crunchbase, Factly/Dataful, SaaS directories. Never for market size.",
+    "T4": "Community - anecdotal. Vendor case studies, vendor blogs, LinkedIn, Reddit, review-site excerpts. Sentiment and discovery only; never any number."
   },
   "parse_status_vocabulary": {
     "parsed": "Document retrieved and the cited metrics were read directly from its text.",
@@ -194,7 +194,7 @@
       "url": "https://nitc.ac.in/imgserver/uploads/attachments/Ed__44cab2fb-596f-4726-9b77-8122bc273b37_.pdf",
       "archive_url": "https://nitc.ac.in/institution-innovation-council",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 67,
@@ -239,7 +239,7 @@
       "star_rating": null,
       "url": "https://nitc.ac.in/imgserver/uploads/attachments/Ed__44cab2fb-596f-4726-9b77-8122bc273b37_.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "startups_form_kpi": 17,
@@ -267,7 +267,7 @@
       "star_rating": null,
       "url": "https://nitc.ac.in/imgserver/uploads/attachments/Ed__1307b021-1d66-41a0-9bd6-c97cd283618e_.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 63,
@@ -299,7 +299,7 @@
       "star_rating": null,
       "url": "https://nitandhra.ac.in/main/iic/IIC%20NIT-ANP%20Annual%20Report%202024-2025.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "activities_total": 5,
@@ -326,7 +326,7 @@
       "star_rating": null,
       "url": "https://kongu.ac.in/kongu.ac.in/ief/docs/AnnualReport_2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_ie": 55,
@@ -363,7 +363,7 @@
       "star_rating": null,
       "url": "https://manavrachna.edu.in/assets/pdf/ANNUAL-REPORT-IIC-6.0-2023_24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_iic_calendar": 17,
@@ -401,7 +401,7 @@
       "star_rating": 3.5,
       "url": "http://www.piet.poornima.org/PIET_NAAC_SSSR/IIC/reports/Annual_Report_2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 33,
@@ -432,7 +432,7 @@
       "star_rating": null,
       "url": "https://iutripura.edu.in/assets/pdf/IIC-Annual-Activity-Report-for-the-Academic-Year-2023%E2%80%9324.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "ideas_generated": 24,
@@ -458,7 +458,7 @@
       "star_rating": 3,
       "url": "https://www.regent.ac.in/storage/475/1760255758.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 78,
@@ -483,7 +483,7 @@
       "star_rating": null,
       "url": "https://vcenggw.ac.in/pdf/iic/2023-24/Annual-Report-2023-2024.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "patents_granted": 16,
@@ -504,7 +504,7 @@
       "star_rating": null,
       "url": "https://bitmesra.ac.in/UploadedDocuments/adminiic/files/Final%20_IIC%20Annual%20Report%20%202023-2024.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "patents_granted": 3,
@@ -532,7 +532,7 @@
       "star_rating": 3,
       "url": "https://iscnagpur.ac.in/pdf/Annual%20Report%202024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_iic_calendar": 10,
@@ -570,7 +570,7 @@
       "star_rating": 1,
       "url": "https://www.scottishchurch.ac.in/docs/IIC/20251229_IIC_Annual_Report_2024_25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "header_only",
       "metrics": {
         "star_rating": 1,
@@ -601,7 +601,7 @@
       "star_rating": 3.5,
       "url": "https://stpaulscollege.ac.in/wp-content/uploads/2025/01/IIC-Annual-Report-2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "activities_iic_calendar": 32,
@@ -628,7 +628,7 @@
       "star_rating": null,
       "url": "https://svcop.in/wp-content/uploads/2025/03/IIC-ANNUAL-REPORT-2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "header_only",
       "metrics": {},
       "metrics_note": "Retained despite a weak metric yield because it is the clearest current example of an institution whose stated IIC purpose is compliance-first: 'vision to prepare the institute for Atal Ranking of Institution on Innovation achievement framework' is listed above innovation intent.",
@@ -648,7 +648,7 @@
       "star_rating": null,
       "url": "https://www.kitcoek.in/documents/About/mandatory-disclosure-v2/18.15%20xv%20Innovation%20Cell.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {},
       "metrics_note": "Included for a SCHEMA reason, not a volume reason. This is a mandatory-disclosure IP register, and its columns are: title, IP type, registration number, date filed, and a Yes/No 'Commercialized / Transferred to Industry / Startup / Society?' column. That last column is the whole Phase 1 thesis in one spreadsheet header.",
@@ -666,7 +666,7 @@
       "star_rating": null,
       "url": "https://www.cmrit.ac.in/wp-content/uploads/2026/02/IIC-Annual-Report-2024-25-as-on-15th-oct-2025.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 164,
@@ -712,7 +712,7 @@
       "star_rating": null,
       "url": "https://kcgcollege.ac.in/pdf/IIC-Annual-Report-2024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 95,
@@ -743,7 +743,7 @@
       "star_rating": null,
       "url": "https://sigce.edu.in/wp-content/uploads/2026/08/IIC-ANNUAL-REPORT-2024-2025.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "ideas_generated": 18,
@@ -769,7 +769,7 @@
       "star_rating": null,
       "url": "https://www.raghuenggcollege.com/documents/iic-7.0/95_REC-IIC-Annual-Report-2024-2025.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 94,
@@ -793,7 +793,7 @@
       "star_rating": 3.5,
       "url": "https://www.nrcmec.org/pdf/IIC/Reports/Annual%20Report%202024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "activities_total": 70,
@@ -817,7 +817,7 @@
       "star_rating": null,
       "url": "https://slrtce.in/wp-content/uploads/2025/09/ANNUAL-REPORT-2024-25-IIC.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "activities_total": 65,
@@ -839,7 +839,7 @@
       "star_rating": null,
       "url": "https://ies.ipsacademy.org/wp-content/uploads/2025/10/2024-25%20IIC%20Report.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "ideas_generated": 488,
@@ -870,7 +870,7 @@
       "star_rating": null,
       "url": "https://www.siescoms.edu.in/docs/IIC%20Annual%20Report%2024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 2,
@@ -895,7 +895,7 @@
       "star_rating": null,
       "url": "https://shreesathyam.edu.in/files/attach/iic/iic-annual-report-2024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 42,
@@ -922,7 +922,7 @@
       "star_rating": null,
       "url": "https://vipw.in/images/864804e152b87a519a1505dc10daab3e.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "ideas_generated": 60,
@@ -961,7 +961,7 @@
       "star_rating": null,
       "url": "https://www.viaasrtt.ac.in/pdf/iic/iic_annualreport_2024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 112,
@@ -985,7 +985,7 @@
       "star_rating": 2,
       "url": "https://kanoriacollege.in/documents/IIC/IIC%20Annual%20Reports/IIC%20Annual%20Report%202024-25.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 79,
@@ -1016,7 +1016,7 @@
       "star_rating": null,
       "url": "https://rathinamcollegeofpharmacy.com/wp-content/uploads/2026/03/IIC-7.0-Report.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "activities_listed": 50
@@ -1038,7 +1038,7 @@
       "star_rating": null,
       "url": "https://mietjmu.in/IIC/IIC%20Annual%20Report%202023-24%20Version%202.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "prototypes_developed": 57,
@@ -1065,7 +1065,7 @@
       "star_rating": null,
       "url": "https://www.drngpasc.ac.in/pdf/IIC/report/2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "partial",
       "metrics": {
         "amount_inr": 285100,
@@ -1091,7 +1091,7 @@
       "star_rating": null,
       "url": "https://teresas.ac.in/wp-content/uploads/2025/03/IIC-Annual-Report-23-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "amount_inr": 342624,
@@ -1119,7 +1119,7 @@
       "star_rating": null,
       "url": "https://www.brainwareuniversity.ac.in/pdfs/iic/iic-annual-report-2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 76,
@@ -1149,7 +1149,7 @@
       "star_rating": null,
       "url": "https://wcc.edu.in/wp-content/uploads/IIC/IIC-6.0-ANNUAL-REPORT-2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 84,
@@ -1178,7 +1178,7 @@
       "star_rating": 4,
       "url": "https://firebasestorage.googleapis.com/v0/b/egspec-website.appspot.com/o/egspec%2Factivities%2Fiic%2Fiic-60-annual-report-2023-24-egspec.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 42,
@@ -1214,7 +1214,7 @@
       "star_rating": null,
       "url": "https://mmcop.edu.in/wp-content/uploads/2024/10/IIC-report-2023-24.pdf",
       "access_date": "2026-10-18",
-      "evidence_tier": "T2",
+      "evidence_tier": "T1",
       "parse_status": "parsed",
       "metrics": {
         "activities_total": 6,

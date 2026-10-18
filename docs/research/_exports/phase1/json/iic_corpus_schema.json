@@ -10,7 +10,7 @@
     "iic_id": "IIC portal identifier where the institution published it. Often absent.",
     "star_rating": "ARIIA/IIC star band, self-reported by the institution.",
     "url": "Direct document URL, retrieved 2026-10-18.",
-    "evidence_tier": "T1 government primary, T2 institutional primary, T3 peer-reviewed, T4 vendor.",
+    "evidence_tier": "Repository standard (00_Research_Index/README.md s3). IIC annual reports are T1 - an institution's own report about itself is a primary source. See CORPUS_TIER_MAP for the full corpus mapping.",
     "parse_status": "One of: access_denied, header_only, not_found, parsed, partial, unparseable.",
     "metrics": "Only values actually read from the document. Absent key = not read, NOT zero.",
     "metrics_note": "Interpretation guard. Read this before quoting any figure.",

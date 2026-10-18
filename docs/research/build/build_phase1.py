@@ -19,6 +19,7 @@ Usage:  python build/build_phase1.py
 
 import csv
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -26,9 +27,18 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 ROOT = HERE.parent
 
-import data_p1_iic as D  # noqa: E402
+import data_p1_iic as D        # noqa: E402
+import data_p1_registry as R   # noqa: E402
 
 OUT = ROOT / "_exports" / "phase1"
+VAULT = ROOT / "01_Evidence_Vault"
+PROB = ROOT / "01_Problem_Research"
+
+# Column order of 00_Research_Index/Source_Registry.csv. Phase 1 rows must match
+# exactly or the registry stops being one table.
+REGISTRY_COLUMNS = ["id", "research_area", "claim_supported", "source_org", "source_type",
+                    "tier", "reliability", "url", "publication_date", "access_date",
+                    "geography", "customer_segment", "notes"]
 
 # Canonical metric ordering for the long export. Order is meaningful: it runs
 # activity -> funnel -> money -> people, which is the order a reader thinks in.
@@ -414,6 +424,177 @@ def write_analysis():
     return path
 
 
+def build_registry_rows():
+    """Phase 1 rows for Source_Registry.csv, in the existing 13-column shape."""
+    rows = []
+    n = 0
+    for rec in D.IIC_REPORTS:
+        meta = R.P1_SOURCE_METADATA.get(rec["id"])
+        if not meta:
+            raise KeyError(f"{rec['id']} has no entry in data_p1_registry.P1_SOURCE_METADATA. "
+                           "Every Phase 1 document must state what it is used to prove.")
+        claim, geo, segment, reliability = meta
+        n += 1
+        rows.append({
+            "id": f"P1-{n:03d}",
+            "research_area": R.P1_RESEARCH_AREA,
+            "claim_supported": claim,
+            "source_org": rec["institution"],
+            "source_type": f"Institutional IIC annual report ({rec['year']})",
+            "tier": rec["evidence_tier"],
+            "reliability": reliability,
+            "url": rec["url"],
+            "publication_date": rec.get("year"),
+            "access_date": rec["access_date"],
+            "geography": geo,
+            "customer_segment": segment,
+            "notes": f"corpus_id={rec['id']}; parse_status={rec['parse_status']}"
+                     + (f"; contradiction_of={rec['contradiction_of']}"
+                        if rec.get("contradiction_of") else ""),
+        })
+    return rows
+
+
+def merge_registry(rows):
+    """Append Phase 1 rows to the live registry, skipping any already present.
+
+    Idempotent: re-running the build will not duplicate rows.
+    """
+    reg = ROOT / "00_Research_Index" / "Source_Registry.csv"
+    with reg.open("r", encoding="utf-8-sig", newline="") as fh:
+        existing = list(csv.DictReader(fh))
+    have = {r["id"] for r in existing}
+    todo = [r for r in rows if r["id"] not in have]
+    if not todo:
+        return len(existing), 0
+    fields = list(existing[0].keys())
+    missing = set(fields) ^ set(REGISTRY_COLUMNS)
+    if missing:
+        raise SystemExit(f"Source_Registry.csv columns changed: {sorted(missing)}. "
+                         "Update REGISTRY_COLUMNS in build_phase1.py.")
+    with reg.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        for r in existing + todo:
+            w.writerow(r)
+    return len(existing), len(todo)
+
+
+def write_quote_vault():
+    """01_Evidence_Vault/Quotes/ - verbatim, attributed, no opinion."""
+    qdir = VAULT / "Quotes"
+    qdir.mkdir(parents=True, exist_ok=True)
+    cols = ["qid", "quote", "speaker_role", "speaker_name", "institution", "doc_id",
+            "year", "tier", "extraction_method", "access_date", "url",
+            "recheck_before_external_use", "why_it_matters"]
+    write_csv(qdir / "Phase1_Institutional_Quotes.csv", cols, R.QUOTES)
+
+    L = ["# Quote Vault - Phase 1 Institutional Evidence", "",
+         "**Verbatim only.** Every string below was read in the source document named in its row. "
+         "Nothing here is paraphrased, summarised or reconstructed.", "",
+         "## How to use this file", "",
+         "- `tier` follows the repository standard in `00_Research_Index/README.md` section 3.",
+         "- `extraction_method = pdf_text_layer` means the string came from a machine-extracted text "
+         "layer rather than a visually confirmed page. PDF text layers scramble ligatures, bullet "
+         "glyphs and Devanagari conjuncts.",
+         "- **Every quote is flagged `recheck_before_external_use = TRUE`.** Re-verify against the "
+         "original PDF page before any of this appears in a pitch, deck or external document.",
+         "- To quote one of these, find `doc_id` in `../01_Problem_Research/01_Evidence_Corpus/` or in "
+         "`_exports/phase1/csv/iic_reports_wide.csv` to get the full document record.", "",
+         "## Quotes", ""]
+    for q in R.QUOTES:
+        L += [f"### {q['qid']} - {q['institution']} ({q['year']})", "",
+              f"> {q['quote']}", "",
+              f"- **Attributed to:** {q['speaker_role']}"
+              + (f" - {q['speaker_name']}" if q.get("speaker_name") else ""),
+              f"- **Corpus record:** `{q['doc_id']}`  |  **Tier:** {q['tier']}  |  "
+              f"**Accessed:** {q['access_date']}",
+              f"- **Source:** <{q['url']}>",
+              f"- **Extraction:** {q['extraction_method']} - re-verify visually before external use",
+              f"- **Why it is here:** {q['why_it_matters']}", ""]
+    p = qdir / "Phase1_Institutional_Quotes.md"
+    p.write_text("\n".join(L), encoding="utf-8")
+    return len(R.QUOTES)
+
+
+def write_corpus_index():
+    """01_Problem_Research/01_Evidence_Corpus/ - the mined-document index."""
+    cdir = PROB / "01_Evidence_Corpus"
+    cdir.mkdir(parents=True, exist_ok=True)
+    stats = D.CORPUS_STATS()
+    by_status = {}
+    for r in D.IIC_REPORTS:
+        by_status.setdefault(r["parse_status"], []).append(r)
+
+    L = ["# Phase 1 Evidence Corpus", "",
+         "Raw retrieved documents, organised by class. This folder is the **index**; the machine-readable "
+         "records live in `build/data_p1_iic.py` and export to `_exports/phase1/`.", "",
+         "## Corpus classes and their tiers", "",
+         "| Class | Tier | Documents | Status |", "|---|---|---|---|"]
+    for cls, tier in D.CORPUS_TIER_MAP.items():
+        n = len(D.IIC_REPORTS) if cls == "Institutional_IIC_Reports" else 0
+        st = "mined" if n else "not started"
+        L.append(f"| `{cls}/` | {tier} | {n or '-'} | {st} |")
+    L += ["",
+          "Tier definitions are the repository standard - see `00_Research_Index/README.md` section 3. "
+          "An institution's own annual report is **T1**: it is the origin of the fact about that "
+          "institution. See Decision Log D-016 for the correction that got us there.", "",
+          "## Institutional IIC reports - extraction status", "",
+          f"Target: **{stats['target_documents']} documents.** Currently "
+          f"**{stats['documents']}** ({stats['parsed']} parsed, {stats['partial']} partial, "
+          f"{stats['header_only']} pending KPI extraction).", ""]
+    for status in ("parsed", "partial", "header_only"):
+        recs = by_status.get(status, [])
+        if not recs:
+            continue
+        L += [f"### {status.replace('_', ' ').title()} ({len(recs)})", "",
+              "| Corpus ID | Institution | Type | State | Year | IIC ID | URL |",
+              "|---|---|---|---|---|---|---|"]
+        for r in recs:
+            L.append(f"| `{r['id']}` | {r['short_name']} | {r['institution_type']} | {r['state']} "
+                     f"| {r['year'] or '-'} | {r['iic_id'] or '-'} | [doc]({r['url']}) |")
+        L.append("")
+
+    L += ["## What still has to be mined", "",
+          "- 4 further IIC reports to reach the 40-document target.",
+          "- 20 ARIIA / NIRF institutional submission forms.",
+          "- 20 peer-reviewed / institutional research papers.",
+          "- 15 government procurement tenders.",
+          "- Vendor case studies (Tier 4 only, never load-bearing).", "",
+          "## Integrity rules for this corpus", "",
+          "1. **A missing metric means not read, never zero.** See Decision Log D-014.",
+          "2. **Same-document contradictions are kept as two records**, never reconciled. See D-013.",
+          "3. **A source that will not parse is logged as `unparseable`, not estimated.**", "",
+          "Derived analysis: `_exports/phase1/md/iic_corpus_analysis.md`", ""]
+    p = cdir / "README.md"
+    p.write_text("\n".join(L), encoding="utf-8")
+    return stats
+
+
+def write_raw_layer():
+    """_exports/raw/ - the raw work layer. Machine-extracted text, not edited."""
+    raw = ROOT / "_exports" / "raw"
+    raw.mkdir(parents=True, exist_ok=True)
+    p = raw / "phase1_iic_corpus_RAW.json"
+    payload = dict(
+        note="Raw Phase 1 extraction layer. Machine-readable; carries the same records as "
+             "_exports/phase1/json/iic_corpus.json plus the quote vault and academic "
+             "evidence, with no interpretation added. Regenerated - do not hand-edit.",
+        generated="2026-10-18",
+        generated_by="build/build_phase1.py",
+        evidence_tiers=D.TIERS,
+        corpus_tier_map=D.CORPUS_TIER_MAP,
+        parse_status_vocabulary=D.PARSE_STATUS,
+        corpus_stats=D.CORPUS_STATS(),
+        documents=D.IIC_REPORTS,
+        registry_rows=build_registry_rows(),
+        quotes=R.QUOTES,
+        academic_evidence=R.ACADEMIC_EVIDENCE,
+    )
+    p.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    return p
+
+
 def main():
     print("=" * 78)
     print("  PHASE 1 — IIC ANNUAL REPORT CORPUS EXPORT")
@@ -465,7 +646,7 @@ def main():
             "iic_id": "IIC portal identifier where the institution published it. Often absent.",
             "star_rating": "ARIIA/IIC star band, self-reported by the institution.",
             "url": "Direct document URL, retrieved 2026-10-18.",
-            "evidence_tier": "T1 government primary, T2 institutional primary, T3 peer-reviewed, T4 vendor.",
+            "evidence_tier": "Repository standard (00_Research_Index/README.md s3). IIC annual reports are T1 - an institution's own report about itself is a primary source. See CORPUS_TIER_MAP for the full corpus mapping.",
             "parse_status": "One of: " + ", ".join(sorted(D.PARSE_STATUS)) + ".",
             "metrics": "Only values actually read from the document. Absent key = not read, NOT zero.",
             "metrics_note": "Interpretation guard. Read this before quoting any figure.",
@@ -491,6 +672,22 @@ def main():
 
     p = write_analysis()
     print(f"  md/iic_corpus_analysis.md         {p.stat().st_size:,} bytes")
+
+    print()
+    print("  -- writing into the research tree --")
+    nq = write_quote_vault()
+    print(f"  01_Evidence_Vault/Quotes/         {nq} verbatim quotes (csv + md)")
+
+    stats = write_corpus_index()
+    print(f"  01_Problem_Research/01_Evidence_Corpus/README.md   "
+          f"{stats['documents']}/{stats['target_documents']} docs indexed")
+
+    reg_rows = build_registry_rows()
+    before, added = merge_registry(reg_rows)
+    print(f"  00_Research_Index/Source_Registry.csv  +{added} rows ({before} -> {before + added})")
+
+    p = write_raw_layer()
+    print(f"  _exports/raw/                      {p.name} ({p.stat().st_size:,} bytes)")
 
     print()
     s = D.CORPUS_STATS()
