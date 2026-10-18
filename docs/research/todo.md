@@ -72,6 +72,14 @@ Do **not** start by trying to validate all 10 user types.
 
 This should be your first serious research document.
 
+> **Status 2026-10-18 — IN PROGRESS.** Task A1 (institutional IIC annual report corpus) is
+> **complete at 36 of 40 target documents** (34 distinct institutions, 25 fully parsed).
+> Outputs: `_exports/phase1/`. Findings: `_exports/phase1/md/iic_corpus_analysis.md`.
+> New open questions raised: `00_Research_Index/Open_Questions.md` OQ-19 to OQ-24.
+> Still to mine: 4 further IIC reports, 20 ARIIA/NIRF forms, 20 academic papers,
+> 15 procurement tenders. Task A2 (the ten written problem analyses) has **not** started.
+> **No primary interviews exist yet** — everything so far is documentary evidence.
+
 Create:
 
 ### `01_Problem_Research`

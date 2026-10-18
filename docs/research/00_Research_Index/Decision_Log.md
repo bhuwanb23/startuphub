@@ -141,3 +141,38 @@ Every competitor tracks "stage" as a free-text or dropdown field. Nobody models 
 **Evidence.** Multiple vendors in this category serve AI-generated SEO content as their entire published feature set, with no documentation, no screenshots and no third-party review trail.
 
 **Reverses if.** Independent verification becomes available for any specific claim.
+---
+
+## D-013 — 2026-10-18 — Phase 1 corpus: report each figure separately, never reconcile it
+
+**Decision.** When an institution's own document states two different values for the same field, record **both as separate corpus records** (e.g. `IIC-001` and `IIC-001b` for the two halves of NIT Calicut's single PDF) and flag the pair via `contradiction_of`. Do **not** pick a winner, average them, or silently prefer the one that looks more plausible.
+
+**Evidence.** Six same-document contradictions in 36 documents (`_exports/phase1/csv/iic_contradictions.csv`). NIT Calicut's one 2024-25 PDF states both 55 and 17 startups (3.2x) and both ₹1,51,488 and ₹16,00,000 awareness spend (10.6x). Institute of Science Nagpur states 16 activities narratively and 02 in its KPI form (8x). MIET Jammu writes "Rs 4,10,000" in digits and "Three Lakh Twenty Thousands only" in words in the same field.
+
+**Why it matters.** The divergence is the product insight. If the researcher reconciles these numbers away, the single strongest piece of Phase 1 evidence disappears — namely that **the person who must reconcile an institution's narrative against its own submission is a part-time IIC coordinator**. That is a job-to-be-done, not a data-quality footnote.
+
+**Reverses if.** OQ-20 establishes which artefact is authoritative (e.g. ARIIA is confirmed to read only the portal form). Even then, keep both records — the gap between them remains the finding.
+
+---
+
+## D-014 — 2026-10-18 — Never default a missing metric to zero
+
+**Decision.** In all Phase 1 data structures, an absent metric key means **not read**, not zero. The long-format export records such values with `status = "not_reported"`. Values that are approximations in the source (`"RS. 3 L+"`) are stored under `_approx` keys and never inflated to a precise rupee figure.
+
+**Evidence.** Across 36 documents only 22 publish a spend figure and only 13 split awareness from grant money. Institutions express absence at least seven different ways inside the same mandated form: `Nil`, `NA`, `In process`, `In-progress`, a bare dash, a lower bound (`3 L+`), and one entry of pure prose (Teresa's College, IIC-031 — a 13-item narrative across six funding sources pasted into a numeric money field). Only one institution wrote a numeric zero (Institute of Science Nagpur, IIC-011).
+
+**Why it matters.** Defaulting missing to zero would silently manufacture ~14 institutions that appear to have spent nothing and supported nothing. It would also make the grant-to-awareness ratios in the analysis wrong in a way that flatters the product thesis — which is exactly when a silent assumption is most dangerous.
+
+**Reverses if.** Never. This is a data-integrity invariant.
+
+---
+
+## D-015 — 2026-10-18 — Scope the IIC corpus to include non-technical colleges
+
+**Decision.** Deliberately include arts-and-science, management, undergraduate and women's colleges alongside NITs and engineering colleges, and record `institution_type` on every document.
+
+**Evidence.** The corpus contains 34 institutions across 13 types: NIT (2), engineering (9), autonomous engineering (5), pharmacy (5), private deemed university (3), arts-and-science (3), management (1), PG women's (1), undergraduate (1), science (1), university group (1). Non-technical institutions file in the identical schema — S.I.E.S. College of Management Studies (non-technical) filed a compliant 2024-25 report showing 2 activities and ₹50,000 spent, more than double SIGCE's entire ₹25,000 across ~19 activities.
+
+**Why it matters.** Two reasons. (1) The output ratios differ violently by segment — Vivekanandha College ran 112 activities to produce 1 IP; REC Raghu ran 94 to produce 0. A segment-blind view averages these into meaninglessness. (2) It bounds the addressable market honestly instead of assuming the NIT/engineering framing in `todo.md`. Per D-002 the beachhead stays unfrozen until evidence narrows it, and this is the evidence.
+
+**Reverses if.** ARIIA data shows non-technical IICs are systematically excluded from the scheme's benefit (i.e. they file but are not ranked). Then they are in the reporting population but not the ranked one, and must be tracked as two distinct populations.
