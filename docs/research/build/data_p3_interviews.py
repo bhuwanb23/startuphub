@@ -321,7 +321,7 @@ HYPOTHESES = [
             "lists their startups with names, stages and dates."
         ),
         if_refuted="The wedge is 'one place to see it', not 'first record'. Pricing and moat both weaken.",
-        interview=G-B, question=1,
+        interview=G_B, question=1,
     ),
     dict(
         id="H-02",
@@ -333,7 +333,7 @@ HYPOTHESES = [
             "stages already filled, from the institute or a state portal."
         ),
         if_refuted="The join failure is a form-design artefact nobody actually feels, which removes the Phase 3A headline as a product driver.",
-        interview=G-A, question=2,
+        interview=G_A, question=2,
     ),
     dict(
         id="H-03",
@@ -345,7 +345,7 @@ HYPOTHESES = [
             "the work is done on the IIC portal itself and costs nothing either way."
         ),
         if_refuted="There is no free incumbent; the comparison set is wrong and the whole positioning is mis-aimed.",
-        interview=G-A, question=6,
+        interview=G_A, question=6,
     ),
     dict(
         id="H-04",
@@ -357,7 +357,7 @@ HYPOTHESES = [
             "is submitted - no deadline pressure, no rework, no overtime."
         ),
         if_refuted="There is no forcing event, so there is no trigger to sell against. Timing strategy must change entirely.",
-        interview=G-A, question=4,
+        interview=G_A, question=4,
     ),
     dict(
         id="H-05",
@@ -369,7 +369,7 @@ HYPOTHESES = [
             "and that the Registrar does not consult them on this at all."
         ),
         if_refuted="There is no internal champion. Go-to-market must start with the Registrar as the entry point instead.",
-        interview=G-A, question=6,
+        interview=G_A, question=6,
     ),
     dict(
         id="H-06",
@@ -381,7 +381,7 @@ HYPOTHESES = [
             "whom sees the other's list."
         ),
         if_refuted="The 'one integration point' framing is wrong and the integration cost of any product is much higher than assumed.",
-        interview=G-A, question=6,
+        interview=G_A, question=6,
     ),
     dict(
         id="H-07",
@@ -394,7 +394,7 @@ HYPOTHESES = [
             "software does not cleanly fit into."
         ),
         if_refuted="The price band is wrong and must move materially - probably down, and probably to a different billing period.",
-        interview=G-B, question=3,
+        interview=G_B, question=3,
     ),
     dict(
         id="H-08",
@@ -406,7 +406,7 @@ HYPOTHESES = [
             "arrive, and nobody has ever grouped them."
         ),
         if_refuted="Drop cohort management from the product entirely. Absence from reports was absence of concept, not absence of data.",
-        interview=G-A, question=6,
+        interview=G_A, question=6,
     ),
     dict(
         id="H-09",
@@ -419,7 +419,7 @@ HYPOTHESES = [
             "never tracks a patent."
         ),
         if_refuted="The CRITICAL finding is a reporting artefact. The patent module loses its justification.",
-        interview=G-A, question=5,
+        interview=G_A, question=5,
     ),
     dict(
         id="H-10",
@@ -431,7 +431,7 @@ HYPOTHESES = [
             "without objection, because the data is non-sensitive."
         ),
         if_refuted="The deployment constraint is soft and the vendor list narrows sharply.",
-        interview=G-C, question=3,
+        interview=G_C, question=3,
     ),
 ]
 
@@ -624,10 +624,13 @@ def validation():
                 errs.append(f"{h['id']} missing {field}")
         if h["status"] not in ("HYPOTHESIS", "SINGLE-SOURCE", "DOCUMENTED"):
             errs.append(f"{h['id']}: bad status {h['status']}")
-        if not h.get("interview") or h["interview"] not in {g["id"] for g in ROLE_GUIDES}:
+        if not h.get("interview") or h["interview"].get("id") not in {g["id"] for g in ROLE_GUIDES}:
             errs.append(f"{h['id']}: interview target not a real guide")
-        if not h.get("tests"):
-            errs.append(f"{h['id']}: no tests list")
+        if not isinstance(h.get("question"), int) or h["question"] < 1:
+            errs.append(f"{h['id']}: question must be a positive index into its guide")
+        elif h["question"] > len(h["interview"]["questions"]):
+            errs.append(f"{h['id']}: question {h['question']} exceeds "
+                        f"{h['interview']['id']} guide length {len(h['interview']['questions'])}")
 
     # Coding scheme must reference real banks and real hypotheses.
     for c in CODING_SCHEME:

@@ -35,6 +35,7 @@ STEPS = [
     ("Phase 1 - IIC annual report corpus", "build_phase1.py"),
     ("Phase 2 - customer roles and approval chain", "build_phase2.py"),
     ("Phase 3A - NIRF/ARIIA government forms", "build_phase3.py"),
+    ("Phase 3B - interview programme (instruments)", "build_phase3b.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -111,6 +112,8 @@ def main() -> int:
     print("    _exports/phase2/            Phase 2 role + procurement data")
     print("    01_Problem_Research/F_Synthesis/Government_Form_Analysis.md  Phase 3A forms")
     print("    _exports/phase3/            Phase 3A NIRF/ARIIA form data")
+    print("    02_User_Research/README.md  Phase 3B interview programme (0 conducted)")
+    print("    _exports/phase3b/           Phase 3B instruments, shortlist, codes")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 

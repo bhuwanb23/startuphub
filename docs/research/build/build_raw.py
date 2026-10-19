@@ -201,23 +201,32 @@ def main() -> int:
     print(f"  csv    {out.relative_to(ROOT)}  ({len(NIRF_SAMPLE)} real sample rows)")
 
     # ---- manifest ----
+    # Synthetic material (Ollama, models, any generated respondent) lives in
+    # _exports/synthetic/ and is EXCLUDED from the manifest. A file that could
+    # be mistaken for something a person said must never be hashed as evidence.
+    SYNTHETIC_DIR = "_exports/synthetic"
     manifest = {"generated_at": stamp, "project": "StartupHub", "phase": 0,
                 "note": "Every export file, with SHA-256 so downstream consumers can verify integrity.",
+                "excluded": [f"{SYNTHETIC_DIR}/ (synthetic, not evidence)"],
                 "files": []}
     for pattern_root, pattern in ((ROOT / "_exports", "**/*"),):
         for p in sorted(pattern_root.rglob("*")):
-            if p.is_file() and p.name != "manifest.json":
-                manifest["files"].append({
-                    "path": str(p.relative_to(ROOT)).replace("\\", "/"),
-                    "bytes": p.stat().st_size,
-                    "sha256": sha256(p),
-                })
+            if not p.is_file() or p.name == "manifest.json":
+                continue
+            if SYNTHETIC_DIR in p.relative_to(ROOT).as_posix():
+                continue
+            manifest["files"].append({
+                "path": str(p.relative_to(ROOT)).replace("\\", "/"),
+                "bytes": p.stat().st_size,
+                "sha256": sha256(p),
+            })
     md_files = sorted(ROOT.glob("*.md"))
     for p in md_files:
         manifest["files"].append({"path": p.name, "bytes": p.stat().st_size, "sha256": sha256(p)})
-    for sub in ("00_Research_Index", "01_Evidence_Vault", "02_Landscape_Map", "03_Problem_Evidence",
-                "04_Competitor_DeepDive", "06_Pricing_Evidence", "09_Market_Data",
-                "13_Synthesis", "14_Assets"):
+    for sub in ("00_Research_Index", "01_Evidence_Vault", "01_Problem_Research",
+                "02_Landscape_Map", "02_User_Research", "03_Problem_Evidence",
+                "04_Competitor_DeepDive", "06_Pricing_Evidence", "08_User_Roles",
+                "09_Market_Data", "13_Synthesis", "14_Assets"):
         for p in sorted((ROOT / sub).rglob("*.md")):
             manifest["files"].append({
                 "path": str(p.relative_to(ROOT)).replace("\\", "/"),
