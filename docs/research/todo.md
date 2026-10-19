@@ -896,6 +896,62 @@ Research:
 
 ---
 
+### STATUS: COMPLETE (supersedes 04_Competitor_DeepDive)
+
+Built by `build/data_p9_competitors.py`, `build/build_charts9.py`,
+`build/build_phase9.py`. Audited by `build/audit_phase9.py` (90/90 checks).
+
+**46 entities assessed: 28 vendors + 10 government platforms + 8 indirect
+alternatives.** 13 direct, 15 global across 5 sub-categories.
+
+**FIVE Phase 0 CLAIMS CORRECTED — TWO WERE OUTRIGHT FALSE:**
+
+| Phase 0 said | Status | What happened |
+|---|---|---|
+| "No competitor can prove a large Indian institution runs on their software" | **FALSIFIED** | EcoSync → TBI-KIET; Accubate → NSRCOM/NASSCOM; VentureLink → ICUBE, University of Toronto |
+| "Exactly zero competitors have an IPR module" | **FALSIFIED** | Wellspring, Helikon Labs, Commercify, SINT·OTRI all implement patent/licence workflow |
+| RiserNest "Europe (unverified)" | RESOLVED | Rotterdam, 2024, €399–1,500/mo |
+| VentureLink "not found" | RESOLVED | Founded inside a U Toronto incubator, ~$225/mo |
+| Global folder = 4 vendors | EXPANDED | 15, across 4 spec categories + tech_transfer |
+
+**The surviving white space (restated honestly):** intake/cohort/evaluation/
+mentor are **table stakes** (75–79% of the market). The bottom of the coverage
+chart is the entire opportunity: **YUKTI-NIR/ARIIA export 0/28**, TRL 3/28,
+Indian data residency 4/28, IPR workflow 6/28.
+
+**New category forced by verification: tech transfer / IP platforms (4).** This
+is what falsified GAP-01 and forced the correction.
+
+**GAP status after correction:** 3 survive untouched (GAP-02 TRL, GAP-03 mandate,
+GAP-09 pre-incubation), 2 narrowed (GAP-01, GAP-06, GAP-13), 6 weakened,
+2 strengthened. A regression guard in `data_p9_competitors.py` fails the build
+if a gap is marked unchanged while naming a falsifier.
+
+**Named-customer evidence is graded, not assumed:** NAMED_REFERENCE 2,
+NAMED_LOGO 4, VENDOR_CLAIM 7, UNKNOWN 15 — **22 of 28 are no better proven than
+a vendor claim.** Accubate is the only real review base (26 Capterra, 4.8).
+
+**The spec's own overlap example is confirmed:** Startup India Hub (50K+
+startups, 600K network) and MAARG already do mentor matching and directories.
+The resolution: **none of these platforms returns anything to the institution** —
+they record the startup, not the IIC's year, ARIIA indicators, TRL or patent
+deadline.
+
+**Regulatory signal:** DPIIT Gazette 108(E), 4 Feb 2026 raises the startup
+turnover threshold ₹100cr → ₹200cr. Flagged **NEEDS VERIFICATION against the
+Gazette itself**.
+
+**12 charts** in `_exports/charts/phase9/`. **9 documents** in
+`07_Competitor_Research/`. **9 CSVs + schema** in `_exports/phase9/`.
+`04_Competitor_DeepDive` → redirect stub (originals retained in git history).
+
+**Seven pre-committed falsifiers** (C-01…C-07). The load-bearing one is C-05:
+Phase 9 already found four vendors Phase 0 missed — one whole category — so the
+*set* should be read as good-not-exhaustive even though the *white space*
+findings got stronger.
+
+---
+
 # PHASE 10 — Competitor Matrix
 
 Create a huge spreadsheet.

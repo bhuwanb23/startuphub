@@ -385,6 +385,18 @@ Reproduce: `python build/build_phase3b.py`.
 | `06_Pricing_Research/Falsification.md` | Six pre-committed ways this pricing analysis breaks |
 | `_exports/charts/phase8/` | 10 charts — price ladder, envelope gap, WTP frames, models A–F, per-student, Model D failure, GeM bands, WTP streams, categories, unit-economics bind |
 | `_exports/phase8/` | comparables, price_ladder, model_matrix, wtp_streams, wtp_frames, procurement_bands, per_student_normalisation, schema |
+| `07_Competitor_Research/00_INDEX.md` | Phase 9 hub — 46 entities; 5 Phase 0 claims corrected, 2 falsified |
+| `07_Competitor_Research/01_Direct/Direct_Competitors.md` | 13 direct competitor dossiers with evidence grades |
+| `07_Competitor_Research/02_Ecosystem/Mandatory_Stack.md` | 10 statutory platforms + what each returns to the institution |
+| `07_Competitor_Research/03_Indirect/Indirect_Alternatives.md` | 8 free/low-cost alternatives institutions actually use |
+| `07_Competitor_Research/04_Global/Global_Competitors.md` | 15 vendors across 5 sub-categories incl. tech transfer (new) |
+| `07_Competitor_Research/05_Positioning/Positioning_Gaps.md` | 13 gaps with post-verification status |
+| `07_Competitor_Research/05_Positioning/Revised_Claims.md` | The falsification record — 2 claims corrected, 2 resolved, 1 expanded |
+| `07_Competitor_Research/06_Regulatory_Signals.md` | DPIIT 108(E) Feb 2026 and other live market-changing rules |
+| `07_Competitor_Research/Falsification.md` | Seven pre-committed ways the competitive set breaks |
+| `_exports/charts/phase9/` | 12 charts — positioning matrix, capability coverage, heatmap, evidence quality, categories, mandatory stack, gap status, revised claims, price-vs-scope, India vs global, tech-transfer adjacency, threat-vs-evidence |
+| `_exports/phase9/` | competitors, feature_matrix, feature_coverage, ecosystem_platforms, indirect_alternatives, positioning_gaps, revised_claims, regulatory_signals, schema |
+| `04_Competitor_DeepDive/00_INDEX.md` | **redirect stub** — superseded by 07; originals in git history |
 | `13_Synthesis/Validation_Scorecard.md` | Phase 30 — rebuilt around what actually exists |
 | `_exports/phase45/` | market_base, iic_counts, conflicts, segments, icp_criteria, assumptions, sizing, validation_scorecard |
 
