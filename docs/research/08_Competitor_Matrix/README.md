@@ -9,7 +9,7 @@
 
 # Competitor Matrix
 
-Phase 10. **36 vendors × 15 scored capabilities = 540 scored cells**,
+Phase 10. **40 vendors × 15 scored capabilities = 600 scored cells**,
 across the 27 columns this phase was asked to produce.
 
 **Workbook:** [`_exports/xlsx/08_Competitor_Matrix.xlsx`](../_exports/xlsx/08_Competitor_Matrix.xlsx)
@@ -37,7 +37,7 @@ tech-transfer platforms existed and had simply not been found.
 
 ## What changed at this phase
 
-**8 new vendors, including the one that matters most.**
+**12 vendors added beyond Phase 9, including the one that matters most.**
 
 **Protrak (ProrIISe)**, built jointly by **IISc Bengaluru** and Prorigo Software,
 is a **named Indian university deployment**: in production 6+ years, 2,500+ users,
@@ -49,17 +49,17 @@ though for IP management, not incubation. See [GAP13_Correction.md](GAP13_Correc
 
 ![Coverage](../_exports/charts/phase10/p10_02_dimension_coverage.png)
 
-| Capability | Native or better, of 36 |
+| Capability | Native or better, of 40 |
 |---|---|
-| YUKTI-NIR / ARIIA *(added by Phase 10)* | 0 |
-| TRL *(added by Phase 10)* | 1 |
+| TRL *(added by Phase 10)* | 2 |
 | Resource Management | 3 |
+| YUKTI-NIR / ARIIA *(added by Phase 10)* | 3 |
 | Corporate Matching | 5 |
-| Investor Matching | 6 |
+| Market Intelligence | 7 |
 | … | … |
-| Incubation | 18 |
-| Analytics | 25 |
-| Reporting | 25 |
+| Incubation | 21 |
+| Analytics | 27 |
+| Reporting | 28 |
 
 **Incubation operations are saturated. Technology transfer and mandate compliance
 are not.** That is the entire competitive read.
@@ -72,10 +72,10 @@ are not.** That is the entire competitive read.
 |---|---|
 | VERIFIED — 20+ reviews AND a named institutional reference | 1 |
 | PROVEN — 10+ reviews, or a named institutional logo | 6 |
-| PARTIAL — breadth ≥ 6 and a named customer | 5 |
-| UNPROVEN — no third-party proof of any kind | 24 |
+| PARTIAL — breadth ≥ 6 and a named customer | 6 |
+| UNPROVEN — no third-party proof of any kind | 27 |
 
-**24 of 36 vendors have no third-party proof of any kind.**
+**27 of 40 vendors have no third-party proof of any kind.**
 These are evidence tiers, not quality tiers — a vendor can be UNPROVEN and still be
 excellent. UNPROVEN means nobody outside the company has demonstrated it works.
 
