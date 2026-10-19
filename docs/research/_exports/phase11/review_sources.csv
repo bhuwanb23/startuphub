@@ -1,0 +1,14 @@
+﻿platform,description,access,records_in_corpus,vendors_reached,grades_present,usable_as_user_voice
+CAPTERRA,Structured Pros/Cons + 'what do you dislike' + incentive flags,retrievable,13,1,USER_REVIEW,YES
+SOFTWAREADVICE,Gartner Digital Markets; same corpus as Capterra,retrievable,0,0,-,NO
+SOFTWAREREVIEWS,PeerSphere; validated/incentive-flagged reviews,retrievable,6,1,USER_REVIEW,YES
+SPOTSAAS,Directory; editorially summarised reviews,retrievable,5,2,EDITORIAL,NO
+GETAPP,Gartner Digital Markets; moderated reviews,retrievable,1,1,USER_REVIEW,YES
+SOFTWARE_SUGGEST,Directory; mostly vendor copy,retrievable,0,0,-,NO
+G2,Structured Pros/Cons; site returns 403 to automated fetch,snippet-only,2,1,SNIPPET,NO
+PRODUCT_HUNT,Launch platform,not-used-in-category,0,0,-,NO
+REDDIT,Practitioner discussion,retrievable,2,2,USER_FORUM,YES
+LINKEDIN,Mostly vendor-authored posts,retrievable,0,0,-,NO
+YOUTUBE,Influencer/affiliate reviews,sparse,0,0,-,NO
+GOOGLE_REVIEWS,Local-business review platform,not-applicable,0,0,-,NO
+APP_STORES,Mobile app stores,not-applicable,0,0,-,NO

@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": "11 - competitor user reviews",
+  "evidence_grades": [
+    {
+      "grade": "USER_REVIEW",
+      "family": "user",
+      "meaning": "Full review body retrieved with reviewer, date and rating.",
+      "may_claim": "YES"
+    },
+    {
+      "grade": "USER_INSTITUTIONAL",
+      "family": "user",
+      "meaning": "A named institution describes its own operating problem.",
+      "may_claim": "YES"
+    },
+    {
+      "grade": "USER_FORUM",
+      "family": "user",
+      "meaning": "A practitioner describes their own working problem in public.",
+      "may_claim": "YES"
+    },
+    {
+      "grade": "SNIPPET",
+      "family": "corroborating",
+      "meaning": "Only a search-index excerpt was retrievable; page itself 403s.",
+      "may_claim": "CORROBORATE"
+    },
+    {
+      "grade": "VENDOR_TESTIMONIAL",
+      "family": "excluded",
+      "meaning": "A named customer quote published by the vendor.",
+      "may_claim": "NO"
+    },
+    {
+      "grade": "VENDOR_MARKETING",
+      "family": "excluded",
+      "meaning": "Vendor prose asserting what users struggle with.",
+      "may_claim": "NO"
+    },
+    {
+      "grade": "EDITORIAL",
+      "family": "excluded",
+      "meaning": "A directory's own summary of the reviews below it.",
+      "may_claim": "NO"
+    },
+    {
+      "grade": "AGGREGATOR_ECHO",
+      "family": "excluded",
+      "meaning": "Directory serving vendor copy while showing 0 ratings.",
+      "may_claim": "NO"
+    },
+    {
+      "grade": "UNAVAILABLE",
+      "family": "absence",
+      "meaning": "Page exists but is gated, paywalled, deleted or 403.",
+      "may_claim": "N/A - absence"
+    },
+    {
+      "grade": "NOT_APPLICABLE",
+      "family": "absence",
+      "meaning": "Platform is not used for this kind of product.",
+      "may_claim": "N/A - absence"
+    }
+  ],
+  "claim_grades": [
+    "USER_FORUM",
+    "USER_INSTITUTIONAL",
+    "USER_REVIEW"
+  ],
+  "pain_categories": [
+    {
+      "category": "FRAGMENTATION",
+      "label": "Workflow split across spreadsheets, forms, email and chat",
+      "origin": "USER",
+      "meaning": "Program manager carries state between unconnected systems"
+    },
+    {
+      "category": "UI_COMPLEXITY",
+      "label": "Interface or navigation is hard to work in",
+      "origin": "USER",
+      "meaning": "Cannot find controls; too many screens"
+    },
+    {
+      "category": "INFORMATION_OVERLOAD",
+      "label": "Too many modules / options / repeated fields",
+      "origin": "USER",
+      "meaning": "Capability exceeds the operator's working memory"
+    },
+    {
+      "category": "DOCUMENTATION_GAP",
+      "label": "No user manual, help centre or in-product guidance",
+      "origin": "USER",
+      "meaning": "Learns by asking support, not by reading"
+    },
+    {
+      "category": "TRAINING_GAP",
+      "label": "Needs orientation or a consultant before it is usable",
+      "origin": "USER",
+      "meaning": "Time-to-value depends on getting help"
+    },
+    {
+      "category": "INTEGRATION_GAP",
+      "label": "Does not connect to the tools already in use",
+      "origin": "USER",
+      "meaning": "Hand-offs instead of links; no WhatsApp/SMS/LMS/API"
+    },
+    {
+      "category": "NOTIFICATION_REACH",
+      "label": "Founders are not reliably reached",
+      "origin": "USER",
+      "meaning": "Email to spam; no owned channel"
+    },
+    {
+      "category": "REPORTING_WEAK",
+      "label": "Reporting does not answer the question being asked",
+      "origin": "USER",
+      "meaning": "Still assembles the board or ministry deck by hand"
+    },
+    {
+      "category": "DATA_EXPORT_MANUAL",
+      "label": "Data has to be moved out and reformatted by hand",
+      "origin": "USER",
+      "meaning": "Exports to spreadsheets for every recurring report"
+    },
+    {
+      "category": "BUG_STABILITY",
+      "label": "Glitches, bugs or performance problems interrupt work",
+      "origin": "USER",
+      "meaning": "Trust cost; people keep a shadow copy"
+    },
+    {
+      "category": "PRICE_VALUE",
+      "label": "Cost is hard to justify for the size of the team",
+      "origin": "USER",
+      "meaning": "Right tool, wrong budget; no small-institution tier"
+    },
+    {
+      "category": "NO_COMPLAINT_RECORDED",
+      "label": "The source records no dissatisfaction",
+      "origin": "ABSENCE",
+      "meaning": "Mandatory bucket so silence is never read as satisfaction"
+    }
+  ],
+  "files": {
+    "reviews.csv": "one row per retrieved review record",
+    "review_sources.csv": "one row per platform searched",
+    "complaints.csv": "usable complaints only (USER_* grades)",
+    "pain_taxonomy.csv": "category definitions and counts",
+    "vendor_sentiment.csv": "per-vendor rollup across 40 matrix vendors",
+    "evidence_exclusions.csv": "searched-but-empty and not-applicable cells",
+    "conflicts.csv": "platforms that disagree about the same vendor"
+  },
+  "interviews_conducted": 0,
+  "competitor_conversations": 0,
+  "summary": {
+    "total": 37,
+    "usable": 24,
+    "vendors_with_voice": 6,
+    "vendors_in_matrix": 40,
+    "incentive_flagged": 8
+  }
+}

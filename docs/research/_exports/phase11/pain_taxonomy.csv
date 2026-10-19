@@ -1,0 +1,13 @@
+﻿category,label,origin,meaning,records,usable_claims,vendors
+FRAGMENTATION,"Workflow split across spreadsheets, forms, email and chat",USER,Program manager carries state between unconnected systems,7,2,2
+UI_COMPLEXITY,Interface or navigation is hard to work in,USER,Cannot find controls; too many screens,2,2,2
+INFORMATION_OVERLOAD,Too many modules / options / repeated fields,USER,Capability exceeds the operator's working memory,5,4,2
+DOCUMENTATION_GAP,"No user manual, help centre or in-product guidance",USER,"Learns by asking support, not by reading",1,1,1
+TRAINING_GAP,Needs orientation or a consultant before it is usable,USER,Time-to-value depends on getting help,3,2,2
+INTEGRATION_GAP,Does not connect to the tools already in use,USER,Hand-offs instead of links; no WhatsApp/SMS/LMS/API,2,1,1
+NOTIFICATION_REACH,Founders are not reliably reached,USER,Email to spam; no owned channel,1,1,1
+REPORTING_WEAK,Reporting does not answer the question being asked,USER,Still assembles the board or ministry deck by hand,3,2,2
+DATA_EXPORT_MANUAL,Data has to be moved out and reformatted by hand,USER,Exports to spreadsheets for every recurring report,0,0,0
+BUG_STABILITY,"Glitches, bugs or performance problems interrupt work",USER,Trust cost; people keep a shadow copy,2,1,1
+PRICE_VALUE,Cost is hard to justify for the size of the team,USER,"Right tool, wrong budget; no small-institution tier",2,2,1
+NO_COMPLAINT_RECORDED,The source records no dissatisfaction,ABSENCE,Mandatory bucket so silence is never read as satisfaction,9,6,3

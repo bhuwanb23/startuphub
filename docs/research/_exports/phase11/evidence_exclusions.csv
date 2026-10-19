@@ -1,0 +1,33 @@
+﻿vendor,platform,outcome,note
+Accubate,G2,UNAVAILABLE,Not listed on G2 for this category
+Accubate,PRODUCT_HUNT,NOT_APPLICABLE,No Product Hunt listing
+Accubate,APP_STORES,NOT_APPLICABLE,"Web product, no mobile app"
+Accubate,GOOGLE_REVIEWS,NOT_APPLICABLE,"B2B SaaS, not a local business"
+IdeaScale,PRODUCT_HUNT,NOT_APPLICABLE,"Enterprise product, no PH launch"
+IdeaScale,APP_STORES,NOT_APPLICABLE,"Web product, no mobile app"
+Envisio,PRODUCT_HUNT,NOT_APPLICABLE,No PH listing
+Envisio,APP_STORES,NOT_APPLICABLE,Web product
+incuTrack,CAPTERRA,UNAVAILABLE,No Capterra listing
+incuTrack,PRODUCT_HUNT,NOT_APPLICABLE,Founded ~2002
+incuTrack,APP_STORES,NOT_APPLICABLE,Web product
+RiserNest,G2,UNAVAILABLE,No G2 listing
+RiserNest,CAPTERRA,UNAVAILABLE,No Capterra listing
+RiserNest,PRODUCT_HUNT,UNAVAILABLE,No Product Hunt listing
+Gohorto,G2,DISPUTED,"Vendor badge claims G2 High Performer 2026; only 3 GetApp reviews exist, one vendor-referred"
+Gohorto,CAPTERRA,UNAVAILABLE,No Capterra listing found
+EcoSync,G2,UNAVAILABLE,No G2 listing
+EcoSync,CAPTERRA,UNAVAILABLE,No Capterra listing
+Orbit (NestLens),G2,UNAVAILABLE,No G2 listing
+Orbit (NestLens),CAPTERRA,UNAVAILABLE,No Capterra listing
+Founderhood,G2,SNIPPET,1 G2 review recorded in Phase 9; full text not retrievable
+Univation,G2,UNAVAILABLE,No G2 listing
+VentureLink,G2,UNAVAILABLE,No G2 listing
+VentureLink,CAPTERRA,UNAVAILABLE,No Capterra listing
+Innoloft / LoftOS,CAPTERRA,UNAVAILABLE,No Capterra listing found
+Dealum,CAPTERRA,UNAVAILABLE,No Capterra listing
+Throttle,CAPTERRA,UNAVAILABLE,No Capterra listing
+Wazoku,G2,SNIPPET,Present on G2; full text not retrievable
+Elsevier Pure,CAPTERRA,UNAVAILABLE,No Capterra listing
+(all 36 matrix vendors),YOUTUBE,SPARSE,No substantive independent YouTube review of any vendor in this category was found
+(all 36 matrix vendors),APP_STORES,NOT_APPLICABLE,Every product assessed is a web B2B SaaS with no mobile app
+(all 36 matrix vendors),GOOGLE_REVIEWS,NOT_APPLICABLE,Google Reviews is a local-business platform; not used by B2B SaaS
