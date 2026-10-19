@@ -57,7 +57,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 0 Positioning | ✅ Complete | `04_Competitor_DeepDive/`, `02_Landscape_Map/` | — |
 | **1 Problem research** | 🟡 **Section A done, corpus 36/40** | `01_Problem_Research/A_` (10 analyses), `F_Synthesis/` | B–F need Phase 3 |
 | **2 Customer research** | ✅ **Complete (documentary)** | `08_User_Roles/` (25 roles, 4 classes), `_exports/phase2/`, diagram 06 | Behaviour needs Phase 3 |
-| **3 User interviews** | 🔴 **NOT STARTED — CRITICAL PATH** | `02_User_Research/` | Blocks 4, 7, 16, 17, 18, 30 |
+| **3 User interviews** | 🟡 **Workstream A done (11 forms), B not started** | `01_Problem_Research/F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/` | B (interviews) blocks 4, 7, 16, 17, 18, 30 |
 | 4 Segmentation + ICP | ⬜ | — | 🔴 blocked on 3 |
 | 5 Market research | 🟡 Seeded | `02_Landscape_Map/` | — |
 | 6 Government data | 🟡 Seeded | `05_Government_Data/` | — |
@@ -343,13 +343,50 @@ These might be four different people. **They are four different people, and ther
 
 This should become its own research folder.
 
-> ## 🔴 THIS IS NOW THE CRITICAL PATH
+> ## 🟡 WORKSTREAM A COMPLETE — WORKSTREAM B (INTERVIEWS) IS THE CRITICAL PATH
 >
-> Phase 1 delivered strong **documentary** evidence but **zero primary interviews**, so it cannot be
-> used externally as observed user problems. **Phases 4, 7, 16, 17, 18 and 30 are all blocked on
-> this phase.** It is now the highest-value work in the plan.
+> **Workstream A (government forms) is done: 11 published NIRF/ARIIA forms mined, 9 findings,
+> registered `P3-001`–`P3-011`.** Full write-up:
+> `01_Problem_Research/F_Synthesis/Government_Form_Analysis.md`.
 >
-> **It must specifically resolve three open questions Phase 1 could not:**
+> It replaced part of what interviews were meant to establish. **The NIRF form's only join
+> between "recognised startups" and the TRL table is the founder's DPIIT number**, which the
+> institution does not hold. Measured: **32 of 354 recognised startups (9.0%) lose their
+> identity at that join**, in 4 of 7 forms — worst case NIT Andhra Pradesh at 4 of 6 (67%).
+> That is a defect in the official instrument, visible in published primary data, not an
+> inference from a survey.
+>
+> | Phase 0 claim | After Workstream A |
+> |---|---|
+> | Government systems are compliance ledgers, not venture systems of record | **Strengthened** — plus a measured join failure |
+> | No competitor covers an end-to-end patent lifecycle | **Strengthened** — ARIIA 3.3 is a yes/no "does an IPR cell exist" checkbox |
+> | Reported metrics are not venture metrics | **Strengthened** — IIT Kanpur records 0 IIC stars while running a mature incubator; `"0 (On Progress)"` is a sentinel in 3 of 3 forms |
+> | No documented budget-holder signal | **Unchanged and bounded** — the only government money signal (ARIIA) is retrospective spend |
+>
+> **Workstream A could NOT answer these, so they now enter the interview guide:**
+>
+> | Open question | Why it matters |
+> |---|---|
+> | **OQ-32** How does a nodal officer obtain a founder's DPIIT number? | If they keep a spreadsheet, we build a better version of it. If they re-derive it each cycle, we must carry that workflow. Opposite products. |
+> | **OQ-33** What is typed when the key is missing? | 3 forms contain `DIPP0000`-style placeholders. Does the officer invent a placeholder, blank it, or drop the row? |
+> | **OQ-34** Does anyone reconcile NIRF against ARIIA? | Different time grains (academic-year pairs vs single cycle). If nobody reconciles, the duplication is real and felt. |
+>
+> **Interview framing is now sharper.** The highest-value question is no longer "would you use
+> StartupHub?" but *"Walk me through the last time you filled the TRL table — where did the DPIIT
+> number come from, and what did you type when you couldn't find it?"* Recent real behaviour
+> only. Never hypothetical willingness-to-buy.
+>
+> **Method: 6 paired interviews** (IIC Convener + Registrar/Dean at the same institution) so
+> the two accounts can be compared directly, per the plan below. Ollama is instrument-only,
+> always under `SYNTHETIC — NOT EVIDENCE`, and never enters counts, grades, quotes or claims.
+
+> ## 🔴 WORKSTREAM B IS NOW THE CRITICAL PATH
+>
+> Phase 1 delivered strong **documentary** evidence but **zero primary interviews**, so it cannot
+> be used externally as observed user problems. **Phases 4, 7, 16, 17, 18 and 30 are all blocked on
+> this phase.**
+>
+> **It must specifically resolve these open questions Phase 1 and 3A could not:**
 >
 > | Open question | Why it matters |
 > |---|---|

@@ -67,7 +67,7 @@ Three problems in one table:
 - **A blank and a 0 sit in the same column** of the same table (IIT Kanpur, consecutive years) with no legend distinguishing them.
 - **`1,2,3,4` sits in one scalar cell** (IIT (ISM) 2018-19) - four values in a field that expects one.
 
-The sentinel register holds **10 entries**: blank_not_zero, in_progress, multi_value_cell, non_report, placeholder_key. Any ranking built on these forms will read non-report as underperformance.
+The sentinel register holds **10 entries** across five kinds of meaningless number: blank that a sibling column encoded as `0`, multi-value in a scalar cell, non-report (`0` where nothing was reported), placeholder join key (`DIPP0000`), ranking cycle still open (`0 (On Progress)`). Any ranking built on these forms will read non-report as underperformance.
 
 This is Phase 1's "0 is not a measurement" problem, now observed inside the primary government instrument itself.
 

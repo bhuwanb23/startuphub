@@ -275,3 +275,40 @@ Re-runnable. Everything is reproducible from source.
 ---
 
 Back to [Research Index](00_Research_Index/README.md) · [Phase 0 Findings](13_Synthesis/Phase0_Findings.md)
+---
+
+## 12. Phase 3A — government forms (NIRF / ARIIA)
+
+Mined from published primary PDFs that institutions submit under their own name.
+
+| Asset | What it is |
+|---|---|
+| `01_Problem_Research/F_Synthesis/Government_Form_Analysis.md` | The write-up: 11 forms, 9 findings, join-key table, star ladder |
+| `_exports/phase3/form_corpus.csv` | 11 forms x 13 cols |
+| `_exports/phase3/dpiit_join_key.csv` | The join measurement, per NIRF form |
+| `_exports/phase3/sentinel_register.csv` | 10 zeros that are not zeros |
+| `_exports/phase3/verbatim_quotes.csv` | 7 verbatim strings from the forms |
+| `_exports/phase3/findings.json` + `findings_schema.json` | Findings, limits, honesty guards |
+| `_exports/raw/phase3_forms_RAW.json` | Raw extraction layer |
+
+Reproduce: `python build/_fetch_forms.py` (download + extract) then `python build/build_phase3.py`.
+
+### Headline
+
+The NIRF form's only join between "startups recognized by DPIIT" and the TRL table is the
+**founder's DPIIT registration number** — which the institution does not hold. Measured across
+7 forms: **32 of 354 recognised startups (9.0%) lose their identity at that join**, worst case
+NIT Andhra Pradesh at 4 of 6 (67%).
+
+### Phase 3A limits
+
+| Limitation | Impact |
+|---|---|
+| **Documentary only — zero interviews** | Willingness to pay, felt pain and budget ownership remain unverified |
+| 11 forms, all from institutions that **choose to publish** | Missingness inside this set **understates** the real gap |
+| Text-layer extraction, **no OCR** | Ligature loss affects wording, not the counts used |
+| `dpiit_in_trl` is a **key count**, not a startup count | One startup with several innovations appears more than once |
+| One ARIIA form exposes the fund-split rows in a readable layout | The 2022 template's column labels do not survive extraction |
+| ARIIA counts academic-year pairs; NIRF counts single cycles | **No cross-form total is computed anywhere** |
+
+Full limits list: `data_p3_forms.LIMITS`, mirrored in `_exports/phase3/findings.json`.
