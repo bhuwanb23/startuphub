@@ -34,6 +34,7 @@ STEPS = [
     ("Word documents", "build_docx.py"),
     ("Phase 1 - IIC annual report corpus", "build_phase1.py"),
     ("Phase 2 - customer roles and approval chain", "build_phase2.py"),
+    ("Phase 3A - NIRF/ARIIA government forms", "build_phase3.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -102,12 +103,14 @@ def main() -> int:
     print("    _exports/docx/StartupHub_Phase0_Findings.docx")
     print("    _exports/xlsx/StartupHub_Research_Database_MASTER.xlsx")
     print("    _exports/charts/            9 data charts (PNG)")
-    print("    _exports/diagrams/svg/      5 Mermaid diagrams (SVG + PNG)")
+    print("    _exports/diagrams/svg/      6 Mermaid diagrams (SVG + PNG)")
     print("    _exports/json/              9 structured datasets")
     print("    01_Problem_Research/F_Synthesis/IIC_Corpus_Analysis.md   Phase 1 corpus findings")
     print("    _exports/phase1/            Phase 1 corpus data (csv + json + schema)")
     print("    08_User_Roles/README.md    Phase 2 roles, buying centres, approval chain")
     print("    _exports/phase2/            Phase 2 role + procurement data")
+    print("    01_Problem_Research/F_Synthesis/Government_Form_Analysis.md  Phase 3A forms")
+    print("    _exports/phase3/            Phase 3A NIRF/ARIIA form data")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 
