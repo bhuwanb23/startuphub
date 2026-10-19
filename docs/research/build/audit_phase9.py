@@ -38,7 +38,10 @@ N_CHARTS = 12
 N_FEATURES = 12
 
 # named-customer evidence grades, expected counts
-EV = {"NAMED_REFERENCE": 2, "NAMED_LOGO": 4, "VENDOR_CLAIM": 7, "UNKNOWN": 15}
+# NAMED_LOGO fell from 4 to 3 in Phase 10: Elsevier Pure was graded NAMED_LOGO on
+# the basis of "universities and research institutions worldwide", which is a
+# generic marketing claim, not a logo. Phase 10's validation caught it.
+EV = {"NAMED_REFERENCE": 2, "NAMED_LOGO": 3, "VENDOR_CLAIM": 7, "UNKNOWN": 16}
 
 # vendors named in Phase 9 research that Phase 0 recorded as unverified
 RESOLVED_VENDORS = ["RiserNest", "VentureLink", "EcoSync"]
@@ -95,6 +98,12 @@ for c in comps:
 for k, v in EV.items():
     check(f"evidence {k}", v, ev.get(k, 0))
 check("every competitor graded", N_COMPETITORS, sum(ev.values()))
+
+# An evidence grade of NAMED_REFERENCE / NAMED_LOGO asserts that a specific
+# organisation exists. Zero named customers means the grade is unsupported.
+for c in comps:
+    if c["evidence"] in ("NAMED_REFERENCE", "NAMED_LOGO"):
+        check(f"{c['name']} grade backed by a named customer", True, c["customers_n"] >= 1)
 
 print("\n-- the surviving white space --")
 tot = {t["key"]: t["n_with"] for t in raw["feature_totals"]}

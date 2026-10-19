@@ -469,7 +469,7 @@ COMPETITORS = [
          market="Global", origin="Netherlands / UK", founded="Not stated",
          pricing="UK G-Cloud list £19,406–£58,504/yr + £32,250 onboarding",
          price_inr_low=1_628_250, price_inr_high=4_902_020,
-         evidence="NAMED_LOGO", customers="Universities and research institutions worldwide",
+         evidence="UNKNOWN", customers="Universities and research institutions worldwide (generic - none named)",
          customers_n=0, reviews=0, threat="LOW",
          scope="research outputs, funding, affiliations, impact - the research management benchmark",
          differentiator="The hardest price benchmark in the study; institutional-grade trust",
