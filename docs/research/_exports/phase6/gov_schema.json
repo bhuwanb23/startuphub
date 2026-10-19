@@ -1,0 +1,31 @@
+{
+  "note": "Phase 6 government data layer.",
+  "folder": "05_Government_Data",
+  "folder_divergence": "todo.md PHASE 6 specifies `04_Government_Data`. That prefix is already taken by `04_Competitor_DeepDive`. This repository runs two folders per numeric prefix (00_, 01_, 02_, 03_ each have two) and `05_Government_Data` already existed as an empty placeholder referenced by todo.md's own status table. We use 05_Government_Data and record the divergence here.",
+  "access_vocabulary": {
+    "OPEN_PDF": "public PDF, no login",
+    "OPEN_HTML": "public web page, no login",
+    "OPEN_DATA": "public machine-readable data",
+    "REGISTER_GATED": "registration required for detail",
+    "LOGIN_GATED": "login required - cannot be bulk-harvested",
+    "PRESS_ONLY": "figures only via press releases, no underlying dataset"
+  },
+  "guards": [
+    "every source row must carry an access status - no source without one",
+    "SRF editions must remain distinct; the 38->25->19 progression is a finding",
+    "Emerging-tier report coverage must stay recorded as zero until re-verified",
+    "the Phase 0 competitor-coverage miss must stay attributed to Phase 0",
+    "state buyer layer is a PARALLEL track, never a funnel stage"
+  ],
+  "parallel_buyer_tracks": [
+    {
+      "track": "State Startup Nodal Department",
+      "count": 34,
+      "source": "SRF 5.0 participating States and UTs (Ministry of Commerce & Industry)",
+      "why": "A funded, mandated, nationally scored body that must evidence the NUMBER OF STARTUPS availing institutional support. That is a venture register, and the evidence is published every January.",
+      "distinct_because": "Scope is the whole state, not one campus. The incumbent is an existing portal, not a spreadsheet. The deal size is a portal contract, not a licence.",
+      "quadrant": "ACT NOW (Phase 4 G9, urgency 4 / revenue 4)",
+      "caveat": "Fewer, larger, slower deals. Must never be added to the institutional funnel."
+    }
+  ]
+}

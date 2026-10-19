@@ -1,0 +1,5 @@
+﻿scheme,ministry,grant_max_crore,duration_years,beneficiaries,reaches_institutions,eligibility,note
+TIDE 2.0,MeitY,27.2,5,"51 incubators, ~2000 tech startups",True,Academic/R&D institutions and incubators with industry linkages; 3 tiers G1C/G2C/G3C,Largest incubator grant found anywhere in this research.
+AIC (Atal Incubation Centre),AIM / NITI Aayog,10,5,244 seed-funded incubators,True,"Public-funded, private or PPP institutions; 10,000 sq ft built-up space minimum",Already mined in Phase 5.
+BioNest,DBT / BIRAC,,3-5,BioNests at academic/research institutes,True,"Academic institutes, research hospitals, existing incubators; private partners contribute 20% capex",Grant amount is project-dependent; not published as a ceiling.
+TBI (Technology Business Incubator),DST / NSTEDB,,5,TBIs nationwide,True,Not-for-profit entity; host institution must exist 3+ years,Grant amount not stated in the public guidelines.

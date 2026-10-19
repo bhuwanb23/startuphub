@@ -1,0 +1,1089 @@
+{
+  "note": "Phase 6 government data. Public sources only. No fabricated observations.",
+  "generated": "2026-10-19",
+  "generated_by": "build/build_phase6.py",
+  "interviews_conducted": 0,
+  "source_map": [
+    {
+      "n": 1,
+      "body": "DPIIT",
+      "ministry": "Commerce & Industry",
+      "publishes": "Startup recognition, TRL recognition ladder, recognition numbers, sector categorisation",
+      "form": "HTML + press releases",
+      "access": "REGISTER_GATED",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "197,692 recognised startups (Oct 2025). The recognition number is the join key Phase 3A proved institutions do not hold."
+    },
+    {
+      "n": 2,
+      "body": "Startup India",
+      "ministry": "Commerce & Industry (Invest India)",
+      "publishes": "Ecosystem map, incubator schemes, state startup policies, States' Startup Ranking portal",
+      "form": "HTML portal + PDF",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "Hosts the SRF and every state policy PDF. The single richest source in this phase."
+    },
+    {
+      "n": 3,
+      "body": "Ministry of Education (MoE)",
+      "ministry": "MoE",
+      "publishes": "Innovation Cell, IIC framework, IIC portal counters",
+      "form": "HTML + PDF",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "Source of the 16,367 IIC figure and the '48th GII rank' claim."
+    },
+    {
+      "n": 4,
+      "body": "Department of Higher Education",
+      "ministry": "MoE",
+      "publishes": "Annual budget, AISHE, NIRF framework",
+      "form": "PDF budget + HTML",
+      "access": "OPEN_PDF",
+      "machine_readable": true,
+      "buyer_relevant": true,
+      "note": "FY 2025-26 DoHE Rs 50,078 cr. Already mined in Phase 5."
+    },
+    {
+      "n": 5,
+      "body": "NIRF",
+      "ministry": "MoE",
+      "publishes": "Rankings, per-institution submitted innovation data (777 Innovation filers)",
+      "form": "PDF + submitted PDFs",
+      "access": "OPEN_PDF",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "The only public source of institutions' own submitted innovation data. Mined in Phase 3A."
+    },
+    {
+      "n": 6,
+      "body": "AICTE",
+      "ministry": "Education",
+      "publishes": "Approved institutions list, technical education regulation",
+      "form": "HTML lists",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": false,
+      "note": "Budget CUT 50% to Rs 200 cr in FY 2025-26. Approved-institution count not published as a single figure (OQ-02)."
+    },
+    {
+      "n": 7,
+      "body": "UGC",
+      "ministry": "Education",
+      "publishes": "Grants, university lists, accreditation",
+      "form": "HTML + PDF",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": false,
+      "note": "Rs 3,336 cr FY 2025-26. Uses a different frame for 'university' than AISHE (OQ-06)."
+    },
+    {
+      "n": 8,
+      "body": "IIC / MIC portal",
+      "ministry": "MoE Innovation Cell",
+      "publishes": "IIC registry, quarterly activity reports, scoring",
+      "form": "Web application",
+      "access": "LOGIN_GATED",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "The mandated stack's most important dataset and the least accessible. OQ-22 (actual filing rate) is unanswerable because of this."
+    },
+    {
+      "n": 9,
+      "body": "Invest India",
+      "ministry": "Commerce & Industry",
+      "publishes": "Investment facilitation data, state-wise investment",
+      "form": "HTML + reports",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": false,
+      "note": "Overlaps DPIIT/Startup India. Not separately mined."
+    },
+    {
+      "n": 10,
+      "body": "DST (NIDHI)",
+      "ministry": "Science & Technology",
+      "publishes": "PRAYAS 2.0, TBI, iTBI, Seed Support, Accelerator, CoE guidelines",
+      "form": "HTML + PDF guidelines",
+      "access": "OPEN_PDF",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "Guidelines are public; per-incubator disbursement is not. PRAYAS Centres Rs 20L, Advance PRAYAS Rs 40L."
+    },
+    {
+      "n": 11,
+      "body": "MeitY (TIDE 2.0)",
+      "ministry": "Electronics & IT",
+      "publishes": "TIDE 2.0 centres, MeitY Startup Hub",
+      "form": "HTML + PDF",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "51 incubators, ~2000 startups over 5 years. Grant up to Rs 27.2 cr - the LARGEST incubator grant found."
+    },
+    {
+      "n": 12,
+      "body": "State Startup Missions",
+      "ministry": "State governments",
+      "publishes": "State startup policy, nodal officer/department, startup portal, incubator list",
+      "form": "Per-state PDF + portal",
+      "access": "OPEN_PDF",
+      "machine_readable": false,
+      "buyer_relevant": true,
+      "note": "THE BUYER. 31 of 36 States/UTs have a startup policy; 34 participated in SRF 5.0."
+    },
+    {
+      "n": 13,
+      "body": "State Innovation Councils",
+      "ministry": "State governments",
+      "publishes": "Legacy tier-1 AICTE innovation council listings",
+      "form": "HTML lists",
+      "access": "OPEN_HTML",
+      "machine_readable": false,
+      "buyer_relevant": false,
+      "note": "Predates IIC/AIM. Largely dormant and frequently superseded. Listed for completeness only."
+    }
+  ],
+  "srf_editions": [
+    {
+      "edition": 1,
+      "year": 2018,
+      "reform_areas": 7,
+      "action_points": 38,
+      "total_marks": 100,
+      "participating": 30,
+      "source": "DIPP evaluation methodology, F.No. P-38015/9/2018",
+      "areas": [
+        "Startup Policy and implementation",
+        "Incubation support",
+        "Seed funding support",
+        "Funding support - Angel and Venture",
+        "Simplified regulations",
+        "Easing public procurement",
+        "Awareness and outreach"
+      ]
+    },
+    {
+      "edition": 4,
+      "year": 2022,
+      "reform_areas": 7,
+      "action_points": 25,
+      "total_marks": 100,
+      "participating": 33,
+      "complete_submissions": 17,
+      "source": "SRF 2022 National Report",
+      "areas": [
+        "Institutional Support",
+        "Fostering Innovation and Entrepreneurship",
+        "Access to Market",
+        "Incubation and Mentorship Support",
+        "Funding Support",
+        "Capacity Building of Enablers",
+        "Roadmap to a Sustainable Future"
+      ],
+      "weights": {
+        "documents": 85,
+        "startup_feedback": 15,
+        "private_mapping": 0
+      },
+      "note": "15% of total score came from 10,000+ startup survey responses in 9 languages."
+    },
+    {
+      "edition": 5,
+      "year": 2026,
+      "reform_areas": 6,
+      "action_points": 19,
+      "total_marks": 75,
+      "participating": 34,
+      "complete_submissions": 24,
+      "source": "SRF 5.0 National Report (15-01-26)",
+      "areas": [
+        "Institutional Support",
+        "Infrastructure Support",
+        "Funding Opportunities",
+        "Market Access & Reach",
+        "Ecosystem Capacity Building",
+        "Focus on Innovation and Sustainability"
+      ],
+      "weights": {
+        "documents": 75,
+        "startup_feedback": 15,
+        "private_mapping": 10
+      },
+      "note": "First edition to add Private Ecosystem Mapping at 10%. 3,800+ documents, 12 evaluation committee meetings, ~26 lakh data points. Consideration period 1 Jan 2023 - 30 Nov 2024."
+    }
+  ],
+  "srf_pillars": [
+    {
+      "area": "Institutional Support",
+      "marks": 25,
+      "action_points": 6,
+      "absolute": 6,
+      "relative": 1
+    },
+    {
+      "area": "Infrastructure Support",
+      "marks": 12,
+      "action_points": 2,
+      "absolute": 2,
+      "relative": 0
+    },
+    {
+      "area": "Funding Opportunities",
+      "marks": 12,
+      "action_points": 3,
+      "absolute": 3,
+      "relative": 0
+    },
+    {
+      "area": "Market Access & Reach",
+      "marks": 11,
+      "action_points": 3,
+      "absolute": 2,
+      "relative": 3
+    },
+    {
+      "area": "Ecosystem Capacity Building",
+      "marks": 9,
+      "action_points": 3,
+      "absolute": 2,
+      "relative": 1
+    },
+    {
+      "area": "Focus on Innovation and Sustainability",
+      "marks": 6,
+      "action_points": 2,
+      "absolute": 2,
+      "relative": 0
+    }
+  ],
+  "srf_results_5_0": {
+    "Best Performer": [
+      [
+        "Gujarat",
+        "A1"
+      ],
+      [
+        "Arunachal Pradesh",
+        "B"
+      ],
+      [
+        "Goa",
+        "B"
+      ]
+    ],
+    "Top Performer": [
+      [
+        "Karnataka",
+        "A1"
+      ],
+      [
+        "Punjab",
+        "A2"
+      ],
+      [
+        "Tamil Nadu",
+        "A1"
+      ],
+      [
+        "Uttar Pradesh",
+        "A1"
+      ],
+      [
+        "Himachal Pradesh",
+        "B"
+      ]
+    ],
+    "Leader": [
+      [
+        "Rajasthan",
+        "A1"
+      ],
+      [
+        "Kerala",
+        "A2"
+      ],
+      [
+        "Madhya Pradesh",
+        "A1"
+      ],
+      [
+        "Uttarakhand",
+        "A2"
+      ],
+      [
+        "Telangana",
+        "A2"
+      ],
+      [
+        "Maharashtra",
+        "A1"
+      ],
+      [
+        "Andhra Pradesh",
+        "A2"
+      ],
+      [
+        "Haryana",
+        "A2"
+      ],
+      [
+        "Manipur",
+        "B"
+      ],
+      [
+        "Nagaland",
+        "B"
+      ],
+      [
+        "Meghalaya",
+        "B"
+      ]
+    ],
+    "Aspiring Leader": [
+      [
+        "Assam",
+        "A2"
+      ],
+      [
+        "Odisha",
+        "A2"
+      ],
+      [
+        "Bihar",
+        "A1"
+      ],
+      [
+        "Jammu and Kashmir",
+        "A2"
+      ],
+      [
+        "Sikkim",
+        "B"
+      ],
+      [
+        "Tripura",
+        "B"
+      ],
+      [
+        "Mizoram",
+        "B"
+      ],
+      [
+        "Andaman and Nicobar Islands",
+        "B"
+      ]
+    ],
+    "Emerging Startup Ecosystem": [
+      [
+        "Chhattisgarh",
+        "A2"
+      ],
+      [
+        "NCT of Delhi",
+        "A2"
+      ],
+      [
+        "Puducherry",
+        "B"
+      ],
+      [
+        "Chandigarh",
+        "B"
+      ],
+      [
+        "Dadra and Nagar Haveli and Daman and Diu",
+        "B"
+      ],
+      [
+        "Lakshadweep",
+        "B"
+      ],
+      [
+        "Ladakh",
+        "B"
+      ]
+    ]
+  },
+  "srf_results_2022": {
+    "Best Performer": [
+      [
+        "Gujarat",
+        "A"
+      ],
+      [
+        "Karnataka",
+        "A"
+      ],
+      [
+        "Kerala",
+        "A"
+      ],
+      [
+        "Tamil Nadu",
+        "A"
+      ]
+    ],
+    "Top Performer": [
+      [
+        "Maharashtra",
+        "A"
+      ],
+      [
+        "Odisha",
+        "A"
+      ],
+      [
+        "Punjab",
+        "A"
+      ],
+      [
+        "Rajasthan",
+        "A"
+      ],
+      [
+        "Telangana",
+        "A"
+      ]
+    ],
+    "Leader": [
+      [
+        "Andhra Pradesh",
+        "A"
+      ],
+      [
+        "Assam",
+        "A"
+      ],
+      [
+        "Madhya Pradesh",
+        "A"
+      ],
+      [
+        "Uttar Pradesh",
+        "A"
+      ],
+      [
+        "Uttarakhand",
+        "A"
+      ]
+    ],
+    "Aspiring Leader": [
+      [
+        "Bihar",
+        "A"
+      ],
+      [
+        "Haryana",
+        "A"
+      ]
+    ],
+    "Emerging Ecosystems": [
+      [
+        "Chhattisgarh",
+        "A"
+      ],
+      [
+        "Delhi",
+        "A"
+      ],
+      [
+        "Jammu and Kashmir",
+        "A"
+      ]
+    ],
+    "Category B - Best": [
+      [
+        "Himachal Pradesh",
+        "B"
+      ]
+    ],
+    "Category B - Top": [
+      [
+        "Arunachal Pradesh",
+        "B"
+      ],
+      [
+        "Meghalaya",
+        "B"
+      ]
+    ],
+    "Category B - Leader": [
+      [
+        "Goa",
+        "B"
+      ],
+      [
+        "Manipur",
+        "B"
+      ],
+      [
+        "Tripura",
+        "B"
+      ]
+    ]
+  },
+  "tier_movement": [
+    {
+      "state": "Kerala",
+      "from_tier": "Best Performer",
+      "to_tier": "Leader",
+      "tiers_fell": 2
+    },
+    {
+      "state": "Odisha",
+      "from_tier": "Top Performer",
+      "to_tier": "Aspiring Leader",
+      "tiers_fell": 2
+    },
+    {
+      "state": "Karnataka",
+      "from_tier": "Best Performer",
+      "to_tier": "Top Performer",
+      "tiers_fell": 1
+    },
+    {
+      "state": "Tamil Nadu",
+      "from_tier": "Best Performer",
+      "to_tier": "Top Performer",
+      "tiers_fell": 1
+    },
+    {
+      "state": "Maharashtra",
+      "from_tier": "Top Performer",
+      "to_tier": "Leader",
+      "tiers_fell": 1
+    },
+    {
+      "state": "Rajasthan",
+      "from_tier": "Top Performer",
+      "to_tier": "Leader",
+      "tiers_fell": 1
+    },
+    {
+      "state": "Telangana",
+      "from_tier": "Top Performer",
+      "to_tier": "Leader",
+      "tiers_fell": 1
+    },
+    {
+      "state": "Assam",
+      "from_tier": "Leader",
+      "to_tier": "Aspiring Leader",
+      "tiers_fell": 1
+    }
+  ],
+  "state_reports_mined": [
+    {
+      "state": "Gujarat",
+      "tier_5_0": "Best Performer",
+      "category": "A1",
+      "portal": "State Startup Portal",
+      "pages": 28,
+      "chars": 35072,
+      "verified_facts": {
+        "incubators_listed": 250
+      },
+      "note": "One of the first movers in setting up a startup portal; average grievance resolution seven days (per SRF 2022 summary)."
+    },
+    {
+      "state": "Tamil Nadu",
+      "tier_5_0": "Top Performer",
+      "category": "A1",
+      "portal": "Startup TN 5",
+      "pages": 32,
+      "chars": 34081,
+      "verified_facts": {
+        "active_policies": "15+",
+        "avg_query_resolution_days": 15,
+        "funding_up_to_inr_lakh": 15
+      },
+      "note": "Bilingual portal (English + Tamil). Query resolution reported as ~15 days in the 2022 summary."
+    },
+    {
+      "state": "Himachal Pradesh",
+      "tier_5_0": "Top Performer",
+      "category": "B",
+      "portal": "dedicated Startup portal",
+      "pages": 28,
+      "chars": 31248,
+      "verified_facts": {
+        "avg_query_resolution_days": 14,
+        "mentors_listed": 60,
+        "seed_fund_inr_crore": 10
+      },
+      "note": "Category B but runs a Rs 10 crore seed fund - a forward-looking budget signal, unusual for a sub-1-crore-population state."
+    },
+    {
+      "state": "Telangana",
+      "tier_5_0": "Leader",
+      "category": "A2",
+      "portal": null,
+      "pages": 28,
+      "chars": 33595,
+      "verified_facts": {
+        "avg_query_resolution_days": 16
+      },
+      "note": "Portal name not stated in the report text we extracted."
+    },
+    {
+      "state": "Kerala",
+      "tier_5_0": "Leader",
+      "category": "A2",
+      "portal": null,
+      "pages": 32,
+      "chars": 34800,
+      "verified_facts": {},
+      "note": "Fell from Best Performer (2022) to Leader (5.0). No probe hit in our extraction."
+    },
+    {
+      "state": "Bihar",
+      "tier_5_0": "Aspiring Leader",
+      "category": "A1",
+      "portal": null,
+      "pages": 32,
+      "chars": 33828,
+      "verified_facts": {
+        "active_policies": 10,
+        "seed_grant_up_to_inr_lakh": 10
+      },
+      "note": "Largest Category A state by population, an Aspiring Leader. Policy offers incubators 3% of incubatee SEBI AIF investment, matched 1:1 by government."
+    }
+  ],
+  "state_reports_unavailable": [
+    {
+      "state": "Odisha",
+      "tier_5_0": "Aspiring Leader",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    },
+    {
+      "state": "Meghalaya",
+      "tier_5_0": "Leader",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    },
+    {
+      "state": "Puducherry",
+      "tier_5_0": "Emerging",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    },
+    {
+      "state": "Goa",
+      "tier_5_0": "Emerging/Best",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    },
+    {
+      "state": "Chhattisgarh",
+      "tier_5_0": "Emerging",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    },
+    {
+      "state": "NCT of Delhi",
+      "tier_5_0": "Emerging",
+      "reason": "no per-state report published at the SRF results path; filename variants tried and returned HTML error pages"
+    }
+  ],
+  "emerging_tier": {
+    "tiers_targeted": 5,
+    "tiers_with_reports": 4,
+    "emerging_tier_reports_obtained": 0,
+    "finding": "ZERO Emerging-tier state reports could be obtained. The tier that needs this product most is the least documented in public data."
+  },
+  "state_portals": {
+    "finding": "Every SRF-participating state is scored on having a functional startup portal offering single-window services. Every state therefore ALREADY runs software that holds a venture registry.",
+    "evidence": [
+      "SRF Institutional Support Action Point 1: access to information through a State Startup Portal, 12 parameters",
+      "Portal scope: startup registration, policy and clearances, nodal officer details, list of incubators and accelerators, list of mentors, public procurement relaxation details, funding support, grievance redressal",
+      "Tamil Nadu 'Startup TN 5': bilingual, 15+ active policies, ~15 day query resolution",
+      "Gujarat: average grievance resolution seven days",
+      "Himachal Pradesh: dedicated startup portal, 14 day query resolution, 60 mentors listed"
+    ],
+    "competitor_implication": "Phase 0 scanned 15 vendors and found none covering this. The miss is the same coverage defect as OQ-04 (no public API in the mandated stack): we inventoried private vendors and not public infrastructure.",
+    "strategic_question": "Is a state portal a competitor, a data source, a partner, or an integration target? We cannot answer that without opening one. Recorded as OPEN, not resolved by assumption."
+  },
+  "incubator_schemes": [
+    {
+      "scheme": "TIDE 2.0",
+      "ministry": "MeitY",
+      "grant_max_crore": 27.2,
+      "duration_years": 5,
+      "beneficiaries": "51 incubators, ~2000 tech startups",
+      "reaches_institutions": true,
+      "eligibility": "Academic/R&D institutions and incubators with industry linkages; 3 tiers G1C/G2C/G3C",
+      "note": "Largest incubator grant found anywhere in this research."
+    },
+    {
+      "scheme": "AIC (Atal Incubation Centre)",
+      "ministry": "AIM / NITI Aayog",
+      "grant_max_crore": 10,
+      "duration_years": 5,
+      "beneficiaries": "244 seed-funded incubators",
+      "reaches_institutions": true,
+      "eligibility": "Public-funded, private or PPP institutions; 10,000 sq ft built-up space minimum",
+      "note": "Already mined in Phase 5."
+    },
+    {
+      "scheme": "BioNest",
+      "ministry": "DBT / BIRAC",
+      "grant_max_crore": null,
+      "duration_years": "3-5",
+      "beneficiaries": "BioNests at academic/research institutes",
+      "reaches_institutions": true,
+      "eligibility": "Academic institutes, research hospitals, existing incubators; private partners contribute 20% capex",
+      "note": "Grant amount is project-dependent; not published as a ceiling."
+    },
+    {
+      "scheme": "TBI (Technology Business Incubator)",
+      "ministry": "DST / NSTEDB",
+      "grant_max_crore": null,
+      "duration_years": 5,
+      "beneficiaries": "TBIs nationwide",
+      "reaches_institutions": true,
+      "eligibility": "Not-for-profit entity; host institution must exist 3+ years",
+      "note": "Grant amount not stated in the public guidelines."
+    }
+  ],
+  "state_policies": [
+    {
+      "state": "Assam",
+      "provision": "75% grant, capped at Rs 5 crore, for incubation centres",
+      "target": "IITs, engineering colleges, universities, biotechnology parks, IT parks, educational institutions",
+      "forward_looking": true
+    },
+    {
+      "state": "Bihar",
+      "provision": "Incubators receive 3% of incubatees' SEBI-registered AIF investment; government matches 1:1",
+      "target": "State-supported incubators",
+      "forward_looking": true
+    },
+    {
+      "state": "Tamil Nadu",
+      "provision": "Land at nominal lease for 99 years for Startup Parks",
+      "target": "Entrepreneurs including NRIs",
+      "forward_looking": true
+    },
+    {
+      "state": "Puducherry",
+      "provision": "Land or built-up space at preferential rates for startup cells",
+      "target": "Startup cells in industrial estates and IT parks",
+      "forward_looking": true
+    }
+  ],
+  "mentorship_bands": {
+    "Category_A": [
+      [
+        ">80 mentors",
+        3
+      ],
+      [
+        "41-80 mentors",
+        2
+      ],
+      [
+        "1-40 mentors",
+        1
+      ]
+    ],
+    "Category_B": [
+      [
+        ">20 mentors",
+        3
+      ],
+      [
+        "10-20 mentors",
+        2
+      ],
+      [
+        "1-9 mentors",
+        1
+      ]
+    ]
+  },
+  "corpus_srf": {
+    "total": 36,
+    "scoreable": 2,
+    "coverage_pct": 5.6,
+    "cat_a_mean": 1.0,
+    "cat_b_mean": 2.0,
+    "rows": [
+      {
+        "id": "IIC-001",
+        "institution": "National Institute of Technology Calicut",
+        "mentors": 29,
+        "cat_a_score": 1,
+        "cat_b_score": 3
+      },
+      {
+        "id": "IIC-025",
+        "institution": "Vijaya Institute of Pharmaceutical Sciences for Women",
+        "mentors": 5,
+        "cat_a_score": 1,
+        "cat_b_score": 1
+      },
+      {
+        "id": "IIC-001b",
+        "institution": "National Institute of Technology Calicut",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-002",
+        "institution": "National Institute of Technology Calicut",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-003",
+        "institution": "National Institute of Technology Andhra Pradesh",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-004",
+        "institution": "Kongu Engineering College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-005",
+        "institution": "Manav Rachna University",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-006",
+        "institution": "PIET Poornima",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-007",
+        "institution": "ICFAI University, Tripura",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-008",
+        "institution": "Regent Education and Research Foundation Group of Institutions",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-009",
+        "institution": "V.C. Engineering College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-010",
+        "institution": "Birla Institute of Technology and Science, Mesra",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-011",
+        "institution": "Institute of Science, Nagpur",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-012",
+        "institution": "Scottish Church College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-013",
+        "institution": "St. Paul's College of Pharmacy",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-014",
+        "institution": "Sri Venkateswara College of Pharmacy",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-015",
+        "institution": "Karpaga Vinayaga College of Engineering and Technology",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-016",
+        "institution": "C.M.R. Institute of Technology",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-017",
+        "institution": "KCG College of Technology",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-018",
+        "institution": "SIGCE",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-019",
+        "institution": "Raghu Engineering College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-020",
+        "institution": "Narsimha Reddy Engineering College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-021",
+        "institution": "Shree L.R. Tiwari College of Engineering",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-022",
+        "institution": "IPS Academy, Institute of Engineering and Science",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-023",
+        "institution": "S.I.E.S. College of Management Studies",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-024",
+        "institution": "Shree Sathyam College of Engineering and Technology",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-026",
+        "institution": "Vivekanandha Arts and Science College for Women",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-027",
+        "institution": "Kanoria PG Mahila Mahavidyalaya",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-028",
+        "institution": "Rathinam College of Pharmacy",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-029",
+        "institution": "Model Institute of Engineering and Technology",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-030",
+        "institution": "Dr. N.G.P. Arts and Science College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-031",
+        "institution": "Teresa's College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-032",
+        "institution": "Brainware University",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-033",
+        "institution": "Women's Christian College",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-034",
+        "institution": "Engineering College Greater Noida / EGSPEC",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      },
+      {
+        "id": "IIC-035",
+        "institution": "Marathwada Mitra Mandal's College of Pharmacy",
+        "mentors": null,
+        "cat_a_score": null,
+        "cat_b_score": null
+      }
+    ]
+  },
+  "g9_segment": {
+    "id": "G9",
+    "name": "State Startup Nodal Department / Mission",
+    "types": [
+      "State Startup Mission",
+      "IIC institution"
+    ],
+    "population": 34,
+    "population_basis": "States and UTs participating in SRF 5.0",
+    "activity_scale": "Mature",
+    "ip_depth": "UNKNOWN",
+    "wtp": "Medium",
+    "urgency": 4,
+    "revenue": 4,
+    "quadrant": "ACT NOW",
+    "grade": "DOCUMENTED",
+    "why": "The only buyer found in this project with a budget, a national scorecard and state-wide scope. Scored annually by the union on an active State Startup Policy, a Nodal Officer, a Nodal Department, a Dedicated Team, and the number of startups availing institutional support. That last item IS a venture register.",
+    "what_they_need": "(a venture register they can evidence to the union; department-wise support counts for their SRF submission; incubator and mentor lists; grievance tracking with a 30-day resolution clock)",
+    "forcing_event": "SRF evaluation cycle; scores published annually in January",
+    "incumbent": "Every participating state already runs a startup portal",
+    "blocker": "Portal replacement is a political decision, not a software decision",
+    "caveat": "One portal contract wins or loses an entire state. This is a different motion from institutional selling: fewer, larger, slower deals with a different procurement path. It is NOT a volume segment."
+  }
+}

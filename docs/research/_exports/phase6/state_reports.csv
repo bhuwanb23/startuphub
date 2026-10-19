@@ -1,0 +1,13 @@
+﻿status,state,tier_5_0,category,portal,pages,chars,verified_facts,note
+MINED,Gujarat,Best Performer,A1,State Startup Portal,28,35072,"{""incubators_listed"": 250}",One of the first movers in setting up a startup portal; average grievance resolution seven days (per SRF 2022 summary).
+MINED,Tamil Nadu,Top Performer,A1,Startup TN 5,32,34081,"{""active_policies"": ""15+"", ""avg_query_resolution_days"": 15, ""funding_up_to_inr_lakh"": 15}",Bilingual portal (English + Tamil). Query resolution reported as ~15 days in the 2022 summary.
+MINED,Himachal Pradesh,Top Performer,B,dedicated Startup portal,28,31248,"{""avg_query_resolution_days"": 14, ""mentors_listed"": 60, ""seed_fund_inr_crore"": 10}","Category B but runs a Rs 10 crore seed fund - a forward-looking budget signal, unusual for a sub-1-crore-population state."
+MINED,Telangana,Leader,A2,not_stated,28,33595,"{""avg_query_resolution_days"": 16}",Portal name not stated in the report text we extracted.
+MINED,Kerala,Leader,A2,not_stated,32,34800,{},Fell from Best Performer (2022) to Leader (5.0). No probe hit in our extraction.
+MINED,Bihar,Aspiring Leader,A1,not_stated,32,33828,"{""active_policies"": 10, ""seed_grant_up_to_inr_lakh"": 10}","Largest Category A state by population, an Aspiring Leader. Policy offers incubators 3% of incubatee SEBI AIF investment, matched 1:1 by government."
+UNAVAILABLE,Odisha,Aspiring Leader,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
+UNAVAILABLE,Meghalaya,Leader,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
+UNAVAILABLE,Puducherry,Emerging,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
+UNAVAILABLE,Goa,Emerging/Best,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
+UNAVAILABLE,Chhattisgarh,Emerging,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
+UNAVAILABLE,NCT of Delhi,Emerging,,,,,,no per-state report published at the SRF results path; filename variants tried and returned HTML error pages
