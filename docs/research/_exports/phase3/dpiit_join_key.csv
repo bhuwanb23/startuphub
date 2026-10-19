@@ -1,0 +1,8 @@
+﻿key,institution,institution_type,year,dpiit_recognised,dpiit_in_trl,lost_at_join,reverse_gap,loss_rate_pct,placeholder_dpiit_count,url
+nirf_iitb_2026,IIT Bombay,IIT (central),2026,170,154,16,0,9.4,0,https://www.iitb.ac.in/sites/default/files/2026-04/NIRF_IITBombay_2026_Innovation_Category.pdf
+nirf_iisc_2026,Indian Institute of Science,Institute of national importance,2026,122,118,4,0,3.3,3,https://iisc.ac.in/wp-content/uploads/2026/04/Indian-Institute-of-Science20260406-Innovation.pdf
+nirf_iitd_2025,IIT Delhi,IIT (central),2025,38,30,8,0,21.1,2,https://home.iitd.ac.in/uploads/nirf/2025/NIRF%202025_Innovation_Indian%20Institute%20of%20Technology%20Delhi20250118-2.pdf
+nirf_nitw_2025,NIT Warangal,NIT (central),2025,7,8,0,1,0.0,1,https://nitw.ac.in/api/static/files/NIRF-2025_Submitted_data_Innovation_2025-2-3-9-47-33.pdf
+nirf_jnu_2026,Jawaharlal Nehru University,Central university,2026,8,8,0,0,0.0,0,https://www.jnu.ac.in/sites/default/files/nirf/NIRF2026-Innovation-Data.pdf
+nirf_nitap_2026,NIT Andhra Pradesh,NIT (central),2026,6,2,4,0,66.7,0,"https://nitandhra.ac.in/main/nirf/NATIONAL%20INSTITUTE%20OF%20TECHNOLOGY,%20ANDHRA%20PRADESH%20INNOVATION.pdf"
+nirf_panimalar_2025,Panimalar Engineering College,Private engineering college,2025,3,3,0,0,0.0,0,https://panimalar.ac.in/assets/pdf/academics/nirf/PEC_NIRF2025_Innovation.pdf

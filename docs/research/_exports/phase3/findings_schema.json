@@ -1,0 +1,27 @@
+{
+  "note": "Field definitions and the honesty guards enforced by data_p3_forms.validation(). The build fails if any guard breaks.",
+  "grades": {
+    "DOCUMENTED": "multiple primary forms read and cited",
+    "SINGLE-SOURCE": "one primary form",
+    "HYPOTHESIS": "structurally implied, NOT evidenced"
+  },
+  "sentinel_classes": {
+    "non_report": "0 recorded because the institution did not report",
+    "in_progress": "0 recorded because the ranking cycle was incomplete",
+    "placeholder_key": "DIPP0000-style filler where a join key was required",
+    "multi_value_cell": "several values in one scalar cell; not a number",
+    "blank_not_zero": "empty cell that a sibling column encoded as 0"
+  },
+  "guards": [
+    "a form may only be counted when parse_status == parsed",
+    "every numeric 0 in the corpus must carry a sentinel explanation",
+    "a DOCUMENTED finding must rest on >= 2 forms",
+    "every verbatim quote must trace to a mined form and a real finding",
+    "no interview-style claim wording is permitted anywhere in this module"
+  ],
+  "fields": {
+    "lost_at_join": "dpiit_recognised - dpiit_in_trl; startups that lose identity",
+    "reverse_gap": "dpiit_in_trl - dpiit_recognised; keys with no recognised row",
+    "loss_rate_pct": "lost_at_join / dpiit_recognised * 100"
+  }
+}

@@ -1,0 +1,11 @@
+﻿form,field,literal,real_meaning,sentinel_class,evidence_grade
+ariia_iitk_2022,"Section 1.2 IIC stars, 2020-21",0,NOT REPORTED (institution runs a mature incubator),non_report,SINGLE-SOURCE
+ariia_iitk_2022,"Section 1.2 IIC stars, 2021-22",0 (On Progress),RANKING CYCLE INCOMPLETE at submission,in_progress,DOCUMENTED
+ariia_iitism_2022,"Section 1.2 IIC stars, 2021-22",0 (On Progress),RANKING CYCLE INCOMPLETE at submission,in_progress,DOCUMENTED
+ariia_aditya_2022,"Section 1.2 IIC stars, 2021-22",0 (On Progress),RANKING CYCLE INCOMPLETE at submission,in_progress,DOCUMENTED
+nirf_iisc_2026,DPIIT registration number,DIPP0000,PLACEHOLDER - operator left the join key blank,placeholder_key,SINGLE-SOURCE
+nirf_iitd_2025,DPIIT registration number,DIPP0000,PLACEHOLDER - operator left the join key blank,placeholder_key,SINGLE-SOURCE
+nirf_nitw_2025,DPIIT registration number,DIPP0000,PLACEHOLDER - operator left the join key blank,placeholder_key,SINGLE-SOURCE
+ariia_iitism_2022,"Section 1.2 IIC stars, 2018-19","1,2,3,4",MULTI-VALUE IN A SCALAR CELL - unparseable as a number,multi_value_cell,SINGLE-SOURCE
+ariia_aditya_2022,"Section 1.2 IIC stars, 2018-19","1,2",MULTI-VALUE IN A SCALAR CELL - unparseable as a number,multi_value_cell,SINGLE-SOURCE
+ariia_iitk_2022,"Section 1.2 IIC stars, 2019-20",(blank),DISTINCT SENTINEL from 0 in the same column,blank_not_zero,SINGLE-SOURCE

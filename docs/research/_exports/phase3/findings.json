@@ -1,0 +1,233 @@
+{
+  "summary": {
+    "schema_version": "1.0",
+    "build_date": "2026-10-19",
+    "forms_total": 11,
+    "forms_parsed": 11,
+    "nirf_forms": 7,
+    "ariia_forms": 4,
+    "dpiit_recognised_total": 354,
+    "dpiit_lost_at_join_total": 32,
+    "dpiit_reverse_gap_total": 1,
+    "sentinels_registered": 10,
+    "verbatim_quotes": 7,
+    "findings": [
+      "F-DPIIT-JOIN",
+      "F-SENTINEL-ZERO",
+      "F-ARIIA-YUKTI",
+      "F-ARIIA-IPR-CELL",
+      "F-ARIIA-SEC5",
+      "F-ARIYA-AY",
+      "F-ARIIA-STARS",
+      "F-ARIIA-FUND-SPLIT",
+      "F-NODF-GRADIENT"
+    ],
+    "extract_method": "pypdf 6.x text-layer extraction over the published PDF, downloaded with a browser UA. No OCR was used. These are browser-printed PDFs and some characters are lost to font-encoding (notably ligatures: 'Verified' -> 'Veri ed', 'Findings' -> 'Find ngs'). Numeric values survive; this matters for blanks-vs-zeros but not for the counts used here."
+  },
+  "findings": [
+    {
+      "id": "F-DPIIT-JOIN",
+      "title": "NIRF's TRL table is keyed on a DPIIT number the institution does not hold",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 7,
+      "measurement": "32 of 354 recognised startups (9.0%) lose their identity at the DPIIT join across 4 of 7 forms; worst case NIT Andhra Pradesh 4/6 (66.7%). A further 1 reverse-gap rows appear, where the TRL table carries a key for a startup absent from the recognised table.",
+      "why_it_matters": "This is the single most product-relevant structural fact in the whole corpus. The government already knows which startups an institution has, and already asks for TRL - but the two cannot be joined because the only offered key belongs to the founder. An institution can therefore lose track of its own portfolio while appearing, on paper, fully compliant.",
+      "supports_phase0_thesis": [
+        "Government systems are compliance ledgers, not venture systems of record",
+        "Label-and-count is the only IIC↔startup join available today"
+      ]
+    },
+    {
+      "id": "F-SENTINEL-ZERO",
+      "title": "The same column uses blank, 0 and '0 (On Progress)' for three different conditions",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 3,
+      "measurement": "3 in-progress sentinels, 1 blank-not-zero sentinel, 2 multi-value cells and 3 placeholder DPIIT keys, all in ARIIA Section 1.2 or the NIRF key column.",
+      "why_it_matters": "Any ranking built on these forms will read non-report as underperformance. IIT Kanpur is the proof case: it records 0 IIC stars while running one of India's most mature incubators. This is Phase 1's '0 is not a measurement' problem, now observed inside the primary government instrument itself.",
+      "supports_phase0_thesis": [
+        "Reported metrics are not venture metrics"
+      ]
+    },
+    {
+      "id": "F-ARIIA-YUKTI",
+      "title": "ARIIA defers the TRL record to YUKTI-NIR rather than asking the institution to hold it",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 3,
+      "measurement": "All three 2022 ARIIA forms with a readable Section 4 instruct the applicant to report innovations 'Verified and Recommended' as recorded in the YUKTI National Innovation Repository.",
+      "why_it_matters": "The institution is asked for a COUNT it cannot independently verify, and the authoritative record lives in a central IIC system. That is the cleanest possible statement of the gap: the state already built a central innovation repository, and the institution still cannot tell you what its own portfolio is doing this year.",
+      "supports_phase0_thesis": [
+        "IIC can register a centre but cannot record a patent lifecycle",
+        "Government systems are compliance ledgers, not venture systems of record"
+      ]
+    },
+    {
+      "id": "F-ARIIA-IPR-CELL",
+      "title": "ARIIA asks whether an IPR cell exists, not whether a patent moved",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 2,
+      "measurement": "Section 3.3 is a single capability checkbox: 'Existence of IPR Cell / Patent Facilitation Unit / Technology Transfer'. No patent number, no filing date, no stage.",
+      "why_it_matters": "Even at national level, the instrument stops at 'does a cell exist'. Nothing in the ARIIA form can record where a specific patent sits. This is the documentary proof for the Phase 0 claim that no competitor covers an end-to-end patent lifecycle - the government's own ranking instrument does not either.",
+      "supports_phase0_thesis": [
+        "IIC can register a centre but cannot record a patent lifecycle",
+        "No direct competitor provides a complete IPR lifecycle object"
+      ]
+    },
+    {
+      "id": "F-ARIIA-SEC5",
+      "title": "'Supported' is recorded without amount, date or scope",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 2,
+      "measurement": "Section 5 is titled 'Start-ups/Ventures Established and Supported at HEI and Recognitions Received' and yields a count plus recognition names.",
+      "why_it_matters": "An institution cannot answer 'what did supporting this venture actually cost, and when'. The ledger records that help happened, not its terms - so institutional memory of its own support commitments is not recoverable from the record.",
+      "supports_phase0_thesis": [
+        "Reported metrics are not venture metrics"
+      ]
+    },
+    {
+      "id": "F-ARIYA-AY",
+      "title": "ARIIA counts in academic-year pairs; NIRF counts on a calendar basis",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 4,
+      "measurement": "ARIIA Section 5 is explicitly scoped 'AY 2020-21 & 2021-22', and the star ladder is printed per academic year 2018-19 to 2021-22. NIRF innovation tables are single-cycle.",
+      "why_it_matters": "Two government ledgers, two incompatible time grains, neither reconcilable without manual work. Any cross-institution comparison of 'innovation performance' is comparing different denominators.",
+      "supports_phase0_thesis": [
+        "Reported metrics are not venture metrics"
+      ]
+    },
+    {
+      "id": "F-ARIIA-STARS",
+      "title": "The headline innovation metric is a 1-5 ordinal star band, not a measurement",
+      "evidence_grade": "DOCUMENTED",
+      "forms_supporting": 3,
+      "measurement": "ARIIA Section 1.2 prints 'Scores and Stars Obtained' and 'Annual Performances of IIC Institute Stars Secured' on a band ladder IIC 1.0 (2018-19) through IIC 4.0 (2021-22). Observed values are coarse and irregular: IIT (ISM) '1,2,3,4' then 5 then 4 then '0 (On Progress)'; Aditya '1,2' then 3.5 then 4 then '0 (On Progress)'; IIT Kanpur 1, blank, 0, '0 (On Progress)'.",
+      "why_it_matters": "An institution's innovation performance is reduced to a coarse ordinal band on a fixed annual ladder, which cannot express momentum, and cannot even be stored as a number when the cell holds several values. It is a compliance score, not a measurement, so it cannot drive any operational decision an institution makes.",
+      "supports_phase0_thesis": [
+        "Reported metrics are not venture metrics"
+      ]
+    },
+    {
+      "id": "F-ARIIA-FUND-SPLIT",
+      "title": "ARIIA records spend already committed, never the budget being requested",
+      "evidence_grade": "SINGLE-SOURCE",
+      "forms_supporting": 1,
+      "measurement": "The expenditure block splits 'Institute Own/Internal' from 'Number of External Sponsorship/External'. In the one form with a readable layout (LBRCE 2020) the split is 8 internal rows against 7 external.",
+      "why_it_matters": "This is retrospective: the government learns what an institution already spent, never what it needs next. It directly bounds the Phase 0 conclusion that there is no documented budget-holder signal for innovation software - the one government money signal that exists points backwards in time.",
+      "supports_phase0_thesis": [
+        "Sell against a compliance event, not a budget cycle",
+        "Documented budget authority is rare and never in Class A"
+      ]
+    },
+    {
+      "id": "F-NODF-GRADIENT",
+      "title": "'No Data Found' tracks institutional maturity, so missingness is not random",
+      "evidence_grade": "SINGLE-SOURCE",
+      "forms_supporting": 3,
+      "measurement": "No Data Found occurrences: IIT Kanpur (0), IIT (ISM) Dhanbad (4), Aditya College of Engineering & Technology (7), LBRCE (0)",
+      "why_it_matters": "Completeness is itself an equity problem. Small institutions leave the most fields blank, which means any ranking built on form completeness systematically disadvantages them. It also means blank-heavy forms have an incentive to over-report.",
+      "supports_phase0_thesis": [
+        "Reported metrics are not venture metrics"
+      ]
+    }
+  ],
+  "limits": [
+    "Nothing here is interview evidence. Willingness to pay, felt pain and actual budget ownership remain unverified.",
+    "The corpus is 11 forms from institutions that CHOOSE to publish. IICs that do not publish are absent, so missingness within this set understates the real gap.",
+    "Extraction is a text layer only, with no OCR. Ligature loss affects wording but not the counts used in F-DPIIT-JOIN.",
+    "Join-key counts are distinct DPIIT numbers per table. A single startup with several innovations can appear more than once in the TRL table, so dpiit_in_trl is a key count, not a startup count.",
+    "Only one ARIIA form (LBRCE 2020) exposes the fund-split rows in a readable layout; the 2022 forms use a newer template whose column labels the text layer does not preserve.",
+    "Years are not comparable across the two forms (see F-ARIYA-AY), so no cross-form total is computed anywhere in this module."
+  ],
+  "join_key": [
+    {
+      "key": "nirf_iitb_2026",
+      "institution": "IIT Bombay",
+      "year": 2026,
+      "institution_type": "IIT (central)",
+      "dpiit_recognised": 170,
+      "dpiit_in_trl": 154,
+      "lost_at_join": 16,
+      "reverse_gap": 0,
+      "loss_rate_pct": 9.4,
+      "placeholder_dpiit_count": 0,
+      "url": "https://www.iitb.ac.in/sites/default/files/2026-04/NIRF_IITBombay_2026_Innovation_Category.pdf"
+    },
+    {
+      "key": "nirf_iisc_2026",
+      "institution": "Indian Institute of Science",
+      "year": 2026,
+      "institution_type": "Institute of national importance",
+      "dpiit_recognised": 122,
+      "dpiit_in_trl": 118,
+      "lost_at_join": 4,
+      "reverse_gap": 0,
+      "loss_rate_pct": 3.3,
+      "placeholder_dpiit_count": 3,
+      "url": "https://iisc.ac.in/wp-content/uploads/2026/04/Indian-Institute-of-Science20260406-Innovation.pdf"
+    },
+    {
+      "key": "nirf_iitd_2025",
+      "institution": "IIT Delhi",
+      "year": 2025,
+      "institution_type": "IIT (central)",
+      "dpiit_recognised": 38,
+      "dpiit_in_trl": 30,
+      "lost_at_join": 8,
+      "reverse_gap": 0,
+      "loss_rate_pct": 21.1,
+      "placeholder_dpiit_count": 2,
+      "url": "https://home.iitd.ac.in/uploads/nirf/2025/NIRF%202025_Innovation_Indian%20Institute%20of%20Technology%20Delhi20250118-2.pdf"
+    },
+    {
+      "key": "nirf_nitw_2025",
+      "institution": "NIT Warangal",
+      "year": 2025,
+      "institution_type": "NIT (central)",
+      "dpiit_recognised": 7,
+      "dpiit_in_trl": 8,
+      "lost_at_join": 0,
+      "reverse_gap": 1,
+      "loss_rate_pct": 0.0,
+      "placeholder_dpiit_count": 1,
+      "url": "https://nitw.ac.in/api/static/files/NIRF-2025_Submitted_data_Innovation_2025-2-3-9-47-33.pdf"
+    },
+    {
+      "key": "nirf_jnu_2026",
+      "institution": "Jawaharlal Nehru University",
+      "year": 2026,
+      "institution_type": "Central university",
+      "dpiit_recognised": 8,
+      "dpiit_in_trl": 8,
+      "lost_at_join": 0,
+      "reverse_gap": 0,
+      "loss_rate_pct": 0.0,
+      "placeholder_dpiit_count": 0,
+      "url": "https://www.jnu.ac.in/sites/default/files/nirf/NIRF2026-Innovation-Data.pdf"
+    },
+    {
+      "key": "nirf_nitap_2026",
+      "institution": "NIT Andhra Pradesh",
+      "year": 2026,
+      "institution_type": "NIT (central)",
+      "dpiit_recognised": 6,
+      "dpiit_in_trl": 2,
+      "lost_at_join": 4,
+      "reverse_gap": 0,
+      "loss_rate_pct": 66.7,
+      "placeholder_dpiit_count": 0,
+      "url": "https://nitandhra.ac.in/main/nirf/NATIONAL%20INSTITUTE%20OF%20TECHNOLOGY,%20ANDHRA%20PRADESH%20INNOVATION.pdf"
+    },
+    {
+      "key": "nirf_panimalar_2025",
+      "institution": "Panimalar Engineering College",
+      "year": 2025,
+      "institution_type": "Private engineering college",
+      "dpiit_recognised": 3,
+      "dpiit_in_trl": 3,
+      "lost_at_join": 0,
+      "reverse_gap": 0,
+      "loss_rate_pct": 0.0,
+      "placeholder_dpiit_count": 0,
+      "url": "https://panimalar.ac.in/assets/pdf/academics/nirf/PEC_NIRF2025_Innovation.pdf"
+    }
+  ]
+}
