@@ -1,0 +1,350 @@
+{
+  "note": "Raw Phase 3A extraction layer. Same records as _exports/phase3/ with no interpretation added. Regenerated - do not hand-edit. Contains NO interview data and no synthetic output.",
+  "generated": "2026-10-19",
+  "generated_by": "build/build_phase3.py",
+  "extract_method": "pypdf 6.x text-layer extraction over the published PDF, downloaded with a browser UA. No OCR was used. These are browser-printed PDFs and some characters are lost to font-encoding (notably ligatures: 'Verified' -> 'Veri ed', 'Findings' -> 'Find ngs'). Numeric values survive; this matters for blanks-vs-zeros but not for the counts used here.",
+  "forms": [
+    {
+      "key": "nirf_iitb_2026",
+      "institution": "IIT Bombay",
+      "year": 2026,
+      "institution_type": "IIT (central)",
+      "url": "https://www.iitb.ac.in/sites/default/files/2026-04/NIRF_IITBombay_2026_Innovation_Category.pdf",
+      "pages": 80,
+      "extract_chars": 212604,
+      "parse_status": "parsed",
+      "dpiit_recognised": 170,
+      "dpiit_in_trl": 154,
+      "dpiit_anomalies": 0,
+      "dpiit_anomaly_examples": [],
+      "note": "Largest measured form. 16 recognised startups lose their identity between the DPIIT table and the TRL table."
+    },
+    {
+      "key": "nirf_iisc_2026",
+      "institution": "Indian Institute of Science",
+      "year": 2026,
+      "institution_type": "Institute of national importance",
+      "url": "https://iisc.ac.in/wp-content/uploads/2026/04/Indian-Institute-of-Science20260406-Innovation.pdf",
+      "pages": 61,
+      "extract_chars": 170826,
+      "parse_status": "parsed",
+      "dpiit_recognised": 122,
+      "dpiit_in_trl": 118,
+      "dpiit_anomalies": 3,
+      "dpiit_anomaly_examples": [
+        "DIPP0000",
+        "DIPP000",
+        "DIPP00000"
+      ],
+      "note": "Near-complete join (4 lost). Three malformed placeholder DPIIT values appear, i.e. the operator left the field unfilled but the table still demanded a key."
+    },
+    {
+      "key": "nirf_iitd_2025",
+      "institution": "IIT Delhi",
+      "year": 2025,
+      "institution_type": "IIT (central)",
+      "url": "https://home.iitd.ac.in/uploads/nirf/2025/NIRF%202025_Innovation_Indian%20Institute%20of%20Technology%20Delhi20250118-2.pdf",
+      "pages": 38,
+      "extract_chars": 90455,
+      "parse_status": "parsed",
+      "dpiit_recognised": 38,
+      "dpiit_in_trl": 30,
+      "dpiit_anomalies": 2,
+      "dpiit_anomaly_examples": [
+        "DIPP0000",
+        "DIPP0000"
+      ],
+      "note": "8 of 38 (21%) drop at the join."
+    },
+    {
+      "key": "nirf_nitw_2025",
+      "institution": "NIT Warangal",
+      "year": 2025,
+      "institution_type": "NIT (central)",
+      "url": "https://nitw.ac.in/api/static/files/NIRF-2025_Submitted_data_Innovation_2025-2-3-9-47-33.pdf",
+      "pages": 19,
+      "extract_chars": 43255,
+      "parse_status": "parsed",
+      "dpiit_recognised": 7,
+      "dpiit_in_trl": 8,
+      "dpiit_anomalies": 1,
+      "dpiit_anomaly_examples": [
+        "DIPP0000"
+      ],
+      "note": "REVERSE GAP: the TRL table carries a DPIIT number for an innovation whose startup is not in the recognised table. Same-document contradiction between two tables of one submission."
+    },
+    {
+      "key": "nirf_jnu_2026",
+      "institution": "Jawaharlal Nehru University",
+      "year": 2026,
+      "institution_type": "Central university",
+      "url": "https://www.jnu.ac.in/sites/default/files/nirf/NIRF2026-Innovation-Data.pdf",
+      "pages": 27,
+      "extract_chars": 64658,
+      "parse_status": "parsed",
+      "dpiit_recognised": 8,
+      "dpiit_in_trl": 8,
+      "dpiit_anomalies": 0,
+      "dpiit_anomaly_examples": [],
+      "note": "Clean join. Small denominator, so a single good data-entry operator can hold the whole thing together - which is itself the point."
+    },
+    {
+      "key": "nirf_nitap_2026",
+      "institution": "NIT Andhra Pradesh",
+      "year": 2026,
+      "institution_type": "NIT (central)",
+      "url": "https://nitandhra.ac.in/main/nirf/NATIONAL%20INSTITUTE%20OF%20TECHNOLOGY,%20ANDHRA%20PRADESH%20INNOVATION.pdf",
+      "pages": 9,
+      "extract_chars": 19598,
+      "parse_status": "parsed",
+      "dpiit_recognised": 6,
+      "dpiit_in_trl": 2,
+      "dpiit_anomalies": 0,
+      "dpiit_anomaly_examples": [],
+      "note": "WORST measured rate: 4 of 6 (67%) drop. A small NIT can recognise 6 startups but can only evidence a TRL for 2, because it does not hold the other 4 founders' DPIIT numbers."
+    },
+    {
+      "key": "nirf_panimalar_2025",
+      "institution": "Panimalar Engineering College",
+      "year": 2025,
+      "institution_type": "Private engineering college",
+      "url": "https://panimalar.ac.in/assets/pdf/academics/nirf/PEC_NIRF2025_Innovation.pdf",
+      "pages": 30,
+      "extract_chars": 72940,
+      "parse_status": "parsed",
+      "dpiit_recognised": 3,
+      "dpiit_in_trl": 3,
+      "dpiit_anomalies": 0,
+      "dpiit_anomaly_examples": [],
+      "note": "Private college. Clean join on a tiny denominator."
+    },
+    {
+      "key": "ariia_iitk_2022",
+      "institution": "IIT Kanpur",
+      "year": 2022,
+      "institution_type": "IIT (central)",
+      "url": "https://iitk.ac.in/data/ARIIA-Reports/ARIIA_Report-2022.pdf",
+      "pages": 112,
+      "extract_chars": 166641,
+      "parse_status": "parsed",
+      "no_data_found_count": 0,
+      "iic_star_bands": [
+        "1",
+        "",
+        "0",
+        "0 (On Progress)"
+      ],
+      "sections_present": 7,
+      "fund_split_rows": null,
+      "contradiction": "Records 0 IIC stars for 2020-21 and leaves 2019-20 BLANK, while running one of India's most mature technology business incubators. The recorded value contradicts the institution's own published capability, so 0 is a non-report, not a measurement."
+    },
+    {
+      "key": "ariia_iitism_2022",
+      "institution": "IIT (ISM) Dhanbad",
+      "year": 2022,
+      "institution_type": "IIT (central)",
+      "url": "https://people.iitism.ac.in/~download/ARIIA/Submitted%20Data%202022.pdf",
+      "pages": 10,
+      "extract_chars": 10786,
+      "parse_status": "parsed",
+      "no_data_found_count": 4,
+      "iic_star_bands": [
+        "1,2,3,4",
+        "5",
+        "4",
+        "0 (On Progress)"
+      ],
+      "sections_present": 7,
+      "fund_split_rows": null,
+      "contradiction": "Section 1.2 records '1,2,3,4' in a single cell for 2018-19: four distinct values in one scalar field, so the cell cannot be parsed as a number."
+    },
+    {
+      "key": "ariia_aditya_2022",
+      "institution": "Aditya College of Engineering & Technology",
+      "year": 2021,
+      "institution_type": "Private engineering college",
+      "url": "http://acet.ac.in/uploads/ARIIA/ARIIA_2021_22.pdf",
+      "pages": 13,
+      "extract_chars": 16587,
+      "parse_status": "parsed",
+      "no_data_found_count": 7,
+      "iic_star_bands": [
+        "1,2",
+        "3.5",
+        "4",
+        "0 (On Progress)"
+      ],
+      "sections_present": 7,
+      "fund_split_rows": null,
+      "contradiction": "Same multi-value cell defect as IIT (ISM), and the highest no-data count in the set (7) from the smallest institution."
+    },
+    {
+      "key": "ariia_lbrce_2020",
+      "institution": "LBRCE",
+      "year": 2020,
+      "institution_type": "Private engineering college",
+      "url": "https://www.lbrce.ac.in/committees/ciie_committee/ciie_ariia/ARIIA_%202020_Submitted%20Application.pdf",
+      "pages": 8,
+      "extract_chars": 12497,
+      "parse_status": "parsed",
+      "no_data_found_count": 0,
+      "iic_star_bands": null,
+      "sections_present": 0,
+      "fund_split_rows": [
+        8,
+        7
+      ],
+      "contradiction": null
+    }
+  ],
+  "verbatim": [
+    {
+      "form": "ariia_iitism_2022",
+      "also_in": [
+        "ariia_aditya_2022",
+        "ariia_iitk_2022"
+      ],
+      "text": "are Recorded in the YUKTI National Innovation Repository of the IIC",
+      "meaning": "ARIIA Section 4 does not ask the institution to hold a TRL. It asks how many innovations are VERIFIED AND RECOMMENDED, and defers the record itself to YUKTI-NIR, a central IIC system. The institution is a pointer, not a system of record.",
+      "supports": "F-ARIIA-YUKTI"
+    },
+    {
+      "form": "ariia_aditya_2022",
+      "also_in": [],
+      "text": "Total no. of Innovations (Verified and Recommended) in Different TRLs (4-9)",
+      "meaning": "The institution submits a COUNT that it cannot independently verify. 'Verified and Recommended' is done centrally.",
+      "supports": "F-ARIIA-YUKTI"
+    },
+    {
+      "form": "ariia_iitism_2022",
+      "also_in": [
+        "ariia_aditya_2022"
+      ],
+      "text": "Existence of IPR Cell / Patent Facilitation Unit / Technology Transfer",
+      "meaning": "ARIIA 3.3 asks whether an IPR CELL EXISTS. It is a yes/no capability checkbox. It is NOT a patent lifecycle and it does not record a single patent number.",
+      "supports": "F-ARIIA-IPR-CELL"
+    },
+    {
+      "form": "ariia_iitism_2022",
+      "also_in": [
+        "ariia_aditya_2022"
+      ],
+      "text": "Start-ups/Ventures Established and Supported at HEI and Recognitions Received",
+      "meaning": "Section 5 records that a venture was STARTED and SUPPORTED, plus recognitions received. Supported is unquantified: no amount, no date, no scope of support.",
+      "supports": "F-ARIIA-SEC5"
+    },
+    {
+      "form": "ariia_iitism_2022",
+      "also_in": [
+        "ariia_aditya_2022"
+      ],
+      "text": "Scores and Stars Obtained",
+      "meaning": "The performance metric is a 1-5 ordinal STAR BAND awarded by the central IIC body, not a continuous innovation score.",
+      "supports": "F-ARIIA-STARS"
+    },
+    {
+      "form": "ariia_lbrce_2020",
+      "also_in": [],
+      "text": "Institute Own/Internal  |  Number of External Sponsorship/External",
+      "meaning": "ARIIA forces an EXPENDITURE split between own money and external sponsorship. It is spend already committed, not a funding source, and not a budget the applicant is asking for.",
+      "supports": "F-ARIIA-FUND-SPLIT"
+    },
+    {
+      "form": "ariia_iitk_2022",
+      "also_in": [],
+      "text": "IIC 1.0 (2018-19) 1  IIC 2.0 (2019-20)  IIC 3.0 (2020-21) 0  IIC 4.0 (2021-22) 0 (On Progress)",
+      "meaning": "A blank and a 0 sit in the SAME column of the SAME table for consecutive years. Two different sentinels for the same condition, with no legend distinguishing them.",
+      "supports": "F-SENTINEL-ZERO"
+    }
+  ],
+  "sentinels": [
+    {
+      "form": "ariia_iitk_2022",
+      "field": "Section 1.2 IIC stars, 2020-21",
+      "literal": "0",
+      "real_meaning": "NOT REPORTED (institution runs a mature incubator)",
+      "sentinel_class": "non_report",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "ariia_iitk_2022",
+      "field": "Section 1.2 IIC stars, 2021-22",
+      "literal": "0 (On Progress)",
+      "real_meaning": "RANKING CYCLE INCOMPLETE at submission",
+      "sentinel_class": "in_progress",
+      "evidence_grade": "DOCUMENTED"
+    },
+    {
+      "form": "ariia_iitism_2022",
+      "field": "Section 1.2 IIC stars, 2021-22",
+      "literal": "0 (On Progress)",
+      "real_meaning": "RANKING CYCLE INCOMPLETE at submission",
+      "sentinel_class": "in_progress",
+      "evidence_grade": "DOCUMENTED"
+    },
+    {
+      "form": "ariia_aditya_2022",
+      "field": "Section 1.2 IIC stars, 2021-22",
+      "literal": "0 (On Progress)",
+      "real_meaning": "RANKING CYCLE INCOMPLETE at submission",
+      "sentinel_class": "in_progress",
+      "evidence_grade": "DOCUMENTED"
+    },
+    {
+      "form": "nirf_iisc_2026",
+      "field": "DPIIT registration number",
+      "literal": "DIPP0000",
+      "real_meaning": "PLACEHOLDER - operator left the join key blank",
+      "sentinel_class": "placeholder_key",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "nirf_iitd_2025",
+      "field": "DPIIT registration number",
+      "literal": "DIPP0000",
+      "real_meaning": "PLACEHOLDER - operator left the join key blank",
+      "sentinel_class": "placeholder_key",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "nirf_nitw_2025",
+      "field": "DPIIT registration number",
+      "literal": "DIPP0000",
+      "real_meaning": "PLACEHOLDER - operator left the join key blank",
+      "sentinel_class": "placeholder_key",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "ariia_iitism_2022",
+      "field": "Section 1.2 IIC stars, 2018-19",
+      "literal": "1,2,3,4",
+      "real_meaning": "MULTI-VALUE IN A SCALAR CELL - unparseable as a number",
+      "sentinel_class": "multi_value_cell",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "ariia_aditya_2022",
+      "field": "Section 1.2 IIC stars, 2018-19",
+      "literal": "1,2",
+      "real_meaning": "MULTI-VALUE IN A SCALAR CELL - unparseable as a number",
+      "sentinel_class": "multi_value_cell",
+      "evidence_grade": "SINGLE-SOURCE"
+    },
+    {
+      "form": "ariia_iitk_2022",
+      "field": "Section 1.2 IIC stars, 2019-20",
+      "literal": "(blank)",
+      "real_meaning": "DISTINCT SENTINEL from 0 in the same column",
+      "sentinel_class": "blank_not_zero",
+      "evidence_grade": "SINGLE-SOURCE"
+    }
+  ],
+  "limits": [
+    "Nothing here is interview evidence. Willingness to pay, felt pain and actual budget ownership remain unverified.",
+    "The corpus is 11 forms from institutions that CHOOSE to publish. IICs that do not publish are absent, so missingness within this set understates the real gap.",
+    "Extraction is a text layer only, with no OCR. Ligature loss affects wording but not the counts used in F-DPIIT-JOIN.",
+    "Join-key counts are distinct DPIIT numbers per table. A single startup with several innovations can appear more than once in the TRL table, so dpiit_in_trl is a key count, not a startup count.",
+    "Only one ARIIA form (LBRCE 2020) exposes the fund-split rows in a readable layout; the 2022 forms use a newer template whose column labels the text layer does not preserve.",
+    "Years are not comparable across the two forms (see F-ARIYA-AY), so no cross-form total is computed anywhere in this module."
+  ]
+}
