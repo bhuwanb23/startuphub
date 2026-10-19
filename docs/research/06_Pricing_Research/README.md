@@ -41,6 +41,8 @@ Three conclusions, in order of how much they matter:
 
 ![Price ladder](../_exports/charts/phase8/p8_01_price_ladder.png)
 
+![Scenario B is outside the market](../_exports/charts/phase8/p8_02_envelope_gap.png)
+
 ## The WTP bracket
 
 `₹50,000` floor. The ceiling is **frame-dependent**, and we refuse to
