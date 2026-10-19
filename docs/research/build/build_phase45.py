@@ -714,8 +714,9 @@ def main():
     print(f"  Base: {M.AISHE['total_heis']:,} registered HEIs (super-bound, NOT a market)")
     print(f"        {M.NIRF_2025['innovation_category']:,} filed NIRF Innovation  <- SAM floor")
     print(f"        IICs {r['floor']:,}-{r['ceiling']:,} (3 official sources, {r['spread_pct']}% spread)")
-    print(f"  TAM {S.tam()['value_display']}")
-    print(f"  SAM {S.sam()['value_display']}")
+    # The first-pass TAM/SAM here applied no filters and no capture assumption.
+    # Superseded by build_phase7.py, which owns sizing from Phase 7 onward.
+    print("  TAM/SAM: SUPERSEDED by Phase 7 (build_phase7.py) - see 05_Market_Sizing/")
     print(f"  Scorecard: {S.summary()['scorecard_supported']} supported, "
           f"{S.summary()['scorecard_needs_interview']} need interviews, 0 conducted")
     return 0
