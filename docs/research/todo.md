@@ -928,8 +928,9 @@ GAP-09 pre-incubation), 2 narrowed (GAP-01, GAP-06, GAP-13), 6 weakened,
 if a gap is marked unchanged while naming a falsifier.
 
 **Named-customer evidence is graded, not assumed:** NAMED_REFERENCE 2,
-NAMED_LOGO 4, VENDOR_CLAIM 7, UNKNOWN 15 — **22 of 28 are no better proven than
-a vendor claim.** Accubate is the only real review base (26 Capterra, 4.8).
+NAMED_LOGO 3, VENDOR_CLAIM 7, UNKNOWN 16 — **23 of 28 are no better proven than
+a vendor claim.** Accubate is the only real review base (26 Capterra, 4.8 — of
+which a material share are vendor-incentivised; see Phase 11).
 
 **The spec's own overlap example is confirmed:** Startup India Hub (50K+
 startups, 600K network) and MAARG already do mentor matching and directories.
@@ -1042,8 +1043,8 @@ and **mandate compliance 0** and **TRL 1** remain effectively empty.
 **Market position is DERIVED, not asserted** — and this fixed a real error. The
 first rubric awarded ESTABLISHED on breadth alone, which was **circular**
 (breadth comes from this matrix's own scores). It now requires external
-evidence: **VERIFIED 1 · PROVEN 7 · PARTIAL 5 · UNPROVEN 23.** These are evidence
-tiers, not quality tiers.
+evidence: **VERIFIED 1 · PROVEN 6 · PARTIAL 6 · UNPROVEN 27** across 40 vendors.
+These are evidence tiers, not quality tiers.
 
 **INCORRECTION CAUGHT BY THE NEW GUARD:** Elsevier Pure was graded
 NAMED_LOGO on the basis of *"universities and research institutions worldwide"* —
@@ -1061,6 +1062,14 @@ pricing/market position do not apply to the IIC Portal or to Excel.
 ---
 
 # PHASE 11 — Competitor User Reviews
+
+> ✅ **DONE.** `09_User_Reviews/` · `_exports/phase11/` · 8 charts ·
+> `_exports/xlsx/09_Competitor_User_Reviews.xlsx` · audit 58/58.
+> **The headline is a negative result: there is no recorded user dissatisfaction
+> anywhere in this category.** Not one review below 4 stars across 76 reviews.
+> 4 vendors (IncuMan, ESI, CSM Technologies, SanchiApp) were found that were
+> missing from the matrix, which has been extended 36 → 40. Most "complaint
+> content" in this category turns out to be vendor marketing, and is graded out.
 
 Don't only read competitor websites.
 

@@ -48,6 +48,9 @@ STEPS = [
     ("Phase 9 - competitor research (docs + exports)", "build_phase9.py"),
     ("Phase 10 - competitor matrix + charts", "build_charts10.py"),
     ("Phase 10 - competitor matrix (xlsx + docs + exports)", "build_phase10.py"),
+    ("Phase 11 - competitor user reviews + charts", "build_charts11.py"),
+    ("Phase 11 - competitor user reviews (docs + exports)", "build_phase11.py"),
+    ("Cross-phase infographic pack", "build_charts_infographics.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -137,6 +140,9 @@ def main() -> int:
     print("    13_Synthesis/Complete_Dataset.md      every cell filled + labelled")
     print("    13_Synthesis/Simulation_Results.md   seeded Monte Carlo, 50k trials")
     print("    13_Synthesis/Validation_Scorecard.md  Phase 30, 0 blanks, interviews = 0")
+    print("    08_Competitor_Matrix/README.md    Phase 10, 40 vendors x 15 capabilities")
+    print("    09_User_Reviews/README.md         Phase 11, the negative user-review finding")
+    print("    14_Assets/Infographics.md         12 cross-phase figures, start at the dashboard")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 
