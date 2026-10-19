@@ -1,0 +1,612 @@
+{
+  "note": "Raw Phase 4/5/7 extraction layer. Public-source market data. Contains NO interview data and NO synthetic output. Regenerated - do not hand-edit.",
+  "generated": "2026-10-19",
+  "generated_by": "build/build_phase45.py",
+  "interviews_conducted": 0,
+  "aishe": {
+    "source": "AISHE",
+    "source_key": "AISHE",
+    "tier": "T1",
+    "as_of": "2021-22 (published 2024-01-25)",
+    "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713",
+    "total_enrolment_crore": 4.33,
+    "universities": 1168,
+    "colleges": 45473,
+    "standalone_institutions": 12002,
+    "total_heis": 58643,
+    "universities_government": 685,
+    "universities_central_govt": 240,
+    "universities_state_govt": 445,
+    "universities_private_deemed": 10,
+    "universities_private_unaided": 473,
+    "colleges_government_pct": 21.5,
+    "colleges_private_aided_pct": 13.2,
+    "colleges_private_unaided_pct": 65.3,
+    "affiliating_universities": 328,
+    "technical_universities": 192,
+    "colleges_with_pg": 14197,
+    "colleges_with_phd": 1063,
+    "naac_accredited_universities": 487,
+    "naac_accredited_heis": 7554,
+    "caveat": "Registered, not active. AISHE counts an institution whether or not it has an innovation function, an IIC, or any startup. 58,643 is the SUPER-BOUND, never the market."
+  },
+  "iic_counts": {
+    "source": "IICPORTAL / MOE_NEP / AIM",
+    "tier": "T1",
+    "variants": [
+      {
+        "value": 14067,
+        "as_of": "2024-07-31",
+        "org": "Atal Innovation Mission orientation session",
+        "url": "https://nnrg.edu.in/PDF/events/iic/AtalTinkeringLabs-23-24.pdf",
+        "note": "quoted as '14067 IICs established in 36 states and UTs'"
+      },
+      {
+        "value": 14830,
+        "as_of": "2025 (portal counter)",
+        "org": "IIC portal, iic.mic.gov.in",
+        "url": "https://iic.mic.gov.in/assets/html/index.html",
+        "note": "portal counter reads '14830 Established', 28 states + 9 UTs"
+      },
+      {
+        "value": 16367,
+        "as_of": "2025-2026 (MoE status page)",
+        "org": "Ministry of Education, NEP implementation page",
+        "url": "https://www.education.gov.in/en/nep/academic-research-internationalization",
+        "note": "'16,367 Institutions' Innovation Councils have been set up in 28 States & 8 UTs'"
+      }
+    ],
+    "iic_programmes_lakh": 3.2,
+    "idea_lab_funded_heis": 400,
+    "sic_in_schools": 10000,
+    "innovation_ambassadors_college_faculty": 15000,
+    "innovation_ambassadors_school_teachers": 25000,
+    "launched": 2018
+  },
+  "nirf_2025": {
+    "source": "NIRF25",
+    "source_key": "NIRF25",
+    "tier": "T1",
+    "as_of": "2025 (released 2025-09-04)",
+    "url": "https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf",
+    "unique_institutions": 7692,
+    "total_applications": 14163,
+    "preregistered": 6398,
+    "new_registration": 1294,
+    "innovation_category": 777,
+    "innovation_north": 125,
+    "innovation_south": 416,
+    "innovation_east": 58,
+    "innovation_west": 178,
+    "overall": 4045,
+    "colleges_category": 4030,
+    "engineering": 1584,
+    "management": 1026,
+    "pharmacy": 594,
+    "research_institutions": 273,
+    "medical": 223,
+    "law": 267,
+    "dental": 223,
+    "architecture_planning": 131,
+    "agriculture_allied": 173,
+    "open_universities": 15,
+    "skill_universities": 11,
+    "sdgs": 791,
+    "unique_2016": 2426,
+    "applications_2016": 3565,
+    "unique_2021": 4030,
+    "applications_2021": 6272,
+    "innovation_ranking_bands": "Top 10 ranked + one band (11-50)",
+    "caveat": "777 institutions filed the INNOVATION category in 2025. This is the single best public proxy for our addressable population, because it is institutions that self-declared they have innovation to report - but it is a RANKING APPLYING population, not a BUYING population."
+  },
+  "incubation": {
+    "source": "DPIIT / SISFS / NSD26",
+    "tier": "T1",
+    "as_of": "2025-2026",
+    "sisfs_incubators_selected": 217,
+    "sisfs_incubators_approved_crore": 916.91,
+    "sisfs_startups_selected": 2942,
+    "sisfs_startups_funded_crore": 522.42,
+    "seed_funded_incubators": 244,
+    "aic_grant_max_crore": 10,
+    "eic_operating_min_years": 3,
+    "aic_space_min_sqft": 10000,
+    "urls": [
+      "https://pib.gov.in/PressReleaseIframePage.aspx?PRID=2114865",
+      "https://aim.gov.in/atal-incubation-centres.php"
+    ]
+  },
+  "startup_base": {
+    "source": "DPIIT / NSD26",
+    "tier": "T1",
+    "as_of": "2025-10 (Lok Sabha written reply)",
+    "dpiit_recognised_startups": 197692,
+    "dpiit_recognised_jun_2025": 180683,
+    "dpiit_recognised_2016": 500,
+    "jobs_lakh": 21.11,
+    "pct_with_woman_director": 48,
+    "pct_tier2_3_cities": 53,
+    "ffs_corpus_crore": 10000,
+    "ffs_aifs": 144,
+    "ffs_invested_crore": 23679,
+    "ffs_startups_invested": 1282,
+    "cgss_loans": 311,
+    "cgss_crore": 755.25,
+    "sisfs_crore": 945,
+    "sisfs_incubators": 219,
+    "gem_orders_crore": 51000,
+    "states_with_startup_policy": 32,
+    "url": "https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal"
+  },
+  "ipr": {
+    "source": "IPO",
+    "tier": "T1",
+    "as_of": "2023-24 (IPO annual reports)",
+    "patent_filings_2023_24": 92168,
+    "patent_filings_2014": 42763,
+    "growth_pct": 115,
+    "rd_allocation_budget2025_26_crore": 20000,
+    "note": "91,168 national patent filings in 2023-24, up from 42,763 in 2014. P-A07 graded CRITICAL: no institution in the 36-document corpus keeps a patent deadline calendar. The national filing volume and the institutional tracking gap are the same fact seen from two ends."
+  },
+  "gii": {
+    "rank": 48,
+    "note": "India's Global Innovation Index position, cited by MoE Innovation Cell."
+  },
+  "conflicts": [
+    {
+      "id": "C-01",
+      "subject": "How many IICs exist in India",
+      "variant_a": "14,067 (AIM, 2024-07-31)",
+      "variant_b": "14,830 (IIC portal, 2025)",
+      "variant_c": "16,367 (MoE status page, 2025-26)",
+      "spread_pct": 16.4,
+      "why_it_matters": "A 16% spread across three government sources on the most important count in this market. None states the counting rule - registered, active, or ever-submitted - so they are not reconcilable. We therefore refuse to pick one and state a range instead.",
+      "our_choice": "Use 14,067 as the CONSERVATIVE floor and 16,367 as the CEILING. Report both. Never present a single IIC count.",
+      "mirrors": "The same ledger defect documented in P-A08 (NIT Calicut 55 vs 17) and F-SENTINEL-ZERO."
+    },
+    {
+      "id": "C-02",
+      "subject": "What counts as an institution that could buy innovation software",
+      "variant_a": "AISHE registered HEIs: 58,643",
+      "variant_b": "NIRF 2025 Innovation category: 777",
+      "variant_c": "IICs: 14,067-16,367",
+      "spread_pct": null,
+      "why_it_matters": "These three numbers answer three different questions and are NOT nested. An IIC can sit inside a college; a college can file NIRF Overall without filing Innovation. Adding them produces a number that describes nothing.",
+      "our_choice": "Never sum these. Model each as a separate population and reconcile them by institution type in data_p47.",
+      "mirrors": "todo.md PHASE 5: 'Don't automatically add all of these together.'"
+    },
+    {
+      "id": "C-03",
+      "subject": "DPIIT recognised startup count moves fast",
+      "variant_a": "180,683 (30 June 2025)",
+      "variant_b": "197,692 (October 2025)",
+      "spread_pct": 9.4,
+      "why_it_matters": "17,009 additional recognitions in roughly four months. Any denominator built on a startup count decays within a year, so market sizing must state its as-of date or be meaningless.",
+      "our_choice": "Every sizing output carries an explicit as_of date.",
+      "mirrors": "Time-grain mismatch already documented as F-ARIYA-AY."
+    }
+  ],
+  "buyer_definition": {
+    "must_have_all": [
+      {
+        "criterion": "An institution-level innovation function exists",
+        "proxy": "Files the NIRF Innovation category, or holds an IIC, or holds an AIC/EIC",
+        "testable": true,
+        "note": "Phase 3A: ARIIA 3.3 asks only 'does an IPR cell exist'. Proxies are coarse by design."
+      },
+      {
+        "criterion": "Someone is accountable for the innovation records",
+        "proxy": "Institution appears in the IIC portal's activity reporting, or files a non-empty innovation return",
+        "testable": true,
+        "note": "This is where the market is won or lost: registration without a person is not a buyer."
+      },
+      {
+        "criterion": "There is a compliance event that forces the work",
+        "proxy": "NIRF Innovation cycle (annual, Jan 31 submission) or ARIIA cycle",
+        "testable": true,
+        "note": "D-007: the forcing-event hypothesis. Still HYPOTHESIS - H-04 tests it."
+      }
+    ],
+    "strong_negative_signals": [
+      "IIC registered but never submits - F-SENTINEL-ZERO shows institutions record 0 for real activity",
+      "No ARIIA/NIRF nodal officer named anywhere",
+      "Institution files NIRF Overall but not Innovation - active in the ecosystem, not in the ledger that matters",
+      "'No Data Found' heavy forms - F-NODF-GRADIENT shows this tracks maturity inversely"
+    ],
+    "cannot_be_filtered_yet": [
+      "Digital readiness / ERP estate - no public dataset at institution level",
+      "Budget head available for innovation software - OQ-29, unresolved, needs interviews",
+      "Renewal intent - no public dataset exists; this is the single biggest gap in the TAM"
+    ]
+  },
+  "market_gaps": [
+    "No public dataset links an institution to the software it already pays for. The 'free incumbent' assumption (H-03) stays HYPOTHESIS.",
+    "No public dataset shows which institutions actually have a person accountable for innovation records. This is the real filter and it is invisible.",
+    "IIC activity data is not published in machine-readable form at institution level. Without it, TAM rests on registration counts, which C-01 shows are definitionally unsafe.",
+    "Budget-head data does not exist publicly for innovation software. The single government money signal (ARIIA expenditure split) is retrospective and unlinked to institutions.",
+    "There is no published churn or renewal rate for any incumbent in this category, so retention and LTV cannot be modelled from evidence.",
+    "Willingness to pay has ZERO primary evidence. OQ-03 remains open. Every rupee figure in this repo traces to a competitor's public price, never to a customer's budget."
+  ],
+  "price_band": {
+    "anchor_verified": 75000,
+    "target": 120000,
+    "currency": "INR per year",
+    "evidence_note": "Rs 75,000 is a competitor's public price for a DIFFERENT scope (student innovation management), so it is a floor reference, not a comparable. Rs 1,20,000 is our own target and has no customer behind it. OQ-03 (willingness to pay) remains open after three phases."
+  },
+  "segments": [
+    {
+      "id": "S1",
+      "name": "Mature public IIC (NIT / large university / central)",
+      "institution_types": [
+        "NIT",
+        "University",
+        "IIT"
+      ],
+      "maturity": "Mature",
+      "willingness_to_pay": "Medium-High",
+      "needs": [
+        "Startup tracking",
+        "Reporting",
+        "IPR",
+        "Ecosystem management"
+      ],
+      "size": "100+ registered startups reported; multi-officer IIC",
+      "documentary_basis": [
+        "NIT Calicut P-A08: 55 vs 17 startups in one PDF - the largest contradiction in the corpus",
+        "Phase 3A F-DPIIT-JOIN: IIT Bombay 16/170 and IIT Delhi 8/38 startups lose identity at the join"
+      ],
+      "why_they_buy": "Cannot answer a basic question about their own portfolio while filing it",
+      "blockers": [
+        "Procurement committee above Rs 50K (Phase 2)",
+        "Existing ERP may already hold the list (H-01)"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "S2",
+      "name": "Established private engineering college IIC",
+      "institution_types": [
+        "Engineering College",
+        "Private University",
+        "Autonomous College"
+      ],
+      "maturity": "Active",
+      "willingness_to_pay": "Low-Medium",
+      "needs": [
+        "Reporting",
+        "Innovation management",
+        "Startup tracking"
+      ],
+      "size": "Small IIC, part-time coordinator, 5-20 startups",
+      "documentary_basis": [
+        "Teresa's College P-A02: a 13-item grant narrative typed into a numeric field",
+        "Phase 3A F-NODF-GRADIENT: Aditya left 7 'No Data Found' cells, the most in the set"
+      ],
+      "why_they_buy": "Deadline pressure with no capacity and no system",
+      "blockers": [
+        "Very thin budget",
+        "Coordinator may be the only person (OQ-05)"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "S3",
+      "name": "Emerging / newly-registered IIC",
+      "institution_types": [
+        "Autonomous College",
+        "College"
+      ],
+      "maturity": "Emerging",
+      "willingness_to_pay": "Low",
+      "needs": [
+        "Innovation management",
+        "Reporting"
+      ],
+      "size": "IIC registered, no submitted returns",
+      "documentary_basis": [
+        "F-SENTINEL-ZERO: IIT Kanpur records 0 stars while running a mature incubator - registration does not imply activity",
+        "IIC counts disagree by 16% across official sources (C-01) - registration status is not verifiable"
+      ],
+      "why_they_buy": "MUST submit to keep the IIC alive",
+      "blockers": [
+        "May have no budget at all",
+        "May not have anyone accountable (buyer definition fails)"
+      ],
+      "priority": 4,
+      "note": "Largest by count, lowest by probability of paying. Included for completeness, not for revenue."
+    },
+    {
+      "id": "S4",
+      "name": "Incubator / AIC / EIC (not a degree institution)",
+      "institution_types": [
+        "Incubation Centre"
+      ],
+      "maturity": "Mature",
+      "willingness_to_pay": "Medium",
+      "needs": [
+        "Incubation",
+        "Startup tracking",
+        "Ecosystem management"
+      ],
+      "size": "244 seed-funded incubators; AICs need 10,000 sq ft",
+      "documentary_basis": [
+        "AIM: AIC/EIC grant-in-aid up to Rs 10 crore - a funded body with procurement capacity Phase 1 institutions lack",
+        "SISFS: 217 incubators selected with Rs 916.91 crore approved"
+      ],
+      "why_they_buy": "Already commercial entities with real budgets and real portfolio churn",
+      "blockers": [
+        "Different buyer - operator, not academic",
+        "Competitive (91springboard, NSRCEL already software-literate)"
+      ],
+      "priority": 3,
+      "note": "Underrated segment. AIM-funded money is the one budget signal in this market that points FORWARD in time, unlike ARIIA's retrospective spend."
+    },
+    {
+      "id": "S5",
+      "name": "Research-intensive institute (IISc / R&D organisation)",
+      "institution_types": [
+        "Research Institution"
+      ],
+      "maturity": "Mature",
+      "willingness_to_pay": "Medium",
+      "needs": [
+        "IPR",
+        "Startup tracking"
+      ],
+      "size": "273 filed the NIRF Research Institutions category in 2025",
+      "documentary_basis": [
+        "Phase 3A: IISc had 3 malformed placeholder DPIIT keys (DIPP0000)",
+        "IPR: 91,168 national patent filings 2023-24, yet P-A07 finds no deadline calendar in any institution"
+      ],
+      "why_they_buy": "IP volume makes the deadline risk concrete and expensive",
+      "blockers": [
+        "Often already has an IP cell or TTO (H-09)",
+        "Slow, formal procurement"
+      ],
+      "priority": 5
+    }
+  ],
+  "icp": {
+    "name": "Institution-innovations-Council with a live NIRF/ARIIA filing obligation and one part-time accountable officer",
+    "one_line": "Not the most innovative institution in India - the one that has to file an innovation return next quarter, cannot answer a question about its own portfolio, and has exactly one person accountable for the answer.",
+    "must_be": [
+      [
+        "Files the NIRF Innovation category or an ARIIA return",
+        "777 institutions filed NIRF Innovation in 2025 - observable behaviour, not registration"
+      ],
+      [
+        "Has a named IIC Convener / ARIIA-NIRF nodal officer",
+        "Phase 1: SSCET has 40 IIC members and 2 mentors; NIT Calicut 29 mentors vs 155 ideas. One person does the work."
+      ],
+      [
+        "Reports startups at a scale where the loss is measurable",
+        "Phase 3A: institutions lose 9% of startups at the DPIIT join overall; NIT Andhra Pradesh 67%"
+      ],
+      [
+        "Has no system of record upstream of the form",
+        "P-A10 / H-01 - still HYPOTHESIS, and the artefact ask is the test"
+      ]
+    ],
+    "must_not_be": [
+      "An institution with no IIC and no innovation filing (no forcing event - D-007 untested)",
+      "A student or founder (cannot buy anything - Class D in Phase 2)",
+      "An institution whose Convener demonstrably delegates the form to a junior",
+      "A startup incubator's competitive set (91springboard, NSRCEL already run commercial software)"
+    ],
+    "why_not_the_obvious_choice": "The instinct is to target IITs and IISc - best data, biggest budgets. We deliberately do not lead there. Phase 2 found their Convener almost certainly does not personally do the data work, so we would interview and sell to the wrong person. IIT Bombay and IISc are excluded from the recruitment shortlist for exactly this reason.",
+    "first_target_rank": "S1 Mature public IIC, and S4 incubator/AIC - the only segment with a budget signal that points forward in time"
+  },
+  "sizing": {
+    "tam": {
+      "layer": "TAM",
+      "definition": "Institutions holding an IIC / AIC / EIC - a legally mandated innovation reporting function",
+      "institution_range": [
+        14067,
+        16367
+      ],
+      "price_range_inr": [
+        75000,
+        120000
+      ],
+      "value_range_inr": [
+        1055025000,
+        1964040000
+      ],
+      "value_display": "Rs 105.5 crore - Rs 196.4 crore per year",
+      "method": "institutions x annual contract value, low x low to high x high",
+      "confidence": "LOW - width driven entirely by A-04, which has no customer evidence",
+      "evidence_grade": "T1 population, HYPOTHESIS price"
+    },
+    "sam": {
+      "layer": "SAM",
+      "definition": "Institutions with OBSERVABLE annual innovation filing behaviour",
+      "institution_range": [
+        777,
+        7692
+      ],
+      "floor_basis": "777 filed the NIRF Innovation category in 2025 - hard floor, T1",
+      "ceiling_basis": "7692 unique NIRF applicants in 2025. Used ONLY as a mathematical ceiling, NOT as an estimate: most of these file Overall, not Innovation, and would not buy. The true value sits far below both.",
+      "price_range_inr": [
+        75000,
+        120000
+      ],
+      "value_range_inr": [
+        58275000,
+        923040000
+      ],
+      "value_display": "Rs 5.83 crore - Rs 92.30 crore per year (arithmetic envelope only)",
+      "method": "NIRF Innovation filers as floor; total NIRF applicants as an upper bound",
+      "confidence": "VERY LOW on the ceiling, MEDIUM on the floor",
+      "evidence_grade": "T1 population, HYPOTHESIS price",
+      "band_multiple": 15.8,
+      "honesty_note": "This band is deliberately enormous because it is bounded by two populations that are NOT the same thing. The floor is a real purchase signal; the ceiling is a ranking applicant. Presenting a midpoint would be false precision over a 16-x range."
+    },
+    "som": {
+      "layer": "SOM",
+      "definition": "Institutions obtainable with a founder-led motion, founder+1, founder+small team",
+      "year_1": [
+        3,
+        6
+      ],
+      "year_2": [
+        8,
+        15
+      ],
+      "year_3": [
+        15,
+        25
+      ],
+      "by_year": {
+        "year_1": {
+          "institutions": [
+            3,
+            6
+          ],
+          "revenue_inr": [
+            225000,
+            720000
+          ],
+          "revenue_display": "Rs 2,25,000 - Rs 7,20,000"
+        },
+        "year_2": {
+          "institutions": [
+            8,
+            15
+          ],
+          "revenue_inr": [
+            600000,
+            1800000
+          ],
+          "revenue_display": "Rs 6,00,000 - Rs 18,00,000"
+        },
+        "year_3": {
+          "institutions": [
+            15,
+            25
+          ],
+          "revenue_inr": [
+            1125000,
+            3000000
+          ],
+          "revenue_display": "Rs 11,25,000 - Rs 30,00,000"
+        }
+      },
+      "revenue_display": "YEAR 1 Rs 2,25,000 - Rs 7,20,000; YEAR 2 Rs 6,00,000 - Rs 18,00,000; YEAR 3 Rs 11,25,000 - Rs 30,00,000",
+      "confidence": "LOW - depends on A-05 and A-07, both unmeasured",
+      "evidence_grade": "HYPOTHESIS throughout",
+      "rejection_note": "todo.md PHASE 7 proposed 5 / 15 / 40-50 institutions. The year-3 figure implies a sales team that does not exist and a conversion rate nobody has measured. We reject it and model capacity instead."
+    }
+  },
+  "scorecard": [
+    {
+      "hypothesis": "Institutions hold fragmented startup data",
+      "evidence_type": "documentary",
+      "evidence": "36-doc corpus, 6 self-reported contradictions, 10 problem analyses",
+      "grade": "DOCUMENTED",
+      "validated": "SUPPORTED",
+      "remaining": "How fragmented? Interviews.",
+      "interview_ids": [
+        "H-01"
+      ]
+    },
+    {
+      "hypothesis": "The NIRF/ARIIA join is broken in practice",
+      "evidence_type": "documentary",
+      "evidence": "11 forms, 32/354 startups lose identity (9.0%), worst 67%",
+      "grade": "DOCUMENTED",
+      "validated": "SUPPORTED",
+      "remaining": "Do officers FEEL it? OQ-32/33.",
+      "interview_ids": [
+        "H-02"
+      ]
+    },
+    {
+      "hypothesis": "Institutions want centralised tracking",
+      "evidence_type": "none",
+      "evidence": "-",
+      "grade": "HYPOTHESIS",
+      "validated": "INTERVIEW REQUIRED",
+      "remaining": "No demand evidence exists. Blocked on Phase 3B.",
+      "interview_ids": [
+        "H-01"
+      ]
+    },
+    {
+      "hypothesis": "They will pay Rs 1.2 lakh",
+      "evidence_type": "none",
+      "evidence": "Competitor price Rs 75,000 is a floor reference, not evidence of our price",
+      "grade": "HYPOTHESIS",
+      "validated": "INTERVIEW REQUIRED",
+      "remaining": "OQ-03 open since Phase 0. Zero primary evidence.",
+      "interview_ids": [
+        "H-07"
+      ]
+    },
+    {
+      "hypothesis": "IPR tracking is a major pain",
+      "evidence_type": "documentary",
+      "evidence": "P-A07 CRITICAL: no deadline calendar in any of 36 institutions; 91,168 national filings 2023-24",
+      "grade": "DOCUMENTED",
+      "validated": "SUPPORTED (institutional)",
+      "remaining": "Does the institute track patents at all, or an agency/TTO? H-09.",
+      "interview_ids": [
+        "H-09"
+      ]
+    },
+    {
+      "hypothesis": "Reporting consumes significant time",
+      "evidence_type": "documentary",
+      "evidence": "P-A08 hand-assembled reports; ARIIA deadline cycles; 0 (On Progress) sentinels",
+      "grade": "SINGLE-SOURCE",
+      "validated": "PARTIAL",
+      "remaining": "Actual hours per cycle. HOURS code, no interviews yet.",
+      "interview_ids": [
+        "H-04"
+      ]
+    },
+    {
+      "hypothesis": "Excel/Sheets/WhatsApp are the free incumbent",
+      "evidence_type": "none",
+      "evidence": "Assumption since Phase 0, never evidenced",
+      "grade": "HYPOTHESIS",
+      "validated": "INTERVIEW REQUIRED",
+      "remaining": "The pricing model rests on this. Highest-risk unverified claim.",
+      "interview_ids": [
+        "H-03"
+      ]
+    },
+    {
+      "hypothesis": "The Convener is or can reach the buyer",
+      "evidence_type": "documentary",
+      "evidence": "Phase 2: only 4/25 roles hold documented budget authority, none Class A",
+      "grade": "DOCUMENTED",
+      "validated": "CONTRADICTED ON PAPER",
+      "remaining": "Does reality match the paperwork? H-05.",
+      "interview_ids": [
+        "H-05"
+      ]
+    },
+    {
+      "hypothesis": "Deadlines are the forcing event",
+      "evidence_type": "documentary",
+      "evidence": "Teresa's 13-item narrative in a numeric field; ARIIA 0 (On Progress) sentinels",
+      "grade": "SINGLE-SOURCE",
+      "validated": "PARTIAL",
+      "remaining": "Is there rework or overtime? H-04.",
+      "interview_ids": [
+        "H-04"
+      ]
+    },
+    {
+      "hypothesis": "Institutions manage cohorts",
+      "evidence_type": "none",
+      "evidence": "P-A03 graded HYPOTHESIS; absence from reports is absence-of-evidence",
+      "grade": "HYPOTHESIS",
+      "validated": "INTERVIEW REQUIRED",
+      "remaining": "Either drop cohorts or prove them. H-08.",
+      "interview_ids": [
+        "H-08"
+      ]
+    }
+  ]
+}
