@@ -312,3 +312,42 @@ NIT Andhra Pradesh at 4 of 6 (67%).
 | ARIIA counts academic-year pairs; NIRF counts single cycles | **No cross-form total is computed anywhere** |
 
 Full limits list: `data_p3_forms.LIMITS`, mirrored in `_exports/phase3/findings.json`.
+
+---
+
+## 13. Phase 3B — interview programme (instruments)
+
+**Interviews conducted: 0.** This is an instrument, not a result.
+
+| Asset | What it is |
+|---|---|
+| `02_User_Research/README.md` | Programme hub + the pairing method |
+| `02_User_Research/Interview_Protocol.md` | How to run one interview, 30–40 min, incl. the artefact ask |
+| `02_User_Research/Consent_And_Ethics.md` | 6-point consent block, attribution, recording rules |
+| `02_User_Research/Guides/` | 4 role-class guides, 21 questions, each with probe + hook + falsifier |
+| `02_User_Research/Falsification_Matrix.md` | 10 hypotheses x the observation that would kill each |
+| `02_User_Research/Recruitment_Shortlist.md` | 6 institutions ranked by documented contradiction |
+| `02_User_Research/Coding_Scheme.md` | 10 codes, evidence bars, 3-of-6 reporting rule |
+| `02_User_Research/Capture_Template.md` | Note sheet, non-answer log, paired-divergence grid |
+| `_exports/phase3b/` | guides.csv, falsification_matrix.csv, recruitment_shortlist.csv, coding_scheme.csv, instrument_schema.json |
+
+Reproduce: `python build/build_phase3b.py`.
+
+### Build guards that fail the run
+
+| Guard | Effect |
+|---|---|
+| No hypothetical-purchase frame in any structured question | Rejected — 21/21 pass |
+| Every question needs bank + probe + hook + falsifier | Rejected if missing |
+| Every hypothesis needs a refuting observation and a real guide question | Rejected if missing |
+| No interview-result wording anywhere in the module | Rejected — `interviews_conducted: 0` |
+| `_exports/synthetic/` excluded from the manifest | Verified with a planted canary |
+
+### Phase 3B limits
+
+| Limitation | Impact |
+|---|---|
+| **0 interviews conducted** | All 10 hypotheses untested; 8 remain HYPOTHESIS, 2 SINGLE-SOURCE |
+| Shortlist drawn only from institutions in the Phase 1 corpus | Selection bias toward institutions that publish |
+| 6 institutions is a small sample | Below 3-of-6 for anything; cannot support a claim about "Indian institutions" generally |
+| The artefact ask may be declined | `P-A10` (internal tooling) may stay HYPOTHESIS if most respondents refuse |
