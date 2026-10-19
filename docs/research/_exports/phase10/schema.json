@@ -24,20 +24,20 @@
     "U": "UNKNOWN - not publicly evidenced. NOT the same as absent."
   },
   "headline": {
-    "vendors": 36,
-    "new_in_phase10": 8,
+    "vendors": 40,
+    "new_in_phase10": 12,
     "spec_columns": 27,
     "scored_dimensions": 15,
     "added_dimensions": 2,
     "total_columns": 45,
-    "scored_cells": 540,
+    "scored_cells": 600,
     "unknown_cells": 15,
-    "absent_cells": 229,
+    "absent_cells": 253,
     "positions": {
       "VERIFIED": 1,
       "PROVEN": 6,
-      "PARTIAL": 5,
-      "UNPROVEN": 24
+      "PARTIAL": 6,
+      "UNPROVEN": 27
     }
   },
   "guardrails": [
