@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T06:47:13+00:00",
+  "generated_at": "2026-10-19T06:48:23+00:00",
   "project": "StartupHub",
   "phase": 0,
   "note": "Every export file, with SHA-256 so downstream consumers can verify integrity.",
@@ -270,72 +270,72 @@
     {
       "path": "_exports/docx/StartupHub_Competitor_Pack.docx",
       "bytes": 405015,
-      "sha256": "e7472469d4d197c74818acf79783b3c1d935f38a97abb1530e53ca0b2eb7533c"
+      "sha256": "b2a0970d20d4580439b0efda4da69e25f5f275175d583a7bc19887cb0956f40a"
     },
     {
       "path": "_exports/docx/StartupHub_Phase0_Findings.docx",
       "bytes": 793805,
-      "sha256": "e49fda80d1a9753293444c31c02ee203fe32e67e9c767d460178958b21ab4c40"
+      "sha256": "4486a7679f914d8b173c149d0e76091f05dc9bfb3c4a257e29545f43b198f79a"
     },
     {
       "path": "_exports/docx/StartupHub_Positioning_Gaps.docx",
       "bytes": 266935,
-      "sha256": "3847f4d2d19a001e239aa1ed46b3352e1e3a7460b4ac14593d4aac764f86c568"
+      "sha256": "c78eb338c184504b385c6b560adfb24694cb67ed0cda38c4276e646cb3c13b8b"
     },
     {
       "path": "_exports/docx/StartupHub_Segment_Census.docx",
       "bytes": 365869,
-      "sha256": "e4c22f850d27a674b00fd9b45b780f690a2ce38328b62b20a084903515ed9bec"
+      "sha256": "bf15a8920b8249e10149af06f2269323d8610fc5e3c5f31f61fce0e6f0c8d72c"
     },
     {
       "path": "_exports/docx/StartupHub_Source_Register.docx",
       "bytes": 53294,
-      "sha256": "189564936feb2a9ab7cc0872d4dfecb137fbddaa012353f26eb3b703217642c5"
+      "sha256": "62d96c59eff581f9dfdcabec421d86f467cc3f5bf6230ecc30f756e46d2b5729"
     },
     {
       "path": "_exports/json/competitors.json",
       "bytes": 38611,
-      "sha256": "58f887c1deb8ead85eae3d83758be7d8818d3f0e910098a1a1240c58b7ba3ccb"
+      "sha256": "f764778f78c30476e7c9514d32e13f4682ec9a1a5baf81063ee69cedbcbcc2cb"
     },
     {
       "path": "_exports/json/decision_log.json",
       "bytes": 12777,
-      "sha256": "42822a3c6f928316bd7fc0609d97170c4e3785b1acf84e0b6205f7c5aa4508c6"
+      "sha256": "d43456bc10864a9a8b452e02f8164cbdee325d11b21690cf483a3038aa9c3a9b"
     },
     {
       "path": "_exports/json/open_questions.json",
       "bytes": 17796,
-      "sha256": "f4ebf9549265e1641f17f114d8b8ca3ee849a31077479522b1efd74181c6165a"
+      "sha256": "f0a760b5a01da8c7624958af296d949076f7ead8907ad8c3a85e0cd8c779f9e3"
     },
     {
       "path": "_exports/json/positioning_gaps.json",
       "bytes": 16312,
-      "sha256": "d9791ffb0b68db461158a23a46aba69518117ede1e57b61323af8f773aafaf28"
+      "sha256": "5c4ae640ec0f1382f91830e95b9bdfb65f97e23fc62ea1097192794214eeafd0"
     },
     {
       "path": "_exports/json/pricing_ledger.json",
       "bytes": 17377,
-      "sha256": "fe15bb1dc5a9a417dd6ca5ce38961d383d9f5f8a38304ca43adcf5ff6e4249c5"
+      "sha256": "d8ac0723b09a803fc4262add025fe938360b7c096a6a10b201032d6ab47ed606"
     },
     {
       "path": "_exports/json/problem_evidence.json",
       "bytes": 16183,
-      "sha256": "879aec80d363164eb8d6612c7fad95d9bbbe709903511eac77c791dc0b2d4efd"
+      "sha256": "b31b2dec11922f42ceae922be49ec2dc4e7b40f22046e608a435de450ed91419"
     },
     {
       "path": "_exports/json/segment_census.json",
       "bytes": 7603,
-      "sha256": "6eaf5969944c2f21a0d1da6d973fb6611c2006d258acc17c4e93cc132c31f933"
+      "sha256": "e5b9ca25f7e43e12e6d8be1c2f81b9682dc7e1db2e94e7a765211af4eab60c96"
     },
     {
       "path": "_exports/json/source_registry.json",
       "bytes": 51983,
-      "sha256": "8aefe77b3b17b9394974f2c29e31dea5dcd753c043b5f37f48c1114ca9a7edb1"
+      "sha256": "2a5fff490720e1079f0286f7fc1052247363d0e355815cda71ec203ba8c73c73"
     },
     {
       "path": "_exports/json/startuphub_research_phase0.json",
       "bytes": 3292,
-      "sha256": "474d3d5bff4c0f63a3f380be1f20d67b8aeeb3e5b578acf698be4e107d143720"
+      "sha256": "239dd22192ee4f821b0b30787cb9ccb940f0b3460bb1957b7f242fa8309798bc"
     },
     {
       "path": "_exports/phase1/csv/iic_absence_vocabulary.csv",
@@ -795,87 +795,87 @@
     {
       "path": "_exports/raw/schema/competitors.schema.json",
       "bytes": 1295,
-      "sha256": "b620a6d0d4372784ac4e54fd2708aac14ca3c6715e10d2e4378d4fbe10e96879"
+      "sha256": "cd33ec0f640a47b80338f6fb2aa39eb366d1c6e4168279c71fb5431b2df1130c"
     },
     {
       "path": "_exports/raw/schema/decision_log.schema.json",
       "bytes": 498,
-      "sha256": "375dbaa1e2e665c5d37154ceaa425ace1f119c6b62ec6cabec39561b0540c2f7"
+      "sha256": "6c12d28ddbf0635fb125352a8eb706a98463e8bdc1c94bb31e55eb9745c3a6e6"
     },
     {
       "path": "_exports/raw/schema/nirf_dpiit_startups.schema.json",
       "bytes": 3103,
-      "sha256": "182d216348e5f7ddf0c6f4fae2da89fa8fb468b48a9c9ab1b634c8561d7f0ed9"
+      "sha256": "e08fe163b1782c1d9d70d772df61d2d261a125ca05ab2dca1ef97016f10d35a1"
     },
     {
       "path": "_exports/raw/schema/open_questions.schema.json",
       "bytes": 648,
-      "sha256": "982cd9b32b006d8060acbb45e29d822d3dc3d9a91658c7c64639c98f0a5e586f"
+      "sha256": "8282344d7a8e1615f74ba291d00fce74c6bb61694eb62e038197d2b299aa4e8f"
     },
     {
       "path": "_exports/raw/schema/positioning_gaps.schema.json",
       "bytes": 614,
-      "sha256": "2d1e2af15707f88e95c4ff3b41db06771d4bf7b57c85e689633ae2beff8a8fcd"
+      "sha256": "5ea2ea4ebf0b017ad5bb67138cbfad230689e08e7c15535c3e1fbf1135e78d05"
     },
     {
       "path": "_exports/raw/schema/pricing_ledger.schema.json",
       "bytes": 657,
-      "sha256": "f9e03497cf3ff0fdc4ca95a035490e72e19d82562e8ac0cc98786d41ac896e71"
+      "sha256": "8c93ac786c819ee49f2ee8364ee2ff8a356ef2bfda0bed938284c5126cfeda17"
     },
     {
       "path": "_exports/raw/schema/problem_evidence.schema.json",
       "bytes": 564,
-      "sha256": "dc3f1a1f5ce58985d943a54108c1e95bd7db0c619c873e2350f7e0409de11b5d"
+      "sha256": "bac12caa12e64e3868c51a0c4dfd4b83ea03834fda21cdacb182ae3102f100b5"
     },
     {
       "path": "_exports/raw/schema/segment_census.schema.json",
       "bytes": 561,
-      "sha256": "d921aab42848439f618357f140b676edd707f7a968a9123bd25d807e73526978"
+      "sha256": "a6251e384e081fb52645512b75d02cfc821ae6bc66b5658214cc8ee4fe675733"
     },
     {
       "path": "_exports/raw/schema/source_registry.schema.json",
       "bytes": 730,
-      "sha256": "03638088db7d782355b3a9a60eea0b7c056c05e5af60bb95a8586e574329db75"
+      "sha256": "5915216e8c05918d5fa018c0b965ae24bb0156414bf3de9ec7cdb6a169975d98"
     },
     {
       "path": "_exports/xlsx/01_Segment_Census.xlsx",
-      "bytes": 13689,
-      "sha256": "6ae05290c7f0b44cd072cff40a648d038f9e2203bbb911c3f61ebeec6f3c816f"
+      "bytes": 13688,
+      "sha256": "f16ed1fd9ff694c218c2fcbedd69cc1c6cd807475cd8adc3551399bac2d145f1"
     },
     {
       "path": "_exports/xlsx/02_Competitor_Matrix.xlsx",
-      "bytes": 24750,
-      "sha256": "480d1c82dcbf23fa92756159a81f05b4c6faa0dc94e6e844c21d65e852386550"
+      "bytes": 24749,
+      "sha256": "8074d1e1a3ebd55a2bc750516dd7ade7f29e2f5e5714a19523c630872b8e2a54"
     },
     {
       "path": "_exports/xlsx/03_Pricing_Evidence.xlsx",
-      "bytes": 13559,
-      "sha256": "ebc5e980f84b10b3e00aa30660d4572ed2345a9f96c521cc97b3769e64b427e5"
+      "bytes": 13558,
+      "sha256": "ddb66d8576d4215149b3191ebdb74ea21235d393a35d3e1017eac515b410c58f"
     },
     {
       "path": "_exports/xlsx/04_Problem_Evidence.xlsx",
-      "bytes": 15290,
-      "sha256": "726507ca41fb9f147c2361ac52791c26489e920b639ba7f693d468f3b157134d"
+      "bytes": 15289,
+      "sha256": "54e7588aa38e2b82cde0e9e2fbc36eed8e8e1c9e71bd8081562556639d9372e6"
     },
     {
       "path": "_exports/xlsx/05_Open_Questions_Decisions.xlsx",
-      "bytes": 20433,
-      "sha256": "9a2124e7441e1b217b45abe19748126afa9f1d520c3dc50d99ff9fd9a522a2a9"
+      "bytes": 20432,
+      "sha256": "50e9c11c1cddd614f323ff88429133a94a4e64426cef16391d3f9ba337032466"
     },
     {
       "path": "_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx",
-      "bytes": 77378,
-      "sha256": "4fd0d20631940ccb21b14e18ae02afed65bcbcb45d8619b4141d6fb8dbd77e80"
+      "bytes": 77377,
+      "sha256": "0ac3e1e03da57491c7542f0bc1e0a2fb36ce4ffb0f79d4b499c2efe3be36e054"
     },
     {
       "path": "ASSETS.md",
-      "bytes": 37808,
-      "sha256": "ff147d1ec8a307a3ac8adb3da673981b20b24bbcfca80876b75a1e046fae02f2"
+      "bytes": 39104,
+      "sha256": "19eba831a4fccb50c07a2a6b70d6d0b8fa390f8136a42080a8fcff5c8ace6a91"
     },
     {
       "path": "todo.md",
-      "bytes": 53077,
-      "sha256": "419bbbe941ce275a4c4b83c2484173deedf51498ce7533079eb95a562fe54e5c"
+      "bytes": 55931,
+      "sha256": "ad3b70461b1771f5fb946bb70ac85fae2b795a4090e8e4109acd1ebc463eff0f"
     },
     {
       "path": "00_Research_Index/Decision_Log.md",
