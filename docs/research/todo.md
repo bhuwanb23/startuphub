@@ -785,6 +785,62 @@ Find:
 
 rather than simply assuming ₹1.2 lakh.
 
+### STATUS: COMPLETE (but WTP remains DERIVED, not measured)
+
+Built by `build/data_p8_pricing.py`, `build/build_charts8.py`,
+`build/build_phase8.py`. Audited by `build/audit_phase8.py` (67/67 checks).
+
+**The headline: we found it, and it is not ₹1.2 lakh.**
+
+| | |
+|---|---|
+| Observed Indian institutional market | **₹10,000 – ₹7,20,000** (16 paid comparables, live-verified) |
+| Highest price found in India | ₹7,20,000 — IncubatX Executive AI |
+| StartupHub list price ₹1.2L | **1.2× the binding ERP ceiling** (Fedena Ultimate, ₹1,00,000) |
+| Phase 7 Scenario B ₹10.28L | **1.43× above everything observed in India** |
+
+**Fedena sells a strictly BROADER product for ₹1,00,000** — admissions,
+attendance, exams, fees, library, hostel, transport, payroll, parent portal,
+mobile apps, unlimited users. We propose more than that for a narrower one.
+
+**Three conclusions:**
+
+1. The list price is at the top of the market and above the binding ceiling.
+2. **Scenario B is outside the market.** The unit-economics problem cannot be
+   solved by raising price.
+3. Therefore the fix is **CAC and pricing model**, not price level. At the list
+   price CAC must fall ~14× to reach LTV/CAC 3, and procurement thresholds
+   (₹50k–₹10L committee spread, Phase 2) make a high list price self-defeating on
+   sales-cycle grounds.
+
+**WTP bracket: ₹50,000 floor, four frame-dependent ceilings** — ₹1,00,000 (vs
+campus ERP, **binding**), ₹5,00,000 (GeM), ₹6,00,000 (cost of failure),
+₹7,20,000 (vs incubation platforms). Never averaged. Frame-dependence is the
+finding.
+
+**Recommendation: enter at ₹50k–₹75k flat and expand on Model E + F** — which is
+exactly what IncubatX (per-cohort, ₹15k/mo media add-on) and incuTrack (paid
+add-ons) already sell.
+
+**All seven categories researched**, 46 comparables, each with source URL +
+retrieval date: 28 live-verified, 3 conflicts recorded and NOT averaged
+(NestLens Orbit ₹29,999/mo vs ₹2.5L/yr; Envisio USD 400 vs USD 20,000 across
+aggregators; Founderhood publishes **no currency symbol** so it is excluded from
+the INR ladder).
+
+**Primary research:** the Van Westendorp + Gabor-Granger instrument is BUILT
+(`WTP_Instrument.md`) and **NOT ADMINISTERED — 0 responses**. No synthetic
+respondents, no simulated results. OQ-03 remains open.
+
+**Deliverables:** `06_Pricing_Research/` README, Comparable_Prices,
+Category_Pricing, Procurement_Context, Models_A_to_F, Willingness_To_Pay,
+WTP_Instrument, Price_Recommendation, Falsification.
+**10 charts** in `_exports/charts/phase8/`. **Exports:** `_exports/phase8/`
+(7 CSV + schema) + `_exports/raw/phase8_pricing_RAW.json`.
+
+**Six pre-committed falsifiers** (P-01…P-06). The load-bearing one is **P-04**:
+one signed contract above ₹5 lakh reopens Scenario B.
+
 ---
 
 # PHASE 9 — Competitor Research

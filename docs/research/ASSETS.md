@@ -374,6 +374,17 @@ Reproduce: `python build/build_phase3b.py`.
 | `05_Market_Sizing/Falsification.md` | Six pre-committed ways this sizing breaks |
 | `_exports/phase7/` | tam_methods, sam_funnel, som_capacity, arr_bridge, unit_economics_linked, adoption_curves, penetration, triangulation, schema |
 | `_exports/csv/sizing.csv` | **canonical** TAM/REACHABLE/SAM/SOM — Phase 7 owns it; pre-Phase-7 pass marked SUPERSEDED |
+| `06_Pricing_Research/README.md` | Phase 8 hub — observed market ₹10K–₹7.2L; list price 1.2× the ERP ceiling |
+| `06_Pricing_Research/Comparable_Prices.md` | 46 real prices, each with source URL + retrieval date |
+| `06_Pricing_Research/Category_Pricing.md` | The seven categories the spec names |
+| `06_Pricing_Research/Procurement_Context.md` | GeM bands, reverse-auction threshold, the MSE 15% advantage |
+| `06_Pricing_Research/Models_A_to_F.md` | Six pricing models scored against the observed market |
+| `06_Pricing_Research/Willingness_To_Pay.md` | ₹50k floor, four frame-dependent ceilings — derived, not measured |
+| `06_Pricing_Research/WTP_Instrument.md` | Van Westendorp + Gabor-Granger — **built, not administered, 0 responses** |
+| `06_Pricing_Research/Price_Recommendation.md` | Enter ₹50–75k flat, expand on Model E + F |
+| `06_Pricing_Research/Falsification.md` | Six pre-committed ways this pricing analysis breaks |
+| `_exports/charts/phase8/` | 10 charts — price ladder, envelope gap, WTP frames, models A–F, per-student, Model D failure, GeM bands, WTP streams, categories, unit-economics bind |
+| `_exports/phase8/` | comparables, price_ladder, model_matrix, wtp_streams, wtp_frames, procurement_bands, per_student_normalisation, schema |
 | `13_Synthesis/Validation_Scorecard.md` | Phase 30 — rebuilt around what actually exists |
 | `_exports/phase45/` | market_base, iic_counts, conflicts, segments, icp_criteria, assumptions, sizing, validation_scorecard |
 
