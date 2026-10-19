@@ -47,6 +47,10 @@ def _save(fig, name):
 
 
 ROWS = M.build_rows()
+V = len(ROWS)
+NOPROOF = len([r for r in ROWS
+              if (r["user_reviews"] or 0) == 0
+              and (r["customers_n"] or 0) == 0])
 DIMS = M.DIMENSIONS
 
 
@@ -79,7 +83,7 @@ def chart_heatmap():
                                edgecolor=RED, lw=2.6, zorder=5))
         ax.text(j, -2.6, tag, ha="center", fontsize=8.4, color=RED, fontweight="bold")
 
-    ax.set_title("Competitor Matrix — 36 vendors x 15 scored capabilities\n"
+    ax.set_title("Competitor Matrix — {V} vendors x 15 scored capabilities\n"
                  "Grey = UNKNOWN (not evidenced). It is not the same as absent.", pad=24)
     ax.legend(handles=[Patch(color=c, label=l) for c, l in
                        [("#FDE68A", "1 partial"), ("#60A5FA", "2 native"),
@@ -190,7 +194,7 @@ def chart_market_position():
     ax.invert_yaxis()
     ax.set_xlabel("Vendors")
     ax.set_title("Derived Market Position — These Are EVIDENCE Tiers, Not Quality Tiers\n"
-                 "23 of 36 vendors have no third-party proof of any kind", pad=14)
+                 "23 of {V} vendors have no third-party proof of any kind", pad=14)
     ax.set_xlim(0, max(counts.values()) + 4)
     ax.text(0.5, -0.13, "A vendor can be UNPROVEN and still be excellent.\n"
                          "UNPROVEN means nobody outside the company has demonstrated it works.",

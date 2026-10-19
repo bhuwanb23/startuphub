@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Independent audit of Phase 10 - the Competitor Matrix.
 
 Two jobs:
@@ -27,12 +27,12 @@ CH = ROOT / "_exports" / "charts" / "phase10"
 XLSX = ROOT / "_exports" / "xlsx" / "08_Competitor_Matrix.xlsx"
 
 # ------------------------------------------------------------- constants
-N_VENDORS = 36
-N_NEW = 8
+N_VENDORS = 40
+N_NEW = 12
 N_DIMS = 15
 N_ADDED = 2
 N_SPEC_COLS = 27
-N_CELLS = 540          # 36 * 15
+N_CELLS = 600          # 40 * 15
 N_CHARTS = 8
 SCALE = {3, 2, 1, 0, "U"}
 
@@ -162,7 +162,7 @@ check("Protrak is graded NAMED_REFERENCE with a named customer", True,
 
 print("\n-- published figures appear in the docs --")
 must = [
-    (("36", "of 36"), "36 vendors"),
+    (("40", "of 40"), "40 vendors"),
     (("Protrak",), "Protrak named"),
     (("IISc",), "IISc named"),
     (("U` is not `0", "U is not 0", "not the same as absent"), "U!=0 rule stated"),

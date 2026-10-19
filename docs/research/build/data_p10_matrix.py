@@ -308,6 +308,118 @@ NEW_VENDORS = [
          weakness="Quote-only; corporate-shaped, not institutional",
          url="https://www.octorank.com/products/startup-relationship-manager",
          confidence="VERIFIED_LIVE"),
+
+    # ---------------------------------------------------- PHASE 11 DISCOVERY
+    # Phase 9's own falsifier C-05 recorded that its vendor set was
+    # good-not-exhaustive. Phase 11 searched vendor marketing and review
+    # ecosystems rather than category lists, and surfaced four Indian vendors
+    # absent from the 36-row matrix. Three of them aim squarely at the HEI/IIC
+    # buyer, which makes them the most direct competitors found in the whole
+    # study - including two that contest the mandate-compliance column that
+    # Phase 9 identified as StartupHub's largest surviving gap.
+
+    dict(name="IncuMan", vendor="IncuMan", category="india", sub="incubation",
+         market="India", origin="India", founded="Not stated",
+         pricing="Private beta; request early access",
+         price_inr_low=None, price_inr_high=None,
+         evidence="UNKNOWN", customers="", customers_n=0, reviews=0, threat="HIGH",
+         target_customer="HEIs, universities, IIC / NISP cells, startup teams and mentors",
+         primary_user="IIC / incubation manager; dean; mentor",
+         core_problem="Run IIC and incubation activity without a spreadsheet trail",
+         customer_size="Private beta, selected institutions only",
+         scoring=dict(startup_mgmt=2, incubation=3, mentorship=2, ipr=2, resource_mgmt=0,
+                      market_intel=0, funding=2, investor_match=0, corporate_match=0,
+                      analytics=2, ai=0, reporting=3, integrations=1, trl=3, mandate=3),
+         notes=dict(trl="Cohort progression tracked with TRL readiness as a first-class field.",
+                    mandate="Maps activities to NISP, IIC and institutional KPIs with "
+                            "structured reporting.",
+                    ipr="Document and IP repository for proposals, pitch decks, MoUs, IP "
+                        "records and policy documents.",
+                    funding="Internal seed funds, external grants and pitch events with "
+                            "application-to-utilisation tracking.",
+                    reporting="KPI dashboards: startups supported, IP filed, funding "
+                              "raised, events hosted."),
+         absence_note="Resource management, market intelligence, investor and corporate "
+                      "matching and AI are absent from the published scope. LMS integration "
+                      "is marked 'future'.",
+         differentiator="TRL readiness and NISP/IIC mapping are first-class, not bolted on",
+         weakness="Private beta with no named customer, no reviews and a live dashboard "
+                  "showing demo figures",
+         url="https://www.incuman.com/", confidence="VERIFIED_LIVE"),
+
+    dict(name="ESI Incubation Centre OS", vendor="ESI", category="india", sub="incubation",
+         market="India", origin="India", founded="Not stated",
+         pricing="Not published",
+         price_inr_low=None, price_inr_high=None,
+         evidence="UNKNOWN", customers="", customers_n=0, reviews=0, threat="HIGH",
+         target_customer="Colleges and universities; IIC and incubation managers",
+         primary_user="IIC manager, dean; student and faculty founders",
+         core_problem="Produce accreditation evidence and run the incubation pipeline",
+         customer_size="Not disclosed; demo dashboard shows 47 startups, 128 founders",
+         scoring=dict(startup_mgmt=2, incubation=2, mentorship=2, ipr=3, resource_mgmt=0,
+                      market_intel=0, funding=2, investor_match=2, corporate_match=1,
+                      analytics=2, ai=1, reporting=3, integrations=1, trl=1, mandate=3),
+         notes=dict(mandate="Explicit MHRD, NAAC, NIRF and ARIIA compliance exports with a "
+                            "monthly and quarterly obligations checklist including meeting "
+                            "held, competition conducted, expert session and workshop logs.",
+                    ipr="Patents, research commercialisation, labs and innovation outcomes.",
+                    investor_match="Investor CRM and demo day."),
+         absence_note="Resource management and market intelligence are absent. The published "
+                      "compliance export still carries an unresolved '(TODO)' marker.",
+         differentiator="Ships the accreditation pack itself, which is what the mandate column "
+                       "was defined on",
+         weakness="No pricing, no named customer, no reviews; a live '(TODO)' on its own "
+                  "compliance export undercuts the core claim",
+         url="https://esi.in/incubation-centre", confidence="VERIFIED_LIVE"),
+
+    dict(name="CSM Technologies (STPI CoE)", vendor="CSM Technologies",
+         category="india", sub="incubation", market="India",
+         origin="India", founded="Not stated",
+         pricing="Empanelled government procurement; not listed",
+         price_inr_low=None, price_inr_high=None,
+         evidence="VENDOR_CLAIM", customers="STPI - 250 Centres of Excellence pan-India",
+         customers_n=250, reviews=0, threat="MEDIUM",
+         target_customer="Government incubator CoEs under STPI / STPI NEXT",
+         primary_user="CoE operator; MeitY / STPI programme office",
+         core_problem="250 incubation centres running in silos with no shared lifecycle view",
+         customer_size="250 CoEs pan-India, four modules (HRMIS, PMC, infrastructure, misc.)",
+         scoring=dict(startup_mgmt=1, incubation=2, mentorship=2, ipr=0, resource_mgmt=1,
+                      market_intel=0, funding=1, investor_match=1, corporate_match=0,
+                      analytics=1, ai=0, reporting=2, integrations=1, trl=0, mandate=3),
+         notes=dict(mandate="Built for MeitY / Startup India reporting across 250 sites.",
+                    mentorship="Mentor allocation by skill with a mentoring forum.",
+                    reporting="RPA-driven compliance and information exchange with "
+                              "entrepreneurs."),
+         absence_note="IPR, TRL, market intelligence and corporate matching are absent from "
+                      "the published scope.",
+         differentiator="Government empanelled at national scale - a procurement reality, "
+                       "not a software advantage",
+         weakness="Enterprise integrator rather than a product; source is a vendor case study; "
+                  "conflicts with Startup Science over the STPI account",
+         url="https://cdnc.heyzine.com/files/uploaded/v2/"
+             "13d7dec43b894295bbb5aba258b9171af5ae0777.pdf",
+         confidence="DOCUMENT"),
+
+    dict(name="SanchiApp", vendor="SanchiApp", category="india", sub="incubation",
+         market="India", origin="India", founded="Not stated",
+         pricing="Not published",
+         price_inr_low=None, price_inr_high=None,
+         evidence="UNKNOWN", customers="", customers_n=0, reviews=0, threat="LOW",
+         target_customer="Incubators and accelerators (claimed)",
+         primary_user="Not stated",
+         core_problem="Spreadsheet failure across intake, evaluation, cohorts and reporting",
+         customer_size="Not disclosed",
+         scoring=dict(startup_mgmt=1, incubation=1, mentorship=0, ipr=0, resource_mgmt=0,
+                      market_intel=0, funding=0, investor_match=0, corporate_match=0,
+                      analytics=0, ai=0, reporting=1, integrations=0, trl=0, mandate=0),
+         notes={},
+         absence_note="Almost nothing is published about the product. The observable activity "
+                      "is content marketing: a September 2026 blog post arguing the exact "
+                      "spreadsheet-failure thesis StartupHub would need to own.",
+         differentiator="Owning the spreadsheet-refutation narrative in search results",
+         weakness="Marketing presence only; no verifiable product, pricing, customer or review",
+         url="https://www.sanchiapp.com/en/blogs/incubator-software-vs-spreadsheets",
+         confidence="VERIFIED_LIVE"),
 ]
 
 
@@ -639,6 +751,7 @@ COMPLETE_FEATURE_LIST = {
     "Catalyzer", "Helikon Labs", "Commercify", "SINT.OTRI", "Protrak (ProrIISe)",
     "KampusCore (TTO module)", "KSS TechTracS", "Babele", "Octorank SRM",
     "Startup Science", "Crino", "Inpart",
+    "IncuMan", "ESI Incubation Centre OS", "CSM Technologies (STPI CoE)", "SanchiApp",
 }
 
 

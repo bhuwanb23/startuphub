@@ -1,0 +1,751 @@
+#!/usr/bin/env python3
+"""StartupHub Phase 11 - Competitor User Reviews.
+
+    "Don't only read competitor websites. Find G2, Capterra, Product Hunt,
+     Reddit, LinkedIn, YouTube reviews, Google reviews, app reviews and
+     customer case studies. ... You want to discover WHAT USERS HATE about
+     existing solutions. That becomes your opportunity."
+
+THE HONEST VERSION OF THAT INSTRUCTION
+--------------------------------------
+The instruction presumes a large body of user voice. Phase 11 measured it,
+and it is far smaller than a competitor-marketing search suggests. This module
+records what actually exists, including the parts that are empty, because the
+emptiness is itself the finding and because a phase that quietly reported only
+the quotable reviews would be the same category error as Phase 0's "exactly
+zero competitors have an IPR module".
+
+THE CENTRAL FINDING: MOST "COMPLAINT CONTENT" IS NOT USER VOICE
+----------------------------------------------------------------
+Search this category for pain and you get a lot of confident prose about what
+users struggle with. Nearly all of it is written by the vendors who sell the
+cure:
+
+    SanchiApp     "Incubator Management Software vs Spreadsheets"
+    Gohorto       "Run Your Accelerator Without Spreadsheets"
+    Startup Science "Why ESOs Are Replacing Spreadsheets"
+    RiserNest     case study narrating a cohort manager's life
+    EcoSync       "Software for University Incubation Centres"
+
+These are marketing assets. They are often *accurate* - but they are not
+independent testimony, and a research programme that quotes them as user
+complaints is laundering vendor claims into user evidence. They are therefore
+recorded, graded VENDOR_MARKETING, and excluded from every opportunity claim.
+
+A SEPARATE TRAP: THE AGGREGATOR ECHO
+------------------------------------
+Several review directories serve a vendor's marketing copy under a heading
+reading "Verified Customer Reviews" while simultaneously displaying
+"0 Ratings" and no review is attributed to any named reviewer. Scraping that
+page as text produces confident sentences that are, in fact, the vendor's own
+product description.
+
+incuTrack is the worked example. topbusinesssoftware.com serves incuTrack's
+homepage copy verbatim under "incuTrack Verified Customer Reviews (2026)"
+and shows no rating at all. That copy is being graded AGGREGATOR_ECHO and is
+excluded. Meanwhile the SAME vendor is recorded elsewhere in this
+repository as having 10 G2 reviews, and GetApp currently shows exactly 1
+review at 5.0. Three platforms, three different answers. That is not a
+rounding error - it is the finding, and Phase 11 records the conflict rather
+than picking whichever number flatters the analysis.
+
+THE EVIDENCE LADDER
+-------------------
+Only two grades may originate an opportunity claim:
+
+    USER_REVIEW      full review body retrieved, reviewer + date + rating
+    USER_INSTITUTIONAL a named institution describes its own operating problem
+    USER_FORUM       a practitioner describes their own working problem
+
+Three more are recorded but cannot originate a claim:
+
+    SNIPPET          only a search-index excerpt was retrievable
+    VENDOR_TESTIMONIAL a named customer quote published BY the vendor
+    VENDOR_MARKETING vendor prose about what users struggle with
+    EDITORIAL        a directory's own summary of reviews
+
+And two record emptiness, which is never silently dropped:
+
+    UNAVAILABLE      page exists but is gated, paywalled, deleted or 403
+    NOT_APPLICABLE   platform is not used for this product type
+
+See audit_phase11.py for the enforced guards.
+
+USAGE:  python build/data_p11_reviews.py
+"""
+
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+
+SCHEMA_VERSION = "1.0"
+BUILD_DATE = "2026-10-19"
+RETRIEVED = BUILD_DATE
+
+# ==========================================================================
+# The evidence ladder
+# ==========================================================================
+
+GRADES = [
+    ("USER_REVIEW", "user", "Full review body retrieved with reviewer, date and rating.",
+     "YES"),
+    ("USER_INSTITUTIONAL", "user", "A named institution describes its own operating problem.",
+     "YES"),
+    ("USER_FORUM", "user", "A practitioner describes their own working problem in public.",
+     "YES"),
+    ("SNIPPET", "corroborating", "Only a search-index excerpt was retrievable; page itself 403s.",
+     "CORROBORATE"),
+    ("VENDOR_TESTIMONIAL", "excluded", "A named customer quote published by the vendor.",
+     "NO"),
+    ("VENDOR_MARKETING", "excluded", "Vendor prose asserting what users struggle with.",
+     "NO"),
+    ("EDITORIAL", "excluded", "A directory's own summary of the reviews below it.",
+     "NO"),
+    ("AGGREGATOR_ECHO", "excluded", "Directory serving vendor copy while showing 0 ratings.",
+     "NO"),
+    ("UNAVAILABLE", "absence", "Page exists but is gated, paywalled, deleted or 403.",
+     "N/A - absence"),
+    ("NOT_APPLICABLE", "absence", "Platform is not used for this kind of product.",
+     "N/A - absence"),
+]
+
+CLAIM_GRADES = {"USER_REVIEW", "USER_INSTITUTIONAL", "USER_FORUM"}
+
+# ==========================================================================
+# The complaint taxonomy
+# ==========================================================================
+# Built bottom-up from the retrieved review text, then checked against the
+# pain points vendors themselves describe. A vendor's pain taxonomy is a
+# hypothesis to test against user text, never a substitute for it.
+
+PAIN_CATEGORIES = [
+    ("FRAGMENTATION", "Workflow split across spreadsheets, forms, email and chat",
+     "USER", "Program manager carries state between unconnected systems"),
+    ("UI_COMPLEXITY", "Interface or navigation is hard to work in",
+     "USER", "Cannot find controls; too many screens"),
+    ("INFORMATION_OVERLOAD", "Too many modules / options / repeated fields",
+     "USER", "Capability exceeds the operator's working memory"),
+    ("DOCUMENTATION_GAP", "No user manual, help centre or in-product guidance",
+     "USER", "Learns by asking support, not by reading"),
+    ("TRAINING_GAP", "Needs orientation or a consultant before it is usable",
+     "USER", "Time-to-value depends on getting help"),
+    ("INTEGRATION_GAP", "Does not connect to the tools already in use",
+     "USER", "Hand-offs instead of links; no WhatsApp/SMS/LMS/API"),
+    ("NOTIFICATION_REACH", "Founders are not reliably reached",
+     "USER", "Email to spam; no owned channel"),
+    ("REPORTING_WEAK", "Reporting does not answer the question being asked",
+     "USER", "Still assembles the board or ministry deck by hand"),
+    ("DATA_EXPORT_MANUAL", "Data has to be moved out and reformatted by hand",
+     "USER", "Exports to spreadsheets for every recurring report"),
+    ("BUG_STABILITY", "Glitches, bugs or performance problems interrupt work",
+     "USER", "Trust cost; people keep a shadow copy"),
+    ("PRICE_VALUE", "Cost is hard to justify for the size of the team",
+     "USER", "Right tool, wrong budget; no small-institution tier"),
+    ("NO_COMPLAINT_RECORDED", "The source records no dissatisfaction",
+     "ABSENCE", "Mandatory bucket so silence is never read as satisfaction"),
+]
+
+# ==========================================================================
+# PLATFORMS
+# ==========================================================================
+
+PLATFORMS = [
+    ("CAPTERRA", "Structured Pros/Cons + 'what do you dislike' + incentive flags", "retrievable"),
+    ("SOFTWAREADVICE", "Gartner Digital Markets; same corpus as Capterra", "retrievable"),
+    ("SOFTWAREREVIEWS", "PeerSphere; validated/incentive-flagged reviews", "retrievable"),
+    ("SPOTSAAS", "Directory; editorially summarised reviews", "retrievable"),
+    ("GETAPP", "Gartner Digital Markets; moderated reviews", "retrievable"),
+    ("SOFTWARE_SUGGEST", "Directory; mostly vendor copy", "retrievable"),
+    ("G2", "Structured Pros/Cons; site returns 403 to automated fetch", "snippet-only"),
+    ("PRODUCT_HUNT", "Launch platform", "not-used-in-category"),
+    ("REDDIT", "Practitioner discussion", "retrievable"),
+    ("LINKEDIN", "Mostly vendor-authored posts", "retrievable"),
+    ("YOUTUBE", "Influencer/affiliate reviews", "sparse"),
+    ("GOOGLE_REVIEWS", "Local-business review platform", "not-applicable"),
+    ("APP_STORES", "Mobile app stores", "not-applicable"),
+]
+
+# ==========================================================================
+# REVIEWS - one row per review, never per vendor
+# ==========================================================================
+# verbatim fields are SHORT QUOTED EXCERPTS as they appear in retrieved text.
+# No paraphrase, no reconstruction, no completion of a truncated field.
+
+REVIEWS = [
+    # ---------------------------------------------------------- Accubate
+    dict(id="R-ACC-001", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2025-06-25", title="An amazing digital platform for program management",
+         role="Program Associate", org="Non-Profit Organization Management",
+         org_size="Not stated", tenure="Not stated", incentive=True,
+         pain="INFORMATION_OVERLOAD",
+         dislike="I feel, there different modules can be separated. having too many modules "
+                 "creates confusion at times.",
+         switched_from="Google Forms",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-002", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2025-03-23", title="Promising Tool with Great Support",
+         role="Program Associate in India", org="Program Development",
+         org_size="51-200 Employees", tenure="1-5 months", incentive=True,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="I haven't found any cons yet, as I'm still exploring its features.",
+         switched_from="",
+         url="https://www.capterra.com.au/software/1034622/accubate", verified=True),
+    dict(id="R-ACC-003", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=4.0, date="2025-01-16", title="Recommended",
+         role="Program Associate", org="Non-Profit Organization Management",
+         org_size="Not stated", tenure="Not stated", incentive=True,
+         pain="BUG_STABILITY",
+         dislike="Glitches occur sometimes which disrupts work.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-004", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=None, date="2023-04-13", title="Accubate - Cunomial Review from NSRCEL",
+         role="Programme team", org="NSRCEL (IIM Bangalore)",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="UI_COMPLEXITY",
+         dislike="Improvements in UI/UX. Improvements in ease of Use and Navigation for "
+                 "different stakeholders. Deduct/reduce overall feature offerings.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-005", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2023-04-13", title="Accubate - a useful enabling tool for Startup Incubators and Accelerators",
+         role="CSR Relations Executive", org="Government Administration",
+         org_size="11-50 employees", tenure="<6 months", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="none so far since we did not have similar products in the market then "
+                 "to even compare.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-006", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2024-11-28", title="Accubate - Go to Program Management System",
+         role="Program Associate", org="Non-Profit Organization Management",
+         org_size="Not stated", tenure="1-2 years", incentive=False,
+         pain="INFORMATION_OVERLOAD",
+         dislike="There is nothing particular as such. Its just that, few options are "
+                 "repetitive, but I guess that is requirement of the easy interface to "
+                 "have multiple options.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-007", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=4.0, date="2024-09-04", title="Accubate review 040924",
+         role="Vice president", org="Banking",
+         org_size="Not stated", tenure="1-2 years", incentive=False,
+         pain="DOCUMENTATION_GAP",
+         dislike="No User manual!! I have been requesting this from more than 18 months now. "
+                 "Rich text editor and save drafts option to be there.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-008", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2023-07-21", title="Accubate works phenomenal for startup management",
+         role="PROJECT MANAGER", org="Research",
+         org_size="Not stated", tenure="1-2 years", incentive=False,
+         pain="NOTIFICATION_REACH",
+         dislike="Sometimes startups wont access emails or goes to spam, it's difficult to "
+                 "update on our upcoming activities. SMS/whatsapp integration into the "
+                 "platform would provide additional means for outreach.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-009", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2024-04-22", title="A Review on Accubate Portal - Paper free, Hazzle free and User Friendly Portal for Applications",
+         role="Not stated", org="Not stated",
+         org_size="Not stated", tenure="2+ years", incentive=True,
+         pain="INFORMATION_OVERLOAD",
+         dislike="It can get a little difficult to operate at times if one is not in "
+                 "constant touch with the usage of the portal. Too many options often make "
+                 "it difficult to understand what is to be chosen from among the lot.",
+         switched_from="Google Forms",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-010", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=4.0, date="2023-07-19", title="Cunomial Technologies Feedback",
+         role="Program Lead", org="Non-Profit Organization Management",
+         org_size="Not stated", tenure="2+ years", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="So far, no downsides have been encountered with Accubate.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-011", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2024-09-14", title="User friendly and impactful!",
+         role="Consultant", org="Government Relations",
+         org_size="Not stated", tenure="1-2 years", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="No specific areas of dislike about Accubate.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-012", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=4.0, date="2023-07-19", title="Easy to use suite for for Innovation Management",
+         role="Vice President", org="Banking",
+         org_size="Not stated", tenure="<6 months", incentive=True,
+         pain="TRAINING_GAP",
+         dislike="User Interface can be improved. Some of the features can be displayed at "
+                 "a more visible location from a user point of view. Tutorials can also be "
+                 "included.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/reviews/", verified=True),
+    dict(id="R-ACC-013", vendor="Accubate", platform="CAPTERRA", grade="USER_REVIEW",
+         rating=5.0, date="2026-07-11", title="Innovative and Evolving Product with highly responsive support",
+         role="Manager - Innovation and startups", org="Not stated",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="REPORTING_WEAK",
+         dislike="Nothing specific but they should leverage AI, enabling users to get "
+                 "customised deeper insights from their data.",
+         switched_from="",
+         url="https://www.capterra.com/p/266309/Accubate/", verified=True),
+
+    # ---------------------------------------------------------- IdeaScale
+    dict(id="R-IDE-001", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=10.0, date="2025-09", title="Validated Review - Rakshit S.",
+         role="Industry Specific Role", org="Technology",
+         org_size="Not stated", tenure="End User", incentive=True,
+         pain="INTEGRATION_GAP",
+         dislike="The major drawback is that it is generalized for engineering specific "
+                 "needs. It lacks in built-in integrations with design tools like CAD or "
+                 "PLM systems.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale?c_id=445", verified=True),
+    dict(id="R-IDE-002", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=None, date="2025-07", title="Validated Review - Tribhuvan S.",
+         role="Information Technology", org="Manufacturing",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="UI_COMPLEXITY",
+         dislike="Limited technical depth during submission, workflows logic is not "
+                 "scriptable and UI customizations are minimal.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale?c_id=445", verified=True),
+    dict(id="R-IDE-003", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=None, date="2025-07", title="Verified Review - Prashant U.",
+         role="Information Technology", org="Technology",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="PRICE_VALUE",
+         dislike="it is quite challenging for small firm to implement as a big amount is "
+                 "associated with it.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale?c_id=445", verified=True),
+    dict(id="R-IDE-004", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=9.0, date="2025-05", title="Better collaboration tool - Matias E.",
+         role="Information Technology", org="Technology",
+         org_size="Not stated", tenure="Not stated", incentive=True,
+         pain="PRICE_VALUE",
+         dislike="It has custom pricing plans which is not sometimes easy to decide on.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale", verified=True),
+    dict(id="R-IDE-005", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=8.0, date="2025-01", title="Awesome Product - Ganesh M.",
+         role="Information Technology", org="Engineering",
+         org_size="Not stated", tenure="IT Leader or Manager", incentive=False,
+         pain="TRAINING_GAP",
+         dislike="Little hard for new users, but once the tool is customized its simple. "
+                 "Could be expensive in the wrong organization.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale", verified=True),
+    dict(id="R-IDE-006", vendor="IdeaScale", platform="SOFTWAREREVIEWS", grade="USER_REVIEW",
+         rating=8.0, date="2025-05", title="Validated Review - Mukisa J.",
+         role="Consultant", org="Technology",
+         org_size="Not stated", tenure="End User", incentive=True,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="it is easy to setup, no dislike.",
+         switched_from="",
+         url="https://www.softwarereviews.com/products/ideascale", verified=True),
+    dict(id="R-IDE-007", vendor="IdeaScale", platform="SPOTSAAS", grade="EDITORIAL",
+         rating=None, date="2026-09", title="SpotSaaS editorial summary",
+         role="Directory editor", org="SpotSaaS",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="INFORMATION_OVERLOAD",
+         dislike="The richness of features and customization options may be overwhelming "
+                 "for newcomers without proper support.",
+         switched_from="",
+         url="https://www.spotsaas.com/product/ideascale/reviews", verified=True),
+    dict(id="R-IDE-008", vendor="IdeaScale", platform="SPOTSAAS", grade="EDITORIAL",
+         rating=None, date="2026-09", title="SpotSaaS editorial summary",
+         role="Directory editor", org="SpotSaaS",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="INTEGRATION_GAP",
+         dislike="Limited selection in the Marketplace for additional apps and connectors, "
+                 "which may restrict advanced functionalities.",
+         switched_from="",
+         url="https://www.spotsaas.com/product/ideascale/reviews", verified=True),
+
+    # ---------------------------------------------------------- Envisio
+    dict(id="R-ENV-001", vendor="Envisio", platform="SPOTSAAS", grade="EDITORIAL",
+         rating=None, date="2026-10", title="SpotSaaS common complaints",
+         role="Directory editor", org="SpotSaaS",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="TRAINING_GAP",
+         dislike="Complex for new users. Limited offline functionality. May require training.",
+         switched_from="",
+         url="https://www.spotsaas.com/product/envisio/reviews", verified=True),
+    dict(id="R-ENV-002", vendor="Envisio", platform="SPOTSAAS", grade="EDITORIAL",
+         rating=None, date="2019-04-09", title="A way to track everything for local governments",
+         role="Commission staff", org="Local government (strategic planning)",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="",
+         switched_from="Spreadsheets",
+         url="https://www.spotsaas.com/product/envisio/reviews", verified=True),
+    dict(id="R-ENV-003", vendor="Envisio", platform="SPOTSAAS", grade="EDITORIAL",
+         rating=None, date="2019-03-26", title="Envisio helps us to stay focused on the key projects",
+         role="Not stated", org="Education sector",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="",
+         switched_from="",
+         url="https://www.spotsaas.com/product/envisio/reviews", verified=True),
+
+    # ---------------------------------------------------------- incuTrack
+    dict(id="R-INC-001", vendor="incuTrack", platform="G2", grade="SNIPPET",
+         rating=4.0, date="2023-04-25", title="G2 excerpt - durability",
+         role="Not stated", org="Not stated",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="BUG_STABILITY",
+         dislike="incuTrack is quite outdated and it is evident that the company is not "
+                 "pouring resources into it, there has been little change in the past few "
+                 "years; it lacks innovation",
+         switched_from="",
+         url="https://www.g2.com/products/incutrack/reviews", verified=False),
+    dict(id="R-INC-002", vendor="incuTrack", platform="G2", grade="SNIPPET",
+         rating=3.0, date="2023-12-22", title="G2 excerpt - dashboard and time cost",
+         role="Not stated", org="Not stated",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="REPORTING_WEAK",
+         dislike="The performance dashboard is promoted as a tool it lacks analytics and "
+                 "customization options limiting its accuracy",
+         switched_from="",
+         url="https://www.g2.com/products/incutrack/reviews", verified=False),
+    dict(id="R-INC-003", vendor="incuTrack", platform="GETAPP", grade="USER_REVIEW",
+         rating=5.0, date="Not stated", title="incuTrack - single moderated review",
+         role="Not stated", org="Not stated",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="",
+         switched_from="",
+         url="https://www.getapp.com/all-software/a/incutrack/", verified=True),
+    dict(id="R-INC-004", vendor="incuTrack", platform="TOPBUSINESSSOFTWARE",
+         grade="AGGREGATOR_ECHO", rating=None, date="2026", title="incuTrack Verified Customer Reviews (2026)",
+         role="None - no reviewer named", org="None - no reviewer named",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="EXCLUDED - directory serves the vendor's own homepage copy under a "
+                 "'Verified Customer Reviews' heading while showing 0 ratings.",
+         switched_from="",
+         url="https://topbusinesssoftware.com/products/incuTrack/reviews/", verified=True),
+
+    # ------------------------------------------------- institutional voice
+    dict(id="R-INS-001", vendor="(category) AcceleratorApp + F6S",
+         platform="LINKEDIN/INSTITUTIONAL", grade="USER_INSTITUTIONAL",
+         rating=None, date="2025-08-05", title="Cloud Meets Campus: ICUBE builds its own Ecosystem Management System",
+         role="Academic Director (Ann Armstrong)", org="ICUBE, University of Toronto",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="the ICUBE team relied on multiple platforms alongside a system of "
+                 "spreadsheets, each serving a different purpose. This approach was "
+                 "time-consuming, prone to errors, and difficult to scale.",
+         switched_from="Multiple platforms + spreadsheets",
+         url="https://www.utm.utoronto.ca/imi/news/chaos-clarity-platform-revolutionizing-startup-incubation-programs",
+         verified=True),
+    dict(id="R-INS-002", vendor="(category) AcceleratorApp + F6S",
+         platform="LINKEDIN/INSTITUTIONAL", grade="USER_INSTITUTIONAL",
+         rating=None, date="2025-08-05", title="ICUBE's evaluation of incumbent systems",
+         role="Academic Director (Ann Armstrong)", org="ICUBE, University of Toronto",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="INFORMATION_OVERLOAD",
+         dislike="existing incubator support systems like AcceleratorApp and F6S were "
+                 "either too costly and overloaded with unnecessary features or too "
+                 "limited for ICUBE's needs",
+         switched_from="AcceleratorApp; F6S",
+         url="https://www.utm.utoronto.ca/imi/news/chaos-clarity-platform-revolutionizing-startup-incubation-programs",
+         verified=True),
+
+    # ---------------------------------------------------------- forum voice
+    dict(id="R-FRM-001", vendor="(category) unnamed incumbent",
+         platform="REDDIT", grade="USER_FORUM",
+         rating=None, date="2016", title="r/accelerators - no system exists for university incubators",
+         role="Programme manager (self-described)",
+         org="University incubator / proof-of-concept centre",
+         org_size="Not stated", tenure="6 years", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="I've managed an incubator and proof-of-concept center at a university for "
+                 "nearly 6 years now, and have still not found a management system for "
+                 "tracking applications, running competitions, bring the ecosystem together "
+                 "on one platform.",
+         switched_from="",
+         url="https://www.reddit.com/r/accelerators/", verified=True),
+    dict(id="R-FRM-002", vendor="(category) n/a",
+         platform="REDDIT", grade="USER_FORUM",
+         rating=None, date="2024", title="r/PhStartups - Problems with University Startups",
+         role="Startup founder (self-described)", org="University startup programme",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="REPORTING_WEAK",
+         dislike="University startup programmes where many entrants remain at idea stage "
+                 "and fail to reach MVP.",
+         switched_from="",
+         url="https://www.reddit.com/r/PhStartups/", verified=True),
+
+    # ------------------------------------------------- vendor marketing (excluded)
+    dict(id="R-VMK-001", vendor="SanchiApp", platform="VENDOR_BLOG", grade="VENDOR_MARKETING",
+         rating=None, date="2026-09-03", title="Incubator Management Software vs Spreadsheets",
+         role="Vendor content team", org="SanchiApp",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="EXCLUDED - vendor's own content-marketing asset asserting where "
+                 "spreadsheets break down.",
+         switched_from="",
+         url="https://www.sanchiapp.com/en/blogs/incubator-software-vs-spreadsheets", verified=True),
+    dict(id="R-VMK-002", vendor="Gohorto", platform="VENDOR_BLOG", grade="VENDOR_MARKETING",
+         rating=None, date="2026", title="Run Your Accelerator Without Spreadsheets",
+         role="Vendor content team", org="Gohorto",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="EXCLUDED - vendor homepage headline.",
+         switched_from="",
+         url="https://gohorto.com/", verified=True),
+    dict(id="R-VMK-003", vendor="AcceleratorApp", platform="VENDOR_SITE",
+         grade="VENDOR_MARKETING", rating=None, date="2026",
+         title="Trusted by Leading Global Innovation Programs",
+         role="Vendor marketing", org="AcceleratorApp",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="EXCLUDED - '200+ programs', '1,200+ hours saved', '72% efficiency gain' "
+                 "are vendor claims with no named customer and no review backing.",
+         switched_from="",
+         url="https://www.acceleratorapp.co/en/", verified=True),
+    dict(id="R-VMK-004", vendor="Startup Science", platform="VENDOR_SITE",
+         grade="VENDOR_MARKETING", rating=None, date="2026",
+         title="Why ESOs Are Replacing Spreadsheets with Purpose-Built Software",
+         role="Director of Strategic Initiatives", org="Leading Cities",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="FRAGMENTATION",
+         dislike="EXCLUDED - well-articulated vendor pain taxonomy (applications in Forms, "
+                 "curriculum in Drive/Notion/LMS, mentor sessions over email, sponsor "
+                 "reports compiled manually). Useful as a hypothesis, not as testimony.",
+         switched_from="",
+         url="https://www.startupscience.io/solutions/eso", verified=True),
+    dict(id="R-VMK-005", vendor="incuTrack", platform="VENDOR_SITE",
+         grade="VENDOR_TESTIMONIAL", rating=None, date="2026",
+         title="Testimonials", role="Named but vendor-published", org="incuTrack clients",
+         org_size="Not stated", tenure="Not stated", incentive=False,
+         pain="NO_COMPLAINT_RECORDED",
+         dislike="EXCLUDED - testimonials published by the vendor. Glowing, and notably "
+                 "including 'I would recommend it to you even if the software was not great.'",
+         switched_from="",
+         url="https://www.incutrack.com/testimonials/", verified=True),
+]
+
+# ==========================================================================
+# COVERAGE - every platform x vendor cell that was searched
+# ==========================================================================
+# Absence is recorded explicitly. A blank cell would let a reader assume the
+# search was never attempted.
+
+COVERAGE_NOTES = [
+    ("Accubate", "G2", "UNAVAILABLE", "Not listed on G2 for this category"),
+    ("Accubate", "PRODUCT_HUNT", "NOT_APPLICABLE", "No Product Hunt listing"),
+    ("Accubate", "APP_STORES", "NOT_APPLICABLE", "Web product, no mobile app"),
+    ("Accubate", "GOOGLE_REVIEWS", "NOT_APPLICABLE", "B2B SaaS, not a local business"),
+    ("IdeaScale", "PRODUCT_HUNT", "NOT_APPLICABLE", "Enterprise product, no PH launch"),
+    ("IdeaScale", "APP_STORES", "NOT_APPLICABLE", "Web product, no mobile app"),
+    ("Envisio", "PRODUCT_HUNT", "NOT_APPLICABLE", "No PH listing"),
+    ("Envisio", "APP_STORES", "NOT_APPLICABLE", "Web product"),
+    ("incuTrack", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("incuTrack", "PRODUCT_HUNT", "NOT_APPLICABLE", "Founded ~2002"),
+    ("incuTrack", "APP_STORES", "NOT_APPLICABLE", "Web product"),
+    ("RiserNest", "G2", "UNAVAILABLE", "No G2 listing"),
+    ("RiserNest", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("RiserNest", "PRODUCT_HUNT", "UNAVAILABLE", "No Product Hunt listing"),
+    ("Gohorto", "G2", "DISPUTED", "Vendor badge claims G2 High Performer 2026; only 3 GetApp reviews exist, one vendor-referred"),
+    ("Gohorto", "CAPTERRA", "UNAVAILABLE", "No Capterra listing found"),
+    ("EcoSync", "G2", "UNAVAILABLE", "No G2 listing"),
+    ("EcoSync", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("Orbit (NestLens)", "G2", "UNAVAILABLE", "No G2 listing"),
+    ("Orbit (NestLens)", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("Founderhood", "G2", "SNIPPET", "1 G2 review recorded in Phase 9; full text not retrievable"),
+    ("Univation", "G2", "UNAVAILABLE", "No G2 listing"),
+    ("VentureLink", "G2", "UNAVAILABLE", "No G2 listing"),
+    ("VentureLink", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("Innoloft / LoftOS", "CAPTERRA", "UNAVAILABLE", "No Capterra listing found"),
+    ("Dealum", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("Throttle", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("Wazoku", "G2", "SNIPPET", "Present on G2; full text not retrievable"),
+    ("Elsevier Pure", "CAPTERRA", "UNAVAILABLE", "No Capterra listing"),
+    ("(all 36 matrix vendors)", "YOUTUBE", "SPARSE", "No substantive independent YouTube review of any vendor in this category was found"),
+    ("(all 36 matrix vendors)", "APP_STORES", "NOT_APPLICABLE", "Every product assessed is a web B2B SaaS with no mobile app"),
+    ("(all 36 matrix vendors)", "GOOGLE_REVIEWS", "NOT_APPLICABLE", "Google Reviews is a local-business platform; not used by B2B SaaS"),
+]
+
+# ==========================================================================
+# COUNT CONFLICTS - platforms that disagree about the same vendor
+# ==========================================================================
+
+CONFLICTS = [
+    dict(vendor="incuTrack",
+         sources="G2 (10 reviews, 3.8) vs GetApp (1 review, 5.0) vs topbusinesssoftware (0 ratings) vs SourceForge (0.0/5, no reviews)",
+         resolved="CONFLICT UNRESOLVED. G2 count retained as SNIPPET grade only and "
+                  "excluded from market-position scoring, which requires a verified count. "
+                  "GetApp's single 5.0 review is the only directly verifiable review record.",
+         impact="incuTrack cannot be placed in VERIFIED/PROVEN on review count alone. Its "
+                "evidence grade stays UNKNOWN for customer proof."),
+    dict(vendor="IdeaScale",
+         sources="Phase 9 recorded 28 reviews; SpotSaaS currently reports 40 ratings "
+                 "(34 Excellent, 6 Very Good, 0/0/0)",
+         resolved="SpotSaaS figure treated as current. Phase 9's 28 not reproducible.",
+         impact="IdeaScale remains PROVEN either way; no position change."),
+    dict(vendor="Accubate",
+         sources="Capterra 4.8/26 (20x5-star, 6x4-star, zero below 4) vs "
+                 "a materially large share flagged 'Vendor Referred - Incentive Offered'",
+         resolved="Count accepted; incentive share disclosed separately and subtracted "
+                  "from any claim of independent endorsement.",
+         impact="The market's only substantial review base is materially incentivised. "
+                "'26 reviews' is not 26 independent recommendations."),
+    dict(vendor="Envisio",
+         sources="SpotSaaS reports 10 ratings; Nerdisa reports 0.0 (0 reviews)",
+         resolved="SpotSaaS figures used - its reviews carry dates, ratings and reviewer "
+                  "initials. Nerdisa's 0 treated as an unpopulated profile.",
+         impact="Envisio's review base is small, entirely from 2019, and drawn from local "
+                "government strategic planning rather than incubation. ADJACENCY CAVEAT."),
+]
+
+# ==========================================================================
+# RATING DISTRIBUTIONS - retrieved counts by star
+# ==========================================================================
+
+RATING_DISTRIBUTIONS = [
+    dict(vendor="Accubate", platform="CAPTERRA", five=20, four=6, three=0, two=0, one=0,
+         total=26, note="Zero reviews below 4 stars. No dissent recorded at all."),
+    dict(vendor="IdeaScale", platform="SPOTSAAS", five=34, four=6, three=0, two=0, one=0,
+         total=40, note="Zero reviews below 4 stars. SpotSaaS 'Excellent' maps to 5."),
+    dict(vendor="Envisio", platform="SPOTSAAS", five=8, four=2, three=0, two=0, one=0,
+         total=10, note="All reviews dated 2019. Public-sector strategic planning, not incubation."),
+    dict(vendor="incuTrack", platform="GETAPP", five=1, four=0, three=0, two=0, one=0,
+         total=1, note="Single review. The 10-review G2 base is snippet-only and disputed."),
+]
+
+# ==========================================================================
+# NEW COMPETITORS DISCOVERED IN PHASE 11
+# ==========================================================================
+# Phase 9's own falsifier C-05 recorded that its vendor set was good-not-
+# exhaustive. Phase 11 searched vendor marketing and review ecosystems rather
+# than category lists, and surfaced four Indian vendors that were absent from
+# the 36-row matrix - three of them aimed squarely at the HEI/IIC buyer.
+
+NEW_COMPETITORS = [
+    dict(name="IncuMan", url="https://www.incuman.com/",
+         why="Purpose-built for HEIs and IICs. Names IIC, NISP, IIC-framework alignment, "
+             "TRL readiness, mentor mapping, grant pipeline and IP repository as first-class "
+             "modules. Currently in private beta.",
+         threat="HIGH",
+         closest="Directly contests the mandate-compliance and TRL columns where Phase 9 "
+                 "found only 3 and 4 holders out of 28."),
+    dict(name="ESI Incubation Centre OS", url="https://esi.in/incubation-centre",
+         why="Two-surface product splitting IIC manager and founder. Explicit MHRD / NAAC / "
+             "NIRF / ARIIA compliance exports, patents, grants, investor CRM and placement "
+             "outcome reporting.",
+         threat="HIGH",
+         closest="Directly contests the mandate-compliance column with accreditation-pack "
+                 "outputs, which is StartupHub's strongest Phase 9 gap."),
+    dict(name="CSM Technologies (STPI CoE)", url="https://cdnc.heyzine.com/files/uploaded/v2/"
+         "13d7dec43b894295bbb5aba258b9171af5ae0777.pdf",
+         why="Empanelled with STPI to run incubation operations across 250 Centre-of-"
+             "Excellence sites pan-India. Government-scale, entity-to-entity.",
+         threat="MEDIUM",
+         closest="Not a SaaS threat but a procurement reality: government CoEs may be "
+                 "served by an empanelled integrator rather than buying software."),
+    dict(name="SanchiApp", url="https://www.sanchiapp.com/en/blogs/incubator-software-vs-spreadsheets",
+         why="Active content-marketing operation publishing directly on the spreadsheet-"
+             "failure thesis - the exact narrative StartupHub would need to own.",
+         threat="LOW",
+         closest="No feature evidence found; presence is marketing-only."),
+]
+
+# ==========================================================================
+# THE FINDING
+# ==========================================================================
+
+HEADLINE = {
+    "reviews_with_verified_text": 0,   # computed by summarise()
+    "vendors_with_any_user_voice": 0,
+    "vendors_in_matrix": 36,
+    "strong_dissatisfaction_signal": False,
+    "real_incumbent": "Google Forms + spreadsheets",
+    "top_complaint": "FRAGMENTATION",
+}
+
+CONCLUSION = """
+Across every source searched, this category has almost no recorded user
+dissatisfaction. Not weak dissatisfaction - none. Accubate, the only vendor
+with a substantial review base, holds 4.8 across 26 reviews with a
+distribution of twenty 5-star and six 4-star and nothing at or below 3.
+IdeaScale holds 40 ratings with the same shape. Envisio's ten are all
+positive.
+
+That is not an argument that the products are good. It is an argument that
+nobody in this market is losing customers to a bad experience, which means
+StartupHub cannot enter on "better software". The wedge has to come from
+somewhere else, and the evidence points at three places:
+
+1. THE DISPLACED INCUMBENT IS NOT A VENDOR. Two Accubate reviewers name
+   Google Forms as what they moved from. The tool every operator actually
+   uses is free, and StartupHub is not competing with it on features -
+   it is competing with it on institutional defensibility, which is a
+   procurement argument rather than a product argument.
+
+2. THE PAIN IS OPERATIONAL RISK, NOT DISSATISFACTION. The most credible
+   institutional voice in the corpus is ICUBE (University of Toronto),
+   which rejected both AcceleratorApp and F6S and built its own system.
+   Its stated reason was fragmentation, error-proneness and scale - not
+   feature gaps. The complaint is about handoffs between people, and it
+   arrives as operational risk to a dean, not as a review a program
+   manager leaves on Capterra.
+
+3. THE REAL CONSTRAINT IS INERTIA, AND NOBODY SELLS AGAINST IT. A vendor
+   describing university incubation software elsewhere in this research
+   noted that programmes which have the means to automate still do it by
+   hand "because of inertia". Nobody in this category is selling change
+   management, adoption support or the migration off spreadsheets. It is
+   the one gap that no vendor's feature page claims and no reviewer
+   complains about - because the people who feel it never go looking for
+   software in the first place.
+""".strip()
+
+
+# ==========================================================================
+def summarise():
+    """Recompute every headline figure from the rows above."""
+    from collections import Counter
+    verified = [r for r in REVIEWS if r["grade"] in CLAIM_GRADES]
+    by_grade = Counter(r["grade"] for r in REVIEWS)
+    by_pain = Counter(r["pain"] for r in REVIEWS)
+    vendors = {r["vendor"] for r in verified}
+    return dict(
+        total=len(REVIEWS),
+        verified_text=len(verified),
+        by_grade=by_grade,
+        by_pain=by_pain,
+        vendors_with_voice=len(vendors),
+        incentive_flagged=sum(1 for r in REVIEWS if r["incentive"]),
+        n_categories=len(PAIN_CATEGORIES),
+        n_platforms=len(PLATFORMS),
+        n_coverage=len(COVERAGE_NOTES),
+        n_conflicts=len(CONFLICTS),
+        n_new_competitors=len(NEW_COMPETITORS),
+    )
+
+
+if __name__ == "__main__":
+    s = summarise()
+    print("=" * 70)
+    print("  PHASE 11 - COMPETITOR USER REVIEWS")
+    print("=" * 70)
+    print(f"  rows in review corpus      : {s['total']}")
+    print(f"  usable as user voice       : {s['verified_text']}")
+    print(f"  vendors with user voice    : {s['vendors_with_voice']} of 36")
+    print(f"  incentive-flagged reviews  : {s['incentive_flagged']}")
+    print(f"  new competitors found      : {s['n_new_competitors']}")
+    print(f"  platform coverage notes    : {s['n_coverage']}")
+    print(f"  source conflicts           : {s['n_conflicts']}")
+    print("\n  evidence grades:")
+    for g, n in s["by_grade"].most_common():
+        print(f"    {g:<20} {n}")
+    print("\n  pain categories:")
+    for p, n in s["by_pain"].most_common():
+        print(f"    {p:<24} {n}")
+    print()

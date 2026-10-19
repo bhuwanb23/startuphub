@@ -42,6 +42,7 @@ GENERATED = "2026-10-19"
 
 ROWS = M.build_rows()
 COV = M.dimension_coverage(ROWS)
+NV = len(ROWS)
 SCORE_FMT = {0: "#E2E8F0", 1: "#FEF3C7", 2: "#DBEAFE", 3: "#1D4ED8",
              "U": "#CBD5E1"}
 
@@ -190,7 +191,7 @@ def build_workbook():
              "User Reviews", "Market Position", "Evidence Grade", "Named Customers",
              "Evidence Coverage %", "Absence Basis", "Absence Note", "Source", "Last Updated"])
     header(ws, "Competitor Matrix — the scored grid",
-           "36 vendors × 15 capabilities. Scores: 0 absent (note required) · 1 partial · "
+           f"{NV} vendors × 15 capabilities. Scores: 0 absent (note required) · 1 partial · "
            "2 native · 3 differentiator · U unknown (NOT absent).")
     for i, cname in enumerate(cols):
         ws.write(3, i, cname, fmt["h"])
@@ -275,7 +276,7 @@ def build_workbook():
 
     # ---- sheet 5: capability coverage
     ws = wb.add_worksheet("Capability Coverage")
-    header(ws, "Capability Coverage", "How many of 36 vendors build each capability. "
+    header(ws, "Capability Coverage", "How many of {NV} vendors build each capability. "
                                      "Sorted by how many actually build it.")
     cols = ["Capability", "Added by Phase 10", "Known", "Unknown", "Absent", "Partial",
             "Native", "Differentiator", "% Implemented"]
@@ -503,7 +504,7 @@ def doc_readme():
 
 # Competitor Matrix
 
-Phase 10. **36 vendors × 15 scored capabilities = {s['scored_cells']} scored cells**,
+Phase 10. **{NV} vendors × 15 scored capabilities = {s['scored_cells']} scored cells**,
 across the 27 columns this phase was asked to produce.
 
 **Workbook:** [`_exports/xlsx/08_Competitor_Matrix.xlsx`](../_exports/xlsx/08_Competitor_Matrix.xlsx)
@@ -531,7 +532,7 @@ tech-transfer platforms existed and had simply not been found.
 
 ## What changed at this phase
 
-**8 new vendors, including the one that matters most.**
+**12 vendors added beyond Phase 9, including the one that matters most.**
 
 **Protrak (ProrIISe)**, built jointly by **IISc Bengaluru** and Prorigo Software,
 is a **named Indian university deployment**: in production 6+ years, 2,500+ users,
@@ -543,7 +544,7 @@ though for IP management, not incubation. See [GAP13_Correction.md](GAP13_Correc
 
 ![Coverage]({CH}/p10_02_dimension_coverage.png)
 
-| Capability | Native or better, of 36 |
+| Capability | Native or better, of {NV} |
 |---|---|
 {chr(10).join(f"| {c['label']}{' *(added by Phase 10)*' if c['added_by_phase10'] else ''} | {c['n_native'] + c['n_differentiator']} |" for c in cov[:5])}
 | … | … |
