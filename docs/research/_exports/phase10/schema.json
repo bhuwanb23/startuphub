@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": 10,
+  "layer": "machine-readable",
+  "workbook": "_exports/xlsx/08_Competitor_Matrix.xlsx",
+  "workbook_sheets": [
+    "How to Read",
+    "Competitor Matrix",
+    "Scoring Legend",
+    "Evidence Register",
+    "Capability Coverage",
+    "Evidence Coverage",
+    "Market Position",
+    "Ecosystem (context)",
+    "Indirect (context)"
+  ],
+  "extends": "07_Competitor_Research",
+  "scoring_scale": {
+    "3": "Differentiator - marketed as a distinguishing capability",
+    "2": "Native - full implementation",
+    "1": "Partial - basic or incomplete",
+    "0": "ABSENT - positive evidence of absence (note required)",
+    "U": "UNKNOWN - not publicly evidenced. NOT the same as absent."
+  },
+  "headline": {
+    "vendors": 36,
+    "new_in_phase10": 8,
+    "spec_columns": 27,
+    "scored_dimensions": 15,
+    "added_dimensions": 2,
+    "total_columns": 45,
+    "scored_cells": 540,
+    "unknown_cells": 15,
+    "absent_cells": 229,
+    "positions": {
+      "VERIFIED": 1,
+      "PROVEN": 6,
+      "PARTIAL": 5,
+      "UNPROVEN": 24
+    }
+  },
+  "guardrails": [
+    "U (unknown) is never merged with 0 (absent)",
+    "Every 0 requires a substantive absence_note; the build fails without one",
+    "Absence basis (COMPLETE vs PARTIAL) is published per vendor",
+    "Market position is derived by published rule, never asserted",
+    "Per-row evidence coverage is published; sparse rows are reported, not filled",
+    "Ecosystem platforms and indirect alternatives are context, not scored",
+    "0 interviews conducted - no competitor conversation is invented"
+  ],
+  "gap13_correction": {
+    "gap_id": "GAP-13",
+    "title": "A verifiable Indian reference institution",
+    "phase9_wording": "No competitor demonstrates a LARGE INDIAN UNIVERSITY deployment with named referees and third-party verification.",
+    "phase10_finding": "FURTHER NARROWED. Protrak (ProrIISe), built jointly by IISc Bengaluru and Prorigo Software, is a NAMED INDIAN UNIVERSITY deployment with hard, vendor-published metrics: in production 6+ years, 2,500+ internal and external users, 600+ corporate licence agreements, ~200 patents filed per year, 50% IP-office time saved, 0 missed deadlines, 30% faster contract closure, ~50% cost saving versus other ELM products.",
+    "surviving_claim": "A named Indian university reference now exists for IP MANAGEMENT (Protrak/IPTeL, IISc). No named Indian university reference exists for INCUBATION or PROGRAMME software - the category StartupHub actually competes in. That distinction is the whole finding: the institutional reference gap is segment-specific, not universal.",
+    "affected": "GAP-01 (strengthened), GAP-13 (narrowed again)"
+  },
+  "interviews_conducted": 0
+}

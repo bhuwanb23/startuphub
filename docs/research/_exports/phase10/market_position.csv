@@ -1,0 +1,5 @@
+﻿market_position,n,rule,vendors
+VERIFIED,1,reviews >= 20 AND NAMED_REFERENCE,Envisio
+PROVEN,6,"reviews >= 10, OR NAMED_LOGO","AcceleratorApp, Accubate, IdeaScale, Inpart, Startup Science, incuTrack"
+PARTIAL,5,breadth >= 6 AND a named customer,"EcoSync, Protrak (ProrIISe), RiserNest, Throttle, VentureLink"
+UNPROVEN,24,no third-party proof,"Babele, Catalyzer, Commercify, Crino, Dealum, Elsevier Pure, European Startup Hub, FIKR, FosiaHub, Founderhood, Gohorto, Helikon Labs, Incu (Sweden), IncubatX, Incubatee (SCIP), Innoloft / LoftOS, KSS TechTracS, KampusCore (TTO module), NestLens Orbit, Octorank SRM, SINT.OTRI, Univation (Incubators Platform), Wazoku, Wellspring for Tech Transfer"

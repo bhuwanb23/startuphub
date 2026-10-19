@@ -1,0 +1,6 @@
+﻿value,meaning,rule
+3,Differentiator - marketed as a distinguishing capability,
+2,Native - full implementation,
+1,Partial - basic or incomplete,
+0,ABSENT - positive evidence of absence (note required),requires an absence_note
+U,UNKNOWN - not publicly evidenced. NOT the same as absent.,NOT the same as absent

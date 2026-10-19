@@ -1,0 +1,37 @@
+﻿competitor,country,evidence_grade,customers,customers_n,reviews,confidence,found_in,absence_basis,evidence_coverage,source,last_updated
+AcceleratorApp,Global,NAMED_LOGO,"Yale, MIT Design X, Max Planck (no Indian institution)",3,0,AGGREGATOR,extension,COMPLETE,100.0,https://acceleratorapp.com/,2026-10-19
+Accubate,India,NAMED_LOGO,"NSRCEL, NASSCOM, TCS, Hero, KPMG, Accenture",6,26,AGGREGATOR,extension,PARTIAL,100.0,https://www.getapp.za.com/software/2062553/accubate,2026-10-19
+Babele,Global,VENDOR_CLAIM,,0,0,VERIFIED_LIVE,new in Phase 10,COMPLETE,100.0,https://babele.co/,2026-10-19
+Catalyzer,US,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://www.catalyzerapp.com/accelerators,2026-10-19
+Commercify,Global,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://commercify.com/pricing,2026-10-19
+Crino,Global,UNKNOWN,,0,0,VERIFIED_LIVE,new in Phase 10,COMPLETE,100.0,https://crino.io/for-accelerators-and-incubators/,2026-10-19
+Dealum,Global,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://dealum.com/pricing/accelerator,2026-10-19
+EcoSync,India,VENDOR_CLAIM,TBI-KIET (KIET Group of Institutions),1,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://www.ecosync.co/,2026-10-19
+Elsevier Pure,Global,UNKNOWN,Universities and research institutions worldwide (generic - none named),0,0,PUBLISHED,extension,PARTIAL,100.0,https://www.elsevier.com/products/pure,2026-10-19
+Envisio,Global,NAMED_REFERENCE,"City of La Mesa, CA (council resolution, USD 19,500/yr)",1,28,CONFLICT,extension,PARTIAL,100.0,https://envisio.com/pricing/,2026-10-19
+European Startup Hub,Europe,UNKNOWN,"Universities, accelerators, cities, government agencies (unnamed)",0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://www.europeanstartuphub.com/ecosystem-platform/,2026-10-19
+FIKR,Global,VENDOR_CLAIM,"180+ countries access (network, not customers)",0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://fikr.space/accelerator,2026-10-19
+FosiaHub,Africa,VENDOR_CLAIM,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://fosiahub.com/for-institutions,2026-10-19
+Founderhood,Global,UNKNOWN,,0,3,VERIFIED_LIVE,extension,COMPLETE,100.0,https://www.thefounderhood.com/pricing,2026-10-19
+Gohorto,Global,VENDOR_CLAIM,,0,3,AGGREGATOR,extension,COMPLETE,100.0,https://www.capterra.co.uk/software/1082840/Gohorto,2026-10-19
+Helikon Labs,Global,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://helikonlabs.com/for/research-offices,2026-10-19
+IdeaScale,Global,NAMED_LOGO,"White House, NASA, McKinsey, IKEA, Ford, Target, Pfizer",7,28,AGGREGATOR,extension,PARTIAL,100.0,https://ideascale.com/pricing/,2026-10-19
+Incu (Sweden),Sweden,UNKNOWN,,0,0,AGGREGATOR,extension,PARTIAL,100.0,https://www.incuby.se/,2026-10-19
+IncubatX,India,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://incubatx.com/,2026-10-19
+Incubatee (SCIP),India,UNKNOWN,,0,0,PUBLISHED,extension,NONE,0.0,https://www.incubatee.com/company,2026-10-19
+Innoloft / LoftOS,Global,UNKNOWN,,0,0,AGGREGATOR,extension,PARTIAL,100.0,https://www.capterra.com/p/153022/Innoloft/,2026-10-19
+Inpart,Global,NAMED_LOGO,"250+ TTO partners; 9,000+ member assets; 6,500+ industry members",250,0,PUBLISHED,new in Phase 10,COMPLETE,100.0,https://go.inpart.io/hubfs/Product%20features/Inpart%20Deal%20for%20TTOs%20Overview.pdf,2026-10-19
+KSS TechTracS,Global,UNKNOWN,,0,0,PUBLISHED,new in Phase 10,COMPLETE,100.0,https://www.knowledgesharing.com/overview,2026-10-19
+KampusCore (TTO module),Global,UNKNOWN,,0,0,VERIFIED_LIVE,new in Phase 10,COMPLETE,100.0,https://kampuscore.com/en/modules/technology-transfer,2026-10-19
+NestLens Orbit,India,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://labelnest.in/nestlens/orbit,2026-10-19
+Octorank SRM,Global,UNKNOWN,,0,0,VERIFIED_LIVE,new in Phase 10,COMPLETE,100.0,https://www.octorank.com/products/startup-relationship-manager,2026-10-19
+Protrak (ProrIISe),India,NAMED_REFERENCE,"IPTeL, Indian Institute of Science (Prof. Srinivasan Raghavan, Chair)",1,0,DOCUMENT,new in Phase 10,COMPLETE,100.0,https://www.protrak.ai/solutions/ip-management,2026-10-19
+RiserNest,Global,VENDOR_CLAIM,"Frank and the Backs, Belgium",1,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://risernest.com/pricing/,2026-10-19
+SINT.OTRI,Spain,UNKNOWN,,0,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://sint.es/universidad/otri/,2026-10-19
+Startup Science,US,NAMED_LOGO,Leading Cities (referenced customer),1,0,VERIFIED_LIVE,new in Phase 10,COMPLETE,100.0,https://www.startupscience.io/solutions/eso,2026-10-19
+Throttle,Japan,VENDOR_CLAIM,"1,350 companies (claimed)",1350,0,PUBLISHED,extension,PARTIAL,100.0,https://port.creww.me/en/innovation/70834,2026-10-19
+Univation (Incubators Platform),Global,UNKNOWN,,0,2,PUBLISHED,extension,COMPLETE,100.0,https://www.capterra.com/p/253529/Incubators-Platform/,2026-10-19
+VentureLink,Global,NAMED_REFERENCE,"ICUBE, University of Toronto (Ignacio Mongrell, Assistant Director)",1,0,VERIFIED_LIVE,extension,COMPLETE,100.0,https://venturelink.co/,2026-10-19
+Wazoku,Global,VENDOR_CLAIM,,0,0,PUBLISHED,extension,PARTIAL,100.0,https://www.wazoku.com/total-innovation-license/,2026-10-19
+Wellspring for Tech Transfer,Global,UNKNOWN,,0,2,AGGREGATOR,extension,PARTIAL,100.0,https://www.softwareadvice.com/product/326099-Sophia/,2026-10-19
+incuTrack,Global,UNKNOWN,,0,10,VERIFIED_LIVE,extension,COMPLETE,100.0,https://www.incutrack.com/pricing-2/,2026-10-19
