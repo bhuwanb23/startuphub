@@ -1,0 +1,125 @@
+{
+  "note": "Phase 5 financial layer. Field definitions and the guards enforced by data_p5_finance.validation().",
+  "rules": [
+    "Every rupee figure carries a fiscal year and a source.",
+    "Funnel stages are strictly filters of one another and are NEVER summed.",
+    "C-05 (the 625x ERP market-sizing conflict) must appear in every output.",
+    "BOUNDED figures may never be presented as DOCUMENTED.",
+    "Budget headroom is capacity evidence, never willingness evidence. Phase 7's price band is deliberately unchanged on the basis of unspent budget."
+  ],
+  "fiscal_year": "2025-26",
+  "institution_counts_used": {
+    "iits": 23,
+    "nits": 30,
+    "central_universities": 46,
+    "deemed_private_universities": 10
+  },
+  "unit_economics_priors": {
+    "acv_realised": [
+      35000,
+      95000,
+      180000
+    ],
+    "conversion": [
+      0.02,
+      0.06,
+      0.2
+    ],
+    "reachable_y3": [
+      150,
+      300,
+      600
+    ],
+    "renewal": [
+      0.4,
+      0.65,
+      0.9
+    ],
+    "sales_cycle_months": [
+      3,
+      6,
+      14
+    ],
+    "on_premise_demand": [
+      0.2,
+      0.55,
+      0.85
+    ],
+    "seller_monthly_cost": [
+      45000,
+      67000,
+      95000
+    ],
+    "people_per_deal": [
+      1.0,
+      1.5,
+      2.5
+    ],
+    "gross_margin": [
+      0.6,
+      0.78,
+      0.88
+    ],
+    "on_premise_annual_cost": [
+      18000,
+      36000,
+      70000
+    ]
+  },
+  "conflicts": [
+    {
+      "id": "C-01",
+      "subject": "How many IICs exist in India",
+      "variant_a": "14,067 (AIM, 2024-07-31)",
+      "variant_b": "14,830 (IIC portal, 2025)",
+      "variant_c": "16,367 (MoE status page, 2025-26)",
+      "spread_pct": 16.4,
+      "type": "COUNT",
+      "why_it_matters": "A 16% spread across three government sources, none stating a counting rule.",
+      "our_choice": "Report the range 14,067-16,367. Never a single number."
+    },
+    {
+      "id": "C-02",
+      "subject": "Which populations may be added together",
+      "variant_a": "AISHE registered HEIs: 58,643",
+      "variant_b": "NIRF Innovation filers: 777",
+      "variant_c": "IICs: 14,067-16,367",
+      "spread_pct": null,
+      "type": "DEFINITION",
+      "why_it_matters": "These answer three different questions and are NOT nested.",
+      "our_choice": "Model each as a separate funnel stage. Never sum."
+    },
+    {
+      "id": "C-03",
+      "subject": "DPIIT startup count moves fast",
+      "variant_a": "180,683 (2025-06-30)",
+      "variant_b": "197,692 (2025-10)",
+      "spread_pct": 9.4,
+      "type": "DECAY",
+      "why_it_matters": "17,009 recognitions in ~4 months. Any denominator decays within a year.",
+      "our_choice": "Every figure carries an as-of date."
+    },
+    {
+      "id": "C-04",
+      "subject": "How many colleges and universities exist",
+      "variant_a": "AISHE 2021-22: 45,473 colleges / 1,168 universities",
+      "variant_b": "IBEF FY26: 52,461 colleges / 1,409 universities",
+      "variant_c": "NITI Feb 2025: 495 SPUs + ~46,000 affiliated institutions",
+      "spread_pct": 15.3,
+      "type": "FRAME",
+      "why_it_matters": "Not a data error - three defensible frames. AISHE counts REGISTERED institutions; IBEF counts a later year on a different collection; NITI counts only affiliates of State Public Universities, which is a subset defined by funding route.",
+      "our_choice": "Use AISHE for registered counts and NITI for the state-public system, always naming the frame. Never mix frames in one calculation."
+    },
+    {
+      "id": "C-05",
+      "subject": "Size of the Indian education ERP market",
+      "variant_a": "6Wresearch: US$499 million (2025)",
+      "variant_b": "Grand View: US$0.8 million (2024)",
+      "variant_c": "",
+      "spread_pct": null,
+      "type": "ORDER_OF_MAGNITUDE",
+      "why_it_matters": "A 625x disagreement between two research houses on the SAME market in the SAME currency. At least one is measuring something else - possibly India-only vs India+APAC, or software-only vs total.",
+      "our_choice": "Use NEITHER as a denominator. They are recorded to show that published market sizing in this category is unusable, which is itself a reason to build bottom-up from institution counts and budgets - which is what we do."
+    }
+  ]
+}

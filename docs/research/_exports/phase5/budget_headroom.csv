@@ -1,0 +1,5 @@
+﻿group,fy,allocated_cr,expended_cr,utilisation_pct,unspent_cr,institutions,unspent_per_institution_cr,unspent_per_institution_inr,price_as_pct_of_unspent,price_as_pct_of_total_budget,source,note
+NITs and IIEST,2023-24,4821,3253,67,1590.9,30,53.03,530300000,0.00075,0.007467,Union Expenditure Budget 2025-26 / Ministry of Education budget analysis,LOWEST since FY 2019-20. Our primary public-sector segment.
+Indian Institutes of Technology,2023-24,10384,8700,84,1661.4,23,72.23,722300000,0.00072,0.002658,Union Expenditure Budget 2025-26 / Ministry of Education budget analysis,"Highest budget, but the segment we exclude from cold outreach (Phase 4 G4)."
+Central Universities,2023-24,12394,11112,90,1239.4,46,26.94,269400000,0.00097,0.004454,Union Expenditure Budget 2025-26 / Ministry of Education budget analysis,Our Phase 4 G3 segment.
+Other autonomous bodies,2023-24,5501,5292,96,220.0,10,22.0,220000000,0.00545,0.002181,Union Expenditure Budget 2025-26 / Ministry of Education budget analysis,"Includes private deemed universities, IISc, IIITs, IIMs."

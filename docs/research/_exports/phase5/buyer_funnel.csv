@@ -1,0 +1,5 @@
+﻿stage,label,count,count_high,source,is_buyer_count,why,excluded_note
+1,Registered higher education institutions,58643,,AISHE 2021-22,False,"Super-bound. Counts registration, not innovation function, not willingness.",0 of these are addressable on this number alone.
+2,Institutions in the state-public system,46000,,NITI Aayog Feb 2025 (affiliates of 495 SPUs),False,"81% of all student enrolment sits here, funded by STATE governments.","Barely appears in the Union budget, so its financials are separately BOUNDED."
+3,Institutions holding an IIC / AIC / EIC,14067,16367,Three official sources - see C-01,False,"Has a mandated innovation reporting function. Still registration, not behaviour.","An IIC registered but never submitting is a logo, not a buyer."
+4,Institutions demonstrably filing innovation returns,777,,"NIRF India Rankings 2025, Innovation category",True,"OBSERVED BEHAVIOUR, not registration. A filing is something an institution actually did. This is the only stage we treat as a real buyer population.","Still not willingness to pay. This is a ceiling of who COULD buy, not who WILL."

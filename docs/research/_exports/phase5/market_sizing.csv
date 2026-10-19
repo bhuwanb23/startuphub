@@ -1,0 +1,8 @@
+﻿sizing,value,unit,year,forecast_value,forecast_year,cagr_pct,source,tier,relevant,value_note,note
+Higher education technology (India),3347.2,USD million,2025,6879.4,2030,15.5,"MarketsandMarkets, India Edtech and Smart Classrooms",T3,YES,,The closest published analogue to our category. Cloud is the LARGEST deployment mode - which cuts against our H-10 on-premise prior and should be re-examined.
+Higher education (whole market),575000,INR crore,2024,1160000,2033,8.1,IBEF Education Industry Report,T3,BACKGROUND,,Context only. Our software is a rounding error against it.
+India education market (all),2694617,INR crore,FY30 forecast,,,,IBEF,T3,CONTEXT,,Context only.
+India edtech (all segments),32670,INR crore,2025,299790,2034,,IBEF,T3,BACKGROUND,,Includes K-12 and consumer. Not our addressable market.
+Education ERP (India) - estimate A,499,USD million,2025,718,2032,6.5,6Wresearch,T3,CONFLICTED,,See C-05. 625x larger than estimate B for the same market.
+Education ERP (India) - estimate B,0.8,USD million,2024,3.4,2030,27.7,Grand View Research,T3,CONFLICTED,,"See C-05. Same market, same currency, two orders of magnitude apart."
+EdTech SaaS (India),1.18,USD billion,2025,3.1,2030,22.0,Ken Research,T3,BACKGROUND,"BACK-SOLVED from the 2030 forecast at the source's own 22% CAGR (3.1 / 1.22^5 = 1.18). Ken Research publishes the 2030 figure, not the base year. Derivation shown so it can be checked.","LMS = 35% of SaaS investment; 20,000+ schools already on cloud SaaS."

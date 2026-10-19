@@ -1,0 +1,9 @@
+﻿metric,unit,p25,p50,p75,provenance,note
+Customer acquisition cost,INR,579356.9,716155.1,859193.7,SIMULATED,"seeded Monte Carlo, seed 20261019"
+Lifetime value,INR,107335.37,149186.17,195060.57,SIMULATED,"seeded Monte Carlo, seed 20261019"
+CAC payback period,months,10.1,13.36,18.65,SIMULATED,"seeded Monte Carlo, seed 20261019"
+Effective gross margin after on-premise servicing,probability,0.47,0.54,0.61,SIMULATED,"seeded Monte Carlo, seed 20261019"
+Annual cost to serve (on-premise only),INR,15596.23,19930.07,24359.45,SIMULATED,"seeded Monte Carlo, seed 20261019"
+LTV/CAC ratio,ratio,0.14,0.21,0.29,SIMULATED,Below 1.0 means value destroyed per deal
+% of trials reaching LTV/CAC > 3,percent,,0.0,,SIMULATED,Viability threshold
+ACV required for LTV/CAC = 3,INR,799332.780970596,1027962.4435514605,1309500.3159459752,SIMULATED,"8.6x the Rs 120,000 list price"
