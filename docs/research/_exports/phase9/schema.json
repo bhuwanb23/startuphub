@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": 9,
+  "layer": "machine-readable",
+  "prose_layer": "07_Competitor_Research/",
+  "supersedes": "04_Competitor_DeepDive",
+  "evidence_grades": [
+    "NAMED_REFERENCE",
+    "NAMED_LOGO",
+    "VENDOR_CLAIM",
+    "UNKNOWN",
+    "NOT_APPLICABLE"
+  ],
+  "categories": {
+    "direct": {
+      "label": "Direct competitors",
+      "spec": "Platforms that manage incubation, innovation, startup programs, institutional ecosystems"
+    },
+    "ecosystem": {
+      "label": "Ecosystem competitors",
+      "spec": "Startup India, BHASKAR, state portals, IIC systems, incubator-specific platforms"
+    },
+    "indirect": {
+      "label": "Indirect competitors",
+      "spec": "Excel, Sheets, Notion, Airtable, CRM, project management, campus ERP"
+    },
+    "global": {
+      "label": "Global competitors",
+      "spec": "Innovation, incubator, accelerator and startup ecosystem platforms"
+    }
+  },
+  "global_subcategories": {
+    "innovation": "Innovation management platforms",
+    "incubator": "Incubator management platforms",
+    "accelerator": "Accelerator management platforms",
+    "ecosystem": "Startup ecosystem platforms",
+    "tech_transfer": "Tech transfer / IP management platforms (added by Phase 9)"
+  },
+  "headline": {
+    "competitors": 28,
+    "ecosystem": 10,
+    "indirect": 8,
+    "total_entities": 46,
+    "gaps": 13,
+    "gaps_critical": 3,
+    "revised_claims": 5,
+    "falsified": 2,
+    "evidence": {
+      "UNKNOWN": 15,
+      "VENDOR_CLAIM": 7,
+      "NAMED_LOGO": 4,
+      "NAMED_REFERENCE": 2
+    },
+    "india": {
+      "indian_vendors": 5,
+      "named_reference": 2,
+      "named_logo": 4,
+      "vendor_claim": 7,
+      "unknown": 15,
+      "data_residency_india": 1
+    }
+  },
+  "guardrails": [
+    "Named customers are graded; VENDOR_CLAIM is never treated as a deployment",
+    "Phase 0's falsified claims are corrected on the record, not silently dropped",
+    "A gap may only be marked SURVIVES UNCHANGED if research failed to falsify it",
+    "Unknown is recorded as UNKNOWN, never as absent",
+    "Every competitor carries a source URL and a retrieval date",
+    "0 interviews conducted - no competitor conversation is invented"
+  ],
+  "charts": [
+    "p9_01_positioning.png",
+    "p9_02_feature_coverage.png",
+    "p9_03_heatmap.png",
+    "p9_04_evidence.png",
+    "p9_05_categories.png",
+    "p9_06_mandatory_stack.png",
+    "p9_07_gap_status.png",
+    "p9_08_revised_claims.png",
+    "p9_09_price_scope.png",
+    "p9_10_india_vs_global.png",
+    "p9_11_tech_transfer.png",
+    "p9_12_threat_vs_evidence.png"
+  ],
+  "interviews_conducted": 0
+}
