@@ -360,6 +360,26 @@ BUYER_DISQUALIFIERS = [
 ]
 
 
+# A PARALLEL track, not funnel stage 5. The state layer is not a filter of the
+# institutional funnel - it is a different buyer, buying a different thing, over a
+# different scope. Putting it in the funnel would breach the nested-filter rule.
+PARALLEL_BUYER_TRACKS = [
+    dict(
+        track="State Startup Nodal Department",
+        count=34,
+        source="SRF 5.0 participating States and UTs (Ministry of Commerce & Industry)",
+        why=("A funded, mandated, nationally scored body that must evidence the NUMBER "
+             "OF STARTUPS availing institutional support. That is a venture register, "
+             "and the evidence is published every January."),
+        distinct_because=("Scope is the whole state, not one campus. The incumbent is an "
+                          "existing portal, not a spreadsheet. The deal size is a portal "
+                          "contract, not a licence."),
+        quadrant="ACT NOW (Phase 4 G9, urgency 4 / revenue 4)",
+        caveat="Fewer, larger, slower deals. Must never be added to the institutional funnel.",
+    ),
+]
+
+
 # ==========================================================================
 # 8. The private/state college segment - BOUNDED, not documented
 # ==========================================================================
@@ -465,7 +485,19 @@ def validation():
     if PRIVATE_COLLEGE_BOUND["upper_cr"] <= PRIVATE_COLLEGE_BOUND["lower_cr"]:
         errs.append("private college bound is inverted")
 
-    blob = str(BUDGET_FY2526) + str(MARKET_SIZING) + str(PRIVATE_COLLEGE_BOUND) + str(FUNDING_POOLS)
+    # Parallel buyer tracks must stay parallel - never folded into the funnel.
+    for t in PARALLEL_BUYER_TRACKS:
+        for field in ("track", "count", "source", "why", "distinct_because", "caveat"):
+            if not t.get(field):
+                errs.append(f"parallel track '{t.get('track','?')}' missing {field}")
+    if not PARALLEL_BUYER_TRACKS:
+        warns.append("no parallel buyer tracks recorded; the state layer is a distinct buyer")
+    funnel_counts = {f["count"] for f in BUYER_FUNNEL}
+    for t in PARALLEL_BUYER_TRACKS:
+        if t["count"] in funnel_counts:
+            errs.append(f"parallel track '{t['track']}' count collides with a funnel stage")
+
+    blob = str(BUDGET_FY2526) + str(MARKET_SIZING) + str(PRIVATE_COLLEGE_BOUND) + str(FUNDING_POOLS) + str(PARALLEL_BUYER_TRACKS)
     for bad in ["respondents said", "interviewees reported", "they told us", "interviews show"]:
         if bad in blob.lower():
             errs.append(f"fabricated-observation phrasing: '{bad}'")

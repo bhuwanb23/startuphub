@@ -225,9 +225,9 @@ def main() -> int:
         manifest["files"].append({"path": p.name, "bytes": p.stat().st_size, "sha256": sha256(p)})
     for sub in ("00_Research_Index", "01_Evidence_Vault", "01_Problem_Research",
                 "02_Landscape_Map", "02_User_Research", "03_Market_Research",
-                "03_Problem_Evidence", "04_Competitor_DeepDive", "05_Market_Sizing",
-                "06_Pricing_Evidence", "08_User_Roles", "09_Market_Data",
-                "13_Synthesis", "14_Assets"):
+                "03_Problem_Evidence", "04_Competitor_DeepDive", "05_Government_Data",
+                "05_Market_Sizing", "06_Pricing_Evidence", "08_User_Roles",
+                "09_Market_Data", "13_Synthesis", "14_Assets"):
         for p in sorted((ROOT / sub).rglob("*.md")):
             manifest["files"].append({
                 "path": str(p.relative_to(ROOT)).replace("\\", "/"),

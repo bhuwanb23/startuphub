@@ -495,6 +495,34 @@ SEGMENTS = [
         why_primary=("Commercial structure means faster decisions than G3 at comparable "
                      "scale. A reasonable second wave."),
     ),
+    dict(
+        id="G9", name="State Startup Nodal Department / Mission",
+        types=["State Startup Mission", "IIC institution"],
+        activity_scale="Mature",
+        ip_depth="UNKNOWN",
+        wtp="Medium",
+        needs=["Ecosystem management", "Startup tracking", "Reporting"],
+        urgency=4, urgency_basis="Scored annually on the SRF; results published each January",
+        revenue=4, revenue_basis="Policy-linked budgets and a dedicated nodal team - the only buyer found with budget, mandate and state-wide scope",
+        grade="DOCUMENTED",
+        population=34, population_basis="States and UTs participating in SRF 5.0",
+        modules=dict(Reporting="CORE", **{"IPR lifecycle": "NO", "Cohort management": "weak",
+                                           "Ecosystem management": "CORE", "Startup tracking": "CORE",
+                                           "Innovation management": "NO"}),
+        documentary_basis=[
+            "SRF 5.0 Institutional Support = 25 marks, the largest pillar, scored on having an active State Startup Policy, Nodal Officer, Nodal Department, Dedicated Team",
+            "SRF AP1 explicitly scores the number of startups availing institutional support - i.e. a venture register",
+            "Every participating state already runs a startup portal (Tamil Nadu 'Startup TN 5', ~15-day query resolution; Gujarat, 7-day)",
+            "34 of 34 States/UTs participated in SRF 5.0; 31 of 36 have a State Startup Policy",
+        ],
+        why_primary=("The ONLY buyer found in this project with a budget, a national "
+                     "scorecard and state-wide scope. Where institutions have a "
+                     "compliance obligation and no authority, the state has both."),
+        caveat=("One portal contract wins or loses an entire state. This is a different "
+                "motion from institutional selling - fewer, larger, slower deals with a "
+                "different procurement path, against an incumbent that already exists. "
+                "It is NOT a volume segment and must not be counted as one."),
+    ),
 ]
 
 
