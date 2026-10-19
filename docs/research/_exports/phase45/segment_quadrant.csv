@@ -1,5 +1,6 @@
 ﻿id,name,urgency,revenue,quadrant,wtp,activity_scale,ip_depth,grade,excluded_from_initial_outreach
 G4,IIT / premier research institution,5,2,"PAINFUL, HARD TO PAY",High,Large ecosystem,UNKNOWN,SINGLE-SOURCE,True
+G9,State Startup Nodal Department / Mission,4,4,ACT NOW,Medium,Mature,UNKNOWN,DOCUMENTED,False
 G3,NIT / public university with a live IIC,4,3,"PAINFUL, HARD TO PAY",Medium,Mature,UNKNOWN,DOCUMENTED,False
 G2,Autonomous engineering college,3,3,DEFER,Low,Active,UNKNOWN,SINGLE-SOURCE,False
 G8,Private university (deemed / unaided),3,3,DEFER,Medium,Active,UNKNOWN,SINGLE-SOURCE,False
