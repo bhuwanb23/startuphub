@@ -33,6 +33,7 @@ STEPS = [
     ("Data charts -> PNG", "build_charts.py"),
     ("Word documents", "build_docx.py"),
     ("Phase 1 - IIC annual report corpus", "build_phase1.py"),
+    ("Phase 2 - customer roles and approval chain", "build_phase2.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -105,6 +106,8 @@ def main() -> int:
     print("    _exports/json/              9 structured datasets")
     print("    01_Problem_Research/F_Synthesis/IIC_Corpus_Analysis.md   Phase 1 corpus findings")
     print("    _exports/phase1/            Phase 1 corpus data (csv + json + schema)")
+    print("    08_User_Roles/README.md    Phase 2 roles, buying centres, approval chain")
+    print("    _exports/phase2/            Phase 2 role + procurement data")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 

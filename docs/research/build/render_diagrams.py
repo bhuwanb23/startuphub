@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC_DOCS = [
     ROOT / "01_Evidence_Vault" / "Diagrams" / "Ecosystem_And_Gap_Diagrams.md",
+    ROOT / "08_User_Roles" / "IIC_Roles_And_Approval_Chain.md",
 ]
 OUT_SRC = ROOT / "_exports" / "diagrams" / "src"
 OUT_SVG = ROOT / "_exports" / "diagrams" / "svg"
@@ -71,12 +72,16 @@ def main() -> int:
     theme_file.write_text(THEME, encoding="utf-8")
 
     rendered, failed = [], []
+    counter = 0
     for doc in SRC_DOCS:
         if not doc.exists():
             print(f"[skip] missing {doc}")
             continue
-        for idx, title, code in extract_blocks(doc):
-            name = f"{idx:02d}_{slugify(title)}"
+        for _local_idx, title, code in extract_blocks(doc):
+            # Numbering is continuous across source documents so filenames stay
+            # unique and sort stably when a second diagram source is added.
+            counter += 1
+            name = f"{counter:02d}_{slugify(title)}"
             mmd = OUT_SRC / f"{name}.mmd"
             mmd.write_text(code, encoding="utf-8")
 
