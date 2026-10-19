@@ -397,48 +397,43 @@ def chart_stage_owners():
         roles_data = json.load(fh)
     roles = roles_data["roles"]
 
-    # Derive which journey stages each role class touches from the
-    # who_manages cells' cross_refs, plus the council roles that appear
-    # in S02 and the verifier role in S03.
-    fig, ax = plt.subplots(figsize=(13.6, 8.8))
+    fig, ax = plt.subplots(figsize=(13.6, 9.4))
 
-    # Group by role_class A / B / C
-    classes = {"A": [], "B": [], "C": []}
+    # Group by role_class A / B / C / D
+    classes = {"A": [], "B": [], "C": [], "D": []}
     for r in roles:
         classes[r["role_class"]].append(r)
 
     ax.set_xlim(0, 12)
-    ax.set_ylim(0, 10.5)
+    ax.set_ylim(0, 11.2)
     ax.axis("off")
     ax.grid(False)
 
-    y = 10.0
+    y = 10.6
     for rc, title, col in [
-        ("A", "Class A - IIC Council (12 roles, portal-enforced)",
-         NAVY),
+        ("A", "Class A - IIC Council (12 roles, portal-enforced)", NAVY),
         ("B", "Class B - Institute Administration (pays=YES on 3 roles)",
          TEAL),
         ("C", "Class C - Other Institutional Roles", PURPLE),
+        ("D", "Class D - End Users (the startups the product serves)",
+         AMBER),
     ]:
-        ax.text(0.3, y, title, fontsize=10, fontweight="bold", color=col)
-        y -= 0.45
+        ax.text(0.3, y, title, fontsize=9.6, fontweight="bold", color=col)
+        y -= 0.40
         for r in classes[rc]:
             pays = r.get("pays", "")
-            pays_flag = ""
-            if "YES" in str(pays):
-                pays_flag = "  $"
-            ax.text(0.7, y, f"{r['id']}", fontsize=7.6, color=SLATE,
+            pays_flag = "  $" if "YES" in str(pays) else ""
+            ax.text(0.7, y, f"{r['id']}", fontsize=7.4, color=SLATE,
                     fontweight="bold")
-            ax.text(1.35, y, r["name"][:44], fontsize=7.8, color="#0F172A")
+            ax.text(1.35, y, r["name"][:44], fontsize=7.6, color="#0F172A")
             if pays_flag:
-                ax.text(6.3, y, pays_flag, fontsize=8.6, color=GREEN,
+                ax.text(6.3, y, pays_flag, fontsize=8.4, color=GREEN,
                         fontweight="bold")
-            portal = "P" if r.get("portal_enforced") else ""
-            if portal:
-                ax.text(6.9, y, portal, fontsize=7.8, color=AMBER,
+            if r.get("portal_enforced"):
+                ax.text(6.9, y, "P", fontsize=7.6, color=AMBER,
                         fontweight="bold")
-            y -= 0.30
-        y -= 0.25
+            y -= 0.28
+        y -= 0.22
 
     ax.text(0.7, 0.55,
             "$ = pays (budget authority documented)    "
