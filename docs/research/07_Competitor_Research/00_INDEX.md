@@ -77,11 +77,11 @@ The resolution is the `takes_back` column in
 | Evidence grade | Vendors |
 |---|---|
 | Named reference (person + role + org) | 2 |
-| Named logo (unreferenced) | 4 |
+| Named logo (unreferenced) | 3 |
 | Vendor claim (unverified) | 7 |
-| Unknown | 15 |
+| Unknown | 16 |
 
-**22 of 28 competitors are no better proven than a vendor claim.**
+**23 of 28 competitors are no better proven than a vendor claim.**
 Accubate is the only vendor with a real review base (26 Capterra, 4.8).
 
 ## Navigating this folder

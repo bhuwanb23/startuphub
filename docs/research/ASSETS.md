@@ -397,6 +397,12 @@ Reproduce: `python build/build_phase3b.py`.
 | `_exports/charts/phase9/` | 12 charts — positioning matrix, capability coverage, heatmap, evidence quality, categories, mandatory stack, gap status, revised claims, price-vs-scope, India vs global, tech-transfer adjacency, threat-vs-evidence |
 | `_exports/phase9/` | competitors, feature_matrix, feature_coverage, ecosystem_platforms, indirect_alternatives, positioning_gaps, revised_claims, regulatory_signals, schema |
 | `04_Competitor_DeepDive/00_INDEX.md` | **redirect stub** — superseded by 07; originals in git history |
+| `_exports/xlsx/08_Competitor_Matrix.xlsx` | **the matrix** — 36 vendors × 15 capabilities, 540 scored cells, 9 sheets, frozen panes + autofilter |
+| `08_Competitor_Matrix/README.md` | Phase 10 hub — the U≠0 rule, coverage, evidence tiers |
+| `08_Competitor_Matrix/Scoring_Methodology.md` | How to read every cell; the 0-requires-a-note mechanism; absence basis |
+| `08_Competitor_Matrix/GAP13_Correction.md` | Protrak/IISc — the named Indian university reference, and why the gap is segment-specific |
+| `_exports/charts/phase10/` | 8 charts — matrix heatmap, dimension coverage, evidence honesty, market position, breadth-vs-evidence, India readiness, scoring integrity, category fields |
+| `_exports/phase10/` | competitor_matrix, dimension_coverage, market_position, evidence_register, positioning_gaps, scoring_legend, schema |
 | `13_Synthesis/Validation_Scorecard.md` | Phase 30 — rebuilt around what actually exists |
 | `_exports/phase45/` | market_base, iic_counts, conflicts, segments, icp_criteria, assumptions, sizing, validation_scorecard |
 

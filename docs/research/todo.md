@@ -990,6 +990,74 @@ Last Updated
 
 Then score them.
 
+### STATUS: COMPLETE
+
+Built by `build/data_p10_matrix.py`, `build/build_charts10.py`,
+`build/build_phase10.py`. Audited by `build/audit_phase10.py` (51/51 checks).
+
+**Deliverable:** `_exports/xlsx/08_Competitor_Matrix.xlsx` — **36 vendors ×
+15 scored capabilities = 540 scored cells**, 9 sheets, frozen panes, autofilter.
+All 27 spec columns present, plus 2 scored dimensions appended.
+
+**THE SCORING SCALE HAS FIVE VALUES, NOT FOUR:**
+
+| Score | Meaning | Burden of proof |
+|---|---|---|
+| 3 | Differentiator | marketed as a distinguishing capability |
+| 2 | Native | full implementation |
+| 1 | Partial | basic/incomplete |
+| **0** | **Absent** | **positive evidence of absence — REQUIRES an absence_note** |
+| **U** | **Unknown** | **not publicly evidenced — NOT the same as absent** |
+
+A four-point scale forces unknowns into zeros, which is an assertion the
+evidence does not support. That is exactly what produced Phase 0's falsified
+"zero competitors have an IPR module". **The build FAILS if any vendor scores 0
+without a substantive absence note** — enforced in validation() and re-checked by
+the audit.
+
+**Absence basis is published per vendor:** COMPLETE (vendor publishes a full
+feature table → absence is well-evidenced) vs PARTIAL (marketing prose only →
+absence may just be undocumented). The matrix refuses to flatten that.
+
+**Two columns added to the spec, with reasons:** TRL and YUKTI-NIR/ARIIA. They
+are the surviving CRITICAL gaps (GAP-02, GAP-03) and a competitive matrix that
+omitted the only open capabilities would misrepresent the competitive position.
+
+**8 new vendors found**, including the phase's most consequential:
+
+**Protrak (ProrIISe) — built jointly by IISc Bengaluru and Prorigo Software.**
+In production 6+ years · 2,500+ users · 600+ corporate licence agreements ·
+~200 patents filed/year · 50% IP-office time saved · **0 missed deadlines** ·
+~50% cheaper than competing ELM products. Named reference: Prof. Srinivasan
+Raghavan, Chair, IPTeL, IISc.
+
+**GAP-13 CORRECTED AGAIN.** A named Indian university reference now exists — for
+**IP management**. None exists for **incubation**. The institutional reference
+gap is segment-specific, not universal.
+
+**Capability coverage (native-or-better, of 36):** incubation ops saturated
+(18), mentorship (12), startup management (18) — while **technology transfer 8**
+and **mandate compliance 0** and **TRL 1** remain effectively empty.
+
+**Market position is DERIVED, not asserted** — and this fixed a real error. The
+first rubric awarded ESTABLISHED on breadth alone, which was **circular**
+(breadth comes from this matrix's own scores). It now requires external
+evidence: **VERIFIED 1 · PROVEN 7 · PARTIAL 5 · UNPROVEN 23.** These are evidence
+tiers, not quality tiers.
+
+**INCORRECTION CAUGHT BY THE NEW GUARD:** Elsevier Pure was graded
+NAMED_LOGO on the basis of *"universities and research institutions worldwide"* —
+a generic marketing claim, not a logo. A validation rule now requires
+NAMED_REFERENCE/NAMED_LOGO to be backed by ≥1 named customer. Corrected, and
+Phase 9's audit counts were updated accordingly (95/95).
+
+**Ecosystem platforms and indirect alternatives are context, not scored** —
+pricing/market position do not apply to the IIC Portal or to Excel.
+
+**8 charts** in `_exports/charts/phase10/`. **3 documents** in
+`08_Competitor_Matrix/` (README, Scoring_Methodology, GAP13_Correction).
+**7 CSVs + schema** in `_exports/phase10/`.
+
 ---
 
 # PHASE 11 — Competitor User Reviews

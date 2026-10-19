@@ -32,7 +32,7 @@
 | **FIKR** | Accelerator management platforms | Lagos / global (Africa-anchored) | Free · Growth €149/mo · Scale €399/mo | `VENDOR_CLAIM` |
 | **FosiaHub** | Accelerator management platforms | Africa (Kenya/Nigeria/Ghana ecosystem) | Hub $299/mo · Accelerator $799/mo · free 90-da | `VENDOR_CLAIM` |
 | **European Startup Hub** | Startup ecosystem platforms | Europe | Institutional licence from €15,000/yr · Region | `UNKNOWN` |
-| **Elsevier Pure** | Innovation management platforms | Netherlands / UK | UK G-Cloud list £19,406–£58,504/yr + £32,250 o | `NAMED_LOGO` |
+| **Elsevier Pure** | Innovation management platforms | Netherlands / UK | UK G-Cloud list £19,406–£58,504/yr + £32,250 o | `UNKNOWN` |
 | **Envisio** | Innovation management platforms | US / Canada | CONFLICT: GetApp USD 400/yr vs SelectHub USD 2 | `NAMED_REFERENCE` |
 | **IdeaScale** | Innovation management platforms | San Francisco, US | $4,999 per feature per year (aggregator); ente | `NAMED_LOGO` |
 | **Incu (Sweden)** | Innovation management platforms | Sweden | 790 kr/user/month | `UNKNOWN` |
@@ -108,7 +108,7 @@
 - **Scope.** research outputs, funding, affiliations, impact - the research management benchmark
 - **What makes it different.** The hardest price benchmark in the study; institutional-grade trust
 - **Where it is weak.** Manages RESEARCH OUTPUTS, not startups; no India-specific module; very expensive
-- **Customer evidence.** `NAMED_LOGO` — Universities and research institutions worldwide
+- **Customer evidence.** `UNKNOWN` — Universities and research institutions worldwide (generic - none named)
 - **Source.** <https://www.elsevier.com/products/pure> — retrieved 2026-10-19, `PUBLISHED`
 
 ### Envisio
