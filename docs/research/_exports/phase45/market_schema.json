@@ -1,0 +1,139 @@
+{
+  "note": "Phases 4/5/7/30 field definitions and the guards enforced by data_p47_segments.validation().",
+  "rule_no_point_estimates": "Every market figure is a RANGE. A midpoint implies precision the inputs do not support and is never computed.",
+  "rule_no_interview_claims": "Interviews conducted: 0. No cell may claim validation it has not earned.",
+  "grading": {
+    "T1_DOCUMENTED": "primary government source",
+    "SINGLE_SOURCE": "one primary source",
+    "HYPOTHESIS": "no primary evidence - analyst range only"
+  },
+  "sizing_layers": {
+    "TAM": "institutions holding an IIC/AIC/EIC (mandated reporting function)",
+    "SAM": "institutions demonstrably filing innovation returns",
+    "SOM": "bounded by founder-led acquisition capacity"
+  },
+  "assumptions": [
+    {
+      "id": "A-01",
+      "input": "Institutions with an innovation reporting function",
+      "value": "14,067 - 16,367",
+      "source": "data_p5_market IIC_COUNTS (3 official sources)",
+      "grade": "T1_DOCUMENTED",
+      "dominates": false,
+      "note": "Range is deliberate: C-01 shows a 16% official disagreement and no counting rule."
+    },
+    {
+      "id": "A-02",
+      "input": "Institutions demonstrably filing innovation returns",
+      "value": "777 (NIRF Innovation, 2025)",
+      "source": "NIRF India Rankings 2025 report",
+      "grade": "T1_DOCUMENTED",
+      "dominates": false,
+      "note": "Observed behaviour, not registration. The cleanest SAM floor available."
+    },
+    {
+      "id": "A-03",
+      "input": "ARIIA filers (non-overlapping with NIRF)",
+      "value": "not_reported",
+      "source": "ARIIA publishes rankings, not a participation ledger",
+      "grade": "HYPOTHESIS",
+      "dominates": false,
+      "note": "Unknown. Deliberately NOT estimated - inventing a number here would contaminate SAM."
+    },
+    {
+      "id": "A-04",
+      "input": "Annual contract value per institution",
+      "value": "Rs 75,000 - Rs 1,20,000",
+      "source": "LabelNest verified price; StartupHub target",
+      "grade": "SINGLE_SOURCE + HYPOTHESIS",
+      "dominates": true,
+      "note": "DOMINANT ERROR TERM. The lower bound is a competitor's price for a different scope. The upper bound is our own target with no customer behind it. OQ-03 unresolved. No interview evidence exists."
+    },
+    {
+      "id": "A-05",
+      "input": "Share of SAM that would ever buy",
+      "value": "5% - 20%",
+      "source": "no evidence - analyst range only",
+      "grade": "HYPOTHESIS",
+      "dominates": true,
+      "note": "DOMINANT ERROR TERM. Nothing in 47 institutional documents, 8 procurement instruments or 11 government forms licenses any specific conversion rate. H-01 and H-04 both threaten this."
+    },
+    {
+      "id": "A-06",
+      "input": "Founder-led acquisition capacity",
+      "value": "5 - 15 institutions in year 1",
+      "source": "analyst capacity model",
+      "grade": "HYPOTHESIS",
+      "dominates": false,
+      "note": "todo.md suggested 5 / 15 / 40-50. A 40-50 year-3 figure implies a sales team that does not exist. Replaced with a capacity envelope."
+    },
+    {
+      "id": "A-07",
+      "input": "Price realisation (discounting, multi-year, pilot-for-free)",
+      "value": "70% - 100% of list",
+      "source": "no evidence",
+      "grade": "HYPOTHESIS",
+      "dominates": true,
+      "note": "DOMINANT ERROR TERM. Academic procurement discounts heavily, and free pilots are common. Nothing measured."
+    },
+    {
+      "id": "A-08",
+      "input": "Churn / renewal",
+      "value": "not_modelled",
+      "source": "no published rate for any incumbent in this category",
+      "grade": "HYPOTHESIS",
+      "dominates": false,
+      "note": "LTV cannot be computed. Deliberately omitted rather than guessed."
+    }
+  ],
+  "size_limitations": [
+    "TAM/SAM/SOM are RANGES. A midpoint would imply precision we do not have; do not compute one without stating the range width alongside it.",
+    "The band width is dominated by three HYPOTHESIS inputs (A-04 price, A-05 conversion, A-07 discount). Measuring any ONE of them collapses the range more than any further market research would.",
+    "Willingness to pay (OQ-03) has ZERO primary evidence after three phases. Every rupee figure here traces to a competitor's public price or to our own target.",
+    "Renewal/churn is not modelled at all. LTV cannot be computed from evidence.",
+    "The ICP's second must-be - no system of record upstream - is still HYPOTHESIS (H-01). If a mature institution already has a venture register, the ICP is wrong and S1 collapses.",
+    "No segmentation here is validated against a customer. Segments are derived from published documents, not from interviews."
+  ],
+  "market_gaps": [
+    "No public dataset links an institution to the software it already pays for. The 'free incumbent' assumption (H-03) stays HYPOTHESIS.",
+    "No public dataset shows which institutions actually have a person accountable for innovation records. This is the real filter and it is invisible.",
+    "IIC activity data is not published in machine-readable form at institution level. Without it, TAM rests on registration counts, which C-01 shows are definitionally unsafe.",
+    "Budget-head data does not exist publicly for innovation software. The single government money signal (ARIIA expenditure split) is retrospective and unlinked to institutions.",
+    "There is no published churn or renewal rate for any incumbent in this category, so retention and LTV cannot be modelled from evidence.",
+    "Willingness to pay has ZERO primary evidence. OQ-03 remains open. Every rupee figure in this repo traces to a competitor's public price, never to a customer's budget."
+  ],
+  "recorded_conflicts": [
+    {
+      "id": "C-01",
+      "subject": "How many IICs exist in India",
+      "variant_a": "14,067 (AIM, 2024-07-31)",
+      "variant_b": "14,830 (IIC portal, 2025)",
+      "variant_c": "16,367 (MoE status page, 2025-26)",
+      "spread_pct": 16.4,
+      "why_it_matters": "A 16% spread across three government sources on the most important count in this market. None states the counting rule - registered, active, or ever-submitted - so they are not reconcilable. We therefore refuse to pick one and state a range instead.",
+      "our_choice": "Use 14,067 as the CONSERVATIVE floor and 16,367 as the CEILING. Report both. Never present a single IIC count.",
+      "mirrors": "The same ledger defect documented in P-A08 (NIT Calicut 55 vs 17) and F-SENTINEL-ZERO."
+    },
+    {
+      "id": "C-02",
+      "subject": "What counts as an institution that could buy innovation software",
+      "variant_a": "AISHE registered HEIs: 58,643",
+      "variant_b": "NIRF 2025 Innovation category: 777",
+      "variant_c": "IICs: 14,067-16,367",
+      "spread_pct": null,
+      "why_it_matters": "These three numbers answer three different questions and are NOT nested. An IIC can sit inside a college; a college can file NIRF Overall without filing Innovation. Adding them produces a number that describes nothing.",
+      "our_choice": "Never sum these. Model each as a separate population and reconcile them by institution type in data_p47.",
+      "mirrors": "todo.md PHASE 5: 'Don't automatically add all of these together.'"
+    },
+    {
+      "id": "C-03",
+      "subject": "DPIIT recognised startup count moves fast",
+      "variant_a": "180,683 (30 June 2025)",
+      "variant_b": "197,692 (October 2025)",
+      "spread_pct": 9.4,
+      "why_it_matters": "17,009 additional recognitions in roughly four months. Any denominator built on a startup count decays within a year, so market sizing must state its as-of date or be meaningless.",
+      "our_choice": "Every sizing output carries an explicit as_of date.",
+      "mirrors": "Time-grain mismatch already documented as F-ARIYA-AY."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+﻿axis,n,criterion,basis
+must_be,1,Files the NIRF Innovation category or an ARIIA return,"777 institutions filed NIRF Innovation in 2025 - observable behaviour, not registration"
+must_be,2,Has a named IIC Convener / ARIIA-NIRF nodal officer,Phase 1: SSCET has 40 IIC members and 2 mentors; NIT Calicut 29 mentors vs 155 ideas. One person does the work.
+must_be,3,Reports startups at a scale where the loss is measurable,Phase 3A: institutions lose 9% of startups at the DPIIT join overall; NIT Andhra Pradesh 67%
+must_be,4,Has no system of record upstream of the form,"P-A10 / H-01 - still HYPOTHESIS, and the artefact ask is the test"
+must_not_be,1,An institution with no IIC and no innovation filing (no forcing event - D-007 untested),
+must_not_be,2,A student or founder (cannot buy anything - Class D in Phase 2),
+must_not_be,3,An institution whose Convener demonstrably delegates the form to a junior,
+must_not_be,4,"A startup incubator's competitive set (91springboard, NSRCEL already run commercial software)",

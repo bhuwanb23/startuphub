@@ -1,0 +1,72 @@
+﻿domain,metric,value,source,tier,as_of,url
+higher_education,total_enrolment_crore,4.33,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities,1168,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges,45473,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,standalone_institutions,12002,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,total_heis,58643,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities_government,685,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities_central_govt,240,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities_state_govt,445,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities_private_deemed,10,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,universities_private_unaided,473,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges_government_pct,21.5,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges_private_aided_pct,13.2,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges_private_unaided_pct,65.3,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,affiliating_universities,328,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,technical_universities,192,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges_with_pg,14197,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,colleges_with_phd,1063,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,naac_accredited_universities,487,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+higher_education,naac_accredited_heis,7554,AISHE,T1,2021-22 (published 2024-01-25),https://www.pib.gov.in/PressReleasePage.aspx?PRID=1999713
+nirf_2025,unique_institutions,7692,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,total_applications,14163,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,preregistered,6398,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,new_registration,1294,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,innovation_category,777,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,innovation_north,125,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,innovation_south,416,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,innovation_east,58,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,innovation_west,178,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,overall,4045,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,colleges_category,4030,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,engineering,1584,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,management,1026,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,pharmacy,594,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,research_institutions,273,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,medical,223,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,law,267,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,dental,223,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,architecture_planning,131,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,agriculture_allied,173,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,open_universities,15,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,skill_universities,11,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,sdgs,791,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,unique_2016,2426,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,applications_2016,3565,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,unique_2021,4030,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+nirf_2025,applications_2021,6272,NIRF25,T1,2025 (released 2025-09-04),https://www.nirfindia.org/nirfpdfcdn/2025/pdf/Report/IR2025_Report.pdf
+startup_base,dpiit_recognised_startups,197692,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,dpiit_recognised_jun_2025,180683,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,dpiit_recognised_2016,500,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,jobs_lakh,21.11,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,pct_with_woman_director,48,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,pct_tier2_3_cities,53,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,ffs_corpus_crore,10000,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,ffs_aifs,144,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,ffs_invested_crore,23679,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,ffs_startups_invested,1282,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,cgss_loans,311,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,cgss_crore,755.25,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,sisfs_crore,945,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,sisfs_incubators,219,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,gem_orders_crore,51000,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+startup_base,states_with_startup_policy,32,DPIIT / NSD26,T1,2025-10 (Lok Sabha written reply),https://knnindia.co.in/news/newsdetails/sectors/start-up/nearly-2-lakh-startups-recognised-under-startup-india-generating-over-21-lakh-jobs-piyush-goyal
+incubation,sisfs_incubators_selected,217,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,sisfs_incubators_approved_crore,916.91,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,sisfs_startups_selected,2942,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,sisfs_startups_funded_crore,522.42,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,seed_funded_incubators,244,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,aic_grant_max_crore,10,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,eic_operating_min_years,3,DPIIT / SISFS / NSD26,T1,2025-2026,
+incubation,aic_space_min_sqft,10000,DPIIT / SISFS / NSD26,T1,2025-2026,
+ipr,patent_filings_2023_24,92168,IPO,T1,2023-24 (IPO annual reports),

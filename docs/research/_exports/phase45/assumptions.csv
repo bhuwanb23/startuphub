@@ -1,0 +1,9 @@
+﻿id,input,value,source,grade,dominates,note
+A-01,Institutions with an innovation reporting function,"14,067 - 16,367",data_p5_market IIC_COUNTS (3 official sources),T1_DOCUMENTED,False,Range is deliberate: C-01 shows a 16% official disagreement and no counting rule.
+A-02,Institutions demonstrably filing innovation returns,"777 (NIRF Innovation, 2025)",NIRF India Rankings 2025 report,T1_DOCUMENTED,False,"Observed behaviour, not registration. The cleanest SAM floor available."
+A-03,ARIIA filers (non-overlapping with NIRF),not_reported,"ARIIA publishes rankings, not a participation ledger",HYPOTHESIS,False,Unknown. Deliberately NOT estimated - inventing a number here would contaminate SAM.
+A-04,Annual contract value per institution,"Rs 75,000 - Rs 1,20,000",LabelNest verified price; StartupHub target,SINGLE_SOURCE + HYPOTHESIS,True,DOMINANT ERROR TERM. The lower bound is a competitor's price for a different scope. The upper bound is our own target with no customer behind it. OQ-03 unresolved. No interview evidence exists.
+A-05,Share of SAM that would ever buy,5% - 20%,no evidence - analyst range only,HYPOTHESIS,True,"DOMINANT ERROR TERM. Nothing in 47 institutional documents, 8 procurement instruments or 11 government forms licenses any specific conversion rate. H-01 and H-04 both threaten this."
+A-06,Founder-led acquisition capacity,5 - 15 institutions in year 1,analyst capacity model,HYPOTHESIS,False,todo.md suggested 5 / 15 / 40-50. A 40-50 year-3 figure implies a sales team that does not exist. Replaced with a capacity envelope.
+A-07,"Price realisation (discounting, multi-year, pilot-for-free)",70% - 100% of list,no evidence,HYPOTHESIS,True,"DOMINANT ERROR TERM. Academic procurement discounts heavily, and free pilots are common. Nothing measured."
+A-08,Churn / renewal,not_modelled,no published rate for any incumbent in this category,HYPOTHESIS,False,LTV cannot be computed. Deliberately omitted rather than guessed.
