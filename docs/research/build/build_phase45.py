@@ -696,7 +696,12 @@ def main():
 
     write_market_readme();     print("  03_Market_Research/README.md")
     write_segment_census();    print("  03_Market_Research/Segment_Census.md")
-    write_sizing_doc();        print("  05_Market_Sizing/README.md")
+    # 05_Market_Sizing/README.md is owned by build_phase7.py as of Phase 7.
+    # This module's write_sizing_doc() produced the first-pass sizing, which
+    # multiplied all registered HEIs by the list price and applied no filters
+    # and no capture assumption. It is retained as a function for history but
+    # must not overwrite the six-filter rebuild.
+    print("  05_Market_Sizing/README.md   -> owned by build_phase7.py (skipped)")
     write_scorecard_doc();     print("  13_Synthesis/Validation_Scorecard.md")
 
     before, added = register_sources()

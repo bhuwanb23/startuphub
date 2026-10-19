@@ -41,6 +41,7 @@ STEPS = [
     ("Phase 6 - government data + State Startup Ranking", "build_phase6.py"),
     ("Phases 5/7/30 - market, sizing, scorecard", "build_phase45.py"),
     ("Phases 35/36 - gap filling + simulation", "build_phase35.py"),
+    ("Phase 7 - market sizing rebuild (investor grade)", "build_phase7.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
