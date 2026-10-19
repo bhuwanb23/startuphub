@@ -1,0 +1,5 @@
+﻿series,years,start,end,multiple,cagr_pct,provenance,meaning
+NIRF unique institutions,9,2426,7692,3.17,13.7,T1_DOCUMENTED,The number of institutions voluntarily entering a ranking regime.
+NIRF total applications,9,3565,14163,3.97,16.6,T1_DOCUMENTED,Applications across categories - shows multi-category filing.
+IICs established,4,6400,16367,2.56,26.5,T1_DOCUMENTED,"Conflict C-01: the start figure is an earlier official count, the end is the latest."
+SRF participating states,8,30,34,1.13,1.6,T1_DOCUMENTED,State participation is effectively saturated - the only curve that is.

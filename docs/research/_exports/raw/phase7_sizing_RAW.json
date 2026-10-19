@@ -1,0 +1,832 @@
+{
+  "build_date": "2026-10-19",
+  "module": "data_p7_sizing.py",
+  "schema_version": "2.0",
+  "raw_numbers": [
+    {
+      "key": "heis_registered",
+      "value": 58643,
+      "unit": "institutions",
+      "source": "AISHE 2021-22",
+      "provenance": "T1_DOCUMENTED",
+      "note": "SUPER-BOUND. Never a market on its own."
+    },
+    {
+      "key": "universities",
+      "value": 1168,
+      "unit": "institutions",
+      "source": "AISHE 2021-22",
+      "provenance": "T1_DOCUMENTED",
+      "note": "685 government-managed (240 central + 445 state)"
+    },
+    {
+      "key": "colleges",
+      "value": 45473,
+      "unit": "institutions",
+      "source": "AISHE 2021-22",
+      "provenance": "T1_DOCUMENTED",
+      "note": "21.5% govt / 13.2% private aided / 65.3% private unaided"
+    },
+    {
+      "key": "standalone",
+      "value": 12002,
+      "unit": "institutions",
+      "source": "AISHE 2021-22",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Diploma-level polytechnics, teacher training, nursing. NO innovation mandate - excluded by filter 1."
+    },
+    {
+      "key": "iic_floor",
+      "value": 14067,
+      "unit": "institutions",
+      "source": "AIM 2024-07-31",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Conflict C-01: three official counts, 16.4% spread"
+    },
+    {
+      "key": "iic_ceiling",
+      "value": 16367,
+      "unit": "institutions",
+      "source": "MoE status page 2025-26",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "nirf_innovation_filers",
+      "value": 777,
+      "unit": "institutions",
+      "source": "NIRF India Rankings 2025, Innovation category",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Observed behaviour, not registration. The hardest filter."
+    },
+    {
+      "key": "nirf_any_applicants",
+      "value": 7692,
+      "unit": "institutions",
+      "source": "NIRF India Rankings 2025",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "state_startup_missions",
+      "value": 34,
+      "unit": "states and UTs",
+      "source": "SRF 5.0 participating",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Segment G9, sized separately."
+    },
+    {
+      "key": "seed_funded_incubators",
+      "value": 244,
+      "unit": "incubators",
+      "source": "Startup India NSD26",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Segment G5 ceiling"
+    },
+    {
+      "key": "sisfs_incubators",
+      "value": 217,
+      "unit": "incubators",
+      "source": "PIB PRID=2114865",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "digital_nkn_university",
+      "value": 0.56,
+      "unit": "share with NKN connectivity",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": "National Knowledge Network"
+    },
+    {
+      "key": "digital_nkn_college",
+      "value": 0.24,
+      "unit": "share with NKN connectivity",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Colleges have computers (88% computer centre) but only a quarter have institutional backbone."
+    },
+    {
+      "key": "digital_nmeict_university",
+      "value": 0.41,
+      "unit": "share with NMEICT connectivity",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Education-specific backbone"
+    },
+    {
+      "key": "digital_nmeict_college",
+      "value": 0.22,
+      "unit": "share with NMEICT connectivity",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "digital_computer_university",
+      "value": 0.93,
+      "unit": "share with a computer centre",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "digital_computer_college",
+      "value": 0.88,
+      "unit": "share with a computer centre",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Colleges have the hardware in 88% of cases. The binding constraint is connectivity, not hardware."
+    },
+    {
+      "key": "digital_iqac_university",
+      "value": 0.68,
+      "unit": "share with an IQAC",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Internal Quality Assurance Cell - the best available institutional-maturity proxy"
+    },
+    {
+      "key": "digital_iqac_college",
+      "value": 0.31,
+      "unit": "share with an IQAC",
+      "source": "AISHE 2021-22, Box 7",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "nirf_innovation_south",
+      "value": 416,
+      "unit": "institutions",
+      "source": "NIRF 2025",
+      "provenance": "T1_DOCUMENTED",
+      "note": "53.6% of Innovation filers"
+    },
+    {
+      "key": "nirf_innovation_west",
+      "value": 178,
+      "unit": "institutions",
+      "source": "NIRF 2025",
+      "provenance": "T1_DOCUMENTED",
+      "note": "22.9%"
+    },
+    {
+      "key": "nirf_innovation_north",
+      "value": 125,
+      "unit": "institutions",
+      "source": "NIRF 2025",
+      "provenance": "T1_DOCUMENTED",
+      "note": "16.1%"
+    },
+    {
+      "key": "nirf_innovation_east",
+      "value": 58,
+      "unit": "institutions",
+      "source": "NIRF 2025",
+      "provenance": "T1_DOCUMENTED",
+      "note": "7.5%"
+    },
+    {
+      "key": "dpiit_tier23_pct",
+      "value": 0.53,
+      "unit": "share of recognised startups in Tier 2/3 cities",
+      "source": "Startup India NSD26",
+      "provenance": "T1_DOCUMENTED",
+      "note": "Geography proxy"
+    },
+    {
+      "key": "nit_budget_per_institution_cr",
+      "value": 189.58,
+      "unit": "INR crore",
+      "source": "Union Budget 2025-26 / 30 NITs",
+      "provenance": "T1_DOCUMENTED",
+      "note": ""
+    },
+    {
+      "key": "nit_unspent_per_institution_cr",
+      "value": 53.03,
+      "unit": "INR crore",
+      "source": "Budget utilisation 67% FY 2023-24",
+      "provenance": "T1_DOCUMENTED",
+      "note": "CAPACITY evidence only. Never willingness evidence."
+    },
+    {
+      "key": "private_college_revenue_floor_cr",
+      "value": 0.4,
+      "unit": "INR crore",
+      "source": "data_p5_finance PRIVATE_COLLEGE_BOUND",
+      "provenance": "BOUNDED",
+      "note": "No public balance sheet exists for private unaided colleges."
+    },
+    {
+      "key": "india_he_tech_market_usd_m",
+      "value": 3347.2,
+      "unit": "USD million",
+      "source": "MarketsandMarkets 2025",
+      "provenance": "T3_MARKET",
+      "note": "Projection, not a government figure."
+    }
+  ],
+  "price_scenarios": {
+    "A": {
+      "key": "A",
+      "label": "Scenario A - list price",
+      "acv": 120000,
+      "basis": "StartupHub list price; matches the Rs 75,000-1,20,000 band used in Phase 7's first pass",
+      "provenance": "T1_DOCUMENTED (competitor anchor Rs 75,000) + PRIOR (our own list price)",
+      "ltv_cac": 0.21,
+      "viable": false,
+      "base_case": true,
+      "caveat": "OQ-03: no primary willingness-to-pay evidence exists. This price is what we intend to charge, not what anyone has agreed to pay."
+    },
+    "B": {
+      "key": "B",
+      "label": "Scenario B - required ACV",
+      "acv": 1027962,
+      "basis": "Median ACV at which simulated LTV/CAC first reaches 3.0 (data_p36_simulation)",
+      "provenance": "SIMULATED",
+      "ltv_cac": 3.0,
+      "viable": true,
+      "base_case": false,
+      "caveat": "This is the price the SALES MODEL demands, not the price the market bears. Budget evidence is not willingness evidence: the required ACV is ~0.054% of a NIT's annual budget, so affordability is not the objection. Nobody has agreed to pay it."
+    }
+  },
+  "tam": {
+    "bottom_up": {
+      "A": {
+        "method": "M1 bottom-up",
+        "formula": "IIC-bearing institutions x annual contract value",
+        "institutions_low": 14067,
+        "institutions_high": 16367,
+        "acv": 120000,
+        "value_low": 1688040000,
+        "value_high": 1964040000
+      },
+      "B": {
+        "method": "M1 bottom-up",
+        "formula": "IIC-bearing institutions x annual contract value",
+        "institutions_low": 14067,
+        "institutions_high": 16367,
+        "acv": 1027962,
+        "value_low": 14460341454,
+        "value_high": 16824654054
+      }
+    },
+    "top_down": {
+      "A": {
+        "method": "M2 top-down",
+        "formula": "India HE technology market (US$ 3,347.2M) x defensible share",
+        "market_inr": 279491200000.0,
+        "usd_inr": 83.5,
+        "acv": 120000,
+        "share_low": 0.005,
+        "share_high": 0.03,
+        "value_low": 1397456000.0,
+        "value_high": 8384736000.0
+      },
+      "B": {
+        "method": "M2 top-down",
+        "formula": "India HE technology market (US$ 3,347.2M) x defensible share",
+        "market_inr": 279491200000.0,
+        "usd_inr": 83.5,
+        "acv": 1027962,
+        "share_low": 0.04283175,
+        "share_high": 0.2569905,
+        "value_low": 11971097205.6,
+        "value_high": 71826583233.6
+      }
+    },
+    "reachable": {
+      "A": {
+        "formula": "HEI universe x reachable adoption x our capture x ACV",
+        "acv": 120000,
+        "adoption_low": 0.05,
+        "adoption_high": 0.15,
+        "capture_low": 0.05,
+        "capture_high": 0.15,
+        "institutions_low": 146.60750000000002,
+        "institutions_high": 1319.4674999999997,
+        "value_low": 17592900.000000004,
+        "value_high": 158336099.99999997
+      },
+      "B": {
+        "formula": "HEI universe x reachable adoption x our capture x ACV",
+        "acv": 1027962,
+        "adoption_low": 0.05,
+        "adoption_high": 0.15,
+        "capture_low": 0.05,
+        "capture_high": 0.15,
+        "institutions_low": 146.60750000000002,
+        "institutions_high": 1319.4674999999997,
+        "value_low": 150706938.91500002,
+        "value_high": 1356362450.2349997
+      }
+    }
+  },
+  "sam_filters": [
+    {
+      "n": 1,
+      "filter": "Institution type",
+      "question": "Must be a degree-granting body with an innovation function",
+      "source": "AISHE 2021-22 category counts",
+      "method": "DERIVED",
+      "rule": "universities + colleges; standalone diploma institutes excluded (no innovation mandate)",
+      "low_population": 46641,
+      "high_population": 46641,
+      "note": "Stand-alone institutions (12,002) are polytechnics, teacher-training and nursing institutes at diploma level. They have no IIC and no NIRF Innovation obligation. Excluding them removes 20% of the registered base."
+    },
+    {
+      "n": 2,
+      "filter": "Digital readiness",
+      "question": "Must have institutional internet, not just computers in a room",
+      "source": "AISHE 2021-22 Box 7 (NKN / NMEICT connectivity)",
+      "method": "DERIVED",
+      "rule": "universities x NKN share + colleges x NKN share",
+      "low_population": 11567,
+      "high_population": 41102,
+      "note": "THE FINDING. Colleges have a computer centre in 88% of cases but institutional backbone connectivity in only 24%. A cloud product needs the backbone; the upper bound assumes computer-centre presence suffices."
+    },
+    {
+      "n": 3,
+      "filter": "Innovation activity",
+      "question": "Must demonstrably file an innovation return",
+      "source": "NIRF India Rankings 2025, Innovation category",
+      "method": "MEASURED",
+      "rule": "count of institutions that filed the Innovation category in 2025",
+      "low_population": 777,
+      "high_population": 777,
+      "note": "The only filter with a directly observed count. Everything upstream of this is a proxy; this is 777 institutions that demonstrably did the work."
+    },
+    {
+      "n": 4,
+      "filter": "Budget",
+      "question": "Must be able to afford the contract",
+      "source": "Union Budget 2025-26; data_p5_finance PRIVATE_COLLEGE_BOUND",
+      "method": "DERIVED",
+      "rule": "Rs 1.2L is 0.0063% of a NIT budget and 0.3% of the LOW end of the bounded private college revenue band",
+      "low_population": 777,
+      "high_population": 777,
+      "note": "PASSES 100%. This filter excludes nobody, at either price. That is the Phase 5 result restated: affordability has never been the obstacle."
+    },
+    {
+      "n": 5,
+      "filter": "Ecosystem maturity",
+      "question": "Must sit in a state whose startup ecosystem is functional",
+      "source": "SRF 5.0 tiers",
+      "method": "BOUNDED",
+      "rule": "exclude Emerging-tier states (7 of 34); institution counts by state are not public",
+      "low_population": 582,
+      "high_population": 777,
+      "note": "BOUNDED, not measured. Seven states are Emerging-tier; their share of the 777 is not published. The 25% haircut is an analyst floor, not a measurement. Note the perverse case: Emerging states may be the BEST prospects because they have the most to gain and the least incumbent."
+    },
+    {
+      "n": 6,
+      "filter": "Geography",
+      "question": "Must be reachable in the initial selling motion",
+      "source": "NIRF 2025 regional split; Startup India Tier 2/3 data",
+      "method": "DERIVED",
+      "rule": "exclude the East (7.5% of filers, lowest concentration and most dispersed)",
+      "low_population": 719,
+      "high_population": 777,
+      "note": "The East holds 7.5% of Innovation filers. Excluding it costs 7.5% of the market and is a distribution decision, not an economic one - the East is where relative improvement is easiest."
+    }
+  ],
+  "sam_funnel": [
+    {
+      "n": 0,
+      "filter": "Registered higher education institutions",
+      "remaining_low": 58643,
+      "remaining_high": 58643,
+      "dropped_low": 0,
+      "dropped_high": 0,
+      "survival_low_pct": 100.0,
+      "survival_high_pct": 100.0,
+      "cumulative_low_pct": 100.0,
+      "cumulative_high_pct": 100.0,
+      "method": "MEASURED",
+      "source": "AISHE 2021-22",
+      "question": "How many higher education institutions exist?",
+      "rule": "all registered HEIs",
+      "note": "Super-bound. Not a market."
+    },
+    {
+      "n": 1,
+      "filter": "Institution type",
+      "remaining_low": 46641,
+      "remaining_high": 46641,
+      "dropped_low": 12002,
+      "dropped_high": 12002,
+      "survival_low_pct": 79.5,
+      "survival_high_pct": 79.5,
+      "cumulative_low_pct": 79.53,
+      "cumulative_high_pct": 79.53,
+      "method": "DERIVED",
+      "source": "AISHE 2021-22 category counts",
+      "question": "Must be a degree-granting body with an innovation function",
+      "rule": "universities + colleges; standalone diploma institutes excluded (no innovation mandate)",
+      "note": "Stand-alone institutions (12,002) are polytechnics, teacher-training and nursing institutes at diploma level. They have no IIC and no NIRF Innovation obligation. Excluding them removes 20% of the registered base."
+    },
+    {
+      "n": 2,
+      "filter": "Digital readiness",
+      "remaining_low": 11567,
+      "remaining_high": 41102,
+      "dropped_low": 35074,
+      "dropped_high": 5539,
+      "survival_low_pct": 24.8,
+      "survival_high_pct": 88.1,
+      "cumulative_low_pct": 19.72,
+      "cumulative_high_pct": 70.09,
+      "method": "DERIVED",
+      "source": "AISHE 2021-22 Box 7 (NKN / NMEICT connectivity)",
+      "question": "Must have institutional internet, not just computers in a room",
+      "rule": "universities x NKN share + colleges x NKN share",
+      "note": "THE FINDING. Colleges have a computer centre in 88% of cases but institutional backbone connectivity in only 24%. A cloud product needs the backbone; the upper bound assumes computer-centre presence suffices."
+    },
+    {
+      "n": 3,
+      "filter": "Innovation activity",
+      "remaining_low": 777,
+      "remaining_high": 777,
+      "dropped_low": 10790,
+      "dropped_high": 40325,
+      "survival_low_pct": 6.7,
+      "survival_high_pct": 1.9,
+      "cumulative_low_pct": 1.32,
+      "cumulative_high_pct": 1.32,
+      "method": "MEASURED",
+      "source": "NIRF India Rankings 2025, Innovation category",
+      "question": "Must demonstrably file an innovation return",
+      "rule": "count of institutions that filed the Innovation category in 2025",
+      "note": "The only filter with a directly observed count. Everything upstream of this is a proxy; this is 777 institutions that demonstrably did the work."
+    },
+    {
+      "n": 4,
+      "filter": "Budget",
+      "remaining_low": 777,
+      "remaining_high": 777,
+      "dropped_low": 0,
+      "dropped_high": 0,
+      "survival_low_pct": 100.0,
+      "survival_high_pct": 100.0,
+      "cumulative_low_pct": 1.32,
+      "cumulative_high_pct": 1.32,
+      "method": "DERIVED",
+      "source": "Union Budget 2025-26; data_p5_finance PRIVATE_COLLEGE_BOUND",
+      "question": "Must be able to afford the contract",
+      "rule": "Rs 1.2L is 0.0063% of a NIT budget and 0.3% of the LOW end of the bounded private college revenue band",
+      "note": "PASSES 100%. This filter excludes nobody, at either price. That is the Phase 5 result restated: affordability has never been the obstacle."
+    },
+    {
+      "n": 5,
+      "filter": "Ecosystem maturity",
+      "remaining_low": 582,
+      "remaining_high": 777,
+      "dropped_low": 195,
+      "dropped_high": 0,
+      "survival_low_pct": 74.9,
+      "survival_high_pct": 100.0,
+      "cumulative_low_pct": 0.99,
+      "cumulative_high_pct": 1.32,
+      "method": "BOUNDED",
+      "source": "SRF 5.0 tiers",
+      "question": "Must sit in a state whose startup ecosystem is functional",
+      "rule": "exclude Emerging-tier states (7 of 34); institution counts by state are not public",
+      "note": "BOUNDED, not measured. Seven states are Emerging-tier; their share of the 777 is not published. The 25% haircut is an analyst floor, not a measurement. Note the perverse case: Emerging states may be the BEST prospects because they have the most to gain and the least incumbent."
+    },
+    {
+      "n": 6,
+      "filter": "Geography",
+      "remaining_low": 582,
+      "remaining_high": 777,
+      "dropped_low": 0,
+      "dropped_high": 0,
+      "survival_low_pct": 100.0,
+      "survival_high_pct": 100.0,
+      "cumulative_low_pct": 0.99,
+      "cumulative_high_pct": 1.32,
+      "method": "DERIVED",
+      "source": "NIRF 2025 regional split; Startup India Tier 2/3 data",
+      "question": "Must be reachable in the initial selling motion",
+      "rule": "exclude the East (7.5% of filers, lowest concentration and most dispersed)",
+      "note": "The East holds 7.5% of Innovation filers. Excluding it costs 7.5% of the market and is a distribution decision, not an economic one - the East is where relative improvement is easiest."
+    }
+  ],
+  "sam_value": {
+    "A": {
+      "count_low": 582,
+      "count_high": 777,
+      "measured_count": 777,
+      "acv": 120000,
+      "value_low": 69840000,
+      "value_high": 93240000,
+      "value_measured": 93240000
+    },
+    "B": {
+      "count_low": 582,
+      "count_high": 777,
+      "measured_count": 777,
+      "acv": 1027962,
+      "value_low": 598273884,
+      "value_high": 798726474,
+      "value_measured": 798726474
+    }
+  },
+  "som_capacity": {
+    "method": "Capacity-built. Derived from the seeded Monte Carlo, not from ambition.",
+    "reachable_y3": [
+      150,
+      300,
+      600
+    ],
+    "conversion": [
+      0.02,
+      0.06,
+      0.2
+    ],
+    "logos_y3_p25_p75": [
+      18.653187963261637,
+      31.007391264641853
+    ],
+    "paying_logos_p50": 24.846151528121503,
+    "rejected_plan": {
+      "y1": 5,
+      "y2": 15,
+      "y3": "40-50",
+      "why": "todo.md PHASE 7 proposed 5 / 15 / 40-50 institutions. The year-3 figure implies ~50 paying institutions, a sales team that does not exist, and a conversion rate nobody has measured. We reject it and model capacity instead."
+    },
+    "ltv_cac_p50": 0.21,
+    "note": "Capacity is the binding constraint, and it binds HARD: the binding limit is conversion (r=0.65), which is precisely the quantity no interview has measured."
+  },
+  "som_by_scenario": {
+    "A": {
+      "scenario": "A",
+      "acv": 120000,
+      "years": [
+        {
+          "year": 1,
+          "logos_low": 3.1,
+          "logos_high": 5.2,
+          "envelope_low": 0.3,
+          "envelope_high": 12.0,
+          "arr_low": 373064,
+          "arr_high": 620148,
+          "ramp_pct": 0.1
+        },
+        {
+          "year": 2,
+          "logos_low": 9.9,
+          "logos_high": 16.5,
+          "envelope_low": 1.0,
+          "envelope_high": 38.4,
+          "arr_low": 1193804,
+          "arr_high": 1984473,
+          "ramp_pct": 0.32
+        },
+        {
+          "year": 3,
+          "logos_low": 18.7,
+          "logos_high": 31.0,
+          "envelope_low": 1.8,
+          "envelope_high": 72.0,
+          "arr_low": 2238383,
+          "arr_high": 3720887,
+          "ramp_pct": 0.6
+        },
+        {
+          "year": 4,
+          "logos_low": 24.9,
+          "logos_high": 41.3,
+          "envelope_low": 2.4,
+          "envelope_high": 96.0,
+          "arr_low": 2984510,
+          "arr_high": 4961183,
+          "ramp_pct": 0.8
+        },
+        {
+          "year": 5,
+          "logos_low": 31.1,
+          "logos_high": 51.7,
+          "envelope_low": 3.0,
+          "envelope_high": 120.0,
+          "arr_low": 3730638,
+          "arr_high": 6201478,
+          "ramp_pct": 1.0
+        }
+      ],
+      "basis": "Monte Carlo p25-p75 logos, ramp-scaled",
+      "arr_year3_low": 2238383,
+      "arr_year3_high": 3720887
+    },
+    "B": {
+      "scenario": "B",
+      "acv": 1027962,
+      "years": [
+        {
+          "year": 1,
+          "logos_low": 3.1,
+          "logos_high": 5.2,
+          "envelope_low": 0.3,
+          "envelope_high": 12.0,
+          "arr_low": 3195795,
+          "arr_high": 5312403,
+          "ramp_pct": 0.1
+        },
+        {
+          "year": 2,
+          "logos_low": 9.9,
+          "logos_high": 16.5,
+          "envelope_low": 1.0,
+          "envelope_high": 38.4,
+          "arr_low": 10226543,
+          "arr_high": 16999691,
+          "ramp_pct": 0.32
+        },
+        {
+          "year": 3,
+          "logos_low": 18.7,
+          "logos_high": 31.0,
+          "envelope_low": 1.8,
+          "envelope_high": 72.0,
+          "arr_low": 19174768,
+          "arr_high": 31874420,
+          "ramp_pct": 0.6
+        },
+        {
+          "year": 4,
+          "logos_low": 24.9,
+          "logos_high": 41.3,
+          "envelope_low": 2.4,
+          "envelope_high": 96.0,
+          "arr_low": 25566358,
+          "arr_high": 42499227,
+          "ramp_pct": 0.8
+        },
+        {
+          "year": 5,
+          "logos_low": 31.1,
+          "logos_high": 51.7,
+          "envelope_low": 3.0,
+          "envelope_high": 120.0,
+          "arr_low": 31957947,
+          "arr_high": 53124033,
+          "ramp_pct": 1.0
+        }
+      ],
+      "basis": "Monte Carlo p25-p75 logos, ramp-scaled",
+      "arr_year3_low": 19174768,
+      "arr_year3_high": 31874420
+    }
+  },
+  "state_sotp": {
+    "buyers": 34,
+    "deal_shape": "portal replacement / platform contract",
+    "acv_low": 2500000,
+    "acv_high": 8000000,
+    "acv_basis": "Analyst range. No state portal procurement value is published anywhere. Anchored on the observation that a state portal must serve a whole-state ecosystem and is a scored national deliverable - but this is PRIOR, not evidence.",
+    "provenance": "PRIOR",
+    "attainable_years": [
+      3,
+      8
+    ],
+    "attainable_basis": "Zero to eight of 34 over three years. A state portal decision is a ministerial one; it is not a founder-led sales motion and it does not compound the way institutional licences do.",
+    "caveat": "Sized separately and on the PRIOR tier. The whole point of segment G9 is that it is the only ACT NOW quadrant - but ACT NOW means the forcing event is strong, not that the sale is easy. Treat this as an option, not a plan.",
+    "forcing_event": "SRF evaluation cycle; results published each January"
+  },
+  "state_sotp_value": {
+    "arr_low": 7500000,
+    "arr_high": 64000000
+  },
+  "adoption": [
+    {
+      "series": "NIRF unique institutions",
+      "years": 9,
+      "start": 2426,
+      "end": 7692,
+      "multiple": 3.17,
+      "cagr_pct": 13.7,
+      "provenance": "T1_DOCUMENTED",
+      "meaning": "The number of institutions voluntarily entering a ranking regime."
+    },
+    {
+      "series": "NIRF total applications",
+      "years": 9,
+      "start": 3565,
+      "end": 14163,
+      "multiple": 3.97,
+      "cagr_pct": 16.6,
+      "provenance": "T1_DOCUMENTED",
+      "meaning": "Applications across categories - shows multi-category filing."
+    },
+    {
+      "series": "IICs established",
+      "years": 4,
+      "start": 6400,
+      "end": 16367,
+      "multiple": 2.56,
+      "cagr_pct": 26.5,
+      "provenance": "T1_DOCUMENTED",
+      "meaning": "Conflict C-01: the start figure is an earlier official count, the end is the latest."
+    },
+    {
+      "series": "SRF participating states",
+      "years": 8,
+      "start": 30,
+      "end": 34,
+      "multiple": 1.13,
+      "cagr_pct": 1.6,
+      "provenance": "T1_DOCUMENTED",
+      "meaning": "State participation is effectively saturated - the only curve that is."
+    }
+  ],
+  "penetration": {
+    "heis": 58643,
+    "innovation_filers": 777,
+    "innovation_penetration_pct": 1.32,
+    "any_category_penetration_pct": 13.1,
+    "iic_penetration_floor_pct": 24.0,
+    "iic_penetration_ceiling_pct": 27.9,
+    "interpretation": "Only 1.32% of registered higher education institutions file a NIRF Innovation return, while 24-28% hold an IIC. The gap between those two numbers - roughly 13,000 institutions that are mandated to report and do not - is the structural headroom. It is also the population most likely to be unready, which is why digital readiness (filter 2) and innovation activity (filter 3) remove most of them."
+  },
+  "triangulation": [
+    {
+      "scenario": "A",
+      "m1_ceiling": "168.8-196.4 cr",
+      "m2_ceiling": "139.7-838.5 cr",
+      "reachable": "1.8-15.8 cr",
+      "ceiling_low": 139.7456,
+      "ceiling_high": 838.4736,
+      "reachable_low": 1.7592900000000005,
+      "reachable_high": 15.833609999999997,
+      "ceiling_span_multiple": 6.0,
+      "ceilings_agree": true,
+      "ceiling_to_reachable_gap_x": 53.0
+    },
+    {
+      "scenario": "B",
+      "m1_ceiling": "1446.0-1682.5 cr",
+      "m2_ceiling": "1197.1-7182.7 cr",
+      "reachable": "15.1-135.6 cr",
+      "ceiling_low": 1197.1097205600001,
+      "ceiling_high": 7182.65832336,
+      "reachable_low": 15.070693891500001,
+      "reachable_high": 135.63624502349995,
+      "ceiling_span_multiple": 6.0,
+      "ceilings_agree": true,
+      "ceiling_to_reachable_gap_x": 53.0
+    }
+  ],
+  "triangulation_verdict": {
+    "finding": "The ceiling methods and the reachable method are NOT supposed to agree, and we refuse to average them. Their gap is the single most useful number here.",
+    "rule": "M1 and M2 are ceilings: they state what would exist if we won every eligible institution. The reachable method applies an explicit adoption-and-capture band. Report both. The ratio between them is the growth headroom an investor is buying.",
+    "precedent": "Phase 5 recorded conflict C-05: two research houses size the SAME market 625x apart (US$499M vs US$0.8M). Published sizing in this category is demonstrably unusable. That is why M1 is built bottom-up from institution counts and budget documents rather than from a report.",
+    "investor_note": "A TAM is a ceiling, not a forecast. The number to underwrite is SOM, which is capacity-built and roughly two orders of magnitude below TAM. Anyone showing one TAM number without its method is asking you to trust a method they have not shown you. Ours are all three, and one of them is the bad news."
+  },
+  "falsifiers": [
+    {
+      "id": "F-01",
+      "claim": "SAM contains ~777 institutions",
+      "what_would_break_it": "NIRF Innovation filers turn out to file for a compliance minimum with no reporting burden worth paying to remove",
+      "threshold": "If 3 of 6 interviewed filers describe the return as near-zero-effort, SAM collapses toward the IIC registration count rather than the filer count",
+      "observable": "Phase 3B interviews"
+    },
+    {
+      "id": "F-02",
+      "claim": "Digital readiness removes most colleges",
+      "what_would_break_it": "Cloud delivery makes institutional backbone irrelevant",
+      "threshold": "If on-premise demand falls below 20% (H-10 prior lower bound) then the 24% NKN figure stops being a constraint and SAM roughly doubles",
+      "observable": "OQ-30 / H-10; currently 0% of institutions observed"
+    },
+    {
+      "id": "F-03",
+      "claim": "Ecosystem maturity removes ~25% of SAM",
+      "what_would_break_it": "Emerging-tier states turn out to be the best prospects (most to gain, least incumbent)",
+      "threshold": "If Emerging-tier states are easier to convert than established ones, the haircut is removed and SAM rises to the full 777",
+      "observable": "No Emerging-tier state report obtainable (Phase 6) - untestable today"
+    },
+    {
+      "id": "F-04",
+      "claim": "SOM is capacity-constrained, not demand-constrained",
+      "what_would_break_it": "Conversion turns out much higher than the 2-20% prior",
+      "threshold": "Conversion above 30% would make capacity, not conversion, the binding constraint and would justify hiring ahead of revenue",
+      "observable": "OQ-03 / first 12 institutions"
+    },
+    {
+      "id": "F-05",
+      "claim": "Scenario B is a real price",
+      "what_would_break_it": "it is not - every rupee in Scenario B is aspirational",
+      "threshold": "Any single signed contract at or above Rs 5 lakh per year",
+      "observable": "OQ-03, open since Phase 0"
+    },
+    {
+      "id": "F-06",
+      "claim": "The state layer is an option worth pursuing",
+      "what_would_break_it": "State portals are politically untouchable or already outsourced to a consortium",
+      "threshold": "One state nodal officer describing the portal as fixed or out of scope",
+      "observable": "No Nodal Officer has been spoken to"
+    }
+  ],
+  "interviews_conducted": 0,
+  "provenance_note": "No primary interview evidence exists. Every non-documented value carries MODELLED / SIMULATED / BOUNDED / PRIOR."
+}

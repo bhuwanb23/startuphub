@@ -1,0 +1,7 @@
+﻿metric,value,pct_of_heis,source,provenance,note
+Registered HEIs,58643,100.0,AISHE 2021-22,T1_DOCUMENTED,Super-bound
+IIC-bearing institutions (floor),14067,24.0,AIM 2024-07-31,T1_DOCUMENTED,Conflict C-01: three official counts
+IIC-bearing institutions (ceiling),16367,27.9,MoE status page,T1_DOCUMENTED,
+NIRF Innovation filers (2025),777,1.32,NIRF 2025,T1_DOCUMENTED,The observed behaviour ceiling
+NIRF any-category applicants (2025),7692,13.1,NIRF 2025,T1_DOCUMENTED,
+GAP: IIC-mandated but not filing,13290,22.7,derived,MODELLED,Structural headroom - and also the least-ready population.

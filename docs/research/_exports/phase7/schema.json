@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.0",
+  "build_date": "2026-10-19",
+  "phase": 7,
+  "layer": "machine-readable",
+  "prose_layer": "05_Market_Sizing/",
+  "provenance_classes": [
+    "T1_DOCUMENTED",
+    "MODELLED",
+    "SIMULATED",
+    "BOUNDED",
+    "PRIOR"
+  ],
+  "files": {
+    "adoption_curves.csv": "rows=4",
+    "arr_bridge.csv": "rows=10",
+    "penetration.csv": "rows=6",
+    "sam_funnel.csv": "rows=7",
+    "som_capacity.csv": "rows=10",
+    "tam_methods.csv": "rows=6",
+    "triangulation.csv": "rows=2",
+    "unit_economics_linked.csv": "rows=10"
+  },
+  "price_scenarios": {
+    "A": {
+      "acv": 120000,
+      "base_case": true,
+      "viable": false,
+      "provenance": "T1_DOCUMENTED (competitor anchor Rs 75,000) + PRIOR (our own list price)"
+    },
+    "B": {
+      "acv": 1027962,
+      "base_case": false,
+      "viable": true,
+      "provenance": "SIMULATED"
+    }
+  },
+  "headline": {
+    "base_scenario": "A",
+    "base_acv": 120000,
+    "tam_ceiling_a_cr": "168.8-196.4",
+    "reachable_a_cr": "1.8-15.8",
+    "sam_institutions": "582-777",
+    "som_logos_y3": "19-31"
+  },
+  "guardrails": [
+    "TAM is a ceiling, never a forecast",
+    "Ceilings are never averaged with reachable estimates",
+    "Scenario A is the base case; Scenario B is upside and has zero price evidence",
+    "Capacity, not market share, sets SOM",
+    "Every figure carries a source or a provenance class",
+    "0 interviews conducted - no observation may be invented"
+  ],
+  "open_questions_blocking": [
+    "OQ-03 willingness to pay"
+  ],
+  "falsifiers": 6
+}
