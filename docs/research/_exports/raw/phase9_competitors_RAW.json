@@ -987,8 +987,8 @@
       "pricing": "UK G-Cloud list £19,406–£58,504/yr + £32,250 onboarding",
       "price_inr_low": 1628250,
       "price_inr_high": 4902020,
-      "evidence": "NAMED_LOGO",
-      "customers": "Universities and research institutions worldwide",
+      "evidence": "UNKNOWN",
+      "customers": "Universities and research institutions worldwide (generic - none named)",
       "customers_n": 0,
       "reviews": 0,
       "threat": "LOW",
@@ -2133,17 +2133,17 @@
     }
   ],
   "evidence_summary": {
-    "UNKNOWN": 15,
+    "UNKNOWN": 16,
     "VENDOR_CLAIM": 7,
-    "NAMED_LOGO": 4,
+    "NAMED_LOGO": 3,
     "NAMED_REFERENCE": 2
   },
   "india_presence": {
     "indian_vendors": 5,
     "named_reference": 2,
-    "named_logo": 4,
+    "named_logo": 3,
     "vendor_claim": 7,
-    "unknown": 15,
+    "unknown": 16,
     "data_residency_india": 1
   },
   "supersedes": "04_Competitor_DeepDive",

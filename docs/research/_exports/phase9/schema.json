@@ -47,17 +47,17 @@
     "revised_claims": 5,
     "falsified": 2,
     "evidence": {
-      "UNKNOWN": 15,
+      "UNKNOWN": 16,
       "VENDOR_CLAIM": 7,
-      "NAMED_LOGO": 4,
+      "NAMED_LOGO": 3,
       "NAMED_REFERENCE": 2
     },
     "india": {
       "indian_vendors": 5,
       "named_reference": 2,
-      "named_logo": 4,
+      "named_logo": 3,
       "vendor_claim": 7,
-      "unknown": 15,
+      "unknown": 16,
       "data_residency_india": 1
     }
   },
