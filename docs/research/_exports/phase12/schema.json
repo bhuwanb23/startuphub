@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": "12 - feature gap analysis",
+  "rules": {
+    "saturation_threshold": 0.5,
+    "rule_1": "a capability held natively or better by >= 50% of vendors cannot be a differentiator",
+    "rule_2": "competitor absence and user demand are separate claims, recorded in separate columns and never merged",
+    "rule_3": "every differentiator carries a falsifier"
+  },
+  "verdicts": {
+    "gaps": [
+      "SURVIVES",
+      "NARROWED",
+      "CONTESTED",
+      "RETIRED",
+      "SURVIVES_AS_REQUIREMENT"
+    ],
+    "features": [
+      "EVIDENCED",
+      "DEFERRED",
+      "SATURATED",
+      "CONTRADICTED",
+      "NEEDS_PRIMARY"
+    ]
+  },
+  "files": {
+    "differentiators.csv": "the 6 differentiators plus the packaging requirement",
+    "gap_scorecard.csv": "all 13 gaps re-scored against 40 vendors",
+    "competitor_coverage.csv": "40 vendors x 6 differentiators",
+    "features_map.csv": "all 46 docs/features.md sections triaged",
+    "modules_map.csv": "the 12 modules triaged",
+    "win_strategies.csv": "how each differentiator is won"
+  },
+  "summary": {
+    "vendors": 40,
+    "differentiators": 6,
+    "packaging": 1,
+    "gaps_scored": 13,
+    "gaps_surviving": 5,
+    "gaps_narrowed": 5,
+    "gaps_contested": 1,
+    "gaps_retired": 2,
+    "features_sections": 46,
+    "modules": 12,
+    "vendors_holding_any": 6,
+    "vendors_holding_two": 2,
+    "contested_by_d1": 2,
+    "contested_by_d2": 2
+  },
+  "interviews_conducted": 0
+}
