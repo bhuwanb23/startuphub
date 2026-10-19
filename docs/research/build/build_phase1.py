@@ -105,7 +105,20 @@ def build_wide():
             row[k] = m.get(k)
         row["pending_extraction"] = r.get("pending_extraction") or ""
         rows.append(row)
-    return cols, rows
+    # BUG FIX: `star_rating` is declared in the identity block above AND appears
+    # again in METRIC_ORDER, so the header carried it twice. csv.DictReader
+    # silently collapses duplicate fields to the last one, discarding a column,
+    # and PowerShell's Import-Csv rejects the file outright. Same disease the
+    # project documents in institutional ledgers - one field meaning two things.
+    seen, deduped = set(), []
+    for c in cols:
+        if c not in seen:
+            seen.add(c)
+            deduped.append(c)
+    dropped = [c for c in cols if cols.count(c) > 1]
+    if dropped:
+        print(f"  note: de-duplicated column(s) {sorted(set(dropped))} from iic_reports_wide.csv")
+    return deduped, rows
 
 
 def build_long():
