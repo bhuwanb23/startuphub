@@ -36,6 +36,7 @@ STEPS = [
     ("Phase 2 - customer roles and approval chain", "build_phase2.py"),
     ("Phase 3A - NIRF/ARIIA government forms", "build_phase3.py"),
     ("Phase 3B - interview programme (instruments)", "build_phase3b.py"),
+    ("Phases 4/5/7/30 - segmentation, market, sizing, scorecard", "build_phase45.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -114,6 +115,9 @@ def main() -> int:
     print("    _exports/phase3/            Phase 3A NIRF/ARIIA form data")
     print("    02_User_Research/README.md  Phase 3B interview programme (0 conducted)")
     print("    _exports/phase3b/           Phase 3B instruments, shortlist, codes")
+    print("    03_Market_Research/README.md  Phase 5 ecosystem base (T1 sources)")
+    print("    05_Market_Sizing/README.md    Phase 7 TAM/SAM/SOM as ranges")
+    print("    13_Synthesis/Validation_Scorecard.md  Phase 30, interviews = 0")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 
