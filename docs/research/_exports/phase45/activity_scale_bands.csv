@@ -1,0 +1,37 @@
+﻿id,institution,short_name,corpus_type,spec_type,activity_band,fields_reported,fields_total,activities_total,ideas_generated,startups_total,amount_inr
+IIC-001,National Institute of Technology Calicut,NIT Calicut,NIT (central),NIT,Large ecosystem,4,4,67.0,155.0,55.0,151488.0
+IIC-001b,National Institute of Technology Calicut,NIT Calicut,NIT (central),NIT,No ecosystem,0,4,,,,
+IIC-002,National Institute of Technology Calicut,NIT Calicut,NIT (central),NIT,Active,3,4,63.0,90.0,8.0,
+IIC-003,National Institute of Technology Andhra Pradesh,NIT Andhra Pradesh,NIT (central),NIT,Mature,4,4,5.0,2.0,1.0,4584000.0
+IIC-004,Kongu Engineering College,Kongu Engineering College,Autonomous engineering college,Autonomous College,Large ecosystem,4,4,59.0,458.0,20.0,675200.0
+IIC-005,Manav Rachna University,Manav Rachna University,Private deemed university,Private University,Mature,4,4,54.0,24.0,8.0,242373.0
+IIC-006,PIET Poornima,PIET Poornima,Engineering college,Engineering College,Mature,4,4,33.0,40.0,15.0,61000.0
+IIC-007,"ICFAI University, Tripura",ICFAI University Tripura,Private deemed university,Private University,Emerging,2,4,,24.0,,30000.0
+IIC-008,Regent Education and Research Foundation Group of Institutions,Regent RERFGI,Private university group,Private University,Emerging,2,4,78.0,,2.0,
+IIC-009,V.C. Engineering College,VC Engineering College,Engineering college,Engineering College,No ecosystem,0,4,,,,
+IIC-010,"Birla Institute of Technology and Science, Mesra",BIT Mesra,Deemed university (private),Private University,No ecosystem,0,4,,,,
+IIC-011,"Institute of Science, Nagpur",Institute of Science Nagpur,Autonomous science college,Autonomous College,Active,3,4,,3.0,1.0,40000.0
+IIC-012,Scottish Church College,Scottish Church Kolkata,Undergraduate college,College (affiliated/general),Mature,4,4,8.0,12.0,1.0,30000.0
+IIC-013,St. Paul's College of Pharmacy,St Paul's College of Pharmacy,Pharmacy college,Medical Institution,No ecosystem,0,4,,,,
+IIC-014,Sri Venkateswara College of Pharmacy,SV College of Pharmacy Chittoor,Pharmacy college,Medical Institution,No ecosystem,0,4,,,,
+IIC-015,Karpaga Vinayaga College of Engineering and Technology,KIT CoE,Engineering college,Engineering College,No ecosystem,0,4,,,,
+IIC-016,C.M.R. Institute of Technology,CMRIT,Autonomous engineering college,Autonomous College,Mature,4,4,164.0,400.0,9.0,247994.0
+IIC-017,KCG College of Technology,KCG College of Technology,Engineering college,Engineering College,Mature,4,4,95.0,102.0,13.0,1352131.0
+IIC-018,SIGCE,SIGCE,Engineering college,Engineering College,Active,3,4,,18.0,1.0,25000.0
+IIC-019,Raghu Engineering College,REC Raghu,Autonomous engineering college,Autonomous College,Active,3,4,94.0,7.0,4.0,
+IIC-020,Narsimha Reddy Engineering College,NRCM,Engineering college,Engineering College,Active,3,4,70.0,50.0,2.0,
+IIC-021,Shree L.R. Tiwari College of Engineering,SLRTCE,Engineering college,Engineering College,Emerging,2,4,65.0,,,30000.0
+IIC-022,"IPS Academy, Institute of Engineering and Science",IPS Academy Indore,Autonomous engineering college,Autonomous College,Emerging,2,4,,488.0,2.0,
+IIC-023,S.I.E.S. College of Management Studies,SIES CoMS,Management college (non-technical),Management Institution,Emerging,2,4,2.0,,,50000.0
+IIC-024,Shree Sathyam College of Engineering and Technology,SSCET,Engineering college,Engineering College,Emerging,1,4,42.0,,,
+IIC-025,Vijaya Institute of Pharmaceutical Sciences for Women,VIPS Women,Pharmacy college,Medical Institution,Active,3,4,35.0,60.0,,50000.0
+IIC-026,Vivekanandha Arts and Science College for Women,Vivekanandha College,Arts and science college (non-technical),College (affiliated/general),Active,3,4,112.0,48.0,,30000.0
+IIC-027,Kanoria PG Mahila Mahavidyalaya,Kanoria Jaipur,PG women's college (non-technical),College (affiliated/general),Active,3,4,79.0,21.0,,120000.0
+IIC-028,Rathinam College of Pharmacy,Rathinam College of Pharmacy,Pharmacy college,Medical Institution,No ecosystem,0,4,,,,
+IIC-029,Model Institute of Engineering and Technology,MIET Jammu,Autonomous engineering college,Autonomous College,Emerging,2,4,,,1.0,410000.0
+IIC-030,Dr. N.G.P. Arts and Science College,Dr NGP ASC,Autonomous arts and science college,Autonomous College,Emerging,1,4,,,,285100.0
+IIC-031,Teresa's College,Teresa's College,Arts and science college (non-technical),College (affiliated/general),Emerging,1,4,,,,342624.0
+IIC-032,Brainware University,Brainware University,Private deemed university,Private University,Active,3,4,76.0,190.0,,274927.5
+IIC-033,Women's Christian College,WCC Chennai,Arts and science college (non-technical),College (affiliated/general),Active,3,4,84.0,25.0,,67205.0
+IIC-034,Engineering College Greater Noida / EGSPEC,EGSPEC,Engineering college,Engineering College,Mature,4,4,42.0,843.0,2.0,150000.0
+IIC-035,Marathwada Mitra Mandal's College of Pharmacy,MMCOP Pune,Pharmacy college,Medical Institution,Active,3,4,6.0,18.0,2.0,

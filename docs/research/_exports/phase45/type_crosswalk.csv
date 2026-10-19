@@ -1,0 +1,14 @@
+﻿corpus_label,corpus_documents,spec_type,spec_vocabulary_entry
+Engineering college,9,Engineering College,True
+Autonomous engineering college,5,Autonomous College,True
+Pharmacy college,5,Medical Institution,True
+NIT (central),4,NIT,True
+Private deemed university,3,Private University,True
+Deemed university (private),1,Private University,True
+Private university group,1,Private University,True
+Arts and science college (non-technical),3,College (affiliated/general),True
+Autonomous science college,1,Autonomous College,True
+Autonomous arts and science college,1,Autonomous College,True
+Undergraduate college,1,College (affiliated/general),True
+PG women's college (non-technical),1,College (affiliated/general),True
+Management college (non-technical),1,Management Institution,True
