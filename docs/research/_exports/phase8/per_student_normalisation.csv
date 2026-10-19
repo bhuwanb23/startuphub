@@ -1,0 +1,21 @@
+﻿series,students,annual_inr,annual_lakh,basis
+Fedena Standard (flat),500,50000,0.5,flat per institution
+Fedena Standard (flat),1000,50000,0.5,flat per institution
+Fedena Standard (flat),2000,50000,0.5,flat per institution
+Fedena Standard (flat),5000,50000,0.5,flat per institution
+Fedena Ultimate (flat),500,100000,1.0,flat per institution
+Fedena Ultimate (flat),1000,100000,1.0,flat per institution
+Fedena Ultimate (flat),2000,100000,1.0,flat per institution
+Fedena Ultimate (flat),5000,100000,1.0,flat per institution
+EduZenAI Enterprise (base + per-student),500,34000,0.34,"base Rs 20,000 + Rs 70/student above 300"
+EduZenAI Enterprise (base + per-student),1000,69000,0.69,"base Rs 20,000 + Rs 70/student above 300"
+EduZenAI Enterprise (base + per-student),2000,139000,1.39,"base Rs 20,000 + Rs 70/student above 300"
+EduZenAI Enterprise (base + per-student),5000,349000,3.49,"base Rs 20,000 + Rs 70/student above 300"
+Campusify Plus (per-student),500,594000,5.94,Rs 99/student/month
+Campusify Plus (per-student),1000,1188000,11.88,Rs 99/student/month
+Campusify Plus (per-student),2000,2376000,23.76,Rs 99/student/month
+Campusify Plus (per-student),5000,5940000,59.4,Rs 99/student/month
+DHONDI college (per-student),500,500000,5.0,"Rs 1,000/student/year"
+DHONDI college (per-student),1000,1000000,10.0,"Rs 1,000/student/year"
+DHONDI college (per-student),2000,2000000,20.0,"Rs 1,000/student/year"
+DHONDI college (per-student),5000,5000000,50.0,"Rs 1,000/student/year"

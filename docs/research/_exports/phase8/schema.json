@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": 8,
+  "layer": "machine-readable",
+  "prose_layer": "06_Pricing_Research/",
+  "confidence_classes": [
+    "VERIFIED_LIVE",
+    "PUBLISHED",
+    "DOCUMENT",
+    "AGGREGATOR",
+    "CONFLICT",
+    "CURRENCY_UNCERTAIN"
+  ],
+  "provenance": "DERIVED-FROM-COMPARABLES",
+  "fx": {
+    "usd_inr": 83.5,
+    "eur_inr": 92.0,
+    "gbp_inr": 106.0,
+    "jpy_inr": 0.55,
+    "as_of": "2026-10-19",
+    "note": "Single mid-market reference. Every non-INR price in this file is flagged as FX-derived and must not be treated as a vendor-quoted INR price."
+  },
+  "headline": {
+    "comparables": 46,
+    "live_verified": 28,
+    "conflicts_recorded": 3,
+    "free_competitors": 2,
+    "indian_envelope": "₹10,000 - ₹720,000",
+    "list_price": "₹120,000",
+    "list_price_vs_erp_ceiling": "1.2x",
+    "required_acv": "₹1,027,962",
+    "required_acv_position": "ABOVE observed Indian market",
+    "scenario_b_gap": "1.43x above the highest Indian price observed",
+    "wtp_floor": "₹50,000",
+    "wtp_ceilings": {
+      "vs campus ERP (broad substitutes)": "₹100,000",
+      "vs incubation platforms (like-for-like)": "₹720,000",
+      "vs cost of failure (value-based)": "₹600,000",
+      "vs government procurement (GeM)": "₹500,000"
+    }
+  },
+  "guardrails": [
+    "Every price carries a source URL and a retrieval date",
+    "Conflicting sources are recorded, never averaged",
+    "Non-INR prices are flagged FX-derived and never treated as vendor-quoted INR",
+    "WTP is DERIVED-FROM-COMPARABLES, never MEASURED, while interviews = 0",
+    "The WTP instrument is not administered and publishes no results",
+    "Ceilings are frame-dependent and are never collapsed to a single number"
+  ],
+  "open_questions_blocking": [
+    "OQ-03 willingness to pay"
+  ],
+  "interviews_conducted": 0,
+  "charts": [
+    "p8_01_price_ladder.png",
+    "p8_02_envelope_gap.png",
+    "p8_03_wtp_frames.png",
+    "p8_04_models.png",
+    "p8_05_per_student.png",
+    "p8_06_model_d_failure.png",
+    "p8_07_gem_bands.png",
+    "p8_08_wtp_streams.png",
+    "p8_09_categories.png",
+    "p8_10_unit_economics_bind.png"
+  ]
+}

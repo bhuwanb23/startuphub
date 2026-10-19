@@ -1,0 +1,19 @@
+﻿vendor,product,inr_annualised,inr_lakh,category,scope,confidence,url,position_vs_list
+EduZenAI (collegesoftware.in),Startup,10000,0.1,campus,"college ERP web version, payments, biometric, WhatsApp, exams, library, hostel, transport",VERIFIED_LIVE,https://collegesoftware.in/pricing.php,BELOW list price
+NestLens (LabelNest),Orbit PM,29988,0.3,incubation,"programme management, scales with cohort size",VERIFIED_LIVE,https://labelnest.in/nestlens,BELOW list price
+Fedena (Foradian),Standard,50000,0.5,campus,"FULL college ERP: admissions, attendance, exams, fees, library, hostel, transport, payroll, parent portal, mobile apps",PUBLISHED,https://fedena.com/pricing,BELOW list price
+NestLens (LabelNest),Orbit Launch,75000,0.75,incubation,"incubation OS: intake, screening, evaluation, cohorts, mentors, MOMs, grants, compliance",VERIFIED_LIVE,https://labelnest.in/nestlens/orbit,BELOW list price
+Fedena (Foradian),Premium,75000,0.75,campus,as above,PUBLISHED,https://fedena.com/pricing,BELOW list price
+NestLens (LabelNest),Orbit Starter,99000,0.99,incubation,as above,VERIFIED_LIVE,https://labelnest.in/nestlens/orbit,BELOW list price
+Fedena (Foradian),Ultimate,100000,1.0,campus,as above,PUBLISHED,https://fedena.com/pricing,BELOW list price
+IncubatX,Foundation (low),120000,1.2,incubation,as above,VERIFIED_LIVE,https://incubatx.com/,ABOVE list price
+NestLens (LabelNest),Orbit Growth,125000,1.25,incubation,as above,VERIFIED_LIVE,https://labelnest.in/nestlens/orbit,ABOVE list price
+IncubatX,Foundation,180000,1.8,incubation,"cohort management, startup tracking, AI reporting",VERIFIED_LIVE,https://incubatx.com/,ABOVE list price
+IncubatX,Media Kit add-on,180000,1.8,incubation,"visibility/media add-on, not core platform",VERIFIED_LIVE,https://incubatx.com/,ABOVE list price
+NestLens (LabelNest),Orbit Scale,250000,2.5,incubation,as above + API + white-label,VERIFIED_LIVE,https://labelnest.in/nestlens/orbit,ABOVE list price
+Incubatee (SCIP),Platform subscription,300000,3.0,incubation,"incubator platform, part of the scip.co group",PUBLISHED,https://www.incubatee.com/company,ABOVE list price
+NestLens (LabelNest),Orbit OS (module page),359988,3.6,incubation,full programme ERP,CONFLICT,https://labelnest.in/nestlens,ABOVE list price
+IncubatX,Accelerator,480000,4.8,incubation,"+ grants, CSR, funding, investor/mentor matchmaking",VERIFIED_LIVE,https://incubatx.com/,ABOVE list price
+IncubatX,Executive AI,720000,7.2,incubation,"everything + dedicated implementation, advanced analytics",VERIFIED_LIVE,https://incubatx.com/,ABOVE list price
+Founderhood,Free,0,0,incubation,"applications, programmes, mentors, evaluation",CURRENCY_UNCERTAIN,https://www.thefounderhood.com/pricing,FREE SUBSTITUTE
+Univation (Incubators Platform),Universities & nonprofits,0,0,incubation,incubator/accelerator programme management - same job as StartupHub,PUBLISHED,https://www.capterra.com/p/253529/Incubators-Platform/,FREE SUBSTITUTE

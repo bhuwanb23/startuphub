@@ -89,20 +89,20 @@ def chart_price_ladder():
         ax.text(c["inr"] * 1.12, i, inr(c["inr"]), va="center", fontsize=8.4,
                 color="#334155", fontweight="bold")
 
-    ax.annotate(f"StartupHub list price\n{RS}{lp:,}", xy=(lp, -0.9), xytext=(lp, -2.0),
-                ha="center", color=RED, fontsize=9, fontweight="bold")
-    ax.annotate(f"Phase 7 Scenario B\n{RS}{ra:,}\n1.43x above everything observed",
-                xy=(ra, len(rows) - 0.3), xytext=(ra, len(rows) - 2.4),
-                ha="center", color=RED, fontsize=9, fontweight="bold")
+    ax.annotate(f"StartupHub\nlist price {RS}{lp:,}", xy=(lp, -0.9), xytext=(lp, -2.5),
+                ha="right", va="center", color=RED, fontsize=9, fontweight="bold")
+    ax.annotate(f"Phase 7 Scenario B {RS}{ra:,}\n"
+                f"{round(ra / env['high'], 2)}x above the highest\nprice observed in India",
+                xy=(ra, -0.9), xytext=(ra, -2.4),
+                ha="center", va="center", color=RED, fontsize=9, fontweight="bold")
 
-    # free competitors
-    ax.axvline(1, color=SLATE, lw=1, alpha=0.4)
     handles = [Patch(color=CAT_COLOR[k], label=k) for k in ("incubation", "campus")]
     handles += [Patch(color=RED, label="StartupHub scenarios"),
                 Patch(color=SLATE, label="free competitors (plotted at Rs 1)")]
-    ax.legend(handles=handles, loc="lower right", fontsize=9)
+    ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, -0.07),
+              ncol=4, fontsize=9)
     ax.set_ylim(len(rows) - 0.4, -3.4)
-    ax.set_xlim(1, 3e6)
+    ax.set_xlim(1, 6e6)
     _save(fig, "p8_01_price_ladder")
 
 

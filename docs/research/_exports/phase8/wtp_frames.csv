@@ -1,0 +1,6 @@
+﻿frame,ceiling,ceiling_lakh,ceiling_basis,source_stream,read,binding
+vs campus ERP (broad substitutes),100000,1.0,"Fedena Ultimate, full ERP, unlimited users",6,Our list price of Rs 1.2L is ALREADY 20% above this ceiling. Competing here at Rs 1.2L means being more expensive than a strictly broader product.,True
+vs incubation platforms (like-for-like),720000,7.2,"IncubatX Executive AI, top observed tier",1,Under this frame Rs 1.2L is comfortable and Scenario B's Rs 10.28L is still 1.43x above everything observed.,False
+vs cost of failure (value-based),600000,6.0,P-A07 patent-deadline exposure,5,Defensible only where the buyer feels the pain directly - i.e. an institution with a real grant or accreditation deadline at stake.,False
+vs government procurement (GeM),500000,5.0,GeM reverse-auction threshold; 5-15% L1-L5 spread,4,Above Rs 5 lakh the sale becomes an auction and the realised price compresses. Effective realised ceiling is below Rs 5 lakh.,False
+FLOOR (all frames),50000,0.5,"cheapest credible paid position (Fedena Standard, full ERP)","1,6","Floor is Rs 50,000 - below that we are under market and cannot fund CAC. The ceiling is frame-dependent, so it is published per frame rather than collapsed. Against the binding frame (campus ERP) our list price is already 1.2x the ceiling.",False
