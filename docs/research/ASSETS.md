@@ -541,3 +541,77 @@ sales-cycle length — both sit at r ≈ 0.00 and cannot move the year-3 answer.
 | Priors are triangular because we hold three views | Wider than we may need; deliberately not a normal curve |
 | Zero interviews | No cell has moved from PRIOR to DOCUMENTED |
 | The ₹1-crore conclusion is conditional on priors | Move `conversion` or `acv_realised` and it changes |
+
+---
+
+## 17. Phase 5 financial rebuild
+
+| Asset | What it is |
+|---|---|
+| `03_Market_Research/Financial_Landscape.md` | Union Budget FY 25-26, headroom, funding pools |
+| `03_Market_Research/Buyer_Determination.md` | The 4-stage funnel + disqualifiers + private-college bound |
+| `03_Market_Research/Market_Sizing.md` | Three sizings, never summed; C-04/C-05 |
+| `03_Market_Research/Unit_Economics.md` | CAC / LTV / payback / required ACV |
+| `_exports/phase5/` | budget_allocations, budget_headroom, funding_pools, market_sizing, buyer_funnel, unit_economics, conflicts |
+
+Reproduce: `python build/build_phase5.py`.
+
+### Three findings that change the plan
+
+**1. We have never been price-disqualified.** Rs 120,000 against a NIT's ~Rs 190 crore
+budget is **0.0063%**. Against a private deemed university, ~0.002%. Lead with anything
+other than process friction and we are solving the wrong problem.
+
+**2. The money is already unspent.** NIT budget utilisation fell to **67%** (lowest since
+FY 19-20) — **~Rs 53 crore unspent per NIT**. CU 90%, IITs 84%.
+
+**3. But the business does not work yet.** Seeded Monte Carlo, 50,000 trials:
+
+| Metric | P25 | P50 | P75 |
+|---|---:|---:|---:|
+| CAC | Rs 5.79L | Rs 7.16L | Rs 8.59L |
+| LTV | Rs 1.07L | Rs 1.49L | Rs 1.95L |
+| Payback | 10.1 mo | 13.4 mo | 18.7 mo |
+| **LTV/CAC** | **0.14** | **0.21** | **0.29** |
+
+**P(LTV/CAC > 3) = 0.0%.** Not one trial in 50,000 reaches even 1.0. At the current price
+the business destroys about 80 paise per rupee of acquisition cost.
+
+### The coherent picture
+
+Viability needs ACV ≈ **Rs 10.3 lakh/year** — **8.6× the current list price**, and only
+**0.054%** of a NIT's budget.
+
+So: priced ~9× too low for our own sales model, and the budget can absorb the increase.
+**The only thing arguing against it is willingness to pay (`OQ-03`), still unmeasured.**
+
+Phase 7's price band is **deliberately unchanged** on the strength of unspent budget.
+Headroom is *capacity* evidence, not *willingness* evidence.
+
+### Buyer funnel — never summed
+
+| Stage | Population | A buyer population? |
+|---|---:|---|
+| 1. Registered HEIs | 58,643 | no — super-bound |
+| 2. State-public system (81% of enrolment) | ~46,000 | no |
+| 3. Holding an IIC/AIC/EIC | 14,067–16,367 | no — registration only |
+| **4. Filing innovation returns** | **777** | **YES** |
+
+Naive sum = 119,487, which is meaningless. 777 is a ceiling of who *could* buy.
+
+### Two new conflicts recorded
+
+- **C-04** — institution counts differ by *frame*, not error: AISHE 45,473 colleges,
+  IBEF 52,461, NITI ~46,000 affiliates of 495 SPUs.
+- **C-05** — the same market sized **625× apart**: 6Wresearch US$499M (2025) vs
+  Grand View US$0.8M (2024). Neither is usable as a denominator; both recorded.
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| **No private/state college balance sheet exists in any public source** | The primary segment's financials are `BOUNDED`, not documented |
+| AICTE cut 50% (Rs 400cr → Rs 200cr) | Regulator budget shrinking while institutions aren't |
+| Unit economics are `SIMULATED` over our own cost priors | Not market data; assumptions published in the doc |
+| Effective margin falls to 54% after on-premise servicing | H-10's on-premise prior is a direct margin hit |
+| Zero interviews | `OQ-03` open since Phase 0; the one thing that would settle the price |
