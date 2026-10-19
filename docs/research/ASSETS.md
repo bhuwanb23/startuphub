@@ -351,3 +351,51 @@ Reproduce: `python build/build_phase3b.py`.
 | Shortlist drawn only from institutions in the Phase 1 corpus | Selection bias toward institutions that publish |
 | 6 institutions is a small sample | Below 3-of-6 for anything; cannot support a claim about "Indian institutions" generally |
 | The artefact ask may be declined | `P-A10` (internal tooling) may stay HYPOTHESIS if most respondents refuse |
+
+---
+
+## 14. Phases 4 / 5 / 7 / 30 — market, segmentation, sizing, scorecard
+
+**Interviews conducted: 0. No market figure is a point estimate.**
+
+| Asset | What it is |
+|---|---|
+| `03_Market_Research/README.md` | Ecosystem base, all T1 government sources; why 58,643 is not a market |
+| `03_Market_Research/Segment_Census.md` | Phase 4 — 5 segments x 4 axes + the ICP |
+| `05_Market_Sizing/README.md` | Phase 7 — TAM/SAM/SOM as ranges + assumption ledger |
+| `13_Synthesis/Validation_Scorecard.md` | Phase 30 — rebuilt around what actually exists |
+| `_exports/phase45/` | market_base, iic_counts, conflicts, segments, icp_criteria, assumptions, sizing, validation_scorecard |
+
+Reproduce: `python build/build_phase45.py`.
+
+### Headline numbers
+
+| | |
+|---|---|
+| Registered HEIs (AISHE 2021-22) | 58,643 — **super-bound, not a market** |
+| Filed NIRF Innovation (2025) | **777** — SAM floor, observable behaviour |
+| IICs | **14,067 – 16,367** — three official sources, 16.4% spread |
+| TAM | Rs 105.5 cr – Rs 196.4 cr / year |
+| SAM | Rs 5.83 cr – Rs 92.30 cr / year (**15.8x band**, deliberate) |
+| SOM | Y1 Rs 2.25–7.20 lakh · Y2 Rs 6.00–18.00 lakh · Y3 Rs 11.25–30.00 lakh |
+
+### The finding that matters most
+
+**Three official sources give three different counts of how many IICs exist in India,
+differing by 16.4%, and none states its counting rule.** We therefore refuse to pick
+one and publish a range.
+
+This is the same defect documented inside 36 institutional reports and 11 government
+forms — a ledger that counts *entries* rather than *state*. We cannot cite one of
+these numbers as "the" market, and neither can the customer.
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| TAM/SAM band is dominated by 3 HYPOTHESIS inputs (price, conversion, discount) | Measuring any one collapses the range more than further market research |
+| SAM ceiling is NIRF applicants, most of whom file Overall not Innovation | Ceiling is arithmetic, not an estimate; true SAM is far below it |
+| I rejected the plan's own SOM (5/15/40-50) | Year-3 implied a sales team that does not exist |
+| Willingness to pay has **zero** primary evidence | `OQ-03` open since Phase 0; every rupee traces to a competitor's price |
+| Churn / renewal not modelled at all | LTV cannot be computed from evidence |
+| No segment validated against a customer | ICP's 2nd must-be is still HYPOTHESIS (H-01); if false, S1 collapses |

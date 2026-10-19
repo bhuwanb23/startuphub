@@ -58,10 +58,10 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | **1 Problem research** | 🟡 **Section A done, corpus 36/40** | `01_Problem_Research/A_` (10 analyses), `F_Synthesis/` | B–F need Phase 3 |
 | **2 Customer research** | ✅ **Complete (documentary)** | `08_User_Roles/` (25 roles, 4 classes), `_exports/phase2/`, diagram 06 | Behaviour needs Phase 3 |
 | **3 User interviews** | 🟡 **Instruments built, 0 interviews run** | `02_User_Research/` (4 guides, 10 hypotheses, 6-pair shortlist), `F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/`, `_exports/phase3b/` | Conducting the 12 interviews blocks 4, 7, 16, 17, 18, 30 |
-| 4 Segmentation + ICP | ⬜ | — | 🔴 blocked on 3 |
-| 5 Market research | 🟡 Seeded | `02_Landscape_Map/` | — |
+| 4 Segmentation + ICP | ✅ **Complete (documentary)** | `03_Market_Research/Segment_Census.md`, `_exports/phase45/` | Not validated against a customer |
+| 5 Market research | ✅ **Complete (T1 sources)** | `03_Market_Research/README.md`, `_exports/phase45/` | 6 recorded gaps incl. renewal intent |
 | 6 Government data | 🟡 Seeded | `05_Government_Data/` | — |
-| 7 TAM/SAM/SOM | ⬜ | `09_Market_Data/` | 🔴 blocked on 3 |
+| 7 TAM/SAM/SOM | ✅ **Complete as ranges** | `05_Market_Sizing/README.md` | Band dominated by 3 HYPOTHESIS inputs |
 | 8 Pricing | 🟡 Seeded | `06_Pricing_Evidence/` | 🔴 needs 3 for willingness-to-pay |
 | 9–12 Competitors | ✅ Done in Phase 0 | `04_Competitor_DeepDive/` | — |
 | 11 Competitor reviews | 🟡 Thin | dossiers | — |
@@ -72,7 +72,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 22–26 Tech/AI/legal/sec/IPR | ⬜ | `10_`, `11_` | Phase 1 gives `P-A07` a head start |
 | 27 Policy | 🟡 Seeded | `05_Government_Data/` | — |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
-| 30 Validation scorecard | ⬜ | — | 🔴 blocked on 3 |
+| 30 Validation scorecard | ✅ **Built (interviews = 0)** | `13_Synthesis/Validation_Scorecard.md` | 2 supported · 4 need interviews |
 | 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (124 rows) | — |
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |
