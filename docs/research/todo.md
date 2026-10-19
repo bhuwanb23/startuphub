@@ -57,7 +57,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 0 Positioning | ✅ Complete | `04_Competitor_DeepDive/`, `02_Landscape_Map/` | — |
 | **1 Problem research** | 🟡 **Section A done, corpus 36/40** | `01_Problem_Research/A_` (10 analyses), `F_Synthesis/` | B–F need Phase 3 |
 | **2 Customer research** | ✅ **Complete (documentary)** | `08_User_Roles/` (25 roles, 4 classes), `_exports/phase2/`, diagram 06 | Behaviour needs Phase 3 |
-| **3 User interviews** | 🟡 **Workstream A done (11 forms), B not started** | `01_Problem_Research/F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/` | B (interviews) blocks 4, 7, 16, 17, 18, 30 |
+| **3 User interviews** | 🟡 **Instruments built, 0 interviews run** | `02_User_Research/` (4 guides, 10 hypotheses, 6-pair shortlist), `F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/`, `_exports/phase3b/` | Conducting the 12 interviews blocks 4, 7, 16, 17, 18, 30 |
 | 4 Segmentation + ICP | ⬜ | — | 🔴 blocked on 3 |
 | 5 Market research | 🟡 Seeded | `02_Landscape_Map/` | — |
 | 6 Government data | 🟡 Seeded | `05_Government_Data/` | — |
@@ -380,7 +380,49 @@ This should become its own research folder.
 > the two accounts can be compared directly, per the plan below. Ollama is instrument-only,
 > always under `SYNTHETIC — NOT EVIDENCE`, and never enters counts, grades, quotes or claims.
 
-> ## 🔴 WORKSTREAM B IS NOW THE CRITICAL PATH
+> ## 🟡 INSTRUMENTS BUILT — 12 INTERVIEWS REMAIN (HUMAN WORK)
+>
+> ### What is now built and ready to run
+>
+> | Deliverable | Where | Detail |
+> |---|---|---|
+> | 5 question banks (all 25 spec questions) | `data_p3_interviews.BANKS` | Workflow, pain, tools, buying, value — each with a rationale |
+> | 4 role-class guides | `02_User_Research/Guides/` | 21 questions, each with **probe + evidence hook + falsifier** |
+> | Falsification matrix | `02_User_Research/Falsification_Matrix.md` | 10 hypotheses, **every one names the observation that would kill it** |
+> | Evidence-ranked shortlist | `02_User_Research/Recruitment_Shortlist.md` | 6 institutions, 2 paired roles each = 12 interviews |
+> | Interview protocol + timing | `02_User_Research/Interview_Protocol.md` | 30–40 min, includes the **artefact ask** |
+> | Consent + ethics | `02_User_Research/Consent_And_Ethics.md` | 6-point consent block, verbatim script |
+> | Coding scheme | `02_User_Research/Coding_Scheme.md` | 10 codes with evidence bars + the **3-of-6 reporting rule** |
+> | Capture template | `02_User_Research/Capture_Template.md` | Note sheet, non-answer log, paired-divergence grid |
+>
+> ### Design decisions worth knowing
+>
+> - **Every question is anchored to a past event.** `todo.md` bans "Would you use
+>   StartupHub?" for good reason. The fix is not softer questions, it is *past-behaviour
+>   framing* — and the build **rejects** any question containing a hypothetical-purchase
+>   frame. All 21 structured questions pass.
+> - **A question with no evidence hook is rejected at build time.** Each one names the
+>   finding it tests (`P-A10`, `OQ-32`, `F-DPIIT-JOIN`…) and the claim that dies if the
+>   answer goes a certain way.
+> - **The shortlist is ranked by *contradiction*, not prestige.** NIT Calicut is #1 because
+>   it reported 55 and 17 startups in one PDF. IIT Bombay and IISc are deliberately *excluded*
+>   — their Convener almost certainly delegates the form, so we'd interview the wrong person.
+> - **The pairing is the method.** Convener vs Registrar at the same institution, compared on
+>   four questions. A divergence between the operational and authority views is itself the
+>   finding — it tells us whether the person with the pain can reach the person with the money.
+> - **Silence is data.** Non-answers are coded. An institution that cannot name its own budget
+>   head *is* the finding.
+>
+> ### Honest status
+>
+> **INTERVIEWS CONDUCTED: 0.** Everything in `02_User_Research/` is an instrument, a target
+> list and a falsification plan. Nothing there may be cited as user evidence until a real
+> interview supports it. The 8 HYPOTHESIS + 2 SINGLE-SOURCE claims it tests remain unverified.
+>
+> Synthetic validation (Ollama) is instrument-only and permanently quarantined:
+> `_exports/synthetic/` is **excluded from the manifest** — verified with a planted canary.
+
+> ## 🔴 CONDUCTING THE 12 INTERVIEWS IS NOW THE CRITICAL PATH
 >
 > Phase 1 delivered strong **documentary** evidence but **zero primary interviews**, so it cannot
 > be used externally as observed user problems. **Phases 4, 7, 16, 17, 18 and 30 are all blocked on
