@@ -157,7 +157,7 @@ check("incuTrack G2 records are SNIPPET only", True,
       all(r["grade"] == "SNIPPET" for r in incu
           if r["platform"] == "G2"))
 check("incuTrack conflict text flags exclusion", True,
-      any("excluded from market-position" in c["resolution"]
+      any("excluded from market-position" in c["resolved"]
           for c in raw["conflicts"] if c["vendor"] == "incuTrack"))
 
 print("\n-- honesty guards on the published prose --")
