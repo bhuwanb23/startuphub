@@ -362,7 +362,18 @@ Reproduce: `python build/build_phase3b.py`.
 |---|---|
 | `03_Market_Research/README.md` | Ecosystem base, all T1 government sources; why 58,643 is not a market |
 | `03_Market_Research/Segment_Census.md` | Phase 4 — 5 segments x 4 axes + the ICP |
-| `05_Market_Sizing/README.md` | Phase 7 — TAM/SAM/SOM as ranges + assumption ledger |
+| `05_Market_Sizing/README.md` | Phase 7 hub — two price scenarios, base A ₹1.2L / upside B ₹10.28L |
+| `05_Market_Sizing/TAM.md` | 3 methods, 2 scenarios; ceilings vs reachable, never averaged |
+| `05_Market_Sizing/SAM.md` | Six named filters, 58,643 → 582–777 institutions |
+| `05_Market_Sizing/SOM.md` | Capacity-built; the spec's own 5/15/40–50 plan rejected in writing |
+| `05_Market_Sizing/State_SOTP.md` | G9 sized separately on the PRIOR tier, ₹0.75–6.4 cr |
+| `05_Market_Sizing/ARR_Bridge.md` | Years 1–5 both prices; the A/B gap is price, not selling effort |
+| `05_Market_Sizing/Unit_Economics.md` | The price problem: LTV/CAC 0.21, required ACV 8.6× list |
+| `05_Market_Sizing/Adoption_Penetration.md` | NIRF/IIC/SRF curves; the 1.32% headroom and its trap |
+| `05_Market_Sizing/Triangulation.md` | Why the methods disagree and we refused to average |
+| `05_Market_Sizing/Falsification.md` | Six pre-committed ways this sizing breaks |
+| `_exports/phase7/` | tam_methods, sam_funnel, som_capacity, arr_bridge, unit_economics_linked, adoption_curves, penetration, triangulation, schema |
+| `_exports/csv/sizing.csv` | **canonical** TAM/REACHABLE/SAM/SOM — Phase 7 owns it; pre-Phase-7 pass marked SUPERSEDED |
 | `13_Synthesis/Validation_Scorecard.md` | Phase 30 — rebuilt around what actually exists |
 | `_exports/phase45/` | market_base, iic_counts, conflicts, segments, icp_criteria, assumptions, sizing, validation_scorecard |
 

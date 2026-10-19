@@ -675,6 +675,62 @@ Start with:
 
 > “How many institutions can we realistically acquire?”
 
+### STATUS: COMPLETE (investor-grade rebuild)
+
+Built by `build/data_p7_sizing.py` + `build/build_phase7.py`.
+Audited independently by `build/audit_phase7.py` (45/45 checks).
+
+**Two price scenarios, published side by side for every figure:**
+
+| | Scenario A (BASE) | Scenario B (upside) |
+|---|---|---|
+| ACV | ₹1,20,000 | ₹10,27,962 |
+| Basis | list price + competitor anchor | simulated requirement |
+| LTV/CAC | 0.21 — FAILS | 3.00 — clears |
+| Price evidence | **none** | **none** |
+
+Scenario B exists *only* because LTV/CAC at list price is 0.21 and the required
+ACV is 8.6× the list price. Scenario A remains the base case. OQ-03 is still
+open and blocks both.
+
+**TAM** — three methods, two classified tiers, never averaged:
+- M1 ceiling (bottom-up, IIC-bearing × ACV): ₹168.8–196.4 cr (A)
+- M2 ceiling (top-down, India HE tech market × share): ₹139.7–838.5 cr (A)
+- R reachable (adoption 5–15% × capture 5–15%): ₹1.8–15.8 cr (A)
+- The two ceilings agree within 6.0×. The reachable sits **53×** below the
+  ceiling. That gap is the finding — not an error to be reconciled away.
+
+**SAM** — six filters, sequential, 58,643 → **582–777 institutions**
+(0.99–1.32% of registered):
+1. Institution type → 46,641 (79.5%) — standalone diploma institutes excluded
+2. Digital readiness → 11,567–41,102 — **colleges have computers in 88% of
+   cases but institutional backbone in only 24%**
+3. Innovation activity → **777** (MEASURED, the only observed filter)
+4. Budget → 777 (**passes 100%**, at both prices)
+5. Ecosystem maturity → 582–777 (BOUNDED, Emerging-tier haircut)
+6. Geography → 582–777 (East = 7.5% of filers)
+
+**SOM** — capacity-built, as this spec instructs:
+- Year 3: **19–31 paying institutions**, ₹0.2–0.4 cr ARR at Scenario A
+- **The spec's own 5/15/40–50 plan is rejected in writing** — it implies a
+  conversion rate above the 2–20% prior and a sales team that does not exist
+- Binding constraint is **conversion** (r=0.65) — the one quantity no
+  interview has measured
+
+**G9 State Startup Nodal Department** — separate SOTP, ₹0.75–6.4 cr,
+explicitly on the **PRIOR** tier, years 3–8. Not folded into institutional SOM.
+
+**Six pre-committed falsifiers** (F-01…F-06). Only F-03 has an observable that
+exists today. Every load-bearing claim in this sizing is currently untestable
+because 0 interviews have been conducted — and that is stated in
+`05_Market_Sizing/Falsification.md` rather than buried.
+
+**Deliverables:** `05_Market_Sizing/` README, TAM, SAM, SOM, State_SOTP,
+ARR_Bridge, Unit_Economics, Adoption_Penetration, Triangulation, Falsification.
+**Exports:** `_exports/phase7/` (8 CSV + schema) + `_exports/raw/phase7_sizing_RAW.json`.
+`_exports/csv/sizing.csv` is now owned by Phase 7; the pre-Phase-7 first-pass
+sizing is marked SUPERSEDED in `build_phase45.py` so no stale figure survives.
+
 ---
 
 # PHASE 8 — Pricing Research

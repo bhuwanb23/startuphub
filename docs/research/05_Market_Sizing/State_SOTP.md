@@ -3,6 +3,10 @@
      Provenance rule: no figure appears here without a source or an explicit
      provenance class (T1_DOCUMENTED / MODELLED / SIMULATED / BOUNDED / PRIOR). -->
 
+> **Primary research status: 0 interviews conducted. 0 respondent quotes. 0 user observations.**
+> Every figure below is documentary, modelled or simulated. Anything drawn from a PRIOR is labelled PRIOR.
+
+
 # State SOTP - Segment G9
 
 Phase 6 identified the State Startup Nodal Department as the only ACT NOW segment: urgency 4, revenue potential 4. It is also the buyer that Phases 0-5 never modelled, because state portals were invisible to a competitor scan that looked for commercial vendors.

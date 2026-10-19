@@ -3,6 +3,10 @@
      Provenance rule: no figure appears here without a source or an explicit
      provenance class (T1_DOCUMENTED / MODELLED / SIMULATED / BOUNDED / PRIOR). -->
 
+> **Primary research status: 0 interviews conducted. 0 respondent quotes. 0 user observations.**
+> Every figure below is documentary, modelled or simulated. Anything drawn from a PRIOR is labelled PRIOR.
+
+
 # Unit Economics
 
 This document exists because the price we intend to charge does not work, and the gap has a specific size.
@@ -14,7 +18,7 @@ This document exists because the price we intend to charge does not work, and th
 | LTV/CAC at list price (Rs 120,000) | 0.21 | >= 3.0 | **FAIL by ~14x** |
 | ACV required for LTV/CAC >= 3 | Rs 1,027,962 | - | **8.6x the list price** |
 | Required ACV as share of NIT annual budget | 0.054% | affordable if < 1% | **PASS** |
-| CAC (median) | Rs 719,275.5 | - | - |
+| CAC (median) | Rs 719,276 | - | - |
 | P(ARR >= Rs 1 crore by year 3) | 0.0% | hand estimate was 18-34% | **hand estimate falsified** |
 
 ## The shape of the problem

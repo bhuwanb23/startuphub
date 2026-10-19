@@ -3,6 +3,10 @@
      Provenance rule: no figure appears here without a source or an explicit
      provenance class (T1_DOCUMENTED / MODELLED / SIMULATED / BOUNDED / PRIOR). -->
 
+> **Primary research status: 0 interviews conducted. 0 respondent quotes. 0 user observations.**
+> Every figure below is documentary, modelled or simulated. Anything drawn from a PRIOR is labelled PRIOR.
+
+
 # SAM
 
 Six filters, applied one at a time, each with a named source. Three are MEASURED or directly observed; three are DERIVED or BOUNDED and are labelled as such. No filter is presented as harder evidence than it is.
