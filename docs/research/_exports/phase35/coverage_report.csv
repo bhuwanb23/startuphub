@@ -1,0 +1,13 @@
+﻿metric,value,target,pct
+open questions filled,34,34,100.0
+hypothesis priors assigned,10,10,100.0
+portfolio estimates,9,9,100.0
+scorecard cells with a prior,10,10,100.0
+TOTAL CELLS,53,53,100.0
+EMPTY CELLS,0,0,100.0
+  provenance: BOUNDED,6,-,-
+  provenance: DOCUMENTED,20,-,-
+  provenance: MODELLED,5,-,-
+  provenance: PRIOR,15,-,-
+  provenance: SIMULATED,7,-,-
+interviews conducted,0,-,-

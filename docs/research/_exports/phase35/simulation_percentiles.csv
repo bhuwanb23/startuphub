@@ -1,0 +1,11 @@
+﻿metric,unit,p5,p25,p50,p75,p95,mean,min,max,provenance
+Realised ACV per institution per year,INR,55580.78,81728.13,100885.69,115677.4,125921.05,97157.8,35126.28,128273.37,SIMULATED
+Probability an engaged institution converts,probability,0.04,0.06,0.08,0.09,0.1,0.08,0.02,0.1,SIMULATED
+Institutions engageable by year 3,institutions,208.4,280.21,333.98,375.26,403.42,323.58,150.85,409.8,SIMULATED
+Year-2 renewal rate,probability,0.48,0.58,0.65,0.71,0.74,0.64,0.4,0.75,SIMULATED
+Sales cycle length,months,4.26,5.86,7.05,7.97,8.6,6.82,3.03,8.74,SIMULATED
+Probability on-premise is demanded,probability,0.31,0.44,0.54,0.61,0.66,0.52,0.2,0.68,SIMULATED
+Paying logos at year 3,institutions,11.41,18.65,24.85,31.01,37.92,24.78,3.93,42.9,SIMULATED
+Blended ARR at month 24,INR,813072.98,1418495.37,1993788.82,2645415.9,3553854.83,2065743.33,159095.49,4913263.74,SIMULATED
+Blended ARR at year 3,INR,951756.99,1658055.68,2325703.76,3084942.8,4134254.7,2407783.65,177514.96,5431685.09,SIMULATED
+Year-1 ARR per logo including renewal,INR,90248.63,133121.81,164119.33,188552.79,210548.36,158944.39,52451.68,224752.94,SIMULATED

@@ -1,0 +1,47 @@
+{
+  "note": "Provenance classes. Every number in this repository carries one.",
+  "classes": {
+    "DOCUMENTED": "Real cited evidence, unchanged.",
+    "MODELLED": "Computed from documented inputs + stated assumption. Reproducible arithmetic.",
+    "SIMULATED": "Monte Carlo distribution over stated priors. Seeded. A range, never a point.",
+    "BOUNDED": "Logical bound where no point estimate is defensible.",
+    "PRIOR": "Belief with explicit probability, no evidence yet. Paired with the observation that moves it."
+  },
+  "rule": "A prediction is legitimate. A fabricated observation is not. No cell in this repository is filled with an invented quote, respondent or count.",
+  "forbidden_list_note": "The banned-phrase list lives in data_p35_estimates.FORBIDDEN_CLAIMS and is deliberately NOT reproduced here - emitting it would make every grep of the repository trip on the guard definition itself.",
+  "banned_patterns": "see data_p35_estimates.FORBIDDEN_CLAIMS",
+  "seed": 20261019,
+  "trials": 50000,
+  "priors": {
+    "acv_realised": [
+      35000,
+      95000,
+      180000
+    ],
+    "conversion": [
+      0.02,
+      0.06,
+      0.2
+    ],
+    "reachable_y3": [
+      150,
+      300,
+      600
+    ],
+    "renewal": [
+      0.4,
+      0.65,
+      0.9
+    ],
+    "sales_cycle_months": [
+      3,
+      6,
+      14
+    ],
+    "on_premise_demand": [
+      0.2,
+      0.55,
+      0.85
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+﻿priority,input,correlation_with_year3_arr
+1,conversion,0.649
+2,acv_realised,0.5611
+3,reachable_y3,0.4681
+4,on_premise_demand,0.0099
+5,renewal,0.0063
+6,sales_cycle_months,0.0025

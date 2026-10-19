@@ -72,7 +72,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 22–26 Tech/AI/legal/sec/IPR | ⬜ | `10_`, `11_` | Phase 1 gives `P-A07` a head start |
 | 27 Policy | 🟡 Seeded | `05_Government_Data/` | — |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
-| 30 Validation scorecard | ✅ **Built (interviews = 0)** | `13_Synthesis/Validation_Scorecard.md` | 2 supported · 4 need interviews |
+| 30 Validation scorecard | ✅ **0 blanks — every row has a prior + decision rule** | `13_Synthesis/Validation_Scorecard.md`, `_exports/phase35/` | 15 of 53 cells are PRIOR, not evidence |
 | 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (124 rows) | — |
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |

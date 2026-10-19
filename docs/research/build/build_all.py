@@ -38,6 +38,7 @@ STEPS = [
     ("Phase 3B - interview programme (instruments)", "build_phase3b.py"),
     ("Phase 4 - segmentation matrix", "build_phase4.py"),
     ("Phases 5/7/30 - market, sizing, scorecard", "build_phase45.py"),
+    ("Phases 35/36 - gap filling + simulation", "build_phase35.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
@@ -120,7 +121,9 @@ def main() -> int:
     print("    03_Market_Research/ICP.md             Phase 4 ICP + exclusions")
     print("    03_Market_Research/README.md          Phase 5 ecosystem base (T1 sources)")
     print("    05_Market_Sizing/README.md    Phase 7 TAM/SAM/SOM as ranges")
-    print("    13_Synthesis/Validation_Scorecard.md  Phase 30, interviews = 0")
+    print("    13_Synthesis/Complete_Dataset.md      every cell filled + labelled")
+    print("    13_Synthesis/Simulation_Results.md   seeded Monte Carlo, 50k trials")
+    print("    13_Synthesis/Validation_Scorecard.md  Phase 30, 0 blanks, interviews = 0")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0
 

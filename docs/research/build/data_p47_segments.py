@@ -404,11 +404,11 @@ SCORECARD = [
          interview_ids=["H-02"]),
     dict(hypothesis="Institutions want centralised tracking",
          evidence_type="none", evidence="-",
-         grade="HYPOTHESIS", validated="INTERVIEW REQUIRED",
+         grade="HYPOTHESIS", validated="NO DOCUMENTARY EVIDENCE",
          remaining="No demand evidence exists. Blocked on Phase 3B.", interview_ids=["H-01"]),
     dict(hypothesis="They will pay Rs 1.2 lakh",
          evidence_type="none", evidence="Competitor price Rs 75,000 is a floor reference, not evidence of our price",
-         grade="HYPOTHESIS", validated="INTERVIEW REQUIRED",
+         grade="HYPOTHESIS", validated="NO DOCUMENTARY EVIDENCE",
          remaining="OQ-03 open since Phase 0. Zero primary evidence.", interview_ids=["H-07"]),
     dict(hypothesis="IPR tracking is a major pain",
          evidence_type="documentary", evidence="P-A07 CRITICAL: no deadline calendar in any of 36 institutions; 91,168 national filings 2023-24",
@@ -420,7 +420,7 @@ SCORECARD = [
          remaining="Actual hours per cycle. HOURS code, no interviews yet.", interview_ids=["H-04"]),
     dict(hypothesis="Excel/Sheets/WhatsApp are the free incumbent",
          evidence_type="none", evidence="Assumption since Phase 0, never evidenced",
-         grade="HYPOTHESIS", validated="INTERVIEW REQUIRED",
+         grade="HYPOTHESIS", validated="NO DOCUMENTARY EVIDENCE",
          remaining="The pricing model rests on this. Highest-risk unverified claim.", interview_ids=["H-03"]),
     dict(hypothesis="The Convener is or can reach the buyer",
          evidence_type="documentary", evidence="Phase 2: only 4/25 roles hold documented budget authority, none Class A",
@@ -431,7 +431,7 @@ SCORECARD = [
          grade="SINGLE-SOURCE", validated="PARTIAL", remaining="Is there rework or overtime? H-04.", interview_ids=["H-04"]),
     dict(hypothesis="Institutions manage cohorts",
          evidence_type="none", evidence="P-A03 graded HYPOTHESIS; absence from reports is absence-of-evidence",
-         grade="HYPOTHESIS", validated="INTERVIEW REQUIRED", remaining="Either drop cohorts or prove them. H-08.",
+         grade="HYPOTHESIS", validated="NO DOCUMENTARY EVIDENCE", remaining="Either drop cohorts or prove them. H-08.",
          interview_ids=["H-08"]),
 ]
 
@@ -522,7 +522,7 @@ def validation():
         for field in ("hypothesis", "evidence_type", "grade", "validated", "remaining"):
             if not row.get(field):
                 errs.append(f"scorecard row '{row['hypothesis'][:30]}' missing {field}")
-        if row["evidence_type"] == "none" and row["validated"] not in ("INTERVIEW REQUIRED",):
+        if row["evidence_type"] == "none" and row["validated"] not in ("NO DOCUMENTARY EVIDENCE",):
             errs.append(f"'{row['hypothesis'][:34]}': no evidence but claims {row['validated']}")
         if row["evidence_type"] != "none" and row["evidence"] == "-":
             errs.append(f"'{row['hypothesis'][:34]}': claims evidence but records none")

@@ -467,3 +467,77 @@ documenting in institutional ledgers.**
 | Populations overlap 61% | Column is never summed; TAM/SAM use separate models |
 | No segment validated against a customer | ICP predicate 4 (no system upstream) still HYPOTHESIS (H-01) |
 | G6/G7 rest on 5 and 1 corpus documents | Medical and management types are structurally weak |
+
+---
+
+## 16. Phases 35/36 — gap filling and simulation
+
+**Every cell filled. Every cell labelled. Zero fabricated observations.**
+
+| Asset | What it is |
+|---|---|
+| `13_Synthesis/Complete_Dataset.md` | All 34 OQ fills + 10 priors + 9 portfolio estimates |
+| `13_Synthesis/Simulation_Results.md` | Seeded Monte Carlo, 50k trials, sensitivity |
+| `13_Synthesis/Validation_Scorecard.md` | Rewritten — 0 blanks, every row has a prior + decision rule |
+| `_exports/phase35/` | estimates, hypothesis_priors, portfolio_estimates, simulation_percentiles, sensitivity, complete_scorecard, coverage_report, provenance_schema |
+
+Reproduce: `python build/build_phase35.py`.
+
+### The line this holds
+
+> **A prediction is not a fabrication.**
+
+A fabricated observation — a quote, a respondent, *"8 of 10 said"* — enters every
+downstream number and can never be removed. A prior with a stated method is
+falsifiable, carries its own error bar, and names what would overturn it.
+
+Every gap is now filled with a **prior**. None is filled with an invented
+observation. The build rejects the phrasing outright.
+
+### Provenance classes
+
+| Class | Meaning | Cells |
+|---|---|---:|
+| `DOCUMENTED` | Real cited evidence | 20 |
+| `PRIOR` | Belief with explicit probability + decision rule | 15 |
+| `SIMULATED` | Monte Carlo distribution over stated priors | 7 |
+| `BOUNDED` | Logical bound where no point estimate is defensible | 6 |
+| `MODELLED` | Documented inputs + stated assumption | 5 |
+| **Total** | | **53 — 0 empty** |
+
+### The simulation falsified our own estimate
+
+| | Before | After |
+|---|---|---|
+| P(₹1 crore ARR by year 3) | 18–34% *(hand-written)* | **0.0%** *(50k trials)* |
+| Blended ARR month 24 | ₹12–40 lakh *(range)* | **₹14.2–26.5 lakh** *(P25–P75)* |
+| Year-3 paying logos | — | **19–31 institutions** |
+
+**P95 is only ₹41 lakh.** Reaching ₹1 crore needs ~120 paying institutions at ₹1.8L
+each — 15% of the entire 777-institution SAM floor, founder-led, in three years.
+
+**Consequence:** do *not* plan an institution-only path to ₹1 crore. Either add the
+IPR module as a second revenue line, or enter incubation centres (G5) where ACV is
+3–4× higher on a 244-institution ceiling.
+
+### Sensitivity — where to spend the next hour
+
+| Priority | Input | r vs year-3 ARR |
+|---:|---|---:|
+| 1 | `conversion` | +0.649 |
+| 2 | `acv_realised` | +0.561 |
+| 3 | `reachable_y3` | +0.468 |
+| 6 | `sales_cycle_months` | +0.003 |
+
+**Measure conversion and ACV first.** Do not spend research effort on renewal or
+sales-cycle length — both sit at r ≈ 0.00 and cannot move the year-3 answer.
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| 15 of 53 cells are `PRIOR`, not evidence | Actionable today, but a prior is weaker than a measurement |
+| `SIMULATED` cells describe **our uncertainty**, not the market | P50 is "the median world given what we believe" |
+| Priors are triangular because we hold three views | Wider than we may need; deliberately not a normal curve |
+| Zero interviews | No cell has moved from PRIOR to DOCUMENTED |
+| The ₹1-crore conclusion is conditional on priors | Move `conversion` or `acv_realised` and it changes |
