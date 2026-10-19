@@ -200,3 +200,39 @@ Every competitor tracks "stage" as a free-text or dropdown field. Nobody models 
 **Why it matters.** todo.md Phase 1 explicitly forbids writing "Institutions have this problem." The grading field is how that instruction becomes mechanically enforced rather than aspirational. It also makes Phase 3 falsifiable: when interviews arrive, HYPOTHESIS and SINGLE-SOURCE records are exactly the ones Phase 3 must test or overturn.
 
 **Reverses if.** Never. Evidence grading is the point of the repository.
+
+---
+
+## D-018 - 2026-10-18 - Price point selects the approver, not just the deal size
+
+**Decision.** Treat the price band as a *procurement* decision, not only a revenue decision. StartupHub should expect a purchase committee at its entry tier, and should price knowing that the number and type of approvers changes with the price.
+
+**Evidence.** Across 8 institutions with published procurement instruments (36 authority thresholds), the value at which a **purchase committee is engaged** ranges from **Rs 50,000 (Sathyabama) to Rs 10,00,000 (NIT Warangal, IIT Palakkad)** - a **20x spread**. There is no uniform Indian threshold. At Rs 75,000 (the LabelNest Orbit entry anchor, `COMP-001`) a solo officer can act at some institutions and a committee is engaged at others; at Rs 3,95,200 (Incubatee, `COMP-004`) committee-and-escalation is the norm.
+
+**Interaction with D-008.** D-008 holds the pricing floor above the free-tier anchors (Trello ~Rs 54k/yr, ClickUp ~Rs 76k/yr, Notion ~Rs 86k/yr). Phase 2 says that floor sits **above the solo-officer ceiling at most institutions measured** (Rs 10,000-Rs 25,000 typical). So StartupHub should not assume a fast, cheap close even at the entry tier. This is a real constraint, not a selling obstacle.
+
+**Reverses if.** Phase 3 interview evidence shows procurement is routed through GeM or a pre-approved annual rate contract at a material share of institutions, which would collapse the committee step for many.
+
+---
+
+## D-019 - 2026-10-18 - Off-portal gatekeepers are a separate role class, not part of todo.md's 12
+
+**Decision.** Add a fourth role class, **C - off-portal gatekeepers**, covering Registrar / Dean (ICSR), Purchase Committee, Finance Officer, Audit, and IT Administrator. todo.md Phase 2's list of 12 does not include any of them.
+
+**Evidence.** Institutional purchase instruments place administrative approval with the **Registrar / Dean (ICSR)** and financial ratification with a **Purchase Committee** that includes a **Finance Nominee** - at every institution read (`P2-S02` to `P2-S09`). These roles appear nowhere in the IIC portal and nowhere on todo.md's list. Phase 0 had already recorded the consequence from competitor analysis: *"Their buyer is the Principal/Registrar. The IIC nodal officer - StartupHub's actual buyer - has no seat in that buying decision."*
+
+**Why this matters.** Across all 25 roles, only **4 have documented budget authority** - VC/Director, Dean/Innovation Head, Registrar/Dean (ICSR), Finance Officer. **Not one is a mandated IIC seat.** If Phase 2 covered only todo.md's 12 roles, the conclusion would have been that the mandated offices are the buying centre. They are not. Recorded as a deliberate deviation from `todo.md`, per the D-002 precedent.
+
+**Reverses if.** Phase 3 interviews show the Dean (R&D) or the Innovation Head personally signs innovation-software purchases routinely, in which case Class B collapses into the buying centre and the register below it. The class structure itself stays valid either way.
+
+---
+
+## D-020 - 2026-10-18 - The IIC role list is a mandated seat list, not a persona set
+
+**Decision.** Treat the 12 IIC offices as **government-mandated seats with published responsibilities**, not as discovered user personas. Do not present them as personas in any external material.
+
+**Evidence.** The MIC IIC portal states that deleting the Convener / YUKTI / Social Media / Innovation Activity / Internship / IPR / Startup / ARIIA / NIRF / Member roles turns the role sub-tab to a **"red cross"**, and *"If it is in 'red cross' then you cannot add any activity under 'Manage Activity' section."* (`P2-S01`) The seats are enforced by the system the institution must use.
+
+**Why it matters, both ways.** (1) It gives StartupHub an already-enumerated, already-populated population with Ministry-written job descriptions - a much stronger starting point than a persona workshop. (2) It creates a trap: **seat count is not demand.** The Social Media Coordinator is a mandated office with no innovation-record workload. Treating 12 seats as 12 users would inflate the addressable user count by an unknown factor.
+
+**Reverses if.** Never. The portal gate is a system fact.

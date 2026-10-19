@@ -56,7 +56,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 |---|---|---|---|
 | 0 Positioning | ✅ Complete | `04_Competitor_DeepDive/`, `02_Landscape_Map/` | — |
 | **1 Problem research** | 🟡 **Section A done, corpus 36/40** | `01_Problem_Research/A_` (10 analyses), `F_Synthesis/` | B–F need Phase 3 |
-| 2 Customer research | 🟡 Seeded | `08_User_Roles/` | — |
+| **2 Customer research** | ✅ **Complete (documentary)** | `08_User_Roles/` (25 roles, 4 classes), `_exports/phase2/`, diagram 06 | Behaviour needs Phase 3 |
 | **3 User interviews** | 🔴 **NOT STARTED — CRITICAL PATH** | `02_User_Research/` | Blocks 4, 7, 16, 17, 18, 30 |
 | 4 Segmentation + ICP | ⬜ | — | 🔴 blocked on 3 |
 | 5 Market research | 🟡 Seeded | `02_Landscape_Map/` | — |
@@ -73,18 +73,25 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 27 Policy | 🟡 Seeded | `05_Government_Data/` | — |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
 | 30 Validation scorecard | ⬜ | — | 🔴 blocked on 3 |
-| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (112 rows) | — |
+| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (124 rows) | — |
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |
 
-**Evidence base:** 112 registered sources (44 GOV, 32 COMP, 36 P1) · 36-document institutional corpus
-· 10 graded problem analyses · 12 verbatim quotes · 26 decisions · 24 open questions.
+**Evidence base:** 124 registered sources (44 GOV, 32 COMP, 36 P1, 12 P2) · 36-document institutional corpus
+· 10 graded problem analyses · 12 verbatim quotes · 30 decisions · 30 open questions.
 
 **Next three actions, in order:**
-1. **Phase 3 interviews** — 10–15 institutions, IIC coordinator first. Unblocks the most.
-2. **Top up the corpus to 40** and mine the 20 ARIIA/NIRF forms — NIRF/ARIIA are the two screens
-   Phase 1 evidence shows institutions maintain a *separate off-platform ledger* for.
-3. **Phase 1 Sections B–F** — B and C are gated on Phase 3; D, E and F are not.
+1. **Phase 3 interviews** - 10-15 institutions, **IIC Convener first**, then the Registrar
+   separately so the two accounts can be compared. Phase 2 named four questions only interviews
+   can settle: who holds the budget (OQ-26), which head it comes from (OQ-29), whether Convener
+   and Incubation Manager are one person (OQ-28), and what the internal tooling is (P-A10).
+   **Unblocks the most: phases 4, 7, 8, 13-15, 16-18 and 30.**
+2. **Phase 24 legal check on GeM** - Phase 2 found a GeM-routed purchase can bypass the
+   purchase committee outright (OQ-27). If general rather than an NIT Warangal carve-out, it is
+   the highest-leverage commercial action available and costs only paperwork.
+3. **Top up the Phase 1 corpus to 40** and mine the 20 ARIIA/NIRF forms - the two screens the
+   ARIIA/NIRF Coordinators own, and which Phase 1 shows institutions keep a *separate
+   off-platform ledger* for.
 
 ---
 
@@ -273,30 +280,59 @@ This is **extremely important**.
 
 You need to understand not just the institution, but the people inside it.
 
+> ## Status 2026-10-18 — COMPLETE (documentary)
+>
+> **Output:** `08_User_Roles/` (7 documents) · `_exports/phase2/` · `_exports/diagrams/06_iic_roles_and_the_approval_chain`
+>
+> **25 roles across four classes · 36 authority thresholds from 8 published procurement instruments · 12 sources registered as `P2-001`–`P2-012`.**
+>
+> ### The headline
+>
+> *"These might be four different people"* — **they are, and the answer is more uncomfortable than the brief assumed.**
+>
+> Across all 25 roles, **only 4 have documented budget authority**: VC/Director, Dean/Innovation Head, Registrar/Dean (ICSR), Finance Officer. **Not one is a mandated IIC seat.** The offices that own the innovation data do not own the money.
+>
+> Three further findings:
+>
+> 1. **The 12 IIC roles are government-mandated seats, not personas.** The MIC portal blocks activity entry unless they are filled — see D-020.
+> 2. **Price selects the approver, with a 20× spread** across institutions (₹50K–₹10L) — see D-018.
+> 3. **Above ₹2 lakh in the private segment, the budget line must already exist** — the strongest documentary support yet for D-007.
+>
+> **Deviation from this brief, deliberate and recorded as D-019:** a fourth role class **C — off-portal gatekeepers** (Registrar, Purchase Committee, Finance Officer, Audit, IT Administrator) was added. None appear on the list below, but all of them control the purchase.
+>
+> **Enforced mechanically:** `build/data_p2_roles.py::validation()` fails the build if any role is graded `DOCUMENTED` on *pays* without citing a procurement instrument that actually confers budget authority.
+>
+> ### The honest weak spot
+>
+> **Who pays is `HYPOTHESIS` for 18 of 25 roles**, including every IIC seat. That is not a gap in the work — it is the finding. It hands Phase 3 a sharper question than it started with (OQ-26, OQ-29).
+>
+> New open questions: **OQ-25 to OQ-30**.
+
 ## A. Identify customer roles
 
-Research:
+Researched, and mapped. All 11 items below are covered — see the coverage table in
+[`Role_Matrix.md`](08_User_Roles/Role_Matrix.md):
 
-- Vice Chancellor / Director
-- Dean / Innovation Head
-- IIC President / Coordinator
-- Incubation Manager
-- Entrepreneurship Cell
-- Faculty Coordinator
-- Startup Manager
-- IT Administrator
-- Finance / Procurement
-- Student Innovators
-- Founders
+- Vice Chancellor / Director → `B-01`
+- Dean / Innovation Head → `B-02`
+- IIC President / Coordinator → `A-01` (President) + `A-03` (Convener)
+- Incubation Manager → `B-03`
+- Entrepreneurship Cell → `B-04`
+- Faculty Coordinator → `B-05` / `A-06`
+- Startup Manager → `B-06` / `A-09`
+- IT Administrator → `C-05`
+- Finance / Procurement → `C-02` / `C-03`
+- Student Innovators → `D-01`
+- Founders → `D-02`
 
 Then determine:
 
-**Who uses it?**  
-**Who decides?**  
-**Who pays?**  
-**Who approves?**
+**Who uses it?** — IIC Convener and the activity coordinators. `DOCUMENTED` in 10 of 25 roles.
+**Who decides?** — Split twice: Convener inside the council, Registrar/Dean + Purchase Committee inside the institution. `SINGLE-SOURCE` — rules describe authority, not behaviour.
+**Who pays?** — **Unknown.** `DOCUMENTED` for only 4 roles, none of them an IIC seat.
+**Who approves?** — Registrar / Dean (ICSR), then VC/Director above their ceiling; Audit above ~₹10L, where the PO is not issued until audit approves.
 
-These might be four different people.
+These might be four different people. **They are four different people, and there is a fifth: the budget holder, who may be none of them.**
 
 ---
 

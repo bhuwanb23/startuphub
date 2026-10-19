@@ -2,8 +2,8 @@
 
 **Purpose:** the single navigation point for all StartupHub research. Every document in this repository should be reachable from here, and every factual claim should be traceable to a row in `Source_Registry.csv`.
 
-**Current phase:** Phase 1 — Problem Research (in progress)
-**Status:** Phase 0 complete. Phase 1 Section A complete; Sections B–F not started.
+**Current phase:** Phase 2 complete. Phase 3 (user interviews) is the critical path.
+**Status:** Phase 0 complete. Phase 1 Section A complete (B-F pending Phase 3). Phase 2 complete.
 **Last updated:** 18 October 2026
 
 > ### 📦 Want data, not prose?
@@ -70,7 +70,7 @@ research/
 │   ├── Screenshots/                 portal captures
 │   └── Diagrams/                    rendered assets
 │
-├── 01_Problem_Research/             ← PHASE 1 (current phase)
+├── 01_Problem_Research/             ← PHASE 1 (Section A done)
 │   ├── 01_Evidence_Corpus/          mined documents, indexed by class and parse status
 │   │   ├── Institutional_IIC_Reports/     36 docs mined  ← PRIMARY CORPUS
 │   │   ├── ARIIA_NIRF_Forms/             not started
@@ -87,6 +87,16 @@ research/
 │   └── F_Synthesis/                ← WRITTEN FINDINGS
 │       ├── README.md                     synthesis hub
 │       └── IIC_Corpus_Analysis.md        the five corpus findings
+│
+├── 08_User_Roles/                   ← PHASE 2 (complete)
+│   ├── README.md                    hub: who uses / decides / pays / approves
+│   ├── Mandated_IIC_Seats.md        the 12 portal-enforced IIC offices
+│   ├── Role_Matrix.md               25 roles × the four questions, each graded
+│   ├── Decision_Map.md              the four questions answered by segment
+│   ├── Procurement_Authority.md     price → approver ladders, 8 instruments
+│   ├── Deep_Dives/                  4 full profiles (Convener, President,
+│   │                                ARIIA Coord, Registrar/Dean)
+│   └── IIC_Roles_And_Approval_Chain.md   mermaid source → diagram 06
 │
 ├── 02_Landscape_Map/                How big is each segment, really?
 │   ├── Segment_Census.md            ← START HERE for denominators
@@ -203,8 +213,8 @@ url, publication_date, access_date, geography, customer_segment, notes
 |---|---|---|---|
 | **0** | **Positioning + landscape + competitors** | ✅ **Complete (initial pass)** | `04_Competitor_DeepDive/`, `02_Landscape_Map/Segment_Census.md` |
 | 1 | Problem research | 🟡 **Section A done, corpus mined** | `01_Problem_Research/A_Institutional_Problems/`, `01_Evidence_Vault/Quotes/` |
-| 2 | Customer research (roles) | ⬜ Not started | `08_User_Roles/` |
-| 3 | User interviews | ⬜ Not started | — |
+| 2 | Customer research (roles) | **Complete (documentary)** | `08_User_Roles/`, `_exports/phase2/` |
+| 3 | User interviews | **NOT STARTED - CRITICAL PATH** | `02_User_Research/` (to create) |
 | 4 | Segmentation + ICP | ⬜ Not started (blocked on Phase 3) | — |
 | 5 | Market research | 🟡 Seeded | `02_Landscape_Map/` |
 | 6 | Government data | 🟡 Seeded | `05_Government_Data/` |

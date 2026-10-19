@@ -227,3 +227,62 @@ Evidence base: `_exports/phase1/` — 36 documents, 34 distinct institutions, 25
 ## Closed
 
 _(none yet — nothing has been resolved out of this file; resolutions move to Decision_Log as D-entries with a "supersedes OQ-nn" note)_
+---
+
+## Phase 2 — raised by customer-role and procurement research (added 2026-10-18)
+
+Evidence base: `_exports/phase2/` — 25 roles across 4 classes, 36 authority thresholds from 8 published procurement instruments. See `08_User_Roles/README.md`.
+
+### OQ-25 · No national HEI procurement standard exists, and the observed spread is 20x
+**What we know.** The value at which a purchase committee is engaged ranges from **Rs 50,000** (Sathyabama) to **Rs 10,00,000** (NIT Warangal, IIT Palakkad) across the eight instruments read. Central institutions and private/deemed institutions set materially different ladders under UGC norms.
+
+**Why it matters.** There is no single "the Indian procurement threshold", so a single national price cannot be optimised. Every pricing decision must be checked against a distribution, not a point.
+
+**Caveat that makes this worse, not better.** These eight were found on public institution websites, which likely favours well-governed, publication-friendly institutions. The true national spread is **at least** 20x and probably wider.
+
+**What would settle it.** A systematic sample — e.g. all 30+ NITs, 23 IITs, and a random sample of private universities — pulling each published purchase manual. Feasible but large; a Phase 19 GTM task, not a Phase 2 one.
+
+---
+
+### OQ-26 · Does the IIC Convener hold a budget line, or only spend someone else's?
+**What we know.** **Nothing.** Across 25 roles and 12 primary sources, the IIC Convener's `pays` answer is `HYPOTHESIS`. The MIC portal defines the Convener as the person who "should carry out the day to day activity under IIC" and who "collect[s] the inputs from all the members of the council" — an operations description that never mentions money.
+
+**Why it blocks.** This is the single most important unknown in Phase 2. It determines the economic buyer. If the Convener holds no line, D-007 ("sell against the IIC grant / NIDHI / Atal allocation") is not just an inference — it describes a different department's budget.
+
+**What would settle it.** Phase 3 interviews, one question: *"Who approves your purchase request, and whose budget does it come from?"* Ask the Convener, then ask the Registrar separately and compare.
+
+---
+
+### OQ-27 · Is GeM a committee bypass, or just an NIT Warangal carve-out?
+**What we know.** NIT Warangal's manual applies the Local Purchase Committee to purchases *"only on each occasion which are not available in GeM portal"* — i.e. a GeM-routed purchase does not trigger the committee (`P2-S03`).
+
+**Why it matters.** If general, listing StartupHub on the Government e-Marketplace could convert a committee-bound sale into a direct purchase at institutions adopting the same carve-out. That is potentially the single highest-leverage commercial action available, and it costs nothing but paperwork.
+
+**What would settle it.** Whether the exemption appears in other institutions' manuals, and whether GeM rules for private/deemed institutions carry it too. Phase 24 legal work plus a manual sweep.
+
+---
+
+### OQ-28 · Is the Convener the same person as the Incubation Manager?
+**What we know.** The MIC portal's own guidance says the Convener should *"Preferably [be the] Incubation in charge of institute or Faculty with Entrepreneurship Experience or interest"* (`P2-S01`). No institution surveyed confirms it.
+
+**Why it matters.** If true, the buying centre is one person, not two, and the addressable-seat count in any model is inflated. If false, it is two distinct relationships to build.
+
+**What would settle it.** Phase 3 — ask both roles "do you also hold the other position?"
+
+---
+
+### OQ-29 · Which budget head does the money actually come from?
+**What we know.** Four documented mechanisms exist in the corpus — the IIC grant, DST/AIC incubation grants, NIDHI-PRAYAS/TBI, and institutional research budgets — and Phase 2 proves the *private segment* requires the line to exist before the conversation starts (Sathyabama: above Rs 2 lakh, *"included in the budgetary proposals ... duly approved by the Finance Committee, Board of Management before heading to the purchase procedure"*).
+
+**What we do not know.** Which head dominates at a typical institution. No source read establishes it.
+
+**What would settle it.** Phase 3. Ask "which budget head paid for your last software purchase, and who renews it each year?" The renewal question is the useful one — it identifies whether there is a re-purchase event at all.
+
+---
+
+### OQ-30 · Does the IT Administrator have a veto?
+**What we know.** IT Administrator is on todo.md's list of 12 roles. In the eight procurement instruments read, it appears **nowhere by name**. Its relevance rests on Phase 0's finding that data localisation and on-premise deployment are near-universal procurement conditions, and that EcoSync is already disqualified on the security axis by publicly answering "no" to SOC 2 / ISO 27001.
+
+**Why it matters.** If the IT Administrator can block, it is a Class C gatekeeper and belongs in the approval chain. If they are merely consulted, it is an influencer. Getting this wrong misplaces the entire technical sale.
+
+**What would settle it.** Phase 24 legal/procurement, plus Phase 3 — ask who signs the security questionnaire.

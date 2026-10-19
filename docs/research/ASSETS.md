@@ -7,6 +7,31 @@
 
 ---
 
+## 0b. Phase 2 — customer roles and approval chain
+
+**Split follows the repository rule: the 14 topic folders hold summaries, `_exports/` holds data.**
+
+| Written summary (topic folder) | Machine data (`_exports/`) |
+|---|---|
+| `08_User_Roles/README.md` — hub, the four questions answered | `phase2/csv/role_matrix.csv` — 25 roles × 17 cols, every answer graded |
+| `08_User_Roles/Mandated_IIC_Seats.md` — the 12 portal-enforced offices | `phase2/csv/procurement_thresholds.csv` — 36 thresholds across 8 institutions |
+| `08_User_Roles/Role_Matrix.md` — 25 roles × the four questions | `phase2/json/role_profiles.json` — nested role records + 6 exemptions |
+| `08_User_Roles/Decision_Map.md` — answers by segment | `phase2/json/role_schema.json` — field defs + honesty guard |
+| `08_User_Roles/Procurement_Authority.md` — price → approver ladders | `raw/phase2_roles_RAW.json` — unedited extraction layer |
+| `08_User_Roles/Deep_Dives/` — 4 full profiles | `_exports/diagrams/{svg,png}/06_iic_roles_and_the_approval_chain` |
+| `08_User_Roles/IIC_Roles_And_Approval_Chain.md` — mermaid source | |
+
+Built by `build/build_phase2.py` from `build/data_p2_roles.py` and `build/data_p2_procurement.py`.
+
+**Headline finding:** across 25 roles, only **4 have documented budget authority** — VC/Director,
+Dean/Innovation Head, Registrar/Dean (ICSR), Finance Officer. **Not one is a mandated IIC seat.**
+The offices that own the innovation data do not own the money.
+
+**Enforced mechanically:** `validation()` fails the build if any role is graded `DOCUMENTED` on
+`pays` without citing a procurement instrument that actually confers budget authority.
+
+---
+
 ## 0. Phase 1 evidence corpus
 
 **Split follows the repository rule: the 14 topic folders hold summaries, `_exports/` holds data.**
