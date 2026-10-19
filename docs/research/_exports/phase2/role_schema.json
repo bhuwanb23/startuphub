@@ -1,0 +1,27 @@
+{
+  "generated": "2026-10-18",
+  "description": "One record per customer role across four classes.",
+  "classes": {
+    "A": "Mandated IIC seats - portal-enforced. No activity can be entered without them.",
+    "B": "Adjacent institutional offices - real, but outside the IIC portal.",
+    "C": "Off-portal gatekeepers - control the purchase; absent from the IIC portal and from todo.md's list. Added per D-019.",
+    "D": "Individual users - students and founders. Never institutional buyers."
+  },
+  "fields": {
+    "id": "Stable role identifier. Class letter encodes the class.",
+    "role_class": "A mandated IIC seat / B adjacent institutional / C off-portal gatekeeper / D individual user.",
+    "in_todo_list": "True if the role appears in todo.md Phase 2's list of 12.",
+    "todo_ref": "The todo.md label it maps to.",
+    "portal_enforced": "True if the IIC portal refuses activity entry without this role.",
+    "grades": "Per-question evidence grade. Falls in confidence as the question approaches money.",
+    "uses/decides/pays/approves": "The four questions, answered in prose with a grade.",
+    "official_responsibility": "Quoted or closely paraphrased from a published IIC constitution.",
+    "cites": "Keys into `sources`."
+  },
+  "honesty_guard": "validation() FAILS the build if any role is graded DOCUMENTED on `pays` without citing a source in BUDGET_AUTHORITY_SOURCES - i.e. a procurement instrument that actually confers budget authority. Result: only 4 of 25 roles carry a documented `pays`, and none is a mandated IIC seat.",
+  "known_gaps": [
+    "No source read establishes which budget head, if any, funds an IIC seat.",
+    "Procurement instruments come from 8 institutions found on public sites; not a sample.",
+    "Role incumbency is documented for a handful of institutions only."
+  ]
+}
