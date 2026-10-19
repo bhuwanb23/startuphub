@@ -77,21 +77,24 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |
 
-**Evidence base:** 124 registered sources (44 GOV, 32 COMP, 36 P1, 12 P2) · 36-document institutional corpus
-· 10 graded problem analyses · 12 verbatim quotes · 30 decisions · 30 open questions.
+**Evidence base:** 135 registered sources (44 GOV, 32 COMP, 36 P1, 12 P2, 11 P3) · 36-document institutional corpus
+· 10 graded problem analyses · 12 verbatim quotes · 20 decisions · 34 open questions.
 
 **Next three actions, in order:**
-1. **Phase 3 interviews** - 10-15 institutions, **IIC Convener first**, then the Registrar
+1. **Phase 3B interviews** - 10-15 institutions, **IIC Convener first**, then the Registrar
    separately so the two accounts can be compared. Phase 2 named four questions only interviews
    can settle: who holds the budget (OQ-26), which head it comes from (OQ-29), whether Convener
    and Incubation Manager are one person (OQ-28), and what the internal tooling is (P-A10).
    **Unblocks the most: phases 4, 7, 8, 13-15, 16-18 and 30.**
+   Phase 3A has now sharpened these: the NIRF/ARIIA forms prove the DPIIT join breaks
+   (32/354 startups), so the interview must ask *how the nodal officer gets founders' DPIIT
+   numbers* and *what is typed into the TRL table when the number is unknown* (OQ-32, OQ-33).
 2. **Phase 24 legal check on GeM** - Phase 2 found a GeM-routed purchase can bypass the
    purchase committee outright (OQ-27). If general rather than an NIT Warangal carve-out, it is
    the highest-leverage commercial action available and costs only paperwork.
-3. **Top up the Phase 1 corpus to 40** and mine the 20 ARIIA/NIRF forms - the two screens the
-   ARIIA/NIRF Coordinators own, and which Phase 1 shows institutions keep a *separate
-   off-platform ledger* for.
+3. **Top up the Phase 1 corpus to 40** - 4 institutional reports remain (36/40 mined). The 20
+   ARIIA/NIRF forms are **no longer in this bucket**: Phase 3A mined 11 of them directly
+   (see `Government_Form_Analysis.md`); the remaining 9 are lower priority than interviews.
 
 ---
 

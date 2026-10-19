@@ -286,3 +286,39 @@ Evidence base: `_exports/phase2/` — 25 roles across 4 classes, 36 authority th
 **Why it matters.** If the IT Administrator can block, it is a Class C gatekeeper and belongs in the approval chain. If they are merely consulted, it is an influencer. Getting this wrong misplaces the entire technical sale.
 
 **What would settle it.** Phase 24 legal/procurement, plus Phase 3 — ask who signs the security questionnaire.
+
+---
+
+### OQ-31 - Was the corrupt Phase 0 "segment census" file ever a valid artefact?
+**What we know.** `_exports/raw/phase0_research_SEGMENT_CENSUS_RAW.md` was 2.34 MB, 74% binary, began `%PDF-1.7`, and contained no readable research text. It is quarantined, not hashed. Every number it was supposed to carry now has to come from the 20-row `_exports/csv/segment_census.csv`, which builds cleanly.
+
+**Why it matters.** If that PDF was meant to be a real crawl of institutional segment data, then one Phase 0 conclusion may rest on a thinner base than assumed. If it was a mis-saved binary, nothing is lost. We cannot tell from the file itself, so the claim is suspended rather than assumed either way.
+
+**What would settle it.** Check the shell history or download record for how that path was produced. If the crawl genuinely ran, re-run it and diff against `segment_census.csv`.
+
+---
+
+### OQ-32 - How does a nodal officer actually obtain a founder's DPIIT number?
+**What we know.** The NIRF form's only join between "startups recognized by DPIIT" and the TRL table is the DPIIT registration number, which the DPIIT grants to the **founder**. Measured across 7 real forms, 32 of 354 recognised startups (9.0%) have no key in the TRL table, worst case NIT Andhra Pradesh at 4 of 6 (67%). One form (NIT Warangal 2025) shows the reverse gap.
+
+**Why it matters.** This is the most product-relevant single fact in the corpus. If officers already keep a spreadsheet of founders' DPIIT numbers, the product is a better version of something they have. If they re-derive the number each cycle from the DPIIT portal, or ask the founder, the product has to carry that workflow instead. These are completely different products.
+
+**What would settle it.** Phase 3B. Ask the ARIIA/NIRF Coordinator to walk through the last cycle: "When you filled the TRL row for a startup, where did that DPIIT number come from?" Then: "What do you do when you cannot find it?"
+
+---
+
+### OQ-33 - What does the officer actually type when the join key is missing?
+**What we know.** IISc 2026, IIT Delhi 2025 and NIT Warangal 2025 all contain malformed placeholder DPIIT values (`DIPP0000`, `DIPP000`, `DIPP00000`) in a field the form expects to be a registration number. IIT (ISM) and Aditya ARIIA both put multiple values into one scalar cell.
+
+**Why it matters.** The government ledger therefore contains values that are neither real nor empty. Any institution that later tried to reconstruct its portfolio from these filings would ingest placeholders as data. Whether officers invent a placeholder, leave the cell blank, or drop the row entirely changes what the defect looks like downstream.
+
+**What would settle it.** Phase 3B. Ask for a screenshot or the actual working file from the last submission, and ask what they do when the number is unknown.
+
+---
+
+### OQ-34 - Does anyone reconcile the NIRF and ARIIA numbers?
+**What we know.** The two forms are different instruments with incompatible time grains: ARIIA Section 5 is scoped to academic-year pairs ("AY 2020-21 & 2021-22") and its star ladder runs 2018-19 to 2021-22, while NIRF innovation tables are single-cycle. ARIIA's Section 4 defers the TRL record to YUKTI-NIR rather than asking the institution to hold it.
+
+**Why it matters.** If no one reconciles them, then an institution has two unrelated submission streams describing the same portfolio, and "how many startups do you have" has no single defensible answer anywhere in its own paperwork. That is the wedge for a single portfolio layer - but only if the duplication is real and felt.
+
+**What would settle it.** Phase 3B. Ask: "When NIRF and ARIIA ask for the same startups, do you use the same list?" and "Has anyone ever compared the two numbers?"
