@@ -58,7 +58,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | **1 Problem research** | 🟡 **Section A done, corpus 36/40** | `01_Problem_Research/A_` (10 analyses), `F_Synthesis/` | B–F need Phase 3 |
 | **2 Customer research** | ✅ **Complete (documentary)** | `08_User_Roles/` (25 roles, 4 classes), `_exports/phase2/`, diagram 06 | Behaviour needs Phase 3 |
 | **3 User interviews** | 🟡 **Instruments built, 0 interviews run** | `02_User_Research/` (4 guides, 10 hypotheses, 6-pair shortlist), `F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/`, `_exports/phase3b/` | Conducting the 12 interviews blocks 4, 7, 16, 17, 18, 30 |
-| 4 Segmentation + ICP | ✅ **Complete (documentary)** | `03_Market_Research/Segment_Census.md`, `_exports/phase45/` | Not validated against a customer |
+| 4 Segmentation + ICP | ✅ **Matrix built (12 types, quadrant)** | `03_Market_Research/Segmentation_Matrix.md`, `ICP.md`, `_exports/phase45/` | WTP is a rule, not a measurement; IP depth UNKNOWN |
 | 5 Market research | ✅ **Complete (T1 sources)** | `03_Market_Research/README.md`, `_exports/phase45/` | 6 recorded gaps incl. renewal intent |
 | 6 Government data | 🟡 Seeded | `05_Government_Data/` | — |
 | 7 TAM/SAM/SOM | ✅ **Complete as ranges** | `05_Market_Sizing/README.md` | Band dominated by 3 HYPOTHESIS inputs |

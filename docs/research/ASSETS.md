@@ -399,3 +399,71 @@ these numbers as "the" market, and neither can the customer.
 | Willingness to pay has **zero** primary evidence | `OQ-03` open since Phase 0; every rupee traces to a competitor's price |
 | Churn / renewal not modelled at all | LTV cannot be computed from evidence |
 | No segment validated against a customer | ICP's 2nd must-be is still HYPOTHESIS (H-01); if false, S1 collapses |
+
+---
+
+## 15. Phase 4 rebuild — the segmentation matrix
+
+Replaces the earlier five narrative segments with the matrix `todo.md` asks for.
+
+| Asset | What it is |
+|---|---|
+| `03_Market_Research/Segmentation_Matrix.md` | 8 segments × 4 axes, the quadrant, module fit, overlap proof |
+| `03_Market_Research/ICP.md` | 5 testable predicates + spec-clause audit + 4 exclusions |
+| `03_Market_Research/Segment_Census.md` | Redirect to the matrix (superseded) |
+| `_exports/phase45/segmentation_matrix.csv` | 8 segments × 18 cols |
+| `_exports/phase45/type_crosswalk.csv` | 13 corpus labels → 12 spec types |
+| `_exports/phase45/activity_scale_bands.csv` | 36 institutions, banded live from the corpus |
+| `_exports/phase45/module_fit.csv` | 48 segment × module cells |
+| `_exports/phase45/segment_quadrant.csv` | 8 quadrant placements |
+
+Reproduce: `python build/build_phase4.py`.
+
+### Two declared departures from the spec
+
+1. **Maturity split into two axes.** Activity Scale is *derived* (usable fields:
+   activities 22/36, ideas 22/36, amount 22/36, startups 18/36). IP Depth is
+   **declared unmeasurable** — best field coverage is 16.7%. The build **refuses to
+   let any numeric IP score exist**.
+2. **A 12th type, `College (affiliated/general)`**, added on user instruction that
+   colleges are the primary initial target. Colleges are 45,473 of 58,643 HEIs —
+   the largest population, and folding them elsewhere would hide both size and economics.
+
+### The quadrant finding
+
+| Quadrant | Segments |
+|---|---|
+| ACT NOW | **(empty)** |
+| BUYABLE, LOW URGENCY | G5 incubation centres |
+| PAINFUL, HARD TO PAY | G3 NIT/university, G4 IIT/research |
+| DEFER | G1, G2, G6, G7, G8 |
+
+**Nothing scores high on both.** The most acute pain sits behind the slowest
+procurement; the segment with money has no deadline forcing the work. That
+disagreement is the go-to-market problem, and it is now visible rather than assumed.
+
+### The overlap proof
+
+Naive sum of segment populations = **94,363**. Actual registered HEIs = **58,643**.
+The sum exceeds reality by **35,720 (61%)** — arithmetic proof that the categories
+overlap. This demonstrates, rather than asserts, the `todo.md` warning: *"Don't
+automatically add all of these together."*
+
+### Bug fixed
+
+`_exports/phase1/csv/iic_reports_wide.csv` carried **`star_rating` as a duplicate
+column**. Python's `DictReader` silently collapses it, discarding a value; PowerShell
+rejected the file. Fixed by de-duplication (42 → 41 columns). Worth noting as a
+finding: **our own exported ledger had the same defect we spent Phase 3A
+documenting in institutional ledgers.**
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| WTP is a documented **rule** over sourced signals, not a measurement | `OQ-03` open; no band reflects a customer |
+| IP depth `UNKNOWN` for all 8 segments | Best supporting field is 16.7% populated |
+| Activity Scale computed from **reported** values only | 7 of 36 report nothing; band ≠ capability |
+| Populations overlap 61% | Column is never summed; TAM/SAM use separate models |
+| No segment validated against a customer | ICP predicate 4 (no system upstream) still HYPOTHESIS (H-01) |
+| G6/G7 rest on 5 and 1 corpus documents | Medical and management types are structurally weak |
