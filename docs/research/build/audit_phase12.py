@@ -65,10 +65,13 @@ def docs():
 def _norm(s):
     """Collapse whitespace so a check is not defeated by line wrapping.
 
-    The generated docs wrap prose at ~78 columns with markdown blockquote
-    markers, so a literal substring search across a line break silently fails.
+    The generated docs wrap prose at ~78 columns and prefix continuation lines
+    with markdown blockquote markers, so a literal substring search across a
+    line break silently fails. Strip the markers first, then collapse.
     """
-    return " ".join(s.split())
+    lines = [ln.lstrip("> ").lstrip(">") if ln.startswith(">") else ln
+             for ln in s.splitlines()]
+    return " ".join(" ".join(lines).split())
 
 
 def in_docs(*needles):
@@ -212,8 +215,8 @@ g3 = next((g for g in gaps if g["id"] == "GAP-03"), None)
 check("GAP-03 present", True, g3 is not None)
 check("GAP-03 marked CONTESTED", "CONTESTED", g3["verdict"])
 check("GAP-03 holder count matches", 3, len(g3["holders_list"]))
-check("GAP-03 counts the 3 mandate vendors", ["incuman", "esi incubation centre os",
-                                              "csm technologies"],
+check("GAP-03 counts the 3 mandate vendors",
+      ["csm technologies (stpi coe)", "esi incubation centre os", "incuman"],
       sorted(v.lower() for v in g3["holders_list"]))
 ok, where = any_doc("gap-03 died", "highest-value")
 check("GAP-03 reversal stated in the docs", True, ok)

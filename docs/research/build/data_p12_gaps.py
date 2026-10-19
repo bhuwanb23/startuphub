@@ -583,14 +583,26 @@ FEATURES_MAP = [
      "not this buyer."),
     (11, "Product / MVP Management", "DEFERRED",
      "No evidence in 11 phases. Founder-side."),
-    (12, "Customer Management", "DEFERRED", "No evidence. Founder-side."),
+    (12, "Customer Management", "DEFERRED",
+     "Startup-side CRM for customer discovery, retention and churn. No evidence in "
+     "any phase, no competitor demand, and it belongs to the founder's business "
+     "rather than the institutional buyer this product sells to."),
     (13, "Funding", "EVIDENCED",
      "Scheme-eligibility matching is the second half of differentiator 1. A plain "
-     "grant LIST is saturated (11 of 40 native) - matching is not."),
-    (14, "Fundraising Management", "DEFERRED", "Investor-side. Not this buyer."),
-    (15, "Growth Management", "DEFERRED", "Startup-side. No evidence."),
+     "grant LIST is saturated at 11 of 40 native - matching a venture's TRL and "
+     "sector against actual scheme criteria is not built by anyone."),
+    (14, "Fundraising Management", "DEFERRED",
+     "Investor-side: pipeline, data rooms, term sheets, cap table. Phase 9 found "
+     "Startup India Hub and MAARG already overlapping this, and it addresses the "
+     "investor rather than the university that StartupHub sells to."),
+    (15, "Growth Management", "DEFERRED",
+     "Startup-side growth planning and metrics. Nothing in eleven phases evidences "
+     "demand, and the buyer who would pay for it is the founder, who is not in the "
+     "procurement chain Phase 2 mapped."),
     (16, "Startup Performance Dashboard", "SATURATED",
-     "28 of 40 build reporting, 27 analytics. Rule 1 retires this as a differentiator."),
+     "28 of 40 vendors build reporting natively or better and 27 build analytics. "
+     "Rule 1 applies: this cannot be a differentiator and must not appear in "
+     "positioning. It remains a v1 parity requirement."),
     (17, "Risk Management", "NEEDS_PRIMARY",
      "Plausible and connected to the TRL object, but Phase 11 found no user asking "
      "for risk scoring. Cannot be scoped without interviews."),
@@ -602,7 +614,32 @@ FEATURES_MAP = [
      "Portfolio view is standard in 15+ vendors."),
     (20, "Program Management", "SATURATED",
      "Cohort and programme management is the most built capability in the category."),
-    (21, "Portfolio Dashboard", "SATURATED", "See #16."),
+    (21, "Portfolio Dashboard", "SATURATED",
+     "The at-a-glance cohort table with stage, risk and progress is standard in "
+     "every vendor with a portfolio view. Fifteen or more build it natively. Keep "
+     "it for parity; never sell it."),
+    (26, "Investor Due Diligence", "DEFERRED",
+     "The diligence workspace and data room serve the investor's due-diligence "
+     "process, not the university's innovation return. Phase 9 found no named "
+     "Indian university asking for it."),
+    (27, "Investment Management", "DEFERRED",
+     "Post-investment portfolio tracking for funds. A different buyer, a different "
+     "budget and a different approval chain entirely from the IIC coordinator."),
+    (30, "Resource Provider", "DEFERRED",
+     "Marketplace supply side: cloud credits, labs, hardware, consultants. Only 3 "
+     "of 40 vendors build resource management natively, so the gap is real - but "
+     "Phase 5 concluded we should not compete here."),
+    (33, "Corporate Pilot Management", "DEFERRED",
+     "Challenge-to-pilot-to-contract workflow. corporate_match is 5 native and 18 "
+     "partial across the market - mostly weak, and there is no evidence in any "
+     "phase that the university buyer wants it inside the v1 system of record."),
+    (35, "Talent / Professional", "DEFERRED",
+     "Marketplace supply side for skills and freelancing. Two-sided marketplace "
+     "economics with no demand evidence and no institutional buyer attached."),
+    (40, "Notification & Alert Engine", "SATURATED",
+     "Centralised alerts are standard across the category. Phase 11's one real "
+     "complaint in this area was email reaching spam - a deliverability problem, "
+     "not a missing feature. Building an engine against it solves the wrong thing."),
     (22, "Incubator Resource Management", "DEFERRED",
      "Same reasoning as #8 - real gap, wrong strategic choice."),
     (23, "Mentor / Expert", "DEFERRED",
@@ -610,23 +647,18 @@ FEATURES_MAP = [
     (24, "IPR / Legal Professional", "DEFERRED",
      "Second persona for differentiator 2; expand after the venture record ships."),
     (25, "Investor", "DEFERRED", "Investor-side. Not this buyer."),
-    (26, "Investor Due Diligence", "DEFERRED", "Investor-side."),
-    (27, "Investment Management", "DEFERRED", "Investor-side."),
     (28, "Government / Institution", "EVIDENCED",
      "The mandate and accreditation-return surface is the commercial reason the IIC "
      "budget exists. Note GAP-03 is now CONTESTED."),
     (29, "Government → Startup Matching", "EVIDENCED",
      "Same object as differentiator 1's scheme mapping, seen from the government side."),
-    (30, "Resource Provider", "DEFERRED", "Marketplace-side."),
     (31, "Resource Marketplace", "DEFERRED",
      "Two-sided marketplace economics, months of work, zero evidence of demand."),
     (32, "Corporate / Industry Partner", "DEFERRED",
      "Phase 9 found corporate_match is 5 native / 18 partial - mostly weak. No "
      "evidence the university buyer wants this in v1."),
-    (33, "Corporate Pilot Management", "DEFERRED", "Same reasoning as #32."),
     (34, "University / Research Institution", "EVIDENCED",
      "This IS the buyer. Research-to-IP-to-startup connection is differentiator 2."),
-    (35, "Talent / Professional", "DEFERRED", "Marketplace-side."),
     (36, "StartupHub Admin", "EVIDENCED",
      "Governance, audit logs and permissions are load-bearing for the accreditation "
      "argument and for GAP-08's auditable posture."),
@@ -638,7 +670,6 @@ FEATURES_MAP = [
      "to spam - is a deliverability problem, not a feature gap."),
     (39, "Document & Knowledge Management", "DEFERRED",
      "Needed eventually, not differentiating, and heavily commoditised."),
-    (40, "Notification & Alert Engine", "SATURATED", "Standard across the category."),
     (41, "The Central AI Engine", "CONTRADICTED",
      "As positioning, contradicted by Phase 11. As internal infrastructure, fine - but "
      "it must never be the reason a customer buys."),
