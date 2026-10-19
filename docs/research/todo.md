@@ -60,7 +60,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | **3 User interviews** | 🟡 **Instruments built, 0 interviews run** | `02_User_Research/` (4 guides, 10 hypotheses, 6-pair shortlist), `F_Synthesis/Government_Form_Analysis.md`, `_exports/phase3/`, `_exports/phase3b/` | Conducting the 12 interviews blocks 4, 7, 16, 17, 18, 30 |
 | 4 Segmentation + ICP | ✅ **Matrix built (12 types, quadrant)** | `03_Market_Research/Segmentation_Matrix.md`, `ICP.md`, `_exports/phase45/` | WTP is a rule, not a measurement; IP depth UNKNOWN |
 | 5 Market research | ✅ **Financial rebuild (budgets + unit economics)** | `03_Market_Research/` (Financial_Landscape, Buyer_Determination, Market_Sizing, Unit_Economics), `_exports/phase5/` | Buyer pop = 777; LTV/CAC = 0.21 at current price |
-| 6 Government data | 🟡 Seeded | `05_Government_Data/` | — |
+| 6 Government data | ? **13 sources mapped + SRF 5.0 + new segment G9** | `05_Government_Data/`, `_exports/phase6/` | 0 Emerging-tier state reports obtainable |
 | 7 TAM/SAM/SOM | ✅ **Complete as ranges** | `05_Market_Sizing/README.md` | Band dominated by 3 HYPOTHESIS inputs. Price band left UNCHANGED on purpose — unspent budget is capacity, not willingness |
 | 8 Pricing | 🟡 Seeded | `06_Pricing_Evidence/` | 🔴 needs 3 for willingness-to-pay |
 | 9–12 Competitors | ✅ Done in Phase 0 | `04_Competitor_DeepDive/` | — |
@@ -70,7 +70,7 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 19 GTM | ⬜ | `12_Partners_Ecosystem/` | — |
 | 20 Pilot · 21 MVP | ⬜ | — | — |
 | 22–26 Tech/AI/legal/sec/IPR | ⬜ | `10_`, `11_` | Phase 1 gives `P-A07` a head start |
-| 27 Policy | 🟡 Seeded | `05_Government_Data/` | — |
+| 27 Policy | ?? Seeded | `05_Government_Data/Funding_Schemes.md` (4 central incubator schemes + state policies) | Policy deep-read not yet done |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
 | 30 Validation scorecard | ✅ **0 blanks — every row has a prior + decision rule** | `13_Synthesis/Validation_Scorecard.md`, `_exports/phase35/` | 15 of 53 cells are PRIOR, not evidence |
 | 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (124 rows) | — |

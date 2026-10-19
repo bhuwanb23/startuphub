@@ -1,6 +1,6 @@
 # Customer Segmentation Matrix
 
-**Phase 4 — built 2026-10-19 by `build/build_phase4.py` from `data_p4_segmentation.py`. 8 segments, 12 institution types.**
+**Phase 4 — built 2026-10-19 by `build/build_phase4.py` from `data_p4_segmentation.py`. 9 segments, 12 institution types.**
 
 > **Derived from published documents, not from interviews. Interviews conducted: 0.** Activity Scale is *computed* from the 36-document Phase 1 corpus. Willingness to pay is a **documented rule applied to sourced signals** — `OQ-03` remains open, so no WTP band here is a measured outcome.
 
@@ -52,6 +52,7 @@ So maturity becomes:
 | **G6** | Medical / pharmacy institution | Medical Institution | Emerging | `UNKNOWN` | **Low** | Reporting, IPR |
 | **G7** | Management institution | Management Institution | Emerging | `UNKNOWN` | **Medium** | Ecosystem management, Startup tracking |
 | **G8** | Private university (deemed / unaided) | Private University | Active | `UNKNOWN` | **Medium** | Reporting, Startup tracking, Incubation |
+| **G9** | State Startup Nodal Department / Mission | State Startup Mission, IIC institution | Mature | `UNKNOWN` | **Medium** | Ecosystem management, Startup tracking, Reporting |
 
 ---
 
@@ -78,6 +79,7 @@ Both axes are scored, because **they disagree** and collapsing them hides it.
 | ID | Segment | Urgency | Revenue | Quadrant | WTP |
 |---|---|---:|---:|---|---|
 | G4 | IIT / premier research institution | **5** | **2** | **PAINFUL, HARD TO PAY** | High |
+| G9 | State Startup Nodal Department / Mission | **4** | **4** | **ACT NOW** | Medium |
 | G3 | NIT / public university with a live IIC | **4** | **3** | **PAINFUL, HARD TO PAY** | Medium |
 | G2 | Autonomous engineering college | **3** | **3** | **DEFER** | Low |
 | G8 | Private university (deemed / unaided) | **3** | **3** | **DEFER** | Medium |
@@ -88,7 +90,7 @@ Both axes are scored, because **they disagree** and collapsing them hides it.
 
 | Quadrant | Segments |
 |---|---|
-| **ACT NOW** | — none — |
+| **ACT NOW** | G9 |
 | **BUYABLE, LOW URGENCY** | G5 |
 | **PAINFUL, HARD TO PAY** | G4, G3 |
 | **DEFER** | G2, G8, G1, G6, G7 |
@@ -128,6 +130,8 @@ All four modules are in scope, so *need* alone cannot discriminate segments. Wha
 
 **G8 Private university (deemed / unaided)** — CORE: Reporting, Cohort management, Ecosystem management, Startup tracking
 
+**G9 State Startup Nodal Department / Mission** — CORE: Reporting, Ecosystem management, Startup tracking · NO: IPR lifecycle, Innovation management
+
 > **Cohort management is the weakest module in the portfolio.** It has *no forcing event* — no documented obligation creates the need. `P-A03` remains `HYPOTHESIS`. IPR lifecycle is the strongest: the only module with a hard external deadline, and the only one where Phase 0 proved both the competitors and the government's own ARIIA 3.3 fail.
 
 ---
@@ -156,6 +160,7 @@ All four modules are in scope, so *need* alone cannot discriminate segments. Wha
 | G4 IIT / premier research institution | 273 | NIRF 2025 Research Institutions category |
 | G5 Incubation centre / AIC / EIC | 244 | NSD26: 244 seed-funded incubators |
 | G6 Medical / pharmacy institution | 223 | NIRF 2025 Medical category |
+| G9 State Startup Nodal Department / Mission | 34 | States and UTs participating in SRF 5.0 |
 
 > **These do not add up, and must not.** They are non-nested populations (Conflict C-02): a college is also an institution, an IIC sits inside a university, and an incubator is not a degree-granting body at all.
 
@@ -163,11 +168,11 @@ All four modules are in scope, so *need* alone cannot discriminate segments. Wha
 
 | | |
 |---|---:|
-| Naive sum of the column above | **94,363** |
+| Naive sum of the column above | **94,397** |
 | Actual registered HEIs (AISHE 2021-22) | **58,643** |
-| Apparent overlap | **35,720** |
+| Apparent overlap | **35,754** |
 
-The naive sum **exceeds the real population by 35,720 institutions** (61%). That is not a rounding error — it is arithmetic proof that these categories **overlap**. Colleges appear twice (G1 and G2); universities appear as G3, G6, G7 and G8 depending on lens.
+The naive sum **exceeds the real population by 35,754 institutions** (61%). That is not a rounding error — it is arithmetic proof that these categories **overlap**. Colleges appear twice (G1 and G2); universities appear as G3, G6, G7 and G8 depending on lens.
 
 This is the same trap `todo.md` PHASE 5 warns about: *"Don't automatically add all of these together."* Here it is demonstrated rather than asserted.
 
@@ -294,6 +299,24 @@ This is the same trap `todo.md` PHASE 5 warns about: *"Don't automatically add a
 **Documentary basis.**
 - Corpus: 4 of 36 documents are private deemed/deemed universities
 - AISHE: 473 private unaided + 10 private deemed universities
+
+---
+
+### G9 — State Startup Nodal Department / Mission
+
+- **Activity Scale:** Mature · **IP Depth:** `UNKNOWN` · **WTP:** Medium · **Grade:** DOCUMENTED
+- **Urgency 4/5** — Scored annually on the SRF; results published each January
+- **Revenue 4/5** — Policy-linked budgets and a dedicated nodal team - the only buyer found with budget, mandate and state-wide scope
+
+**Why it matters.** The ONLY buyer found in this project with a budget, a national scorecard and state-wide scope. Where institutions have a compliance obligation and no authority, the state has both.
+
+**Documentary basis.**
+- SRF 5.0 Institutional Support = 25 marks, the largest pillar, scored on having an active State Startup Policy, Nodal Officer, Nodal Department, Dedicated Team
+- SRF AP1 explicitly scores the number of startups availing institutional support - i.e. a venture register
+- Every participating state already runs a startup portal (Tamil Nadu 'Startup TN 5', ~15-day query resolution; Gujarat, 7-day)
+- 34 of 34 States/UTs participated in SRF 5.0; 31 of 36 have a State Startup Policy
+
+> ⚠️ **One portal contract wins or loses an entire state. This is a different motion from institutional selling - fewer, larger, slower deals with a different procurement path, against an incumbent that already exists. It is NOT a volume segment and must not be counted as one.**
 
 ---
 

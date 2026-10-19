@@ -615,3 +615,93 @@ Naive sum = 119,487, which is meaningless. 777 is a ceiling of who *could* buy.
 | Unit economics are `SIMULATED` over our own cost priors | Not market data; assumptions published in the doc |
 | Effective margin falls to 54% after on-premise servicing | H-10's on-premise prior is a direct margin hit |
 | Zero interviews | `OQ-03` open since Phase 0; the one thing that would settle the price |
+
+---
+
+## 18. Phase 6 — Government & Official Data
+
+Folder: **`05_Government_Data`** (spec said `04_`, which collides with `04_Competitor_DeepDive`; this repo already runs two folders per numeric prefix). Divergence recorded in `gov_schema.json`.
+
+| Asset | What it is |
+|---|---|
+| `05_Government_Data/README.md` | Phase hub + the three new findings |
+| `Source_Map.md` | All 13 bodies, what they publish, **access status** |
+| `State_Startup_Ranking.md` | Framework 2018→2026, 34 states, tier movement |
+| `State_Reports_Mined.md` | Tier-spread coverage + the Emerging-tier gap |
+| `Funding_Schemes.md` | 4 incubator grants + state policy examples |
+| `State_Segment.md` | G9 — the buyer Phase 0–5 never modelled |
+| `_exports/phase6/` | 7 CSVs + schema |
+
+Reproduce: `python build/build_phase6.py`.
+
+### Finding 1 — an unmapped buyer, now segment G9
+
+States are scored annually, publicly, by the union on: active State Startup Policy,
+Nodal Officer, Nodal Department, Dedicated Team — **and the number of startups
+availing institutional support**. That last item is a venture register.
+
+**G9 is the first and only occupant of Phase 4's `ACT NOW` quadrant** — the quadrant
+Phase 4 reported as empty and called "the go-to-market problem".
+
+### Finding 2 — an unmapped incumbent
+
+Every participating state already runs a startup portal holding a venture registry.
+Tamil Nadu's *Startup TN 5* (~15-day query resolution, 15+ active policies), Gujarat
+(250 incubators listed, 7-day resolution), Himachal Pradesh (Rs 10 crore seed fund).
+
+**Phase 0's 15-vendor competitor scan missed all of them** — the same coverage defect
+as OQ-04. Recorded as a negative finding about our own work, not quietly patched.
+
+### Finding 3 — a publication bias in the government data itself
+
+Mined 6 per-state reports spread across tiers. **Zero Emerging-tier reports obtainable.**
+The states needing this most are the least documented — mirroring OQ-21 in Phase 1.
+
+### The state has halved its own measurement
+
+| Edition | Year | Areas | Action points | Marks | Participating |
+|---:|---:|---:|---:|---:|---:|
+| 1st | 2018 | 7 | **38** | 100 | 30 |
+| 4th | 2022 | 7 | **25** | 100 | 33 |
+| 5th | 2026 | 6 | **19** | **75** | 34 |
+
+**8 states fell tiers.** Kerala and Odisha fell two each; Gujarat is the only
+consistent Best Performer since 2018.
+
+### Access is the real constraint
+
+| Access | Bodies |
+|---|---:|
+| `OPEN_HTML` | 7 |
+| `OPEN_PDF` | 4 |
+| `REGISTER_GATED` | 1 (DPIIT) |
+| `LOGIN_GATED` | 1 (IIC portal) |
+| **Machine-readable** | **1 of 13** |
+
+The two most important sources are gated and neither is bulk-harvestable. `OQ-22`
+(what fraction of IICs actually file) is unanswerable for exactly this reason.
+
+### Correction to Phase 5
+
+Phase 5 said AIM was the only forward-looking funding signal. **Wrong.** Four central
+incubator schemes exist and at least three flow to degree institutions:
+
+| Scheme | Ministry | Max grant | Reaches institutions |
+|---|---|---:|---|
+| TIDE 2.0 | MeitY | **Rs 27.2 cr** | yes |
+| AIC | AIM/NITI | Rs 10 cr | yes |
+| BioNest | DBT/BIRAC | not published | yes |
+| TBI | DST/NSTEDB | not published | yes |
+
+Assam's policy: **75% grant capped at Rs 5 crore** for incubation centres at IITs,
+engineering colleges and universities — forward-looking capital aimed at segment G2.
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| **No Emerging-tier state evidence at all** | 6 states attempted, filename variants tried, all returned HTML |
+| Only 2/36 institutions scoreable on SRF mentorship bands | The government's own metric is unusable on our corpus |
+| G9 is documentary only | **No Nodal Officer has been spoken to**; deal shape is inferred from the rubric |
+| Grant ceilings published, disbursement not | Cannot verify TIDE's Rs 27.2 cr beyond the ceiling |
+| State portals are neither competitor nor partner — unresolved | Recorded OPEN, not assumed |

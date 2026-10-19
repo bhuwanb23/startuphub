@@ -67,3 +67,19 @@ Colleges are 65.3% private unaided and the primary target by user direction. **T
 - Agarwal & Gupta (2025), Differential Funding and Expenditure among State Universities in India - 8 state universities
 - Union Budget 2025-26 - private deemed university allocation
 - AISHE 2021-22 - 65.3% private unaided
+---
+
+## Parallel buyer track — added by Phase 6
+
+This is **not** funnel stage 5. The state layer is a different buyer buying a different thing over a different scope; folding it into the funnel would breach the nested-filter rule that makes the funnel meaningful.
+
+| Track | Count | Basis |
+|---|---:|---|
+| **State Startup Nodal Department** | 34 | SRF 5.0 participating States and UTs (Ministry of Commerce & Industry) |
+
+**State Startup Nodal Department**
+
+- A funded, mandated, nationally scored body that must evidence the NUMBER OF STARTUPS availing institutional support. That is a venture register, and the evidence is published every January.
+- **Distinct because:** Scope is the whole state, not one campus. The incumbent is an existing portal, not a spreadsheet. The deal size is a portal contract, not a licence.
+- **Phase 4 quadrant:** ACT NOW (Phase 4 G9, urgency 4 / revenue 4)
+- **Caveat:** Fewer, larger, slower deals. Must never be added to the institutional funnel.
