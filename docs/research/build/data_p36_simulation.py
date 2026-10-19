@@ -66,7 +66,126 @@ PRIORS = dict(
     # Probability the institution asks for on-premise deployment, which roughly
     # doubles delivery cost and is the single largest cost driver (H-10).
     on_premise_demand=(0.20, 0.55, 0.85),
+    # ---- UNIT ECONOMICS (Phase 5) ----------------------------------------
+    # Fully-loaded cost of one founder-led seller per month. A founder is not
+    # free: at Rs 8 lakh fully loaded that is ~Rs 66,700/month.
+    seller_monthly_cost=(45_000, 67_000, 95_000),
+    # People involved per institutional deal (seller + a technical/commercial half).
+    people_per_deal=(1.0, 1.5, 2.5),
+    # Gross margin. Lower for on-premise (hosting, upgrades, support) than cloud.
+    gross_margin=(0.60, 0.78, 0.88),
+    # Yearly cost of serving one on-premise customer: infra + patches + support.
+    on_premise_annual_cost=(18_000, 36_000, 70_000),
 )
+
+
+def unit_economics(trials=TRIALS):
+    """CAC / LTV / payback for founder-led institutional B2B.
+
+    This exists because Phase 5 proved affordability is NOT the problem, which
+    forces the question of whether the sales motion is even viable. It is run
+    at the SAME seeded ACV distribution as everything else, so it stays
+    internally consistent.
+    """
+    rng = random.Random(SEED + 1)  # distinct stream: does not disturb run()
+    cac, ltv, payback, margin_eff, cost_to_serve = [], [], [], [], []
+
+    for _ in range(trials):
+        acv = triangular(rng, *PRIORS["acv_realised"])
+        conv = triangular(rng, *PRIORS["conversion"])
+        reach = triangular(rng, *PRIORS["reachable_y3"])
+        renew = triangular(rng, *PRIORS["renewal"])
+        cycle = triangular(rng, *PRIORS["sales_cycle_months"])
+        onprem = triangular(rng, *PRIORS["on_premise_demand"])
+        seller = triangular(rng, *PRIORS["seller_monthly_cost"])
+        people = triangular(rng, *PRIORS["people_per_deal"])
+        gm = triangular(rng, *PRIORS["gross_margin"])
+        ops = triangular(rng, *PRIORS["on_premise_annual_cost"])
+
+        # CAC = cost of the people-months spent per closed deal.
+        # Deals per person-month is what determines pipeline, so CAC is the
+        # FULL cost of a sale, not a marginal touch.
+        c_acq = cycle * seller * people
+        cac.append(c_acq)
+
+        # Effective margin after on-premise servicing.
+        eff = gm - onprem * (ops / max(acv, 1.0))
+        eff = max(0.05, min(0.95, eff))
+        margin_eff.append(eff)
+        cost_to_serve.append(ops * onprem)
+
+        # Expected lifetime: with renewal r, mean remaining life = 1/(1-r).
+        life = 1.0 / max(1e-6, (1.0 - renew))
+        ltv.append(acv * eff * life)
+        payback.append(c_acq / max(1e-6, (acv * eff)))
+
+    l = summarise("Customer acquisition cost", cac, "INR")
+    v = summarise("Lifetime value", ltv, "INR")
+    p = summarise("CAC payback period", payback, "months")
+    return dict(
+        cac=l, ltv=v, payback=p,
+        effective_margin=summarise("Effective gross margin after on-premise servicing",
+                                  margin_eff, "probability"),
+        cost_to_serve=summarise("Annual cost to serve (on-premise only)",
+                                cost_to_serve, "INR"),
+        ltv_cac_ratio=[round(a / max(1e-6, b), 2)
+                       for a, b in zip(ltv, cac)],
+        viable=[1 if a > 3 * b else 0 for a, b in zip(ltv, cac)],
+    )
+
+
+def required_acv(target_ratio=3.0, trials=20_000):
+    """What ACV makes this business viable? The actionable number.
+
+    Inverting the model: at a given CAC, gross margin and renewal rate, find the
+    annual contract value at which LTV/CAC first reaches `target_ratio`.
+
+    This matters because Phase 5 proved the budget constraint is nowhere near
+    binding - a Rs 9 lakh contract is still ~0.005% of a NIT's annual budget. So
+    the budget does NOT argue against a higher price. Nothing does except
+    willingness to pay (OQ-03), which is still unmeasured.
+    """
+    rng = random.Random(SEED + 2)
+    out = []
+    for _ in range(trials):
+        renew = triangular(rng, *PRIORS["renewal"])
+        gm = triangular(rng, *PRIORS["gross_margin"])
+        onprem = triangular(rng, *PRIORS["on_premise_demand"])
+        ops = triangular(rng, *PRIORS["on_premise_annual_cost"])
+        cycle = triangular(rng, *PRIORS["sales_cycle_months"])
+        seller = triangular(rng, *PRIORS["seller_monthly_cost"])
+        people = triangular(rng, *PRIORS["people_per_deal"])
+
+        cac = cycle * seller * people
+        life = 1.0 / max(1e-6, (1.0 - renew))
+        # Solve ACV such that ACV * eff_margin * life = target * cac, where
+        # eff_margin depends on ACV through on-premise servicing. Iterate.
+        acv = 100_000.0
+        for _ in range(60):
+            eff = max(0.05, min(0.95, gm - onprem * (ops / max(acv, 1.0))))
+            acv = (target_ratio * cac) / (eff * life)
+        out.append(acv)
+    xs = sorted(out)
+    return dict(
+        target_ratio=target_ratio,
+        p25=pct(xs, 25), p50=pct(xs, 50), p75=pct(xs, 75), min=xs[0], max=xs[-1],
+    )
+
+
+def unit_economics_summary():
+    ue = unit_economics()
+    ratios = sorted(ue["ltv_cac_ratio"])
+    req = required_acv()
+    return dict(
+        cac_p25_p75=[round(ue["cac"]["p25"]), round(ue["cac"]["p75"])],
+        ltv_p25_p75=[round(ue["ltv"]["p25"]), round(ue["ltv"]["p75"])],
+        payback_p25_p75=[round(ue["payback"]["p25"], 1), round(ue["payback"]["p75"], 1)],
+        ltv_cac_p25_p75=[ratios[len(ratios)//4], ratios[3*len(ratios)//4]],
+        ltv_cac_p50=ratios[len(ratios)//2],
+        pct_viable_gt_3x=round(sum(ue["viable"]) / TRIALS * 100, 1),
+        required_acv_for_3x=[round(req["p25"]), round(req["p50"]), round(req["p75"])],
+        current_list_price=120000,
+    )
 
 
 def triangular(rng, lo, mode, hi):

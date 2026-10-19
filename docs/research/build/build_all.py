@@ -37,6 +37,7 @@ STEPS = [
     ("Phase 3A - NIRF/ARIIA government forms", "build_phase3.py"),
     ("Phase 3B - interview programme (instruments)", "build_phase3b.py"),
     ("Phase 4 - segmentation matrix", "build_phase4.py"),
+    ("Phase 5 - market research (financial)", "build_phase5.py"),
     ("Phases 5/7/30 - market, sizing, scorecard", "build_phase45.py"),
     ("Phases 35/36 - gap filling + simulation", "build_phase35.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
@@ -119,7 +120,9 @@ def main() -> int:
     print("    _exports/phase3b/           Phase 3B instruments, shortlist, codes")
     print("    03_Market_Research/Segmentation_Matrix.md  Phase 4 matrix + quadrant")
     print("    03_Market_Research/ICP.md             Phase 4 ICP + exclusions")
-    print("    03_Market_Research/README.md          Phase 5 ecosystem base (T1 sources)")
+    print("    03_Market_Research/Financial_Landscape.md  budgets + headroom")
+    print("    03_Market_Research/Unit_Economics.md     LTV/CAC + required ACV")
+    print("    _exports/phase5/             Phase 5 financial data")
     print("    05_Market_Sizing/README.md    Phase 7 TAM/SAM/SOM as ranges")
     print("    13_Synthesis/Complete_Dataset.md      every cell filled + labelled")
     print("    13_Synthesis/Simulation_Results.md   seeded Monte Carlo, 50k trials")
