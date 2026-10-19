@@ -66,42 +66,54 @@ def india_readiness(c):
 # 1. Positioning matrix - breadth vs India-readiness
 # ==========================================================================
 def chart_positioning():
-    fig, ax = plt.subplots(figsize=(12.5, 8.6))
-    ax.add_patch(Rectangle((0, 3), 6.5, 5, color="#FEF2F2", zorder=0))
-    ax.add_patch(Rectangle((6.5, 3), 7, 5, color="#ECFDF5", zorder=0))
+    fig, ax = plt.subplots(figsize=(13, 8.8))
+    ax.add_patch(Rectangle((0, 3), 6.5, 5.6, color="#FEF2F2", zorder=0))
+    ax.add_patch(Rectangle((6.5, 3), 7, 5.6, color="#ECFDF5", zorder=0))
     ax.add_patch(Rectangle((0, 0), 6.5, 3, color="#F8FAFC", zorder=0))
     ax.add_patch(Rectangle((6.5, 0), 7, 3, color="#F0FDFA", zorder=0))
-    ax.text(3.25, 7.6, "NARROW + NOT INDIA-READY\nthe risk zone", ha="center",
+    ax.text(3.25, 8.1, "NARROW + NOT INDIA-READY\nthe risk zone", ha="center",
             fontsize=10, color="#991B1B", fontweight="bold", zorder=1)
-    ax.text(10.0, 7.6, "BROAD + INDIA-READY\nStartupHub's target quadrant", ha="center",
+    ax.text(10.0, 8.1, "BROAD + INDIA-READY\nStartupHub's target quadrant", ha="center",
             fontsize=10, color="#065F46", fontweight="bold", zorder=1)
 
+    # Who actually occupies the target quadrant? Say so rather than claiming it is empty.
+    in_target = [c for c in C.COMPETITORS if breadth(c) >= 6.5 and india_readiness(c) >= 3]
+    ax.scatter([], [], s=0)  # keep autoscale honest
+    if in_target:
+        ax.text(10.0, 6.5,
+                "Occupied by: " + ", ".join(c["name"] for c in in_target) +
+                "\nAll unproven at institutional scale",
+                ha="center", fontsize=9.2, color="#065F46", style="italic", zorder=6)
+
+    # spread labels so co-located vendors do not overprint
+    offsets = {"EcoSync": (8, 8), "IncubatX": (-70, 10), "NestLens Orbit": (8, -14),
+               "Innoloft / LoftOS": (8, 8), "VentureLink": (8, 8), "Envisio": (8, 8)}
     for c in C.COMPETITORS:
         col = CAT_COLOR.get(c["category"], SLATE)
         size = 60 + c["reviews"] * 14
         ax.scatter(breadth(c), india_readiness(c), s=size, color=col,
                    alpha=0.80, edgecolor="white", linewidth=1.6, zorder=3)
     for c in C.COMPETITORS:
-        if c["evidence"] in ("NAMED_REFERENCE",) or c["name"] in (
-                "EcoSync", "IncubatX", "NestLens Orbit", "Accubate", "Innoloft / LoftOS"):
+        if c["evidence"] == "NAMED_REFERENCE" or c["name"] in offsets:
             ax.annotate(c["name"], (breadth(c), india_readiness(c)),
-                        xytext=(6, 5), textcoords="offset points", fontsize=8.4,
-                        color="#1E293B", zorder=4)
+                        xytext=offsets.get(c["name"], (6, 5)), textcoords="offset points",
+                        fontsize=8.4, color="#1E293B", zorder=4)
 
     ax.axvline(6.5, color="#94A3B8", ls="--", lw=1.4)
     ax.axhline(3, color="#94A3B8", ls="--", lw=1.4)
     ax.set_xlabel("Product breadth (number of the 12 assessed capabilities implemented)")
     ax.set_ylabel("India-readiness\n(India vendor + data residency + free tier)", fontsize=9.5)
     ax.set_title("Competitive Positioning\n"
-                 "Bubble size = third-party review count. 28 competitors, none in the target quadrant.",
+                 "Bubble size = third-party review count. The target quadrant is occupied - "
+                 "but only by vendors with no verifiable institutional deployment.",
                  pad=14)
-    ax.set_xlim(-0.5, 13.5); ax.set_ylim(-0.5, 8.2)
+    ax.set_xlim(-0.5, 13.5); ax.set_ylim(-0.5, 8.9)
     ax.legend(handles=[
         Patch(color=NAVY, label="Direct competitors (13)"),
         Patch(color=PURPLE, label="Global competitors (15)"),
         plt.Line2D([], [], marker="o", ls="", ms=14, mfc="#94A3B8", mec="white",
                    label="bubble size = review count"),
-    ], loc="upper left", bbox_to_anchor=(0.005, 0.99), fontsize=9)
+    ], loc="upper center", bbox_to_anchor=(0.5, -0.09), ncol=3, fontsize=9)
     _save(fig, "p9_01_positioning")
 
 

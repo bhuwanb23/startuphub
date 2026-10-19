@@ -44,6 +44,8 @@ STEPS = [
     ("Phase 7 - market sizing rebuild (investor grade)", "build_phase7.py"),
     ("Phase 8 - pricing research + charts", "build_charts8.py"),
     ("Phase 8 - pricing research (docs + exports)", "build_phase8.py"),
+    ("Phase 9 - competitor research + charts", "build_charts9.py"),
+    ("Phase 9 - competitor research (docs + exports)", "build_phase9.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
 
