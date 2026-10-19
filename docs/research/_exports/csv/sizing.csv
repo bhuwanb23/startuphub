@@ -1,0 +1,11 @@
+﻿scope,layer,scenario,acv,institutions_low,institutions_high,value_low_cr,value_high_cr,basis,provenance,note
+TAM,ceiling,A,120000,,,168.8,196.4,IIC-bearing institutions x ACV (implies 100% capture),T1_DOCUMENTED,"A CEILING, not a forecast. See 05_Market_Sizing/TAM.md"
+REACHABLE,estimate,A,120000,,,1.8,15.8,HEI universe x adoption band x capture band x ACV,MODELLED,Never averaged with a ceiling. See Triangulation.md
+SAM,serviceable,A,120000,582,777,7.0,9.3,"six filters: type, digital readiness, innovation, budget, ecosystem, geography",T1_DOCUMENTED + MODELLED + BOUNDED,Measured cross-check: 777 NIRF Innovation filers
+SOM,obtainable,A,120000,18.7,31.0,0.2,0.4,"Monte Carlo p25-p75 paying logos (seed 20261019, 50k trials)",SIMULATED,Capacity-built. THE number to underwrite. Binding constraint: conversion.
+SOM_G9_STATE,obtainable,A,120000,3,8,0.8,6.4,"34 State Startup Nodal Departments, years 3-8",PRIOR,Sized separately from institutional SOM. Not additive without care.
+TAM,ceiling,B,1027962,,,1446.0,1682.5,IIC-bearing institutions x ACV (implies 100% capture),T1_DOCUMENTED,"A CEILING, not a forecast. See 05_Market_Sizing/TAM.md"
+REACHABLE,estimate,B,1027962,,,15.1,135.6,HEI universe x adoption band x capture band x ACV,MODELLED,Never averaged with a ceiling. See Triangulation.md
+SAM,serviceable,B,1027962,582,777,59.8,79.9,"six filters: type, digital readiness, innovation, budget, ecosystem, geography",T1_DOCUMENTED + MODELLED + BOUNDED,Measured cross-check: 777 NIRF Innovation filers
+SOM,obtainable,B,1027962,18.7,31.0,1.9,3.2,"Monte Carlo p25-p75 paying logos (seed 20261019, 50k trials)",SIMULATED,Capacity-built. THE number to underwrite. Binding constraint: conversion.
+SOM_G9_STATE,obtainable,B,1027962,3,8,0.8,6.4,"34 State Startup Nodal Departments, years 3-8",PRIOR,Sized separately from institutional SOM. Not additive without care.
