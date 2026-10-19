@@ -1,0 +1,113 @@
+{
+  "note": "Instrument definitions and the guards enforced by data_p3_interviews.validation().",
+  "interviews_conducted": 0,
+  "banks": [
+    {
+      "id": "Q1",
+      "name": "Current workflow",
+      "spec_questions": [
+        "How do you currently track startups?",
+        "Where is startup data stored?",
+        "How do you manage mentors?",
+        "How do you track incubation milestones?",
+        "How do you manage IPR?",
+        "How do you generate reports?",
+        "How do you track student innovation?",
+        "What software do you currently use?"
+      ],
+      "rationale": "This bank is the whole point of the phase. Phase 1's P-A10 says institution-wide innovation data is consolidated by hand, but we have only ever seen the EXPORT - never the tool upstream of it. Every question here is anchored to the last completed cycle, not to the general present."
+    },
+    {
+      "id": "Q2",
+      "name": "Pain",
+      "spec_questions": [
+        "What takes the most time?",
+        "What gets missed?",
+        "What information is difficult to obtain?",
+        "What do you currently do manually?",
+        "What causes reporting problems?",
+        "What information do you wish you had in one dashboard?"
+      ],
+      "rationale": "Anchored to the last submission cycle. 'What takes the most time' is unusable without a timeframe; the reframed form asks for hours spent on the last cycle, which is answerable."
+    },
+    {
+      "id": "Q3",
+      "name": "Existing tools",
+      "spec_questions": [
+        "What software do you currently pay for?",
+        "What is free?",
+        "What do you use Excel for?",
+        "What do you use WhatsApp for?",
+        "What systems does the institution already have?"
+      ],
+      "rationale": "This is the bank that tests the 'free incumbent' assumption underpinning StartupHub's entire pricing model. Phase 0 assumes Excel / Sheets / WhatsApp are free incumbents. That is currently an ASSUMPTION, not a finding."
+    },
+    {
+      "id": "Q4",
+      "name": "Buying",
+      "spec_questions": [
+        "Who approves new software?",
+        "Who controls the budget?",
+        "How long does procurement take?",
+        "What budget category would this fall under?",
+        "What would prevent you from buying it?"
+      ],
+      "rationale": "Phase 2 proved only 4 of 25 roles hold DOCUMENTED budget authority, and none is Class A. This bank is the only way to find out whether that documentary finding matches reality - and whether the person we interview can even authorise anything."
+    },
+    {
+      "id": "Q5",
+      "name": "Value",
+      "spec_questions": [
+        "If this problem disappeared tomorrow, what would that save you?"
+      ],
+      "rationale": "todo.md is explicit that this is the right question and 'would you pay Rs 1.2 lakh' is the wrong one. It is reframed here to demand a quantity - hours, or rupees already committed - because 'it would save a lot of time' is not evidence."
+    }
+  ],
+  "role_classes": {
+    "A": "Mandated IIC seats - integration point, target first",
+    "B": "Adjacent institutional offices (Registrar/Dean, VC, Finance)",
+    "C": "Off-portal gatekeepers (Purchase Cttee, IT Admin, Audit)",
+    "D": "Individual users (students, founders)"
+  },
+  "guards": [
+    "no question may contain a hypothetical purchase-intent frame",
+    "every question must carry a bank, a probe, an evidence hook and a falsifier",
+    "every hypothesis must name a refuting observation and a real guide question",
+    "a DOCX/count may never be reported without the institution count beside it",
+    "synthetic output may never enter _exports outside _exports/synthetic/"
+  ],
+  "banned_intent_frames": [
+    "would you",
+    "will you",
+    "do you plan",
+    "do you intend",
+    "are you likely",
+    "how much would you",
+    "would you pay",
+    "do you think you would",
+    "if we built",
+    "if startuphub",
+    "how interested are you",
+    "on a scale of 1 to 10"
+  ],
+  "analysis_rules": [
+    "One interview is an anecdote. No code may be reported as a finding until it appears in at least 3 of 6 institutions, and the count of institutions is always printed beside it.",
+    "A claim that contradicts Phase 1 or 3A is recorded as a contradiction, never silently dropped. Phase 1's corpus is evidence too.",
+    "Paired interviews are compared on the same four questions: does the Registrar's picture match the Convener's, on venture count, on who owns the data, and on what was last paid for.",
+    "Silence is recorded. If a respondent cannot answer a question, that is a coded non-answer and counts toward the finding - an institution that cannot name its own budget head is the finding.",
+    "Quotes are verbatim only, with the recording checked. No paraphrase is ever placed in quotation marks.",
+    "Every finding states which hypotheses it confirms, refutes, or leaves open. An interview that resolves nothing is still recorded, and still costs time - say so."
+  ],
+  "ollama_rules": {
+    "purpose": "Validate that the interview guides are answerable and non-leading BEFORE a human is asked them. A synthetic respondent should produce an answer that is obviously synthesised and reveals nothing real.",
+    "forbidden": [
+      "any synthetic text entering _exports/ (except _exports/synthetic/, which is excluded from the manifest)",
+      "any synthetic sentence being quoted as a respondent",
+      "any synthetic count entering a finding, grade, or headline",
+      "a synthetic answer being used to 'confirm' a hypothesis",
+      "recording synthetic output with a parse_status of 'parsed'"
+    ],
+    "required_marker": "SYNTHETIC — NOT EVIDENCE",
+    "instruction": "Run a synthetic respondent against each guide with a deliberately wrong, inconsistent persona, to check the questions do not lead the answer. A model that answers everything smoothly means the question is leading."
+  }
+}

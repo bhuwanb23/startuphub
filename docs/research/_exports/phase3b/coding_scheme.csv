@@ -1,0 +1,11 @@
+﻿code,bank,definition,evidence_bar,falsifies
+W-TOOL,Q1,"Named tool, file or channel used to hold startup data",must name the artefact,"H-01, H-03"
+W-SOURCE,Q1,Where a specific required field physically came from,"must name the person, system or portal",H-02
+W-REWORK,Q2,Work redone because a number was wrong or missing,"must quantify (rows, hours)",H-04
+W-HOURS,Q2,Time spent on the last completed cycle,numeric estimate the respondent accepts,H-04
+W-ORPHAN,Q2,A startup the institute lost track of,narrative + how it was noticed,H-01
+W-PAID,Q3,Software the institute already pays for that overlaps this job,name + cost if known,H-03
+W-HEAD,Q4,The budget head a purchase would come from,named head,H-07
+W-GATE,Q4,A person or rule that can block the purchase,named role or cited rule,"H-10, H-05"
+W-ANCHOR,Q5,What the respondent already spends that this was compared against,a real rupee figure they named,H-07
+W-DEPLOY,Q4,Deployment constraint (on-premise / localisation / cloud),"constraint stated as fact, not preference",H-10
