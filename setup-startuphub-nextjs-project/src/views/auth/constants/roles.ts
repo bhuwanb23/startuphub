@@ -4,6 +4,7 @@ import {
   Landmark,
   Rocket,
   Scale,
+  UserRound,
   Users,
 } from "lucide-react";
 
@@ -55,5 +56,13 @@ export const DEMO_WORKSPACES = [
     href: "/university",
     icon: GraduationCap,
     blurb: "Research → IP → licensing → spin-offs and transfer",
+  },
+  {
+    role: "Talent",
+    name: "Zoya Khan",
+    org: "Senior Product Engineer",
+    href: "/talent",
+    icon: UserRound,
+    blurb: "Profile → matches → applications → verified work",
   },
 ];
