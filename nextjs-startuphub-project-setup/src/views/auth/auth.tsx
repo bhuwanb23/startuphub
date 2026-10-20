@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
+  Boxes,
   Briefcase,
   Building2,
   GraduationCap,
@@ -63,6 +64,14 @@ const ROLES = [
     icon: Landmark,
     href: "/government",
     you: "Sunita Verma · State Innovation Mission",
+  },
+  {
+    key: "provider",
+    label: "Resource Provider",
+    desc: "List resources, match startups, book, allocate & get paid",
+    icon: Boxes,
+    href: "/provider",
+    you: "Karan Malhotra · Vertex Labs & Compute",
   },
 ];
 
