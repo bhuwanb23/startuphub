@@ -1,9 +1,0 @@
-export { default as InstitutionSnapshot } from './InstitutionSnapshot';
-export { default as ActiveResearchProjects } from './ActiveResearchProjects';
-export { default as StudentStartupOverview } from './StudentStartupOverview';
-export { default as PatentActivitySummary } from './PatentActivitySummary';
-export { default as IncubationMetrics } from './IncubationMetrics';
-export { default as FacultyContributions } from './FacultyContributions';
-export { default as GrantsOverview } from './GrantsOverview';
-export { default as EventsDeadlines } from './EventsDeadlines';
-export { default as NotificationsAlerts } from './NotificationsAlerts';

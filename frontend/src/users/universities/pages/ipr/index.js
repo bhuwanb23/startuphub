@@ -1,1 +1,0 @@
-export { default as IPRHub } from './index.jsx';

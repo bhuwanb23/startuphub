@@ -1,9 +1,0 @@
-export { default as SidebarNavigation } from './SidebarNavigation';
-export { default as SharedResourceLibrary } from './SharedResourceLibrary';
-export { default as KnowledgeSharingBoard } from './KnowledgeSharingBoard';
-export { default as GuidebookTemplates } from './GuidebookTemplates';
-export { default as CoAuthorDocuments } from './CoAuthorDocuments';
-export { default as SharedWhiteboard } from './SharedWhiteboard';
-export { default as DiscussionChannels } from './DiscussionChannels';
-export { default as WorkspaceRooms } from './WorkspaceRooms';
-export { default as BestPractices } from './BestPractices';
