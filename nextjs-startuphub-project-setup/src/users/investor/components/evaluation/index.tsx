@@ -10,7 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Bar, Chip, Panel, ScoreRing } from "@/components/app/widgets";
-import { PageHead, SubjectBanner } from "../shared/boards";
+import { PageHead, SubjectBanner } from "@/components/app/boards";
 import {
   COMPETITORS,
   EVAL_SECTIONS,

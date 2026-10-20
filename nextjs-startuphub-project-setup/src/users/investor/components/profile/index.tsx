@@ -11,7 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { Bar, Chip, Panel } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import {
   INVESTMENT_TEAM,
   INVESTOR_PROFILE,

@@ -10,7 +10,7 @@ import {
   X,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, ScoreRing } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import {
   CLOSED_RECENT,
   DD_ACTIVE,

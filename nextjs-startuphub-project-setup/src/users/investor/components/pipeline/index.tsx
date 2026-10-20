@@ -8,7 +8,7 @@ import {
   X,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, ScoreRing, StatCard } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import {
   EVAL_ACTIVE,
   NEW_LEADS_LIST,

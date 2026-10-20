@@ -7,6 +7,7 @@ import {
   Briefcase,
   Building2,
   GraduationCap,
+  Landmark,
   Rocket,
   ShieldCheck,
 } from "lucide-react";
@@ -54,6 +55,14 @@ const ROLES = [
     icon: Briefcase,
     href: "/investor",
     you: "Arjun Mehta · Meridian Angels",
+  },
+  {
+    key: "government",
+    label: "Government",
+    desc: "Ecosystem intelligence, schemes, funding & policy",
+    icon: Landmark,
+    href: "/government",
+    you: "Sunita Verma · State Innovation Mission",
   },
 ];
 

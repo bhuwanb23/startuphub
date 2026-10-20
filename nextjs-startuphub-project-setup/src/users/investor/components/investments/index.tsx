@@ -12,7 +12,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { Bar, Chip, Panel, StatCard } from "@/components/app/widgets";
-import { PageHead, Timeline } from "../shared/boards";
+import { PageHead, Timeline } from "@/components/app/boards";
 import { INVEST_HISTORY_EXTRA, RETURNS_TABLE } from "../../constants/deal-dd-data";
 import { FOLLOW_ONS, LEDGER, PORTFOLIO } from "../../constants/investor-data";
 import { MANDATE } from "../../constants/ops-data";

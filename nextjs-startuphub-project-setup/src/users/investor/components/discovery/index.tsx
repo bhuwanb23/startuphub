@@ -14,7 +14,7 @@ import {
   Star,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, ScoreRing, StatCard, Spark } from "@/components/app/widgets";
-import { PageHead, StatusIcon } from "../shared/boards";
+import { PageHead, StatusIcon } from "@/components/app/boards";
 import {
   AI_MATCHES,
   DEAL_SOURCES,

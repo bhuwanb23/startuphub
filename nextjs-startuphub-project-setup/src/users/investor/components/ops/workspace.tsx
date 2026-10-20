@@ -12,7 +12,7 @@ import {
   Upload,
 } from "lucide-react";
 import { Avatar, Chip, Panel } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import { useFilter } from "../../hooks/use-filter";
 import {
   AUDIT_TRAIL,

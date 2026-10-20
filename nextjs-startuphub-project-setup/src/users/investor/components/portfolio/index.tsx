@@ -13,7 +13,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Bar, Chip, Panel, Spark, StatCard } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import {
   ALLOCATION,
   FUND_SERIES,

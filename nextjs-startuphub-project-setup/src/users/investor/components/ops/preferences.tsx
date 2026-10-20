@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "@/components/ui";
 import { Chip, Panel } from "@/components/app/widgets";
-import { PageHead, Toggle } from "../shared/boards";
+import { PageHead, Toggle } from "@/components/app/boards";
 import { FAQ, HELP_GUIDES, SETTINGS_SECTIONS } from "../../constants/ops-data";
 
 /* ── Settings ───────────────────────────────────────────────── */
