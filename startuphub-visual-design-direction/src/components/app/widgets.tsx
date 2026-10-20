@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 /* ──────────────────────────────────────────────────────────────
    Workspace widgets.
 
-   Three generations of the house widget set live side by side:
+   Four generations of the house widget set live side by side:
 
    · The "card" family (Card, Stat, Progress, Badge, GaugeRing,
      PageHeader) is used by the founder / mentor / incubator /
@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
      provider workspaces.
    · The "intro" family (PageIntro, PanelLink) is used by the talent /
      university workspaces.
+   · The "admin" family (Meter, Tag) is used by the admin workspace.
 
    Where a family shares a name with another, the props are unioned
    rather than renamed, so every workspace compiles against the
@@ -63,13 +64,21 @@ export function Stat({
   value,
   delta,
   tone = "default",
+  hint,
 }: {
-  icon: LucideIcon;
+  /* The founder / mentor / incubator / ipr-expert workspaces always pass
+     an icon and use tone = good | default | warn | bad. The admin
+     workspace omits the icon and uses tone = up | down | flat, which
+     renders a plain-text trend instead of a chip. */
+  icon?: LucideIcon;
   label: string;
   value: string;
   delta?: string;
-  tone?: "default" | "good" | "warn" | "bad";
+  tone?: "default" | "good" | "warn" | "bad" | "up" | "down" | "flat";
+  hint?: string;
 }) {
+  /* The admin style: no chip, a coloured trend word plus an optional hint. */
+  const adminStyle = tone === "up" || tone === "down" || tone === "flat";
   const deltaTone =
     tone === "good" ? "bg-emerald-50 text-emerald-600"
     : tone === "warn" ? "bg-amber-50 text-amber-600"
@@ -79,17 +88,53 @@ export function Stat({
     <div className="rounded-2xl border border-line bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-16px_rgba(11,18,32,0.18)]">
       <div className="flex items-center justify-between">
         <span className="text-[12px] font-medium text-slate-500">{label}</span>
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-soft text-accent">
-          <Icon className="h-3.5 w-3.5" />
-        </span>
+        {Icon && (
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-soft text-accent">
+            <Icon className="h-3.5 w-3.5" />
+          </span>
+        )}
       </div>
-      <div className="mt-3 text-[1.55rem] font-semibold leading-none tracking-tight text-ink tabular-nums">
-        {value}
-      </div>
-      {delta && (
-        <span className={cn("mt-2.5 inline-block rounded-full px-2 py-0.5 text-[10.5px] font-semibold", deltaTone)}>
-          {delta}
-        </span>
+      {adminStyle ? (
+        <>
+          <div className="mt-2.5 text-[26px] font-semibold leading-none tracking-[-0.02em] text-ink">
+            {value}
+          </div>
+          {delta ? (
+            <p
+              className={cn(
+                "mt-2.5 inline-flex items-center gap-1 text-[11.5px] font-semibold",
+                tone === "down"
+                  ? "text-rose-600"
+                  : tone === "flat"
+                    ? "text-slate-400"
+                    : "text-emerald-600",
+              )}
+            >
+              {tone !== "flat" ? (
+                tone === "down" ? (
+                  <ArrowDownRight className="h-3 w-3" />
+                ) : (
+                  <ArrowUpRight className="h-3 w-3" />
+                )
+              ) : null}
+              {delta}
+              {hint ? <span className="font-medium text-slate-400">· {hint}</span> : null}
+            </p>
+          ) : hint ? (
+            <p className="mt-2.5 text-[11.5px] font-medium text-slate-400">{hint}</p>
+          ) : null}
+        </>
+      ) : (
+        <>
+          <div className="mt-3 text-[1.55rem] font-semibold leading-none tracking-tight text-ink tabular-nums">
+            {value}
+          </div>
+          {delta && (
+            <span className={cn("mt-2.5 inline-block rounded-full px-2 py-0.5 text-[10.5px] font-semibold", deltaTone)}>
+              {delta}
+            </span>
+          )}
+        </>
       )}
     </div>
   );
@@ -279,10 +324,23 @@ export function StatCard({
   );
 }
 
-/* ── Panel — white workspace card ──────────────────────────── */
+/* ── Panel — white workspace card ────────────────────────────
+   Three visual styles share this one component:
+
+   · admin        — `description` is passed. Rounded-2xl card with a
+                   soft shadow, a top-aligned header and a description
+                   line under the title.
+   · panel family — `sub` is passed. Rounded-xl card, no shadow,
+                   title + optional sub-line.
+   · talent/univ  — neither `description` nor `sub`. Rounded-xl card
+                   with a hairline shadow and a compact header.
+
+   The prop that is present selects the style, so every workspace keeps
+   the appearance it was authored with. */
 export function Panel({
   title,
   sub,
+  description,
   action,
   children,
   className,
@@ -291,6 +349,8 @@ export function Panel({
 }: {
   title?: string;
   sub?: string;
+  /* The admin workspace labels its panels with a description line. */
+  description?: string;
   action?: ReactNode;
   children: ReactNode;
   className?: string;
@@ -299,6 +359,52 @@ export function Panel({
      and always render a title. */
   bodyClassName?: string;
 }) {
+  const adminStyle = description !== undefined;
+  const talentStyle = !adminStyle && sub === undefined;
+
+  if (adminStyle) {
+    return (
+      <section
+        className={cn(
+          "rounded-2xl border border-line bg-white shadow-card",
+          className,
+        )}
+      >
+        <header className="flex items-start justify-between gap-4 border-b border-line px-5 py-4">
+          <div>
+            <h2 className="text-[14.5px] font-semibold tracking-tight text-ink">
+              {title}
+            </h2>
+            {description ? (
+              <p className="mt-0.5 text-[12px] text-slate-400">{description}</p>
+            ) : null}
+          </div>
+          {action}
+        </header>
+        <div className={cn("p-5", bodyClassName)}>{children}</div>
+      </section>
+    );
+  }
+
+  if (talentStyle) {
+    return (
+      <section
+        className={cn(
+          "overflow-hidden rounded-xl border border-line bg-white shadow-[0_1px_2px_rgba(11,18,32,0.03)]",
+          className,
+        )}
+      >
+        {title && (
+          <header className="flex items-center justify-between border-b border-line px-4.5 py-3.5 sm:px-5">
+            <h3 className="text-[13.5px] font-semibold text-ink">{title}</h3>
+            {action}
+          </header>
+        )}
+        <div className={cn("px-4.5 py-4 sm:px-5", bodyClassName)}>{children}</div>
+      </section>
+    );
+  }
+
   return (
     <section
       className={cn(
@@ -557,5 +663,63 @@ export function PanelLink({
     >
       {children}
     </a>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Admin family — admin workspace
+   ────────────────────────────────────────────────────────────── */
+
+/* ── Meter — a thin 0..1 fill bar ───────────────────────────── */
+export function Meter({
+  value,
+  className,
+}: {
+  value: number; // 0..1
+  className?: string;
+}) {
+  return (
+    <span
+      className={cn(
+        "block h-1.5 w-full overflow-hidden rounded-full bg-accent-soft",
+        className,
+      )}
+    >
+      <span
+        className="block h-full rounded-full bg-accent"
+        style={{ width: `${Math.round(Math.min(1, Math.max(0, value)) * 100)}%` }}
+      />
+    </span>
+  );
+}
+
+/* ── Tag — a small uppercase status pill ────────────────────── */
+const TAG_TONES = {
+  accent: "bg-accent-soft text-accent",
+  green: "bg-emerald-50 text-emerald-700",
+  amber: "bg-amber-50 text-amber-700",
+  slate: "bg-slate-100 text-slate-500",
+  rose: "bg-rose-50 text-rose-600",
+} as const;
+
+export function Tag({
+  tone = "accent",
+  children,
+  className,
+}: {
+  tone?: keyof typeof TAG_TONES;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.1em]",
+        TAG_TONES[tone],
+        className,
+      )}
+    >
+      {children}
+    </span>
   );
 }
