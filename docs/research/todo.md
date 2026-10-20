@@ -62,22 +62,25 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 5 Market research | ✅ **Financial rebuild (budgets + unit economics)** | `03_Market_Research/` (Financial_Landscape, Buyer_Determination, Market_Sizing, Unit_Economics), `_exports/phase5/` | Buyer pop = 777; LTV/CAC = 0.21 at current price |
 | 6 Government data | ? **13 sources mapped + SRF 5.0 + new segment G9** | `05_Government_Data/`, `_exports/phase6/` | 0 Emerging-tier state reports obtainable |
 | 7 TAM/SAM/SOM | ✅ **Complete as ranges** | `05_Market_Sizing/README.md` | Band dominated by 3 HYPOTHESIS inputs. Price band left UNCHANGED on purpose — unspent budget is capacity, not willingness |
-| 8 Pricing | 🟡 Seeded | `06_Pricing_Evidence/` | 🔴 needs 3 for willingness-to-pay |
+| 8 Pricing | ✅ **Done** | `06_Pricing_Research/` | 🔴 needs 3 for willingness-to-pay |
 | 9–12 Competitors | ✅ Done in Phase 0 | `04_Competitor_DeepDive/` | — |
-| 11 Competitor reviews | 🟡 Thin | dossiers | — |
-| 13–15 Journey/JTBD/Workflow | ⬜ | `07_Workflow_CurrentState/` | 🔴 blocked on 3 |
+| 10 Competitor matrix | ✅ **Done (40 vendors × 15 capabilities)** | `08_Competitor_Matrix/README.md`, `_exports/phase10/` | — |
+| 11 Competitor reviews | ✅ **Done — negative result** | `09_User_Reviews/README.md`, `_exports/phase11/` | — |
+| 12 Feature gap | ✅ **Done (13 gaps in, 6 differentiators out)** | `10_Feature_Gap/README.md`, `_exports/phase12/` | 3 of 6 differentiators UNPROVEN on demand |
+| 13 Customer journey | ✅ **Done (11 stages, 66 graded cells, 0 interviews)** | `11_Customer_Journey/README.md`, `_exports/phase13/` | 17 UNKNOWN cells; hours and rupees unmeasured |
+| 14–15 JTBD/Workflow | ⬜ | `07_Workflow_CurrentState/` | 🔴 blocked on 3 |
 | 16–18 Financials | ⬜ | `09_Market_Data/` | 🔴 blocked on 3 |
 | 19 GTM | ⬜ | `12_Partners_Ecosystem/` | — |
 | 20 Pilot · 21 MVP | ⬜ | — | — |
-| 22–26 Tech/AI/legal/sec/IPR | ⬜ | `10_`, `11_` | Phase 1 gives `P-A07` a head start |
+| 22–26 Tech/AI/legal/sec/IPR | ⬜ | `15_Legal_Policy_Tech/` | Phase 1 gives `P-A07` a head start |
 | 27 Policy | ?? Seeded | `05_Government_Data/Funding_Schemes.md` (4 central incubator schemes + state policies) | Policy deep-read not yet done |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
 | 30 Validation scorecard | ✅ **0 blanks — every row has a prior + decision rule** | `13_Synthesis/Validation_Scorecard.md`, `_exports/phase35/` | 15 of 53 cells are PRIOR, not evidence |
-| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (124 rows) | — |
+| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (141 rows) | — |
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |
 
-**Evidence base:** 135 registered sources (44 GOV, 32 COMP, 36 P1, 12 P2, 11 P3) · 36-document institutional corpus
+**Evidence base:** 141 registered sources (44 GOV, 36 P1, 32 COMP, 12 P2, 11 P3, 6 M5) · 36-document institutional corpus
 · 10 graded problem analyses · 12 verbatim quotes · 20 decisions · 34 open questions.
 
 **Next three actions, in order:**
@@ -1105,9 +1108,19 @@ That becomes your opportunity.
 
 # PHASE 12 — Feature Gap Analysis
 
+> ✅ **DONE.** `10_Feature_Gap/` · `_exports/phase12/` · 8 charts ·
+> `_exports/xlsx/10_Feature_Gap.xlsx` · audit 68/68.
+> **Thirteen gaps in, six differentiators out.** Rule 1 (a capability held
+> natively by ≥50% of vendors cannot differentiate) retired reporting,
+> analytics and incubation — three separate gaps were leaning on them.
+> GAP-03 died: it is now 3 of 40 vendors, and all three are unproven.
+> Competitor absence (40 vendors, measured) and user demand (24 usable
+> review records, none from an Indian university) are kept in separate
+> columns and never merged.
+
 Create:
 
-### `08_Feature_Gap`
+### `10_Feature_Gap`
 
 For every competitor:
 
@@ -1136,6 +1149,22 @@ Your goal is to find **5–7 meaningful differentiators**, not 50 features.
 ---
 
 # PHASE 13 — Customer Journey Research
+
+> ✅ **DONE.** `11_Customer_Journey/` · `_exports/phase13/` · 8 charts ·
+> `_exports/xlsx/11_Customer_Journey.xlsx` · audit 108/108.
+> **11 stages × 6 questions = 66 cells, every one graded.**
+> 45 DOCUMENTARY · 4 INFERRED · 17 UNKNOWN · 0 NOT_APPLICABLE.
+> **0 interviews conducted** — no respondent, buyer or competitor quote
+> appears anywhere, because none was collected.
+> **The headline is the two-track finding: the venture track and the data
+> track never join.** There is exactly one documentary join between them
+> (YUKTI-NIR `Recommended` → ARIIA Section 4) and it is one-directional,
+> ARIIA-scoped, and does not remove NIRF-I. StartupHub's wedge is the join
+> neither portal implements.
+> Two stages (S08 Market Validation, S10 Growth) ship as 12 UNKNOWN cells
+> by design. Structural counts (128+ artefacts/year, ~11 NIRF screens per
+> discipline, 7 hand-typed fields per startup) are measured from documents;
+> **hours and rupees are UNKNOWN** and route to the Phase 3B instrument.
 
 Map the institution's current workflow.
 

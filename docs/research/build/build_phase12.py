@@ -406,10 +406,12 @@ different and more winnable problem than the one Phase 9 believed it had.
 
 `10_Feature_Gap` follows the live convention in this repository: Phase 7 →
 `05_`, Phase 8 → `06_`, Phase 9 → `07_`, Phase 10 → `08_`, Phase 11 → `09_`,
-so Phase 12 → `10_`. The legacy placeholder `10_AI_Opportunity` is **empty** and
-unused; nothing is lost. Several older folders (`01_Evidence_Vault`,
-`08_User_Roles`, `11_Legal_Policy_Tech`) predate this convention and are not part
-of the active Phase 7-12 chain.
+so Phase 12 → `10_`, and Phase 13 → `11_Customer_Journey`. The legacy
+placeholder `10_AI_Opportunity` is **empty** and unused; nothing is lost.
+Several older folders (`01_Evidence_Vault`, `08_User_Roles`) predate this
+convention and are not part of the active Phase 7-13 chain. The legacy
+`11_Legal_Policy_Tech` folder was likewise empty and was removed at Phase 13;
+its reserved home is now `15_Legal_Policy_Tech`.
 """
 
 

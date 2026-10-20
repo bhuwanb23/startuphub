@@ -2,8 +2,8 @@
 
 **All machine-readable and presentation-ready outputs live in [`_exports/`](_exports/).** Everything here is **derived** from the markdown research files — change the `.md`, re-run `python build/build_all.py`, and every format regenerates.
 
-**Rebuild everything:** `python build/build_all.py` (13s)
-**Compiled:** 18 October 2026 · 100 files · 8.4 MB
+**Rebuild everything:** `python build/build_all.py` (40s)
+**Compiled:** 20 October 2026 · 372 manifest files · 20.0 MB in `_exports/`
 
 ---
 
@@ -67,11 +67,11 @@ Built by `build/build_phase1.py` from `build/data_p1_iic.py`, `data_p1_registry.
 |---|---|
 | The story, written out | 📄 [`_exports/docx/StartupHub_Phase0_Findings.docx`](_exports/docx/StartupHub_Phase0_Findings.docx) |
 | Everything in one workbook | 📊 [`_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx`](_exports/xlsx/StartupHub_Research_Database_MASTER.xlsx) — 12 sheets |
-| A slide | 🖼️ [`_exports/charts/`](_exports/charts/) — 9 PNGs, 200 DPI |
-| A diagram | 📐 [`_exports/diagrams/svg/`](_exports/diagrams/svg/) — 5 SVGs, scales cleanly |
+| A slide | 🖼️ [`_exports/charts/`](_exports/charts/) — 81 PNGs, 200 DPI, in 8 phase folders |
+| A diagram | 📐 [`_exports/diagrams/svg/`](_exports/diagrams/svg/) — 6 SVGs, scales cleanly |
 | The data to pivot | 📋 [`_exports/csv/`](_exports/csv/) — 11 CSVs, 253 rows |
 | To code against it | `{}` [`_exports/json/`](_exports/json/) — 9 datasets + JSON Schemas |
-| To verify nothing was faked | 🔐 [`_exports/raw/manifest.json`](_exports/raw/manifest.json) — 100 files, SHA-256 |
+| To verify nothing was faked | 🔐 [`_exports/raw/manifest.json`](_exports/raw/manifest.json) — 372 files, SHA-256 |
 
 ---
 
@@ -745,3 +745,108 @@ engineering colleges and universities — forward-looking capital aimed at segme
 | G9 is documentary only | **No Nodal Officer has been spoken to**; deal shape is inferred from the rubric |
 | Grant ceilings published, disbursement not | Cannot verify TIDE's Rs 27.2 cr beyond the ceiling |
 | State portals are neither competitor nor partner — unresolved | Recorded OPEN, not assumed |
+
+---
+
+## 19. Phase 11 - competitor user reviews
+
+**The headline is a negative result.** There is no recorded user dissatisfaction
+anywhere in this category: not one review below 4 stars across 76 reviews.
+
+| Asset | What it is |
+|---|---|
+| `09_User_Reviews/README.md` | Phase 11 hub |
+| `_exports/phase11/` | reviews, vendors, themes, evidence grades, schema |
+| `_exports/charts/phase11/` | 8 charts |
+| `_exports/xlsx/09_Competitor_User_Reviews.xlsx` | The review ledger |
+
+**Coverage correction:** 4 vendors (IncuMan, ESI, CSM Technologies, SanchiApp)
+were missing from the Phase 10 matrix, which was extended 36 -> 40.
+
+---
+
+## 20. Phase 12 - feature gap analysis
+
+**Thirteen gaps in, six differentiators out.**
+
+| Asset | What it is |
+|---|---|
+| `10_Feature_Gap/README.md` | Phase 12 hub |
+| `10_Feature_Gap/01_Differentiators.md` | The six, each with a falsifier |
+| `10_Feature_Gap/02_Gap_Scorecard.md` | All 13 re-scored, with what Phase 11 changed |
+| `10_Feature_Gap/03_Competitor_Coverage.md` | 40 vendors against the six |
+| `10_Feature_Gap/04_Features_Map.md` | All 46 `docs/features.md` sections triaged |
+| `10_Feature_Gap/05_Not_Differentiators.md` | What was cut, and why it is painful |
+| `10_Feature_Gap/06_How_We_Win.md` | The contested-gap question, answered |
+| `10_Feature_Gap/07_Limitations.md` | What this phase cannot tell you |
+| `_exports/phase12/` | 8 CSVs + schema |
+| `_exports/charts/phase12/` | 8 charts |
+| `_exports/xlsx/10_Feature_Gap.xlsx` | 8 sheets |
+
+**The three rules that did the work:** a capability held natively by >=50% of
+vendors cannot differentiate; competitor absence and user demand are separate
+claims and are never merged; every differentiator carries a falsifier.
+
+**GAP-03 died.** It was "zero of 29 competitors, highest-value gap" three
+phases ago. It is now 3 of 40 - and all three are unproven.
+
+---
+
+## 21. Phase 13 - customer journey research
+
+**Interviews conducted: 0. 66 cells, every one graded.**
+
+| Asset | What it is |
+|---|---|
+| `11_Customer_Journey/README.md` | Phase 13 hub |
+| `11_Customer_Journey/01_Journey_Map.md` | The 11 stages, in order |
+| `11_Customer_Journey/02_Stage_Dossiers.md` | All 66 cells with provenance |
+| `11_Customer_Journey/03_The_Two_Tracks.md` | The join that does not exist |
+| `11_Customer_Journey/04_Breakpoints.md` | 14 breaks, by severity |
+| `11_Customer_Journey/05_Manual_Work.md` | What is countable, and what is not |
+| `11_Customer_Journey/06_Evidence_Gaps.md` | Every unknown, and what closes it |
+| `11_Customer_Journey/07_Implications_For_StartupHub.md` | Which differentiator each stage supports |
+| `11_Customer_Journey/08_Limitations.md` | What this phase cannot tell you |
+| `11_Customer_Journey/09_External_Benchmarks.md` | 12 benchmarks, outside the matrix |
+| `_exports/phase13/` | 7 CSVs + schema |
+| `_exports/charts/phase13/` | 8 charts |
+| `_exports/xlsx/11_Customer_Journey.xlsx` | 6 sheets |
+| `_exports/raw/phase13_journey_RAW.json` | Raw extraction layer |
+
+Reproduce: `python build/build_charts13.py` then `python build/build_phase13.py`.
+Audit: `python build/audit_phase13.py` - 108 checks.
+
+### The grades
+
+| Grade | Meaning | Cells |
+|---|---|---:|
+| `DOCUMENTARY` | A registered source states it, or it is arithmetic on registered sources | 45 |
+| `INFERRED` | Inputs documentary; the binding to this stage is not | 4 |
+| `UNKNOWN` | No registered source measures it | 17 |
+| `NOT_APPLICABLE` | The question does not apply to this stage | 0 |
+| **Total** | | **66** |
+
+`ASSUMED` and `HYPOTHESIS` are hard audit failures - the build stops.
+
+### The finding
+
+**The venture track and the data track never join.** There is exactly one
+documentary join between them - YUKTI-NIR `Recommended` entries auto-pool into
+ARIIA Section 4 - and it is one-directional, ARIIA-scoped, and does not remove
+NIRF-I. StartupHub's wedge is the join neither portal implements.
+
+**Every stage that meets a mandated system is a stage where the journey
+breaks.** The 7 severity-3 breakpoints land on S02, S06, S07, S09 and S11 -
+the IIC council, the YUKTI-NIR join, the IIC IPR/TTO menu, the NIRF funding
+rows and the four reporting systems.
+
+### Limits
+
+| Limitation | Impact |
+|---|---|
+| **0 interviews** | No respondent, buyer or competitor quote exists |
+| Internal tooling is `UNKNOWN` at every stage (`P-A10`) | We can name the mandated tools, not the ones actually used |
+| Hours and rupees are unmeasured | MW-08 and MW-09 unknown; `OQ-03` stays open |
+| S08 Market Validation and S10 Growth have zero evidence | 12 cells are questions, not answers |
+| Public IIC detail is login-gated | Some portal detail is second-hand |
+| GAP-06/09/11 have no Phase 10 matrix dimension | D3, D4, D6 "0 holders" are asserted, not measured |
