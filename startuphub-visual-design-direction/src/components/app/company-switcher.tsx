@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { Logo } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -44,12 +45,12 @@ export default function CompanySwitcher({
   return (
     <div className="mt-3">
       {/* logo row */}
-      <a href="/" className="flex items-center gap-2 px-1.5 py-1" aria-label="Back to StartupHub home">
+      <Link href="/" className="flex items-center gap-2 px-1.5 py-1" aria-label="Back to StartupHub home">
         <Logo className="h-6 w-6" />
         <span className="text-[15px] font-bold tracking-tight text-ink">
           Startup<span className="text-accent">Hub</span>
         </span>
-      </a>
+      </Link>
 
       {/* workspace selector */}
       <div className="group relative mt-2.5">

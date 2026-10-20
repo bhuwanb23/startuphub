@@ -24,9 +24,12 @@ const roles = [
 const demoAccounts = [
   { name: "Ravi Sharma", role: "Founder / Startup", org: "Lumen AI", dashboard: "/founder" },
   { name: "Meera Iyer", role: "Incubator", org: "StartupHub Labs", dashboard: "/incubator" },
-  { name: "Vikram Sethi", role: "Investor", org: "Northgate Partners", dashboard: "/investor" },
+  { name: "Arjun Mehta", role: "Investor", org: "Meridian Angels", dashboard: "/investor" },
   { name: "Priya Nair", role: "Mentor / Expert", org: "ex-CTO, ZetaPay", dashboard: "/mentor" },
   { name: "Dr. Kavita Rao", role: "IPR Expert", org: "StartupHub IPR Desk", dashboard: "/ipr-expert" },
+  { name: "Vikram Sethi", role: "Corporate", org: "Arjuna Industries", dashboard: "/corporate" },
+  { name: "Sunita Verma", role: "Government", org: "State Innovation Mission", dashboard: "/government" },
+  { name: "Karan Malhotra", role: "Resource Provider", org: "Vertex Labs & Compute", dashboard: "/provider" },
 ];
 
 function GoogleIcon({ className }: { className?: string }) {

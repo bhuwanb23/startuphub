@@ -1,6 +1,7 @@
 "use client";
 
 import { Bell, CalendarDays, Menu } from "lucide-react";
+import Link from "next/link";
 import { Logo } from "@/components/ui";
 
 export default function AppTopbar({
@@ -25,9 +26,9 @@ export default function AppTopbar({
       >
         <Menu className="h-4 w-4" />
       </button>
-      <a href="/" className="flex items-center gap-2 lg:hidden" aria-label="StartupHub home">
+      <Link href="/" className="flex items-center gap-2 lg:hidden" aria-label="StartupHub home">
         <Logo className="h-6 w-6" />
-      </a>
+      </Link>
       <h1 className="hidden text-[15px] font-semibold tracking-tight text-ink sm:block">{title}</h1>
 
       <div className="ml-auto flex items-center gap-1.5">

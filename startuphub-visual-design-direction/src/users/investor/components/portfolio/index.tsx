@@ -31,10 +31,21 @@ const HEALTH_TONE = { Strong: "rise", Stable: "accent", Watch: "amber" } as cons
 const LEVEL_TONE = { High: "amber", Medium: "accent", Low: "rise" } as const;
 
 /* ── Portfolio Overview ─────────────────────────────────────── */
+
+/* Pre-computed donut segments: each slice's dash length and the running
+   offset that places it around the ring. Computed outside render so no
+   accumulator is mutated while rendering. */
+const DONUT_R = 52;
+const DONUT_C = 2 * Math.PI * DONUT_R;
+const DONUT_SEGMENTS = ALLOCATION.map((a, i) => {
+  const seg = (a.pct / 100) * DONUT_C;
+  const offset = -(ALLOCATION.slice(0, i).reduce((s, x) => s + x.pct, 0) / 100) * DONUT_C;
+  return { label: a.label, pct: a.pct, dash: `${seg} ${DONUT_C - seg}`, offset, i };
+});
+
 export function PortfolioOverview() {
-  const r = 52;
-  const c = 2 * Math.PI * r;
-  let acc = 0;
+  const r = DONUT_R;
+  const c = DONUT_C;
   return (
     <div className="space-y-5">
       <PageHead title="Portfolio overview" sub="38 companies · ₹132.6 Cr current value" />
@@ -50,16 +61,10 @@ export function PortfolioOverview() {
           <div className="flex items-center gap-6">
             <svg viewBox="0 0 140 140" className="h-36 w-36 shrink-0 -rotate-90">
               <circle cx="70" cy="70" r={r} fill="none" stroke="#edf1fe" strokeWidth="16" />
-              {ALLOCATION.map((a, i) => {
-                const seg = (a.pct / 100) * c;
-                const dash = `${seg} ${c - seg}`;
-                const offset = -(acc / 100) * c;
-                acc += a.pct;
-                return (
-                  <circle key={a.label} cx="70" cy="70" r={r} fill="none" stroke="#3157e8"
-                    strokeOpacity={1 - i * 0.16} strokeWidth="16" strokeDasharray={dash} strokeDashoffset={offset} />
-                );
-              })}
+              {DONUT_SEGMENTS.map((a) => (
+                <circle key={a.label} cx="70" cy="70" r={r} fill="none" stroke="#3157e8"
+                  strokeOpacity={1 - a.i * 0.16} strokeWidth="16" strokeDasharray={a.dash} strokeDashoffset={a.offset} />
+              ))}
               <text x="70" y="66" textAnchor="middle" transform="rotate(90 70 70)" className="fill-ink text-[17px] font-bold">38</text>
               <text x="70" y="80" textAnchor="middle" transform="rotate(90 70 70)" className="fill-slate-400 text-[8px] tracking-widest">COMPANIES</text>
             </svg>

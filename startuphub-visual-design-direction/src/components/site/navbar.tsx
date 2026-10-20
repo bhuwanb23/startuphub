@@ -21,7 +21,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  /* Close the mobile menu on navigation. Adjusting state during render
+     (rather than in an effect) avoids the cascading-render warning. */
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   const isActive = (href?: string, children?: { href: string }[]) =>
     href

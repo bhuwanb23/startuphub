@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronDown, X } from "lucide-react";
@@ -64,9 +64,15 @@ function NavGroup({
 }) {
   const active = isActive(pathname, g, home);
   const [open, setOpen] = useState(active);
-  useEffect(() => {
+  const [wasActive, setWasActive] = useState(active);
+
+  /* Auto-expand the group when navigation lands inside it. Adjusting state
+     during render (rather than in an effect) avoids the cascading-render
+     warning and keeps the group open for the current route. */
+  if (active !== wasActive) {
+    setWasActive(active);
     if (active) setOpen(true);
-  }, [active]);
+  }
 
   if (!g.subs) {
     const exact = pathname === g.href.split("#")[0];

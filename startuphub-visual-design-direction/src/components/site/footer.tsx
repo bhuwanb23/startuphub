@@ -87,10 +87,10 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
 ];
 
 const socials = [
-  { icon: XIcon, label: "X (Twitter)" },
-  { icon: LinkedInIcon, label: "LinkedIn" },
-  { icon: YouTubeIcon, label: "YouTube" },
-  { icon: GitHubIcon, label: "GitHub" },
+  { icon: XIcon, label: "X (Twitter)", href: "https://x.com" },
+  { icon: LinkedInIcon, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: YouTubeIcon, label: "YouTube", href: "https://youtube.com" },
+  { icon: GitHubIcon, label: "GitHub", href: "https://github.com" },
 ];
 
 export default function Footer() {
@@ -124,7 +124,9 @@ export default function Footer() {
               {socials.map((s) => (
                 <a
                   key={s.label}
-                  href="/"
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
                   aria-label={s.label}
                   className="grid h-9 w-9 place-items-center rounded-full border border-line text-slate-400 transition-all hover:border-accent hover:bg-accent-soft hover:text-accent"
                 >
