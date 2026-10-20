@@ -7,11 +7,13 @@ export default function AppTopbar({
   title,
   userName,
   initials,
+  role,
   onMenu,
 }: {
   title: string;
   userName: string;
   initials: string;
+  role?: string;
   onMenu: () => void;
 }) {
   return (
@@ -51,7 +53,9 @@ export default function AppTopbar({
           </span>
           <span className="hidden text-left sm:block">
             <span className="block text-[13px] font-semibold leading-tight text-ink">{userName}</span>
-            <span className="block text-[10.5px] leading-tight text-slate-400">Pro plan</span>
+            <span className="block text-[10.5px] leading-tight text-slate-400">
+              {role ?? "Pro plan"}
+            </span>
           </span>
         </button>
       </div>

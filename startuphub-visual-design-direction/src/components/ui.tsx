@@ -113,12 +113,14 @@ export function ButtonLink({
   href,
   variant = "primary",
   size = "md",
+  arrow = false,
   className,
   children,
 }: {
   href: string;
   variant?: ButtonVariant;
   size?: "sm" | "md" | "lg";
+  arrow?: boolean;
   className?: string;
   children: ReactNode;
 }) {
@@ -145,6 +147,7 @@ export function ButtonLink({
       )}
     >
       {children}
+      {arrow && <ArrowGlyph className="h-3.5 w-3.5" />}
     </Link>
   );
 }

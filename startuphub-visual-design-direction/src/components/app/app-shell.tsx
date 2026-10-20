@@ -17,6 +17,15 @@ export type AppNavGroup = {
   subs?: AppNavSub[];
 };
 
+/* A flat nav entry — used for the utility and bottom rails. Normalised
+   into an AppNavGroup at render time so both shapes share one renderer. */
+export type AppNavItem = {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+  soon?: boolean;
+};
+
 export type AppUser = {
   name: string;
   role: string;
@@ -24,7 +33,17 @@ export type AppUser = {
   initials: string;
   home: string; // workspace root — activeness collapses everything here
   copilot?: boolean;
+  /* Where the copilot card links to. Roles without a copilot screen
+     omit this and the card renders as a non-navigating "soon" affordance. */
+  copilotHref?: string;
 };
+
+/* Accept either nav shape and flatten to groups. */
+function toGroups(items: (AppNavGroup | AppNavItem)[]): AppNavGroup[] {
+  return items.map((it) =>
+    "label" in it ? it : { label: it.name, icon: it.icon, href: it.href },
+  );
+}
 
 function isActive(pathname: string, g: AppNavGroup, home: string) {
   if (g.href === home) return pathname === home;
@@ -105,7 +124,7 @@ function NavGroup({
   );
 }
 
-export default function AppShell({
+export function AppShell({
   nav,
   utility,
   bottom,
@@ -114,14 +133,17 @@ export default function AppShell({
   children,
 }: {
   nav: AppNavGroup[];
-  utility?: AppNavGroup[];
-  bottom?: AppNavGroup[];
+  utility?: (AppNavGroup | AppNavItem)[];
+  bottom?: (AppNavGroup | AppNavItem)[];
   user: AppUser;
   title: string;
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  const utilityGroups = toGroups(utility ?? []);
+  const bottomGroups = toGroups(bottom ?? []);
 
   const content = (
     <div className="flex h-full flex-col">
@@ -144,12 +166,12 @@ export default function AppShell({
         {nav.map((g) => (
           <NavGroup key={g.label} g={g} pathname={pathname} home={user.home} onNavigate={() => setOpen(false)} />
         ))}
-        {utility && utility.length > 0 && (
+        {utilityGroups.length > 0 && (
           <>
             <div className="px-2.5 pb-1 pt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-300">
               Workspace
             </div>
-            {utility.map((g) => (
+            {utilityGroups.map((g) => (
               <NavGroup key={g.label} g={g} pathname={pathname} home={user.home} onNavigate={() => setOpen(false)} />
             ))}
           </>
@@ -157,24 +179,38 @@ export default function AppShell({
       </nav>
 
       <div className="space-y-0.5 border-t border-line px-3 py-3">
-        {user.copilot && (
-          <Link
-            href={`${user.home}/copilot`}
-            onClick={() => setOpen(false)}
-            className={cn(
-              "mb-2 flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-[13px] font-semibold transition-all",
-              pathname === `${user.home}/copilot`
-                ? "border-accent bg-accent text-white"
-                : "border-accent/25 bg-accent-mist text-accent hover:border-accent/40"
-            )}
-          >
-            <span className="relative flex h-4 w-4">
-              <span className="ping-dot h-1.5 w-1.5 translate-x-[5px] translate-y-[5px] rounded-full bg-current" />
-            </span>
-            Ask Startup Copilot
-          </Link>
-        )}
-        {bottom?.map((g) => (
+        {user.copilot &&
+          (user.copilotHref ? (
+            <Link
+              href={user.copilotHref}
+              onClick={() => setOpen(false)}
+              className={cn(
+                "mb-2 flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-[13px] font-semibold transition-all",
+                pathname === user.copilotHref
+                  ? "border-accent bg-accent text-white"
+                  : "border-accent/25 bg-accent-mist text-accent hover:border-accent/40"
+              )}
+            >
+              <span className="relative flex h-4 w-4">
+                <span className="ping-dot h-1.5 w-1.5 translate-x-[5px] translate-y-[5px] rounded-full bg-current" />
+              </span>
+              Ask Startup Copilot
+            </Link>
+          ) : (
+            <div
+              aria-disabled="true"
+              className="mb-2 flex items-center gap-2.5 rounded-xl border border-accent/15 bg-accent-mist/60 px-3 py-2.5 text-[13px] font-semibold text-accent/70"
+            >
+              <span className="relative flex h-4 w-4">
+                <span className="ping-dot h-1.5 w-1.5 translate-x-[5px] translate-y-[5px] rounded-full bg-current" />
+              </span>
+              Ask Startup Copilot
+              <span className="ml-auto rounded-md bg-accent/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em]">
+                Soon
+              </span>
+            </div>
+          ))}
+        {bottomGroups.map((g) => (
           <NavGroup key={g.label} g={g} pathname={pathname} home={user.home} onNavigate={() => setOpen(false)} />
         ))}
       </div>
@@ -192,9 +228,11 @@ export default function AppShell({
       )}
 
       <div className="lg:pl-[264px]">
-        <AppTopbar title={title} userName={user.name} initials={user.initials} onMenu={() => setOpen(true)} />
+        <AppTopbar title={title} userName={user.name} initials={user.initials} role={user.role} onMenu={() => setOpen(true)} />
         <main className="px-4 py-6 sm:px-6 lg:px-8">{children}</main>
       </div>
     </div>
   );
 }
+
+export default AppShell;
