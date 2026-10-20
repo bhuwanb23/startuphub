@@ -1,89 +1,68 @@
-import { Check, Clock3, Hammer, type LucideIcon } from "lucide-react";
 import { ButtonLink, Container } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
-const buildSteps = [
-  { icon: Check, label: "Design system", done: true },
-  { icon: Hammer, label: "Content & data", done: false },
-  { icon: Clock3, label: "Next demo drop", done: false },
-];
+/* The brand motif — a connected ecosystem of nodes and pathways.
+   Pure SVG decoration; drop behind heroes, cards and empty states.
+   Inlined here so the shared startup-art module stays untouched. */
+function StartupArt({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 400 300"
+      className={cn("pointer-events-none", className)}
+      fill="none"
+      aria-hidden
+    >
+      <g stroke="#d9e3fb" strokeWidth="1" className="link-flow">
+        <path d="M60,240 C140,180 220,200 320,110" />
+        <path d="M120,60 C200,120 280,80 380,160" />
+        <path d="M40,140 C120,140 200,240 340,240" />
+      </g>
+      <g fill="#3157E8" opacity="0.35">
+        <circle cx="60" cy="240" r="3.5" />
+        <circle cx="320" cy="110" r="3.5" />
+        <circle cx="120" cy="60" r="3.5" />
+        <circle cx="380" cy="160" r="3.5" />
+        <circle cx="40" cy="140" r="3.5" />
+        <circle cx="340" cy="240" r="3.5" />
+      </g>
+    </svg>
+  );
+}
 
-export default function SoonView({
-  icon: Icon,
+/* The "coming soon" empty state used by workspace screens that are
+   still being wired up. */
+export function Soon({
   title,
-  desc,
-  features,
+  lead = "This screen is being designed and wired right now. Check back shortly.",
+  backHref = "/",
+  backLabel = "Back to home",
 }: {
-  icon: LucideIcon;
   title: string;
-  desc: string;
-  features: string[];
+  lead?: string;
+  backHref?: string;
+  backLabel?: string;
 }) {
   return (
-    <section className="relative overflow-hidden pb-28 pt-32 md:pt-40">
-      <div
-        aria-hidden="true"
-        className="bg-nodegrid absolute inset-x-0 top-0 h-[420px] [mask-image:radial-gradient(ellipse_60%_75%_at_50%_0%,black_25%,transparent)]"
-      />
-      <Container className="relative">
-        <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-          <span className="grid h-14 w-14 place-items-center rounded-2xl border border-accent/20 bg-accent-soft text-accent">
-            <Icon className="h-6 w-6" />
+    <section className="relative overflow-hidden py-28 sm:py-36">
+      <StartupArt className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[560px] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+      <Container>
+        <div className="mx-auto flex max-w-md flex-col items-center text-center">
+          <span className="rounded-full bg-accent-soft px-3.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-accent">
+            Soon
           </span>
-          <h1 className="mt-7 text-balance text-[clamp(1.9rem,4vw,2.9rem)] font-semibold leading-[1.08] tracking-[-0.025em] text-ink">
+          <h1 className="mt-6 text-balance text-[clamp(1.9rem,3.6vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">
             {title}
           </h1>
-          <p className="mt-4 text-pretty text-[16px] leading-relaxed text-slate-500">{desc}</p>
-
-          <div className="mt-7 flex flex-wrap justify-center gap-2">
-            {features.map((f) => (
-              <span
-                key={f}
-                className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[13px] font-medium text-slate-600"
-              >
-                {f}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-10 flex w-full max-w-md items-center justify-between rounded-2xl border border-line bg-white p-5">
-            {buildSteps.map((s, i) => (
-              <div key={s.label} className="flex items-center gap-2">
-                <span
-                  className={cn(
-                    "grid h-7 w-7 place-items-center rounded-full",
-                    s.done ? "bg-accent text-white" : "bg-slate-100 text-slate-400"
-                  )}
-                >
-                  <s.icon className="h-3.5 w-3.5" />
-                </span>
-                <span
-                  className={cn(
-                    "text-[12px] font-medium",
-                    s.done ? "text-ink" : "text-slate-400"
-                  )}
-                >
-                  {s.label}
-                </span>
-                {i < buildSteps.length - 1 && (
-                  <span className="mx-1 hidden h-px w-6 bg-line sm:block" />
-                )}
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-5 text-[13px] font-medium uppercase tracking-[0.16em] text-slate-400">
-            Shipping with the next demo drop
+          <p className="mt-4 text-pretty text-[15.5px] leading-relaxed text-slate-500">
+            {lead}
           </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/register">Get notified at launch</ButtonLink>
-            <ButtonLink href="/" variant="secondary">
-              Back to home
-            </ButtonLink>
-          </div>
+          <ButtonLink href={backHref} variant="secondary" className="mt-8">
+            {backLabel}
+          </ButtonLink>
         </div>
       </Container>
     </section>
   );
 }
+
+export default Soon;
