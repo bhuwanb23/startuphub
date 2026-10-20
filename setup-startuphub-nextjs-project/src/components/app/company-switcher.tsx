@@ -12,6 +12,7 @@ const WORKSPACES = [
   { label: "Incubator", org: "Nexus Labs", href: "/incubator" },
   { label: "Investor", org: "Meridian Capital", href: "/investor" },
   { label: "University", org: "Crestmont University", href: "/university" },
+  { label: "Talent", org: "Zoya Khan", href: "/talent" },
 ];
 
 export function CompanySwitcher({ org }: { org: string }) {
