@@ -41,7 +41,7 @@ export function MentorMatching() {
             ))}
           </dl>
           <div className="mt-5 rounded-xl bg-accent-mist p-4 text-[12.5px] leading-relaxed text-slate-600">
-            Tightening your "primary challenge" from "scaling" to "inference cost" improved match quality 41% this month. Specificity is the entire game.
+            Tightening your &quot;primary challenge&quot; from &quot;scaling&quot; to &quot;inference cost&quot; improved match quality 41% this month. Specificity is the entire game.
           </div>
         </Card>
       </div>

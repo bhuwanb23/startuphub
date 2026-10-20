@@ -46,7 +46,7 @@ export function StartupProfile() {
             <div>
               <h2 className="text-xl font-semibold tracking-tight text-ink">Lumen AI</h2>
               <p className="mt-0.5 max-w-md text-[13.5px] text-slate-500">
-                Vision models giving 3.2M hectares of farmland an agronomist's eye.
+                Vision models giving 3.2M hectares of farmland an agronomist&apos;s eye.
               </p>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 <Badge tone="good">Verified</Badge>

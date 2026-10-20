@@ -166,7 +166,7 @@ export function AllocationManagement() {
         ))}
       </div>
       <div className="rounded-xl border border-amber-dim/25 bg-amber-tint px-5 py-4 text-[13px] leading-relaxed text-ink">
-        <b className="text-amber-dim">Expiring:</b> CropLens AI's GPU reservation ends Apr 05 —
+        <b className="text-amber-dim">Expiring:</b> CropLens AI&apos;s GPU reservation ends Apr 05 —
         auto-released nodes 04–07 return to the pool unless renewed. Renewal offer drafted.
       </div>
     </div>

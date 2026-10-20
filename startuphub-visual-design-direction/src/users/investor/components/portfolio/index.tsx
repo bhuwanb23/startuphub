@@ -236,7 +236,7 @@ export function StartupPerformance() {
             ))}
           </div>
           <div className="mt-2 flex justify-between font-mono text-[9px] text-slate-400">
-            <span>Sep'24</span><span>Jun'25</span><span>Mar'26</span>
+            <span>Sep&apos;24</span><span>Jun&apos;25</span><span>Mar&apos;26</span>
           </div>
         </Panel>
         <Panel title="Milestones" sub="Recent company events">

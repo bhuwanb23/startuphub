@@ -91,7 +91,7 @@ export function Funding() {
             ))}
           </ul>
           <p className="mt-4 rounded-xl bg-accent-mist p-3.5 text-[12px] leading-relaxed text-slate-600">
-            3 views this week — Northgate's legal partner spent 22 min in IPR. Expect questions on the trademark gap.
+            3 views this week — Northgate&apos;s legal partner spent 22 min in IPR. Expect questions on the trademark gap.
           </p>
         </Card>
       </div>

@@ -181,7 +181,7 @@ export default function ContactClient() {
             <a href="/faq" className="font-semibold text-accent hover:underline">
               Check the FAQ first
             </a>{" "}
-            — it's genuinely good.
+            — it&apos;s genuinely good.
           </p>
         </div>
       </aside>
