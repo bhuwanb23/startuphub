@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import { InvestorShell } from "@/users/investor/investor";
+import { PortfolioAnalytics } from "@/users/investor/components/analytics";
+
+export const metadata: Metadata = { title: "Portfolio Analytics · Arjun Mehta" };
+
+export default function Page() {
+  return (
+    <InvestorShell title="Portfolio Analytics">
+      <PortfolioAnalytics />
+    </InvestorShell>
+  );
+}
