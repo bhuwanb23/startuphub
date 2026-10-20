@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import { IprShell } from "@/users/ipr-expert/ipr-expert";
+import { IprDashboard } from "@/users/ipr-expert/components/dashboard/dashboard";
+
+export const metadata: Metadata = { title: "Overview · Kavya Reddy" };
+
+export default function Page() {
+  return (
+    <IprShell title="IP Desk">
+      <IprDashboard />
+    </IprShell>
+  );
+}
