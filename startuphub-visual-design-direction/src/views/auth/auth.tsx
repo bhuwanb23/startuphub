@@ -32,6 +32,7 @@ const demoAccounts = [
   { name: "Karan Malhotra", role: "Resource Provider", org: "Vertex Labs & Compute", dashboard: "/provider" },
   { name: "Zoya Khan", role: "Talent / Professional", org: "Senior Product Engineer", dashboard: "/talent" },
   { name: "Dr. Amara Deshpande", role: "University / Research", org: "Crestmont University", dashboard: "/university" },
+  { name: "Kabir Malhotra", role: "Super Admin", org: "StartupHub", dashboard: "/admin" },
 ];
 
 function GoogleIcon({ className }: { className?: string }) {
