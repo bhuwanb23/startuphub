@@ -245,7 +245,7 @@ export function DocRequests() {
       </Panel>
 
       <div className="rounded-xl border border-accent/20 bg-accent-mist px-5 py-4 text-[13px] leading-relaxed text-ink">
-        <span className="font-semibold text-accent">Copilot tip:</span> SettleX's corridor
+        <span className="font-semibold text-accent">Copilot tip:</span> SettleX&apos;s corridor
         licence documents are 8 days overdue — that gates their term sheet. A nudge
         template is ready to send.
       </div>

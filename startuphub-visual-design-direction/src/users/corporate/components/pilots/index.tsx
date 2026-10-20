@@ -202,7 +202,7 @@ export function PilotEvaluation() {
         </Panel>
         <div className="space-y-4">
           <Panel title="Field feedback" sub="Anonymous, from operator survey">
-            <p className="rounded-lg bg-soft p-4 text-[13.5px] leading-relaxed text-ink italic">"{p.feedback}"</p>
+            <p className="rounded-lg bg-soft p-4 text-[13.5px] leading-relaxed text-ink italic">&quot;{p.feedback}&quot;</p>
           </Panel>
           <Panel title="ROI projection">
             <p className="text-[20px] font-semibold tracking-tight text-rise">{p.roi}</p>

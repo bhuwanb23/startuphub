@@ -53,7 +53,7 @@ export function FinancialAnalysis() {
             ))}
           </div>
           <div className="mt-2 flex justify-between font-mono text-[9px] text-slate-400">
-            <span>Nov'24</span><span>Jun'25</span><span>Feb'26</span>
+            <span>Nov&apos;24</span><span>Jun&apos;25</span><span>Feb&apos;26</span>
           </div>
         </Panel>
 

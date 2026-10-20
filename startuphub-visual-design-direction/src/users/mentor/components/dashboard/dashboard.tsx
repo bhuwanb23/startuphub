@@ -42,7 +42,7 @@ export function MentorDashboard() {
             <Sparkles className="h-3.5 w-3.5" /> Copilot note
           </p>
           <p className="mt-1.5 max-w-xs text-[12.5px] leading-relaxed text-slate-600">
-            FinEdge's request has aged 2 days — your fastest accept ever led to their strongest quarter. This one's been sitting loud, not waiting.
+            FinEdge&apos;s request has aged 2 days — your fastest accept ever led to their strongest quarter. This one&apos;s been sitting loud, not waiting.
           </p>
         </div>
       </div>

@@ -82,7 +82,7 @@ export function GovDashboard() {
             })}
           </div>
           <div className="mt-2 flex justify-between font-mono text-[9px] text-slate-400">
-            <span>Apr'25</span><span>Aug'25</span><span>Dec'25</span><span>Mar'26</span>
+            <span>Apr&apos;25</span><span>Aug&apos;25</span><span>Dec&apos;25</span><span>Mar&apos;26</span>
           </div>
           <div className="mt-4 flex items-center justify-between rounded-lg bg-accent-mist px-3.5 py-3 text-[12.5px] text-ink">
             <span>FY26 formation growth</span>

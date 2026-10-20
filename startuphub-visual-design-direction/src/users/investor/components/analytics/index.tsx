@@ -55,7 +55,7 @@ export function InvestmentAnalytics() {
             </svg>
           </div>
           <div className="mt-2 flex justify-between font-mono text-[9.5px] text-slate-400">
-            <span>Q1'24</span><span>Q3'24</span><span>Q1'25</span><span>Q3'25</span><span>Q1'26</span>
+            <span>Q1&apos;24</span><span>Q3&apos;24</span><span>Q1&apos;25</span><span>Q3&apos;25</span><span>Q1&apos;26</span>
           </div>
         </Panel>
 

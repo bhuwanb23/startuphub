@@ -45,7 +45,7 @@ export function IncubatorDashboard() {
             <Sparkles className="h-3.5 w-3.5" /> Copilot brief
           </p>
           <p className="mt-1.5 max-w-xs text-[12.5px] leading-relaxed text-slate-600">
-            FreshChain's conflict is 11 days old — the threshold where recovery odds drop. Intervene this week.
+            FreshChain&apos;s conflict is 11 days old — the threshold where recovery odds drop. Intervene this week.
           </p>
         </div>
       </div>

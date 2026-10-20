@@ -133,7 +133,7 @@ export function StartupSearch() {
             {SEARCH_HISTORY.map((h) => (
               <li key={h.q} className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-soft">
                 <History className="h-3.5 w-3.5 shrink-0 text-slate-300" />
-                <span className="flex-1 truncate font-mono text-[12px] text-ink">"{h.q}"</span>
+                <span className="flex-1 truncate font-mono text-[12px] text-ink">&quot;{h.q}&quot;</span>
                 <span className="font-mono text-[10px] text-slate-400">{h.results} · {h.ts}</span>
               </li>
             ))}

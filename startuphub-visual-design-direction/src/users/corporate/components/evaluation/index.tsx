@@ -70,9 +70,9 @@ export function StartupEvaluation() {
           </Panel>
           <Panel title="Evaluator comments">
             <ul className="space-y-3 text-[12px] text-slate-600">
-              <li><b className="text-ink">R. Agarwal:</b> "Field robustness exceeded expectations; rural ops capability is rare."</li>
-              <li><b className="text-ink">Dr. S. Iyer:</b> "Jetson supply chain is the only real hardware risk."</li>
-              <li><b className="text-ink">S. Reddy (BU):</b> "Field leads asked to keep the pilot units permanently."</li>
+              <li><b className="text-ink">R. Agarwal:</b> &quot;Field robustness exceeded expectations; rural ops capability is rare.&quot;</li>
+              <li><b className="text-ink">Dr. S. Iyer:</b> &quot;Jetson supply chain is the only real hardware risk.&quot;</li>
+              <li><b className="text-ink">S. Reddy (BU):</b> &quot;Field leads asked to keep the pilot units permanently.&quot;</li>
             </ul>
           </Panel>
         </div>
@@ -107,7 +107,7 @@ export function SolutionEvaluation() {
       <div className="rounded-xl border border-rise/20 bg-rise-tint px-5 py-4 text-[13px] leading-relaxed text-ink">
         <b className="text-rise">Scalability note:</b> stations are standalone — no ERP
         dependency in phase 1. Integration work is bonus, not blocker. That is why this
-        solution won over the line-vision retrofit despite the retrofit's higher ceiling.
+        solution won over the line-vision retrofit despite the retrofit&apos;s higher ceiling.
       </div>
     </div>
   );
@@ -156,7 +156,7 @@ export function TechnologyAssessment() {
           </Panel>
           <div className="rounded-2xl bg-ink p-6 text-white">
             <Cpu className="h-5 w-5 text-accent" />
-            <p className="mt-4 font-mono text-[9.5px] tracking-[0.18em] text-white/50 uppercase">Assessor's summary</p>
+            <p className="mt-4 font-mono text-[9.5px] tracking-[0.18em] text-white/50 uppercase">Assessor&apos;s summary</p>
             <p className="mt-2 text-[13.5px] leading-relaxed text-white/85">
               Architecture is boring in the best way: proven edge hardware, documented retrain
               cadence, and no exotic dependencies. Deploy with standard vendor-support SLA.
