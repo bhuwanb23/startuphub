@@ -73,6 +73,14 @@ const ROLES = [
     href: "/provider",
     you: "Karan Malhotra · Vertex Labs & Compute",
   },
+  {
+    key: "corporate",
+    label: "Corporate",
+    desc: "Scout tech, run pilots, partner & procure from startups",
+    icon: Building2,
+    href: "/corporate",
+    you: "Vikram Sethi · Arjuna Industries",
+  },
 ];
 
 export function AuthView({ mode }: { mode: "login" | "register" }) {
