@@ -1,0 +1,25 @@
+﻿stage,stage_name,question,grade,still_needs,cross_ref
+S01,Student Idea,who_manages,INFERRED,"Phase 3B: ask who actually receives an idea first, and whether that person is named in any institutional document.","Phase 2 roles A-03, A-06, A-12"
+S01,Student Idea,what_data,UNKNOWN,Phase 3B: capture the actual fields an institution records when an idea is first logged.,P-A10 evidence_gap
+S01,Student Idea,manual_work,UNKNOWN,"Phase 3B interview instrument: hours per idea logged, per quarter.",P-A10:554
+S03,Evaluation,manual_work,INFERRED,"Phase 3B: hours per YUKTI entry, and whether the coordinator re-keys or copies.",GOV-024; GOV-028
+S04,Incubation,manual_work,UNKNOWN,"Phase 3B: hours per incubation unit per year, and how many ventures are tracked inside it.",P-A10
+S05,Mentor,who_manages,INFERRED,"Phase 3B: who owns the mentor roster, and does that person appear in any institutional document?","Phase 2 roles A-12, B-04; problem area 5"
+S05,Mentor,what_data,UNKNOWN,"Phase 3B: capture the mentor-session record fields, if any.",P-A10
+S05,Mentor,where_breaks,INFERRED,"Phase 3B: confirm whether mentor visibility is actually unrestricted, and whether NDA-tiered access is ever discussed internally.",Diagram 5 P3
+S05,Mentor,manual_work,UNKNOWN,"Phase 3B: hours per mentor per month, and hours to arrange a session.",P-A10
+S08,Market Validation,what_happens,UNKNOWN,Phase 3B interview: how does an institution know a venture has customers?,P-A09
+S08,Market Validation,who_manages,UNKNOWN,"Phase 3B: which role, if any, owns market validation.",P-A09
+S08,Market Validation,what_tool,UNKNOWN,"Phase 3B: is any tool used, or is this informal?",P-A09
+S08,Market Validation,what_data,UNKNOWN,"Phase 3B: what evidence of market validation, if any, is ever recorded.",P-A09
+S08,Market Validation,where_breaks,UNKNOWN,Phase 3B: where does market validation typically fail or stall?,P-A09
+S08,Market Validation,manual_work,UNKNOWN,"Phase 3B: hours, if any.",P-A09
+S10,Growth,what_happens,UNKNOWN,Phase 3B interview: does the institution track post-incubation growth at all?,P-A10; Diagram 5 P6
+S10,Growth,who_manages,UNKNOWN,"Phase 3B: which role, if any, owns growth tracking.",P-A10
+S10,Growth,what_tool,UNKNOWN,"Phase 3B: is any system used, or is growth untracked?",P-A10
+S10,Growth,what_data,UNKNOWN,"Phase 3B: what growth metrics, if any, are recorded.",P-A10
+S10,Growth,where_breaks,UNKNOWN,Phase 3B: confirm whether the institution can answer the alumni-venture question today.,Diagram 5 P6
+S10,Growth,manual_work,UNKNOWN,"Phase 3B: hours, if any.",P-A10
+ALL,All stages,Hours of manual consolidation per reporting cycle,UNKNOWN,Measure via Phase 3B interview.,P-A10:554
+ALL,All stages,Rupees spent on manual reporting labour per year,UNKNOWN,Measure via Phase 3B interview.,OQ-03
+S01,Student Idea,Hours per idea logged,UNKNOWN,Measure via Phase 3B interview.,P-A10

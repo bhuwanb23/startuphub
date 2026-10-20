@@ -1,0 +1,67 @@
+﻿stage,stage_name,track,question_id,question,question_label,n_sources,source_ids
+S01,Student Idea,venture,Q1,what_happens,What happens,1,P1-001
+S01,Student Idea,venture,Q2,who_manages,Who manages it,1,P1-001
+S01,Student Idea,venture,Q3,what_tool,What tool is used,1,COMP-024
+S01,Student Idea,venture,Q4,what_data,What data is produced,0,-
+S01,Student Idea,venture,Q5,where_breaks,Where it breaks,1,P1-008
+S01,Student Idea,venture,Q6,manual_work,How much manual work,0,-
+S02,Innovation Cell / Council,data,Q1,what_happens,What happens,2,GOV-019; GOV-020
+S02,Innovation Cell / Council,data,Q2,who_manages,Who manages it,1,GOV-018
+S02,Innovation Cell / Council,data,Q3,what_tool,What tool is used,1,GOV-018
+S02,Innovation Cell / Council,data,Q4,what_data,What data is produced,1,GOV-021
+S02,Innovation Cell / Council,data,Q5,where_breaks,Where it breaks,1,GOV-019
+S02,Innovation Cell / Council,data,Q6,manual_work,How much manual work,2,GOV-020; GOV-021
+S03,Evaluation,both,Q1,what_happens,What happens,1,GOV-023
+S03,Evaluation,both,Q2,who_manages,Who manages it,1,GOV-023
+S03,Evaluation,both,Q3,what_tool,What tool is used,1,GOV-025
+S03,Evaluation,both,Q4,what_data,What data is produced,1,GOV-023
+S03,Evaluation,both,Q5,where_breaks,Where it breaks,2,GOV-025; GOV-044
+S03,Evaluation,both,Q6,manual_work,How much manual work,1,GOV-024
+S04,Incubation,venture,Q1,what_happens,What happens,1,GOV-018
+S04,Incubation,venture,Q2,who_manages,Who manages it,0,-
+S04,Incubation,venture,Q3,what_tool,What tool is used,1,GOV-018
+S04,Incubation,venture,Q4,what_data,What data is produced,2,GOV-018; GOV-022
+S04,Incubation,venture,Q5,where_breaks,Where it breaks,1,COMP-026
+S04,Incubation,venture,Q6,manual_work,How much manual work,0,-
+S05,Mentor,venture,Q1,what_happens,What happens,1,GOV-041
+S05,Mentor,venture,Q2,who_manages,Who manages it,0,-
+S05,Mentor,venture,Q3,what_tool,What tool is used,1,GOV-041
+S05,Mentor,venture,Q4,what_data,What data is produced,0,-
+S05,Mentor,venture,Q5,where_breaks,Where it breaks,0,-
+S05,Mentor,venture,Q6,manual_work,How much manual work,0,-
+S06,Prototype,both,Q1,what_happens,What happens,2,GOV-023; GOV-024
+S06,Prototype,both,Q2,who_manages,Who manages it,1,GOV-023
+S06,Prototype,both,Q3,what_tool,What tool is used,1,GOV-025
+S06,Prototype,both,Q4,what_data,What data is produced,2,GOV-023; GOV-024
+S06,Prototype,both,Q5,where_breaks,Where it breaks,2,GOV-024; GOV-028
+S06,Prototype,both,Q6,manual_work,How much manual work,1,GOV-028
+S07,IPR,venture,Q1,what_happens,What happens,2,GOV-022; P1-009
+S07,IPR,venture,Q2,who_manages,Who manages it,1,P1-006
+S07,IPR,venture,Q3,what_tool,What tool is used,2,COMP-032; GOV-022
+S07,IPR,venture,Q4,what_data,What data is produced,3,P1-009; P1-012; P1-016
+S07,IPR,venture,Q5,where_breaks,Where it breaks,3,GOV-022; GOV-037; P1-012
+S07,IPR,venture,Q6,manual_work,How much manual work,1,P1-010
+S08,Market Validation,venture,Q1,what_happens,What happens,0,-
+S08,Market Validation,venture,Q2,who_manages,Who manages it,0,-
+S08,Market Validation,venture,Q3,what_tool,What tool is used,0,-
+S08,Market Validation,venture,Q4,what_data,What data is produced,0,-
+S08,Market Validation,venture,Q5,where_breaks,Where it breaks,0,-
+S08,Market Validation,venture,Q6,manual_work,How much manual work,0,-
+S09,Funding,both,Q1,what_happens,What happens,2,GOV-027; GOV-037
+S09,Funding,both,Q2,who_manages,Who manages it,0,-
+S09,Funding,both,Q3,what_tool,What tool is used,1,GOV-028
+S09,Funding,both,Q4,what_data,What data is produced,1,GOV-028
+S09,Funding,both,Q5,where_breaks,Where it breaks,2,P1-013; P1-023
+S09,Funding,both,Q6,manual_work,How much manual work,1,GOV-028
+S10,Growth,venture,Q1,what_happens,What happens,0,-
+S10,Growth,venture,Q2,who_manages,Who manages it,0,-
+S10,Growth,venture,Q3,what_tool,What tool is used,0,-
+S10,Growth,venture,Q4,what_data,What data is produced,0,-
+S10,Growth,venture,Q5,where_breaks,Where it breaks,0,-
+S10,Growth,venture,Q6,manual_work,How much manual work,0,-
+S11,Reporting,data,Q1,what_happens,What happens,1,P1-002
+S11,Reporting,data,Q2,who_manages,Who manages it,1,GOV-031
+S11,Reporting,data,Q3,what_tool,What tool is used,3,GOV-018; GOV-025; GOV-043
+S11,Reporting,data,Q4,what_data,What data is produced,2,GOV-028; GOV-031
+S11,Reporting,data,Q5,where_breaks,Where it breaks,3,P1-002; P1-013; P1-025
+S11,Reporting,data,Q6,manual_work,How much manual work,1,GOV-028

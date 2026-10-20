@@ -1,0 +1,11 @@
+﻿mw_id,stage,stage_name,measure_type,metric,value,detail,grade,source_ids,cross_ref
+MW-01,S02,Innovation Cell / Council,STRUCTURAL_COUNT,Mandated activities per institution per year,16+,3 IIC Calendar activities per quarter (12/yr) plus 1 Celebration per quarter (4/yr).,DOCUMENTARY,GOV-020,P-A02
+MW-02,S02,Innovation Cell / Council,STRUCTURAL_COUNT,Evidence artefacts per activity report,8,4 social media links + 2 photographs + 1 video URL + 1 document upload.,DOCUMENTARY,GOV-021,P-A02
+MW-03,S02,Innovation Cell / Council,STRUCTURAL_COUNT,Evidence artefacts per institution per year,128+,16+ activities x 8 artefacts. Arithmetic on two registered portal requirements.,DOCUMENTARY,GOV-020; GOV-021,P-A02
+MW-04,S11,Reporting,STRUCTURAL_COUNT,NIRF Innovation screens per discipline,~11,A university with 4 disciplines files the Innovation form 4x.,DOCUMENTARY,GOV-028,D6
+MW-05,S09,Funding,STRUCTURAL_COUNT,Per-startup NIRF fields hand-typed,7,"Name, DPIIT number, amount, funding organisation, year, achievement level, investment type - per discipline per year, with no auto-population from MCA, GST, ROC or DPIIT.",DOCUMENTARY,GOV-028,Diagram 5 N6
+MW-06,S11,Reporting,STRUCTURAL_COUNT,Mandated reporting systems per institution,4,"IIC Portal, YUKTI-NIR, ARIIA DCS, NIRF Innovation - two of which (IIC, YUKTI) use separate credentials.",DOCUMENTARY,GOV-018; GOV-023; GOV-031; GOV-028; GOV-025,D5
+MW-07,S11,Reporting,STRUCTURAL_COUNT,Institutional roles on the IIC council alone,12,"President, VP, Convener and nine named coordinator roles, on top of the 25 institutional roles mapped in Phase 2.",DOCUMENTARY,GOV-018,Phase 2
+MW-08,ALL,All stages,UNKNOWN,Hours of manual consolidation per reporting cycle,UNKNOWN,Phase 10 P-A10 states this is not measured and calls it the highest-value unknown in Section A.,UNKNOWN,-,P-A10:554
+MW-09,ALL,All stages,UNKNOWN,Rupees spent on manual reporting labour per year,UNKNOWN,No registered source prices the labour. OQ-03 (willingness to pay) is unmeasured and blocked on Phase 3B.,UNKNOWN,-,OQ-03
+MW-10,S01,Student Idea,UNKNOWN,Hours per idea logged,UNKNOWN,No registered source measures idea-intake effort.,UNKNOWN,-,P-A10

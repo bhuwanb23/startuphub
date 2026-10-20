@@ -1,0 +1,12 @@
+﻿stage_id,stage_name,track,evidence,documentary,inferred,unknown,not_applicable,problem_areas,blurb
+S01,Student Idea,venture,partial,3,1,2,0,3,A student or faculty member has an idea and surfaces it somehow - usually through a WhatsApp group or a department coordinator. No portal exists at this stage.
+S02,Innovation Cell / Council,data,substantial,6,0,0,0,2; 8,"The IIC council meets quarterly and approves activities. The council-meeting upload is a hard gate: no meeting uploaded, no activities can be filed for that quarter."
+S03,Evaluation,both,partial,5,1,0,0,2,YUKTI-NIR runs an institute-side verifier workflow with a Recommended / Not Recommended status. This is the only documented evaluation gate in the mandated stack.
+S04,Incubation,venture,partial,5,0,1,0,4,The institution registers an incubation unit on the IIC portal. No registered source describes the incubation workflow beyond unit registration.
+S05,Mentor,venture,partial,2,2,2,0,5,MAARG is the national mentorship platform. Internal mentor session records are undocumented across every registered source.
+S06,Prototype,both,partial,6,0,0,0,3; 9,YUKTI-NIR buckets innovations by TRL. Recommended entries auto-pool into ARIIA Section 4 - the single documentary join between the venture track and the data track.
+S07,IPR,venture,substantial,6,0,0,0,6,The mandated portal has an IPR/TTO Centres menu that records a TTO's existence and floor area but has no field to record a patent. Patent tables live in annual reports and private registers.
+S08,Market Validation,venture,zero,0,0,6,0,-,No registered source describes institutional market-validation practice. All six questions are UNKNOWN by design.
+S09,Funding,both,partial,6,0,0,0,7; 9,"DPIIT-recognised startups feed the NIRF FSI sub-metric. Per-startup rows are hand-typed per discipline per year with no auto-population from MCA, GST, ROC or DPIIT."
+S10,Growth,venture,zero,0,0,6,0,-,No registered source describes institutional growth-tracking practice. All six questions are UNKNOWN by design.
+S11,Reporting,data,substantial,6,0,0,0,10; 12; 1,"Four mandated systems - IIC, YUKTI-NIR, ARIIA, NIRF - each with its own schema and (for IIC vs YUKTI) its own credentials. The annual report is hand-assembled from spreadsheets."

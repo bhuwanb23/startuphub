@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-19",
+  "phase": "13 - customer journey research",
+  "rules": {
+    "interviews_conducted": 0,
+    "grade_vocabulary": [
+      "DOCUMENTARY",
+      "INFERRED",
+      "UNKNOWN",
+      "NOT_APPLICABLE"
+    ],
+    "forbidden_grade_vocabulary": [
+      "ASSUMED",
+      "HYPOTHESIS"
+    ],
+    "external_benchmarks_in_matrix": false,
+    "structural_counts": "MEASURED-FROM-DOCS",
+    "hours_and_rupees": "UNKNOWN by design, routed to Phase 3B",
+    "no_external_fetching": true
+  },
+  "stages": [
+    {
+      "id": "S01",
+      "name": "Student Idea",
+      "track": "venture",
+      "evidence": "partial"
+    },
+    {
+      "id": "S02",
+      "name": "Innovation Cell / Council",
+      "track": "data",
+      "evidence": "substantial"
+    },
+    {
+      "id": "S03",
+      "name": "Evaluation",
+      "track": "both",
+      "evidence": "partial"
+    },
+    {
+      "id": "S04",
+      "name": "Incubation",
+      "track": "venture",
+      "evidence": "partial"
+    },
+    {
+      "id": "S05",
+      "name": "Mentor",
+      "track": "venture",
+      "evidence": "partial"
+    },
+    {
+      "id": "S06",
+      "name": "Prototype",
+      "track": "both",
+      "evidence": "partial"
+    },
+    {
+      "id": "S07",
+      "name": "IPR",
+      "track": "venture",
+      "evidence": "substantial"
+    },
+    {
+      "id": "S08",
+      "name": "Market Validation",
+      "track": "venture",
+      "evidence": "zero"
+    },
+    {
+      "id": "S09",
+      "name": "Funding",
+      "track": "both",
+      "evidence": "partial"
+    },
+    {
+      "id": "S10",
+      "name": "Growth",
+      "track": "venture",
+      "evidence": "zero"
+    },
+    {
+      "id": "S11",
+      "name": "Reporting",
+      "track": "data",
+      "evidence": "substantial"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "key": "what_happens",
+      "label": "What happens"
+    },
+    {
+      "id": "Q2",
+      "key": "who_manages",
+      "label": "Who manages it"
+    },
+    {
+      "id": "Q3",
+      "key": "what_tool",
+      "label": "What tool is used"
+    },
+    {
+      "id": "Q4",
+      "key": "what_data",
+      "label": "What data is produced"
+    },
+    {
+      "id": "Q5",
+      "key": "where_breaks",
+      "label": "Where it breaks"
+    },
+    {
+      "id": "Q6",
+      "key": "manual_work",
+      "label": "How much manual work"
+    }
+  ],
+  "grade_counts": {
+    "DOCUMENTARY": 45,
+    "INFERRED": 4,
+    "UNKNOWN": 17,
+    "NOT_APPLICABLE": 0
+  },
+  "stage_grade_counts": {
+    "S01": {
+      "DOCUMENTARY": 3,
+      "INFERRED": 1,
+      "UNKNOWN": 2,
+      "NOT_APPLICABLE": 0
+    },
+    "S02": {
+      "DOCUMENTARY": 6,
+      "INFERRED": 0,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    },
+    "S03": {
+      "DOCUMENTARY": 5,
+      "INFERRED": 1,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    },
+    "S04": {
+      "DOCUMENTARY": 5,
+      "INFERRED": 0,
+      "UNKNOWN": 1,
+      "NOT_APPLICABLE": 0
+    },
+    "S05": {
+      "DOCUMENTARY": 2,
+      "INFERRED": 2,
+      "UNKNOWN": 2,
+      "NOT_APPLICABLE": 0
+    },
+    "S06": {
+      "DOCUMENTARY": 6,
+      "INFERRED": 0,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    },
+    "S07": {
+      "DOCUMENTARY": 6,
+      "INFERRED": 0,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    },
+    "S08": {
+      "DOCUMENTARY": 0,
+      "INFERRED": 0,
+      "UNKNOWN": 6,
+      "NOT_APPLICABLE": 0
+    },
+    "S09": {
+      "DOCUMENTARY": 6,
+      "INFERRED": 0,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    },
+    "S10": {
+      "DOCUMENTARY": 0,
+      "INFERRED": 0,
+      "UNKNOWN": 6,
+      "NOT_APPLICABLE": 0
+    },
+    "S11": {
+      "DOCUMENTARY": 6,
+      "INFERRED": 0,
+      "UNKNOWN": 0,
+      "NOT_APPLICABLE": 0
+    }
+  },
+  "two_track": {
+    "venture": [
+      "S01",
+      "S03",
+      "S04",
+      "S06",
+      "S07",
+      "S09",
+      "S10"
+    ],
+    "data": [
+      "S02",
+      "S11"
+    ],
+    "join_stage": "S06",
+    "join_source_ids": [
+      "GOV-024",
+      "GOV-031"
+    ],
+    "note": "StartupHub's wedge is the join neither portal implements: a single venture record that emits all four submissions as a by-product, keyed on the entity and its state over time."
+  },
+  "files": {
+    "journey_stages.csv": "the 11 stages with their grade tallies",
+    "stage_question_matrix.csv": "all 66 (stage x question) cells",
+    "breakpoints.csv": "14 breakpoints with severity and sources",
+    "manual_work_ledger.csv": "7 structural counts and 3 unknowns",
+    "evidence_gaps.csv": "every non-documentary cell, routed to Phase 3B",
+    "source_map.csv": "which registered sources back which cell",
+    "external_benchmarks.csv": "12 external benchmarks, OUTSIDE the matrix",
+    "schema.json": "this file"
+  },
+  "summary": {
+    "schema_version": "1.0",
+    "build_date": "2026-10-19",
+    "stages": 11,
+    "questions": 6,
+    "cells": 66,
+    "documentary": 45,
+    "inferred": 4,
+    "unknown": 17,
+    "not_applicable": 0,
+    "zero_evidence_stages": [
+      "S08",
+      "S10"
+    ],
+    "substantial_stages": [
+      "S02",
+      "S07",
+      "S11"
+    ],
+    "partial_stages": [
+      "S01",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S09"
+    ],
+    "breakpoints": 14,
+    "manual_work_rows": 10,
+    "structural_counts": 7,
+    "unknown_manual": 3,
+    "external_benchmarks": 12,
+    "evidence_gaps": 24,
+    "distinct_sources": 38,
+    "interviews": 0
+  },
+  "interviews_conducted": 0
+}
