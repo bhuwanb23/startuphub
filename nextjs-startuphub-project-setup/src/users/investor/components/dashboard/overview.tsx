@@ -21,7 +21,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { Bar, Chip, Panel, Spark, StatCard } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import { INVEST_HISTORY_EXTRA } from "../../constants/deal-dd-data";
 import { AI_MATCHES, MONITORING_FEED, OPPORTUNITY_LIST, TRENDING_CHIPS, WATCHLIST_FEED } from "../../constants/ops-data";
 import { PORTFOLIO, SCHEDULE, SIGNALS } from "../../constants/investor-data";

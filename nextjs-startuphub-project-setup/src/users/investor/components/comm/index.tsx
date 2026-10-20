@@ -11,7 +11,7 @@ import {
   Video,
 } from "lucide-react";
 import { Avatar, Chip, Panel } from "@/components/app/widgets";
-import { PageHead } from "../shared/boards";
+import { PageHead } from "@/components/app/boards";
 import {
   ACTIVE_THREAD,
   INTRODUCTIONS,

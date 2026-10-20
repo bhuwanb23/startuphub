@@ -1,6 +1,6 @@
 import { ArrowUpRight, FileText, ShieldCheck } from "lucide-react";
 import { Chip, Panel } from "@/components/app/widgets";
-import { PageHead, ReviewBoard, Severity, SubjectBanner } from "../shared/boards";
+import { PageHead, ReviewBoard, Severity, SubjectBanner } from "@/components/app/boards";
 import { DD_FINDINGS, DD_RECOMMENDATION, DD_REVIEWS } from "../../constants/deal-dd-data";
 
 /* The four domain reviews share the ReviewBoard machinery, fed by distinct

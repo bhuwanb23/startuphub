@@ -7,7 +7,7 @@ import {
   Users,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, Spark } from "@/components/app/widgets";
-import { PageHead, SubjectBanner } from "../shared/boards";
+import { PageHead, SubjectBanner } from "@/components/app/boards";
 import {
   FIN_ANALYSIS,
   IP_ASSESSMENT,

@@ -11,7 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, ScoreRing, StatCard } from "@/components/app/widgets";
-import { Checklist, PageHead, Severity, SubjectBanner, STATUS } from "../shared/boards";
+import { Checklist, PageHead, Severity, SubjectBanner, STATUS } from "@/components/app/boards";
 import { DEAL_ROOM, DATA_REQUESTS } from "../../constants/investor-data";
 import { DD_CHECKLIST, DD_OPEN_ISSUES, DD_RECOMMENDATION, DD_SUBJECT } from "../../constants/deal-dd-data";
 

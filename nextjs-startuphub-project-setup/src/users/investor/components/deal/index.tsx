@@ -9,7 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { Avatar, Bar, Chip, Panel, StatCard } from "@/components/app/widgets";
-import { PageHead, StageTrail, SubjectBanner, Timeline } from "../shared/boards";
+import { PageHead, StageTrail, SubjectBanner, Timeline } from "@/components/app/boards";
 import {
   DEAL_SUBJECT,
   DEAL_TEAM,

@@ -10,7 +10,7 @@ import {
   Upload,
 } from "lucide-react";
 import { Bar, Chip, Panel } from "@/components/app/widgets";
-import { Checklist, PageHead, SubjectBanner } from "../shared/boards";
+import { Checklist, PageHead, SubjectBanner } from "@/components/app/boards";
 import {
   AGREEMENTS,
   CLOSING_CHECKLIST,
