@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 /* ──────────────────────────────────────────────────────────────
    Workspace widgets.
 
-   Two generations of the house widget set live side by side:
+   Three generations of the house widget set live side by side:
 
    · The "card" family (Card, Stat, Progress, Badge, GaugeRing,
      PageHeader) is used by the founder / mentor / incubator /
@@ -17,9 +17,12 @@ import { cn } from "@/lib/utils";
    · The "panel" family (StatCard, Panel, Chip, Bar, Spark, Avatar,
      ScoreRing) is used by the investor / corporate / government /
      provider workspaces.
+   · The "intro" family (PageIntro, PanelLink) is used by the talent /
+     university workspaces.
 
-   Both are exported unchanged so every workspace compiles against
-   the names it was authored with.
+   Where a family shares a name with another, the props are unioned
+   rather than renamed, so every workspace compiles against the
+   names it was authored with.
    ────────────────────────────────────────────────────────────── */
 
 /* ──────────────────────────────────────────────────────────────
@@ -190,39 +193,85 @@ export function StatCard({
   deltaGood?: boolean;
   icon: LucideIcon;
   sub?: string;
+  /* The talent / university workspaces use a lighter delta treatment
+     (accent/amber text, no chip) plus a trailing hint. */
+  hint?: string;
+  up?: boolean;
 }) {
+  /* The delta chip is the "panel family" look; the plain tinted text is
+     the "talent / university" look. Which one renders is decided by the
+     props supplied, so both roles keep their original appearance. */
+  const plainDelta = hint !== undefined || up !== undefined;
   return (
-    <div className="rounded-xl border border-line bg-white p-4.5 transition-shadow duration-300 hover:shadow-soft sm:p-5">
+    <div
+      className={cn(
+        "rounded-xl border border-line bg-white p-4.5 sm:p-5",
+        plainDelta
+          ? "shadow-[0_1px_2px_rgba(11,18,32,0.03)]"
+          : "transition-shadow duration-300 hover:shadow-soft",
+      )}
+    >
       <div className="flex items-center justify-between">
         <p className="text-[12px] font-medium tracking-[0.02em] text-slate-500">
           {label}
         </p>
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-soft text-accent">
-          <Icon className="h-4 w-4" />
+        <span
+          className={cn(
+            "flex items-center justify-center rounded-lg",
+            plainDelta
+              ? "h-7 w-7 bg-accent-soft text-accent"
+              : "h-8 w-8 bg-accent-soft text-accent",
+          )}
+        >
+          <Icon className={plainDelta ? "h-3.5 w-3.5" : "h-4 w-4"} />
         </span>
       </div>
-      <p className="mt-2.5 text-[24px] font-semibold tracking-[-0.03em] text-ink sm:text-[26px]">
+      <p
+        className={cn(
+          "font-semibold leading-none tracking-[-0.03em] text-ink",
+          plainDelta
+            ? "mt-2.5 text-[26px]"
+            : "mt-2.5 text-[24px] sm:text-[26px]",
+        )}
+      >
         {value}
       </p>
-      <div className="mt-1.5 flex items-center gap-2">
+      <div className={cn("flex items-center gap-2", plainDelta ? "mt-2.5" : "mt-1.5")}>
         {delta && (
-          <span
-            className={cn(
-              "flex items-center gap-0.5 rounded-md px-1.5 py-0.5 font-mono text-[10px] font-semibold",
-              deltaGood
-                ? "bg-rise-tint text-rise"
-                : "bg-amber-tint text-amber-dim",
-            )}
-          >
-            {deltaGood ? (
-              <ArrowUpRight className="h-3 w-3" />
-            ) : (
-              <ArrowDownRight className="h-3 w-3" />
-            )}
-            {delta}
-          </span>
+          plainDelta ? (
+            <span
+              className={cn(
+                "inline-flex items-center gap-0.5 font-semibold text-[11.5px]",
+                up === false ? "text-amber-600" : "text-accent",
+              )}
+            >
+              {up === false ? (
+                <ArrowDownRight className="h-3 w-3" />
+              ) : (
+                <ArrowUpRight className="h-3 w-3" />
+              )}
+              {delta}
+            </span>
+          ) : (
+            <span
+              className={cn(
+                "flex items-center gap-0.5 rounded-md px-1.5 py-0.5 font-mono text-[10px] font-semibold",
+                deltaGood
+                  ? "bg-rise-tint text-rise"
+                  : "bg-amber-tint text-amber-dim",
+              )}
+            >
+              {deltaGood ? (
+                <ArrowUpRight className="h-3 w-3" />
+              ) : (
+                <ArrowDownRight className="h-3 w-3" />
+              )}
+              {delta}
+            </span>
+          )
         )}
         {sub && <span className="text-[11px] text-slate-400">{sub}</span>}
+        {hint && <span className="text-slate-400 text-[11.5px]">{hint}</span>}
       </div>
     </div>
   );
@@ -236,6 +285,7 @@ export function Panel({
   children,
   className,
   pad = true,
+  bodyClassName,
 }: {
   title?: string;
   sub?: string;
@@ -243,6 +293,9 @@ export function Panel({
   children: ReactNode;
   className?: string;
   pad?: boolean;
+  /* The talent / university workspaces pad the body via bodyClassName
+     and always render a title. */
+  bodyClassName?: string;
 }) {
   return (
     <section
@@ -262,7 +315,7 @@ export function Panel({
           {action}
         </header>
       )}
-      <div className={cn(pad && "p-5")}>{children}</div>
+      <div className={cn(pad && "p-5", bodyClassName)}>{children}</div>
     </section>
   );
 }
@@ -302,13 +355,29 @@ export function Chip({
 /* ── Progress bar ──────────────────────────────────────────── */
 export function Bar({
   pct,
+  value,
   className,
   barClass,
+  tone,
 }: {
-  pct: number;
+  /* The investor / corporate / government / provider workspaces pass a
+     percentage as `pct`; the talent / university workspaces pass it as
+     `value` and pick the fill with `tone`. */
+  pct?: number;
+  value?: number;
   className?: string;
   barClass?: string;
+  tone?: "accent" | "ink" | "green" | "amber";
 }) {
+  const amount = pct ?? value ?? 0;
+  const toneClass =
+    tone === "ink"
+      ? "bg-ink"
+      : tone === "green"
+        ? "bg-emerald-500"
+        : tone === "amber"
+          ? "bg-amber-500"
+          : "bg-accent";
   return (
     <div
       className={cn(
@@ -317,8 +386,8 @@ export function Bar({
       )}
     >
       <div
-        className={cn("h-full rounded-full bg-accent", barClass)}
-        style={{ width: `${Math.min(100, Math.max(0, pct))}%` }}
+        className={cn("h-full rounded-full bg-accent", barClass, tone && toneClass)}
+        style={{ width: `${Math.min(100, Math.max(0, amount))}%` }}
       />
     </div>
   );
@@ -366,11 +435,26 @@ export function Spark({
 /* ── Initials avatar ───────────────────────────────────────── */
 export function Avatar({
   label,
+  name,
   className,
 }: {
-  label: string;
+  /* The investor / corporate / government / provider workspaces pass a
+     ready-made initial string as `label`; the talent / university
+     workspaces pass a full name as `name` and let the avatar derive the
+     initials. */
+  label?: string;
+  name?: string;
   className?: string;
 }) {
+  const initials =
+    label ??
+    (name
+      ? name
+          .split(" ")
+          .slice(0, 2)
+          .map((word) => word[0])
+          .join("")
+      : "");
   return (
     <span
       className={cn(
@@ -379,7 +463,7 @@ export function Avatar({
         className,
       )}
     >
-      {label}
+      {initials}
     </span>
   );
 }
@@ -422,5 +506,54 @@ export function ScoreRing({
       </svg>
       <span className="absolute text-[11px] font-bold text-ink">{score}</span>
     </span>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Intro family — talent / university workspaces
+   ────────────────────────────────────────────────────────────── */
+
+/* ── Page intro row — the title block at the top of a screen ── */
+export function PageIntro({
+  title,
+  description,
+  action,
+}: {
+  title: string;
+  description?: string;
+  action?: ReactNode;
+}) {
+  return (
+    <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <div>
+        <h2 className="text-[22px] font-semibold tracking-[-0.02em] text-ink sm:text-[24px]">
+          {title}
+        </h2>
+        {description && (
+          <p className="mt-1 max-w-2xl text-[13.5px] leading-relaxed text-slate-500">
+            {description}
+          </p>
+        )}
+      </div>
+      {action}
+    </div>
+  );
+}
+
+/* ── Panel header link ─────────────────────────────────────── */
+export function PanelLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      className="text-[12px] font-semibold text-accent transition-colors hover:text-accent-deep"
+    >
+      {children}
+    </a>
   );
 }
