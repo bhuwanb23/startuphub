@@ -17,6 +17,8 @@ Every cell that is not documentary, and what would close it.
 | Of which INFERRED cells | **4** |
 | Of which UNKNOWN manual-work rows | **3** |
 
+![Unknowns to interview](../_exports/charts/phase13/p13_08_unknowns_to_interview.png)
+
 ## By stage
 
 | | Stage | Open items |

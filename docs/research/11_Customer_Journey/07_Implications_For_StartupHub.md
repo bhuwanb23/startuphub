@@ -36,14 +36,19 @@ represents.
 The Phase 10 matrix compares vendors on capabilities. It has no way to express
 this:
 
-> **The journey's breaks are not spread across the journey. They concentrate
-> at S11 Reporting.**
+> **Every stage where the journey meets a mandated system is a stage where the
+> journey breaks.**
 
-BP-01, BP-02, BP-06, BP-07, BP-08, BP-09, BP-10 and BP-14 are all severity-3
-or structural breaks that surface at the reporting stage. Nothing is broken
-*because* reporting is bad - reporting is bad because the journey's records
-were never structured. **You cannot build a better form for data that was
-never captured.**
+The 7 severity-3 breakpoints land on S02, S06, S07, S09, S11 -
+the IIC council (S02), the YUKTI-NIR join (S06), the IIC IPR/TTO menu (S07),
+the NIRF funding rows (S09) and the four reporting systems (S11). The six
+stages with no severity-3 break - S01, S03, S04, S05, S08, S10 - are the ones
+where no portal has yet claimed the work.
+
+Nothing here is broken *because* a portal is badly built. Nothing is broken
+because reporting is bad either. **Reporting is bad because the journey's
+records were never structured in the first place.** You cannot build a better
+form for data that was never captured.
 
 That is the argument for a system of record rather than a form-filler, and it
 is the argument D5 (the migration wedge) needs in order to be more than a

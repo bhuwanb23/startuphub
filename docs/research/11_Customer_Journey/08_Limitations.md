@@ -62,8 +62,9 @@ limitations is indistinguishable from a phase that failed.
 - **The single documentary join** between the venture track and the data
   track, and its three limiting properties (one-directional, ARIIA-scoped,
   NIRF-I not removed).
-- **14 breakpoints**, of which 8 are severity-3 hard gates or
-  data-integrity failures, each citing registered sources.
+- **14 breakpoints**, of which 7 are severity-3
+  hard gates or data-integrity failures, each citing registered sources.
+  Severity 1 is empty: nothing in this journey is merely annoying.
 - **7 structural counts** - 128+ artefacts a year,
   ~11 screens per discipline, 7 hand-typed fields per startup, 4 reporting
   systems, 12 council roles.

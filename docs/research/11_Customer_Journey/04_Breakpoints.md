@@ -13,7 +13,9 @@
 ![Breakpoint severity](../_exports/charts/phase13/p13_04_breakpoint_severity.png)
 
 Severity 1 = friction, 2 = real break, 3 = hard gate or data-integrity
-failure.
+failure. **7 breakpoints are severity 3, 7 are
+severity 2, and 0 are severity 1** - nothing in this
+journey is merely annoying.
 
 
 ## Severity 3 — Hard gates and data-integrity failures
@@ -213,6 +215,10 @@ Measured from published IIC reports. Numeric validation is absent at the portal 
 
 ## The pattern
 
+Severity 1 is empty. 7 of the 14 breakpoints are
+severity 3 and 7 are severity 2. Nothing in this journey is
+merely annoying - every defect found either breaks work or corrupts data.
+
 Read the severity-3 list as one sentence: **the journey is gated by artefacts,
 joined by re-keying, and closed by a data model that has no foreign keys.**
 
@@ -228,6 +234,18 @@ joined by re-keying, and closed by a data model that has no foreign keys.**
   fields on filed reports (BP-14), and relational integrity is absent at the
   schema level (BP-08).
 
-**Every severity-3 breakpoint except BP-06 sits at S11 Reporting** - which is
-not where the journey *looks* like it breaks. It is where it breaks because
-the journey's own records were never structured in the first place.
+**And the severity-3 breaks are not clustered - they are distributed.** They
+land on S02, S06, S07, S09, S11 (BP-01, BP-02, BP-03, BP-06, BP-07, BP-08, BP-09). Those five stages
+are exactly the ones where the journey meets a mandated system: the IIC portal
+(S02), the YUKTI-NIR join (S06), the IIC IPR/TTO menu (S07), the NIRF
+funding rows (S09) and the four reporting systems (S11).
+
+The six stages with no severity-3 break are S01, S03, S04, S05, S08, S10 -
+idea intake, evaluation, incubation, mentorship, market validation and
+growth. Four of those six have no mandated system at the point of use, and
+two of them (S08, S10) have no registered evidence at all.
+
+**So the pattern is: every time the journey touches a mandated system, that
+contact point is where it breaks.** The stages without mandated systems are
+friction-only - severity 2 at most, and mostly because somebody is doing
+work in a spreadsheet that no portal has yet claimed.

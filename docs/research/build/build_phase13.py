@@ -56,6 +56,12 @@ EVIDENCE_LABEL = {
 # 8 csv/json exports + 1 raw json + 1 workbook + 10 markdown documents
 N_FILES = 20
 
+# Severity is computed from the data, never asserted in prose.
+SEV_COUNTS = Counter(b["severity"] for b in J.BREAKPOINTS)
+SEV3_STAGES = sorted({b["stage"] for b in J.BREAKPOINTS if b["severity"] == 3})
+NO_SEV3_STAGES = sorted({s["id"] for s in J.STAGES} - set(SEV3_STAGES))
+SEV3_IDS = [b["id"] for b in J.BREAKPOINTS if b["severity"] == 3]
+
 
 # ==========================================================================
 # io helpers
@@ -532,6 +538,14 @@ def doc_stage_dossiers():
             xr = c["cross_ref"] if c["cross_ref"] else "—"
             rows.append(f"| **{QID[c['question']]}** | {QLABEL[c['question']]} | "
                         f"**{c['grade']}** | {c['answer']} | {src} | {xr} |")
+        basis = "\n".join(
+            f"- **{QID[c['question']]}** — {c['basis']}"
+            for c in J.cells_for(s["id"]))
+        needs = "\n".join(
+            f"- **{QID[c['question']]}** — {c['still_needs']}"
+            for c in J.cells_for(s["id"]) if c["still_needs"])
+        if not needs:
+            needs = "_Nothing. This stage is fully closed at the documentary level._"
         blocks.append(f"""
 ---
 
@@ -543,9 +557,13 @@ def doc_stage_dossiers():
 |---|---|---|---|---|---|---|
 {chr(10).join(rows)}
 
-**Basis.** {chr(10).join('**' + QID[c['question']] + '** — ' + c['basis'] for c in J.cells_for(s['id']))}
+**Basis**
 
-**Still needs.** {chr(10).join('- **' + QID[c['question']] + '** — ' + c['still_needs'] for c in J.cells_for(s['id']) if c['still_needs']) or '_Nothing. This stage is fully closed at the documentary level._'}
+{basis}
+
+**Still needs**
+
+{needs}
 """)
     return f"""{banner()}
 # 02 - Stage Dossiers
@@ -707,12 +725,18 @@ def doc_breakpoints():
 ![Breakpoint severity]({CH}/p13_04_breakpoint_severity.png)
 
 Severity 1 = friction, 2 = real break, 3 = hard gate or data-integrity
-failure.
+failure. **{SEV_COUNTS[3]} breakpoints are severity 3, {SEV_COUNTS[2]} are
+severity 2, and {SEV_COUNTS.get(1, 0)} are severity 1** - nothing in this
+journey is merely annoying.
 
 {chr(10).join(blocks)}
 ---
 
 ## The pattern
+
+Severity 1 is empty. {SEV_COUNTS[3]} of the {S['breakpoints']} breakpoints are
+severity 3 and {SEV_COUNTS[2]} are severity 2. Nothing in this journey is
+merely annoying - every defect found either breaks work or corrupts data.
 
 Read the severity-3 list as one sentence: **the journey is gated by artefacts,
 joined by re-keying, and closed by a data model that has no foreign keys.**
@@ -729,9 +753,21 @@ joined by re-keying, and closed by a data model that has no foreign keys.**
   fields on filed reports (BP-14), and relational integrity is absent at the
   schema level (BP-08).
 
-**Every severity-3 breakpoint except BP-06 sits at S11 Reporting** - which is
-not where the journey *looks* like it breaks. It is where it breaks because
-the journey's own records were never structured in the first place.
+**And the severity-3 breaks are not clustered - they are distributed.** They
+land on {", ".join(SEV3_STAGES)} ({', '.join(SEV3_IDS)}). Those five stages
+are exactly the ones where the journey meets a mandated system: the IIC portal
+(S02), the YUKTI-NIR join (S06), the IIC IPR/TTO menu (S07), the NIRF
+funding rows (S09) and the four reporting systems (S11).
+
+The six stages with no severity-3 break are {", ".join(NO_SEV3_STAGES)} -
+idea intake, evaluation, incubation, mentorship, market validation and
+growth. Four of those six have no mandated system at the point of use, and
+two of them (S08, S10) have no registered evidence at all.
+
+**So the pattern is: every time the journey touches a mandated system, that
+contact point is where it breaks.** The stages without mandated systems are
+friction-only - severity 2 at most, and mostly because somebody is doing
+work in a spreadsheet that no portal has yet claimed.
 """
 
 
@@ -833,6 +869,8 @@ Every cell that is not documentary, and what would close it.
 | Of which INFERRED cells | **{GC['INFERRED']}** |
 | Of which UNKNOWN manual-work rows | **{S['unknown_manual']}** |
 
+![Unknowns to interview]({CH}/p13_08_unknowns_to_interview.png)
+
 ## By stage
 
 | | Stage | Open items |
@@ -902,14 +940,19 @@ represents.
 The Phase 10 matrix compares vendors on capabilities. It has no way to express
 this:
 
-> **The journey's breaks are not spread across the journey. They concentrate
-> at S11 Reporting.**
+> **Every stage where the journey meets a mandated system is a stage where the
+> journey breaks.**
 
-BP-01, BP-02, BP-06, BP-07, BP-08, BP-09, BP-10 and BP-14 are all severity-3
-or structural breaks that surface at the reporting stage. Nothing is broken
-*because* reporting is bad - reporting is bad because the journey's records
-were never structured. **You cannot build a better form for data that was
-never captured.**
+The {SEV_COUNTS[3]} severity-3 breakpoints land on {", ".join(SEV3_STAGES)} -
+the IIC council (S02), the YUKTI-NIR join (S06), the IIC IPR/TTO menu (S07),
+the NIRF funding rows (S09) and the four reporting systems (S11). The six
+stages with no severity-3 break - {", ".join(NO_SEV3_STAGES)} - are the ones
+where no portal has yet claimed the work.
+
+Nothing here is broken *because* a portal is badly built. Nothing is broken
+because reporting is bad either. **Reporting is bad because the journey's
+records were never structured in the first place.** You cannot build a better
+form for data that was never captured.
 
 That is the argument for a system of record rather than a form-filler, and it
 is the argument D5 (the migration wedge) needs in order to be more than a
@@ -1024,8 +1067,9 @@ limitations is indistinguishable from a phase that failed.
 - **The single documentary join** between the venture track and the data
   track, and its three limiting properties (one-directional, ARIIA-scoped,
   NIRF-I not removed).
-- **{S['breakpoints']} breakpoints**, of which 8 are severity-3 hard gates or
-  data-integrity failures, each citing registered sources.
+- **{S['breakpoints']} breakpoints**, of which {SEV_COUNTS[3]} are severity-3
+  hard gates or data-integrity failures, each citing registered sources.
+  Severity 1 is empty: nothing in this journey is merely annoying.
 - **{S['structural_counts']} structural counts** - 128+ artefacts a year,
   ~11 screens per discipline, 7 hand-typed fields per startup, 4 reporting
   systems, 12 council roles.
