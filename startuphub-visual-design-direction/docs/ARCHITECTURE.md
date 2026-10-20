@@ -60,10 +60,10 @@ src/app/
 │
 ├── (app)/              ← authenticated role workspaces → app shell
 │   ├── layout.tsx      ← deliberately empty (see §3.2)
-│   ├── founder/        ← 30+ screens
-│   ├── mentor/         ← 20+ screens
-│   ├── ipr-expert/     ← 30+ screens
-│   ├── incubator/      ← 30+ screens
+│   ├── founder/        ← 37 screens
+│   ├── incubator/      ← 32 screens
+│   ├── ipr-expert/     ← 31 screens
+│   ├── mentor/         ← 21 screens
 │   └── investor/       ← entry page
 │
 └── api/
@@ -111,8 +111,8 @@ export default function Page() {
 |---|---|---|
 | `(public)` pages | 34 | marketing / directory / solutions |
 | `(app)` pages | 122 | role workspaces |
-| `api/health` | 1 | JSON health probe |
-| **Total `page.tsx`** | **157** | |
+| **Total `page.tsx`** | **156** | |
+| `api/health` | 1 | `route.ts` (not a page) — JSON health probe |
 
 Workspace screens by role:
 

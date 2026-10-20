@@ -28,7 +28,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS 4**, **Driz
 
 ## ✨ Highlights
 
-- **157 routes** across two route groups — a public marketing/directory site (34) and five role workspaces (122)
+- **156 routes** across two route groups — a public marketing/directory site (34) and five role workspaces (122)
 - **Clean 4-layer architecture** — routes stay thin, screens own their data, components are shared
 - **Data-driven templates** — e.g. one `SolutionView` component renders six audience pages from typed data blobs
 - **Role workspaces without duplication** — a shared `AppShell` renders each role's navigation from its own constants file
@@ -74,7 +74,7 @@ startuphub/
 ├── docs/
 │   └── ARCHITECTURE.md          ← layer model, patterns, conventions
 ├── src/
-│   ├── app/                     ← ROUTES ONLY (157 page.tsx files)
+│   ├── app/                     ← ROUTES ONLY (156 page.tsx files)
 │   │   ├── layout.tsx           ← root: <html>, Inter font, metadata
 │   │   ├── globals.css          ← Tailwind v4 @theme tokens + keyframes
 │   │   ├── (public)/            ← marketing site + directory (34 pages)
