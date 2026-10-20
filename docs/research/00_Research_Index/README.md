@@ -117,17 +117,33 @@ research/
 │   ├── Pricing_Evidence.md          every real, cited price
 │   └── Positioning_Map.md           where the white space is
 │
-├── 05_Government_Data/              DPIIT, MoE/MIC, AICTE, UGC, DST, MeitY, states
-├── 06_Pricing_Evidence/             pricing deep-dive (Phase 8)
-├── 07_Workflow_CurrentState/        how institutions actually work today
-├── 08_User_Roles/                   who uses / decides / pays / approves
+├── 05_Government_Data/              DPIIT, MoE/MIC, AICTE, UGC, DST, MeitY, states (Phase 6)
+├── 05_Market_Sizing/                TAM/SAM/SOM as ranges (Phase 7)
+├── 06_Pricing_Evidence/             Phase 0 pricing evidence
+├── 06_Pricing_Research/             pricing deep-dive (Phase 8)
+├── 07_Competitor_Research/          competitor research (Phase 9)
+├── 07_Workflow_CurrentState/        reserved — Phase 15 workflow
+├── 08_Competitor_Matrix/            40 vendors x 15 capabilities (Phase 10)
+├── 08_User_Roles/                   who uses / decides / pays / approves (Phase 2)
 ├── 09_Market_Data/                  raw market inputs (feeds Phase 7)
-├── 10_AI_Opportunity/               where AI genuinely creates value
-├── 11_Legal_Policy_Tech/            DPDP, procurement, tenancy, security
-├── 12_Partners_Ecosystem/           IIC networks, DST-TBIs, state missions
+├── 09_User_Reviews/                 competitor user reviews (Phase 11)
+├── 10_AI_Opportunity/               empty legacy placeholder — unused
+├── 10_Feature_Gap/                  13 gaps in, 6 differentiators out (Phase 12)
+├── 11_Customer_Journey/             11 stages, 66 graded cells (Phase 13)
+├── 12_Partners_Ecosystem/           reserved — Phase 19 GTM and partners
 ├── 13_Synthesis/                    cross-cutting findings + narrowing candidates
-└── 14_Assets/                       diagrams, logos, chart sources
+├── 14_Assets/                       diagrams, logos, chart sources
+└── 15_Legal_Policy_Tech/            reserved — DPDP, procurement, tenancy, security (Phases 22-26)
 ```
+
+**Folder numbering.** Phases 7-13 follow one convention: Phase N lands in
+folder N−2, so Phase 7 → `05_`, Phase 8 → `06_`, Phase 9 → `07_`, Phase 10 →
+`08_`, Phase 11 → `09_`, Phase 12 → `10_`, Phase 13 → `11_`. Folders outside
+that chain (`01_Evidence_Vault`, `02_Landscape_Map`, `05_Government_Data`,
+`06_Pricing_Evidence`, `08_User_Roles`, `09_Market_Data`, `12_Partners_Ecosystem`)
+predate it. `10_AI_Opportunity` is an empty legacy placeholder. `11_Legal_Policy_Tech`
+was likewise empty and was removed at Phase 13; its reserved home is now
+`15_Legal_Policy_Tech`.
 
 ---
 
@@ -218,18 +234,19 @@ url, publication_date, access_date, geography, customer_segment, notes
 | 4 | Segmentation + ICP | ⬜ Not started (blocked on Phase 3) | — |
 | 5 | Market research | 🟡 Seeded | `02_Landscape_Map/` |
 | 6 | Government data | 🟡 Seeded | `05_Government_Data/` |
-| 7 | TAM/SAM/SOM | ⬜ Deliberately deferred | `09_Market_Data/` |
-| 8 | Pricing | 🟡 Seeded | `06_Pricing_Evidence/` |
+| 7 | TAM/SAM/SOM | ✅ Done (investor-grade rebuild) | `05_Market_Sizing/README.md` |
+| 8 | Pricing | ✅ Done | `06_Pricing_Research/README.md` |
 | 9 | Competitors | ✅ **Done in Phase 0** | `04_Competitor_DeepDive/` |
-| 10 | Competitor matrix | ✅ Done | `04_Competitor_DeepDive/Positioning_Map.md` |
-| 11 | Competitor user reviews | 🟡 Partial (thin — see Open Questions) | dossiers |
-| 12 | Feature gap | ✅ Done | `04_.../Positioning_Map.md` |
-| 13–15 | Journey / JTBD / workflow | ⬜ Not started | `07_Workflow_CurrentState/` |
+| 10 | Competitor matrix | ✅ Done (40 vendors × 15 capabilities) | `08_Competitor_Matrix/README.md` |
+| 11 | Competitor user reviews | ✅ Done (the negative user-review finding) | `09_User_Reviews/README.md` |
+| 12 | Feature gap | ✅ Done (13 gaps in, 6 differentiators out) | `10_Feature_Gap/README.md` |
+| 13 | Customer journey | ✅ Done (11 stages, 66 graded cells, 0 interviews) | `11_Customer_Journey/README.md` |
+| 14–15 | JTBD / workflow | ⬜ Not started | `07_Workflow_CurrentState/` |
 | 16–18 | Financial model | ⬜ Blocked on pricing validation | `09_Market_Data/` |
 | 19 | GTM | ⬜ Not started | `12_Partners_Ecosystem/` |
 | 20 | Pilot | ⬜ Not started | — |
 | 21 | MVP | ⬜ Deliberately deferred | — |
-| 22–26 | Tech / AI / legal / security / IPR | ⬜ Not started | `10_`, `11_`, `15_` |
+| 22–26 | Tech / AI / legal / security / IPR | ⬜ Not started | `15_Legal_Policy_Tech/` |
 | 27 | Policy | 🟡 Seeded | `05_Government_Data/` |
 | 28 | Ecosystem mapping | ✅ Done | `01_Evidence_Vault/Diagrams/` |
 | 29 | Market alternatives | ✅ Done | `04_.../Indirect_Alternatives/` |
