@@ -186,6 +186,8 @@ export function StatCard({
   deltaGood = true,
   icon: Icon,
   sub,
+  hint,
+  up,
 }: {
   label: string;
   value: string;
