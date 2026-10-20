@@ -8,7 +8,7 @@
 
 # 05 - Opportunity Mapping
 
-Handed to Phase 12 (`08_Feature_Gap`). The input here is deliberately narrow:
+Handed to Phase 12 (`10_Feature_Gap`). The input here is deliberately narrow:
 24 usable records cannot support a large feature roadmap, and
 pretending otherwise would be the same overreach this phase spent its time
 correcting elsewhere.

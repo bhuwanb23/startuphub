@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "open_questions",
-  "generated_at": "2026-10-20T07:51:23+00:00",
+  "generated_at": "2026-10-20T07:52:28+00:00",
   "project": "StartupHub",
   "phase": 0,
   "description": "Unresolved conflicts and gaps. Nothing here is silently resolved.",
