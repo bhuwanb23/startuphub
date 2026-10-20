@@ -52,6 +52,8 @@ STEPS = [
     ("Phase 11 - competitor user reviews (docs + exports)", "build_phase11.py"),
     ("Phase 12 - feature gap analysis + charts", "build_charts12.py"),
     ("Phase 12 - feature gap analysis (docs + exports)", "build_phase12.py"),
+    ("Phase 13 - customer journey research + charts", "build_charts13.py"),
+    ("Phase 13 - customer journey research (docs + exports)", "build_phase13.py"),
     ("Cross-phase infographic pack", "build_charts_infographics.py"),
     ("Raw evidence layer + manifest", "build_raw.py"),
 ]
@@ -145,6 +147,7 @@ def main() -> int:
     print("    08_Competitor_Matrix/README.md    Phase 10, 40 vendors x 15 capabilities")
     print("    09_User_Reviews/README.md         Phase 11, the negative user-review finding")
     print("    10_Feature_Gap/README.md          Phase 12, 13 gaps in, 6 differentiators out")
+    print("    11_Customer_Journey/README.md     Phase 13, 11 stages, 66 graded cells")
     print("    14_Assets/Infographics.md         12 cross-phase figures, start at the dashboard")
     print("    _exports/raw/manifest.json  every file, SHA-256 hashed")
     return 0

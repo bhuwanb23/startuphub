@@ -18,7 +18,7 @@ S03,Evaluation,both,Q4,what_data,What data is produced,1,GOV-023
 S03,Evaluation,both,Q5,where_breaks,Where it breaks,2,GOV-025; GOV-044
 S03,Evaluation,both,Q6,manual_work,How much manual work,1,GOV-024
 S04,Incubation,venture,Q1,what_happens,What happens,1,GOV-018
-S04,Incubation,venture,Q2,who_manages,Who manages it,0,-
+S04,Incubation,venture,Q2,who_manages,Who manages it,2,P2-001; P2-011
 S04,Incubation,venture,Q3,what_tool,What tool is used,1,GOV-018
 S04,Incubation,venture,Q4,what_data,What data is produced,2,GOV-018; GOV-022
 S04,Incubation,venture,Q5,where_breaks,Where it breaks,1,COMP-026
@@ -48,7 +48,7 @@ S08,Market Validation,venture,Q4,what_data,What data is produced,0,-
 S08,Market Validation,venture,Q5,where_breaks,Where it breaks,0,-
 S08,Market Validation,venture,Q6,manual_work,How much manual work,0,-
 S09,Funding,both,Q1,what_happens,What happens,2,GOV-027; GOV-037
-S09,Funding,both,Q2,who_manages,Who manages it,0,-
+S09,Funding,both,Q2,who_manages,Who manages it,5,P2-001; P2-003; P2-004; P2-006; P2-011
 S09,Funding,both,Q3,what_tool,What tool is used,1,GOV-028
 S09,Funding,both,Q4,what_data,What data is produced,1,GOV-028
 S09,Funding,both,Q5,where_breaks,Where it breaks,2,P1-013; P1-023

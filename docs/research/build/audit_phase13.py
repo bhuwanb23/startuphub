@@ -332,11 +332,27 @@ for p in docs():
             banned_docs.append(f"{p.name}: {b}")
 check("no banned string in the prose", [], banned_docs)
 
-# The tripwires must also be absent from the source registry, which is where
-# they would have to be if they were ever to be asserted.
+# The tripwires must be absent from the source registry, which is where they
+# would have to be if they were ever to be asserted.
+#
+# "Google Sheet" is the one exception and needs its own treatment. It appears
+# legitimately in COMP-022, a competitor-pricing row recording that Google
+# Sheets arrives bundled in licences an institution already pays for. That is
+# a registered fact about a vendor product, not an institutional practice, and
+# the tripwire exists to stop the second thing. So the registry check runs on
+# the other seven strings in full, and "Google Sheet" is pinned to COMP-022.
 reg_text = REG.read_text(encoding="utf-8")
-reg_banned = [b for b in BANNED_STRINGS if b in reg_text]
+reg_banned = [b for b in BANNED_STRINGS if b != "Google Sheet" and b in reg_text]
 check("banned strings absent from Source_Registry", [], reg_banned)
+
+with open(REG, newline="", encoding="utf-8") as fh:
+    reg_rows = list(csv.DictReader(fh))
+gs_rows = [r["id"] for r in reg_rows
+           if "Google Sheet" in " ".join(str(v) for v in r.values())]
+check("the only Google Sheets registry row is the competitor-pricing row",
+      ["COMP-022"], gs_rows)
+gs_comp = [r for r in reg_rows if r["id"] == "COMP-022"][0]
+check("that row is a Competition row", "Competition", gs_comp["research_area"])
 
 # --------------------------------- RULE 4: external benchmarks stay outside
 print("\n-- RULE 4: external benchmarks stay outside the matrix --")
@@ -477,11 +493,12 @@ check("limitations document is not empty", True,
 
 # ------------------------------------------------------- cross-doc numbers
 print("\n-- headline numbers agree with the data --")
-check("README states the documentary count", True,
-      f'{gc["DOCUMENTARY"]} DOCUMENTARY' in readme or
-      f'**{gc["DOCUMENTARY"]}**' in readme)
+check("README states the grade tallies", True,
+      f'**{gc["DOCUMENTARY"]} · {gc["INFERRED"]} · {gc["UNKNOWN"]}**' in readme)
 check("README states the unknown count", True,
-      f'**{gc["UNKNOWN"]}**' in readme)
+      f'{gc["UNKNOWN"]} ·' in readme or f'· {gc["UNKNOWN"]}**' in readme)
+check("README names the zero-evidence stages", True,
+      "S08" in readme and "S10" in readme)
 check("README states the cell count", True, f'**{N_CELLS}**' in readme)
 check("README states the breakpoint count", True,
       f'**{len(bps)}**' in readme)

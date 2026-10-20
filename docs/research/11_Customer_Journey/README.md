@@ -28,7 +28,7 @@
 | Stages with zero evidence | **2** (S08, S10) |
 | Breakpoints found | **14** |
 | Manual-work rows | **10** (7 structural counts, 3 unknowns) |
-| Distinct registered sources cited | **38** |
+| Distinct registered sources cited | **43** |
 | Interviews conducted | **0** |
 
 ## The eleven stages

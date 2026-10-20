@@ -113,7 +113,7 @@ what each one still needs.
 | | Q | Question | Grade | Answer | Sources | Cross-ref |
 |---|---|---|---|---|---|---|
 | **Q1** | What happens | **DOCUMENTARY** | The institution registers an incubation unit on the IIC portal. No registered source describes the incubation workflow beyond unit registration. | GOV-018 | GOV-018 |
-| **Q2** | Who manages it | **DOCUMENTARY** | Incubation Manager / TBI Manager (B-03) is the named role. No source establishes a procurement or spend role for it. | — | Phase 2 roles B-03; P-A10 |
+| **Q2** | Who manages it | **DOCUMENTARY** | Incubation Manager / TBI Manager (B-03) is the named role. Phase 2 found no procurement role for it in any source it read. | P2-001, P2-011 | Phase 2 roles B-03; P-A10 |
 | **Q3** | What tool is used | **DOCUMENTARY** | IIC Portal has an incubation unit registration field. Internal incubation tooling is UNKNOWN across every registered source. | GOV-018 | P-A10; COMP-026 |
 | **Q4** | What data is produced | **DOCUMENTARY** | Unit existence and (for TTOs) floor area. No venture-level incubation record schema is documented in any registered source. | GOV-018, GOV-022 | GOV-022 |
 | **Q5** | Where it breaks | **DOCUMENTARY** | Departments outside the system keep their own registers. DigiERP's own marketing states the institution 'carries both the software cost and the duplicate work'. | COMP-026 | P-A10; COMP-026 |
@@ -122,7 +122,7 @@ what each one still needs.
 **Basis**
 
 - **Q1** — GOV-018 lists 'incubation unit registration' as a dashboard field. No source documents workflow beyond it.
-- **Q2** — Phase 2 documents B-03 and explicitly records its spend authority as UNKNOWN.
+- **Q2** — P2-001 is the IIC portal's own guidance on who should be Convener; P2-011 is the named office-holder list. Phase 2 records B-03's procurement role as 'No procurement role found in any source read' and its spend authority as UNKNOWN. The documented absence is the finding.
 - **Q3** — GOV-018 documents the registration field. COMP-026 quotes two ERP vendors describing departments keeping their own registers.
 - **Q4** — GOV-018 documents unit registration; GOV-022 documents the IPR/TTO menu's limited field set (existence + floor area).
 - **Q5** — COMP-026 is a verbatim vendor statement about departmental duplicate registers.
@@ -270,7 +270,7 @@ _Nothing. This stage is fully closed at the documentary level._
 | | Q | Question | Grade | Answer | Sources | Cross-ref |
 |---|---|---|---|---|---|---|
 | **Q1** | What happens | **DOCUMENTARY** | DPIIT-recognised startups feed the NIRF FSI sub-metric SU = 20 x f(N_vsp), where N_vsp = DPIIT-recognised startups in the previous three years. NIDHI-PRAYAS 2.0 requires an NOC confirming IP vests entirely with the innovator or startup. | GOV-027, GOV-037 | GOV-027; D1 |
-| **Q2** | Who manages it | **DOCUMENTARY** | Startup Activity Coordinator (A-09) implements. Institutional spend authority sits with VC/Director (B-01) and Dean (B-02) at documented ceilings - one of only two Phase 2 roles with DOCUMENTED budget authority. | — | Phase 2 roles A-09, B-01, B-02, C-01, C-03 |
+| **Q2** | Who manages it | **DOCUMENTARY** | Startup Activity Coordinator (A-09) implements. Institutional spend authority sits with VC/Director (B-01) and Dean (B-02) at documented ceilings. Four Phase 2 roles carry documented spend authority: B-01, B-02, C-01 (Registrar) and C-03 (Finance Officer). | P2-001, P2-003, P2-004, P2-006, P2-011 | Phase 2 roles A-09, B-01, B-02, C-01, C-03 |
 | **Q3** | What tool is used | **DOCUMENTARY** | NIRF Innovation DCS per-startup rows. No funding ledger is mandated by any registered portal. | GOV-028 | GOV-028; P-A09 |
 | **Q4** | What data is produced | **DOCUMENTARY** | Per startup: name, DPIIT number, amount, funding organisation name, year, achievement level and type of investment - repeated per discipline per year. | GOV-028 | GOV-028; P-A02 |
 | **Q5** | Where it breaks | **DOCUMENTARY** | The awareness-spend field can carry a budget proposal rather than an actual, and the gap to real grants is 40x. Money fields carry sponsor identity and purpose, not just a number. | P1-023, P1-013 | P-A02; P-A09 |
@@ -279,7 +279,7 @@ _Nothing. This stage is fully closed at the documentary level._
 **Basis**
 
 - **Q1** — GOV-027 states the SU formula; GOV-037 states the NIDHI-PRAYAS NOC requirement.
-- **Q2** — Phase 2 documents the approval chain with named ceilings (NIT Warangal Director = all cases; CRSU VC above Rs 2,00,000; Dean Rs 10,00,000 non-consumable).
+- **Q2** — P2-003 (NIT Warangal: Director all cases; Registrar / Dean (R&D) Rs 10,00,000 non-consumable), P2-004 (HoD at Rs 1L, Dean (P&D) at Rs 3L), P2-006 (CRSU: Central Purchase Committee headed by VC above Rs 2 lakhs) and P2-011 (Startup Activity Coordinator = Faculty-in-Charge Incubation Centre) together establish the chain. CORRECTION: the Phase 2 B-01 free-text field says 'one of only two roles', but Phase 2's own grade field records four roles with documented spend authority (B-01, B-02, C-01, C-03). The grade field is used here; the stale prose in data_p2_roles.py line 354 is not.
 - **Q3** — GOV-028 enumerates the NIRF per-startup capture fields. No registered source documents a mandated funding ledger.
 - **Q4** — GOV-028 lists all seven per-startup fields verbatim from the NIRF DCS.
 - **Q5** — P1-023 measures the 40x proposal-vs-actual gap; P1-013 measures the sponsor-identity contamination. Both are measured from published IIC reports.

@@ -349,14 +349,17 @@ CELLS = [
        basis="GOV-018 lists 'incubation unit registration' as a dashboard "
              "field. No source documents workflow beyond it."),
     _c("S04", "who_manages",
-       "Incubation Manager / TBI Manager (B-03) is the named role. No source "
-       "establishes a procurement or spend role for it.",
-       "DOCUMENTARY", [],
+       "Incubation Manager / TBI Manager (B-03) is the named role. Phase 2 "
+       "found no procurement role for it in any source it read.",
+       "DOCUMENTARY", ["P2-001", "P2-011"],
        still_needs="Phase 3B: does the Incubation Manager hold a budget line, "
                    "and at what ceiling?",
        cross_ref="Phase 2 roles B-03; P-A10",
-       basis="Phase 2 documents B-03 and explicitly records its spend "
-             "authority as UNKNOWN."),
+       basis="P2-001 is the IIC portal's own guidance on who should be "
+             "Convener; P2-011 is the named office-holder list. Phase 2 "
+             "records B-03's procurement role as 'No procurement role found "
+             "in any source read' and its spend authority as UNKNOWN. The "
+             "documented absence is the finding."),
     _c("S04", "what_tool",
        "IIC Portal has an incubation unit registration field. Internal "
        "incubation tooling is UNKNOWN across every registered source.",
@@ -597,13 +600,20 @@ CELLS = [
     _c("S09", "who_manages",
        "Startup Activity Coordinator (A-09) implements. Institutional spend "
        "authority sits with VC/Director (B-01) and Dean (B-02) at documented "
-       "ceilings - one of only two Phase 2 roles with DOCUMENTED budget "
-       "authority.",
-       "DOCUMENTARY", [],
+       "ceilings. Four Phase 2 roles carry documented spend authority: B-01, "
+       "B-02, C-01 (Registrar) and C-03 (Finance Officer).",
+       "DOCUMENTARY", ["P2-001", "P2-003", "P2-004", "P2-006", "P2-011"],
        cross_ref="Phase 2 roles A-09, B-01, B-02, C-01, C-03",
-       basis="Phase 2 documents the approval chain with named ceilings "
-             "(NIT Warangal Director = all cases; CRSU VC above Rs 2,00,000; "
-             "Dean Rs 10,00,000 non-consumable)."),
+       basis="P2-003 (NIT Warangal: Director all cases; Registrar / Dean "
+             "(R&D) Rs 10,00,000 non-consumable), P2-004 (HoD at Rs 1L, Dean "
+             "(P&D) at Rs 3L), P2-006 (CRSU: Central Purchase Committee "
+             "headed by VC above Rs 2 lakhs) and P2-011 (Startup Activity "
+             "Coordinator = Faculty-in-Charge Incubation Centre) together "
+             "establish the chain. CORRECTION: the Phase 2 B-01 free-text "
+             "field says 'one of only two roles', but Phase 2's own grade "
+             "field records four roles with documented spend authority "
+             "(B-01, B-02, C-01, C-03). The grade field is used here; the "
+             "stale prose in data_p2_roles.py line 354 is not."),
     _c("S09", "what_tool",
        "NIRF Innovation DCS per-startup rows. No funding ledger is mandated "
        "by any registered portal.",
