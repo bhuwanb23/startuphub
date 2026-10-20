@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── StartupHub house tokens ──────────────────────────────── */
+  --color-ink: #0b1220; /* primary text / deep brand */
+  --color-ink-2: #141b2e; /* dark panel hover */
+  --color-ink-3: #1e2740; /* dark panel raised */
+  --color-accent: #3157e8; /* signature blue */
+  --color-accent-deep: #2444c4; /* hover / pressed */
+  --color-accent-soft: #edf1fe; /* tinted background */
+  --color-accent-mist: #f4f7ff; /* faintest wash */
+  --color-line: #e5e7eb; /* hairline borders */
+  --color-soft: #f8fafc; /* page background */
+
+  /* semantic accents (sparing) */
+  --color-rise: #059669;
+  --color-rise-tint: #ecfdf5;
+  --color-amber-dim: #b45309;
+  --color-amber-tint: #fffbeb;
+
+  --font-inter: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-sans: var(--font-inter);
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular",
+    Menlo, monospace;
+
+  --shadow-hairline: 0 1px 0 rgba(11, 18, 32, 0.04);
+  --shadow-soft: 0 1px 2px rgba(11, 18, 32, 0.04),
+    0 12px 32px rgba(11, 18, 32, 0.06);
+  --shadow-lift: 0 2px 4px rgba(11, 18, 32, 0.05),
+    0 24px 48px -12px rgba(11, 18, 32, 0.14);
+  --shadow-node: 0 1px 2px rgba(11, 18, 32, 0.05),
+    0 8px 24px rgba(11, 18, 32, 0.08);
+}
+
+/* ── keyframes ── */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes dashflow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+@keyframes node-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(49, 87, 232, 0.28);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(49, 87, 232, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(49, 87, 232, 0);
+  }
+}
+
+/* ── animation utilities ── */
+.anim-float {
+  animation: float-soft 7s ease-in-out infinite;
+}
+.anim-marquee {
+  animation: marquee 46s linear infinite;
+}
+.anim-marquee:hover {
+  animation-play-state: paused;
+}
+.ping-dot {
+  animation: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.anim-node-pulse {
+  animation: node-pulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+.link-flow {
+  stroke-dasharray: 6 6;
+  animation: dashflow 1.5s linear infinite;
+}
+
+/* ── texture utilities ── */
+.bg-nodegrid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(49, 87, 232, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 26px 26px;
+}
+.bg-dotgrid,
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(11, 18, 32, 0.07) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.09) 1px,
+    transparent 0
+  );
+  background-size: 26px 26px;
+}
+.mask-x-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* ── base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-soft);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: rgba(49, 87, 232, 0.16);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d3dae4;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b6c2d2;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float,
+  .anim-marquee,
+  .ping-dot,
+  .anim-node-pulse,
+  .link-flow {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
