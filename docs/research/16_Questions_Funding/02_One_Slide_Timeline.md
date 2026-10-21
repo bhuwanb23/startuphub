@@ -37,10 +37,10 @@ checks that the two agree.
 
 | | Quarter | The slide says | The budget says |
 |---|---|---|---|
-| Q1 | **BUILD** | Define MVP, Core workflows | Rs 135,000 — 67% of it technology |
-| Q2 | **INTEGRATE** | Connect ecosystem, AI & matching | Rs 150,000 — 53% technology, 37% in the other lines |
-| Q3 | **PILOT** | Real institutions, User adoption | Rs 165,000 — 21% market research, the year's peak |
-| Q4 | **LAUNCH** | Market readiness, Paying customers | Rs 150,000 — 27% market research, 17% contingency | |
+| Q1 | **BUILD** | Define MVP, Core workflows | Rs 1,35,000 — 67% of it technology |
+| Q2 | **INTEGRATE** | Connect ecosystem, AI & matching | Rs 1,50,000 — 53% technology, 37% in the other lines |
+| Q3 | **PILOT** | Real institutions, User adoption | Rs 1,65,000 — 21% market research, the year's peak |
+| Q4 | **LAUNCH** | Market readiness, Paying customers | Rs 1,50,000 — 27% market research, 17% contingency | |
 
 ## One thing to say out loud
 

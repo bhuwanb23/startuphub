@@ -38,10 +38,10 @@ can check the story against the numbers, and the numbers agree.
 
 | | Quarter | Technology | Market research | The rest |
 |---|---:|---:|---:|---:|
-| Q1 | Rs 135,000 | 67% | 7% | 26% |
-| Q2 | Rs 150,000 | 53% | 10% | 37% |
-| Q3 | Rs 165,000 | 45% | 21% | 33% |
-| Q4 | Rs 150,000 | 37% | 27% | 37% |
+| Q1 | Rs 1,35,000 | 67% | 7% | 26% |
+| Q2 | Rs 1,50,000 | 53% | 10% | 37% |
+| Q3 | Rs 1,65,000 | 45% | 21% | 33% |
+| Q4 | Rs 1,50,000 | 37% | 27% | 37% |
 
 ![What the envelope looks like](../_exports/charts/questions/q_04_budget_shape.png)
 

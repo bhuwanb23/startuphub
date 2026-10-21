@@ -51,7 +51,7 @@ because the numbers in it should be readable next to everything else.
 
 | | |
 |---|---|
-| Total | **Rs 600,000** |
+| Total | **Rs 6,00,000** |
 | Budget lines | **7** |
 | Quarter totals | **Rs 1,35,000 · Rs 1,50,000 · Rs 1,65,000 · Rs 1,50,000** |
 | Technology share | **Rs 3,00,000 (50%)** |

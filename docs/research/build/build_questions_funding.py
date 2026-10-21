@@ -520,14 +520,17 @@ def doc_one_slide():
         t_share = tech[i] / qt[i]
         m_share = mkt[i] / qt[i]
         if i == 0:
-            bit = f"Rs {qt[i]:,} — {t_share:.0%} of it technology"
+            bit = f"{Q.rs_in(qt[i])} — {t_share:.0%} of it technology"
         elif i == 1:
-            bit = f"Rs {qt[i]:,} — {t_share:.0%} technology, {1 - t_share - m_share:.0%} in the other lines"
+            bit = (f"{Q.rs_in(qt[i])} — {t_share:.0%} technology, "
+                   f"{1 - t_share - m_share:.0%} in the other lines")
         elif i == 2:
-            bit = f"Rs {qt[i]:,} — {m_share:.0%} market research, the year's peak"
+            bit = (f"{Q.rs_in(qt[i])} — {m_share:.0%} market research, "
+                   "the year's peak")
         else:
             cont = Q.BUDGET[6]["q"][i] / qt[i]
-            bit = f"Rs {qt[i]:,} — {m_share:.0%} market research, {cont:.0%} contingency"
+            bit = (f"{Q.rs_in(qt[i])} — {m_share:.0%} market research, "
+                   f"{cont:.0%} contingency")
         detail.append(f"| {q['id']} | **{q['phase_word']}** | {q['slide'][0]}, "
                       f"{q['slide'][1]} | {bit} |")
 
