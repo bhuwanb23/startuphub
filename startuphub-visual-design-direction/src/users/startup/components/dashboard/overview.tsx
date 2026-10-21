@@ -99,11 +99,11 @@ export function ProgressCard() {
           </div>
         ))}
       </div>
-      <p className="mt-4 text-[12.5px] text-slate-500">
+      <section className="mt-4 text-[12.5px] text-slate-500">
         Growth stage · <span className="font-semibold text-ink">Performance</span> unlocks when Q2 KPI baselines are set.
         <Progress value={73} className="mt-3" />
         <span className="mt-2 block text-[11px] text-slate-400">73% of stage requirements met</span>
-      </p>
+      </section>
     </Card>
   );
 }
