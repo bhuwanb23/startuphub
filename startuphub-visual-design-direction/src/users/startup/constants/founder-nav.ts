@@ -45,10 +45,10 @@ export const founderNav: FounderGroup[] = [
     label: "Idea & Validation", icon: Lightbulb, href: "/founder/idea",
     subs: [
       { name: "Idea Management", href: "/founder/idea" },
-      { name: "Idea Evaluation", href: "/founder/idea#evaluation", soon: true },
-      { name: "Idea Validation", href: "/founder/idea#validation", soon: true },
-      { name: "Customer Discovery", href: "/founder/idea#discovery", soon: true },
-      { name: "Surveys", href: "/founder/idea#surveys", soon: true },
+      { name: "Idea Evaluation", href: "/founder/idea/evaluation" },
+      { name: "Idea Validation", href: "/founder/idea/validation" },
+      { name: "Customer Discovery", href: "/founder/idea/discovery" },
+      { name: "Surveys", href: "/founder/idea/surveys" },
     ],
   },
   {
