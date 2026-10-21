@@ -217,7 +217,7 @@ def chart_roadmap_detail():
                 ax.text(0.85, y - 0.01, it, fontsize=8.9, color="#334155",
                         va="center")
                 y -= 0.305
-            y -= 0.16
+            y -= 0.30
 
         ax.add_patch(FancyBboxPatch(
             (0.30, 0.30), 9.40, 1.28, boxstyle="round,pad=0.02,rounding_size=0.10",

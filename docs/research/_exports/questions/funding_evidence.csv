@@ -1,0 +1,8 @@
+﻿category,budget_line,amount,amount_display,artefacts,n_artefacts,obtained,status,evidence_status
+Technology,Technology Development & Innovation Refinement,300000,"Rs 300,000",Developer/team quotation; Software subscription quotations; Cloud/service estimates; AI/API pricing pages; Deployment/testing estimates,5,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+Market Research,Market Research & Pilot Study,100000,"Rs 100,000",Interview plan; Survey costs; Pilot institution letters; Pilot onboarding requirements; User testing expenses,5,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+IP,IP Filing & Management,30000,"Rs 30,000",IP consultant quotation; Government statutory fee schedule; Patent/trademark-related estimates,3,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+Incubation,Incubation & Mentorship,60000,"Rs 60,000",Incubator quotation/invoice; Mentorship fee structure; Facility/service charges,3,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+Registration,Startup Registration & Consultation,25000,"Rs 25,000",MCA/government fee schedule; Professional CA/CS/legal quotation,2,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+Competitions / Exhibitions,Competitions / Exhibitions,10000,"Rs 10,000",Registration fee; Exhibition participation fee; Demonstration/material requirements; Travel only if explicitly eligible,4,0,NOT OBTAINED,UNVERIFIED - no quotation obtained
+Contingency,Essential Contingency,75000,"Rs 75,000","Controlled reserve for essential unforeseen MVP/pilot requirements, subject to approval and funding rules",1,0,NOT OBTAINED,UNVERIFIED - no quotation obtained

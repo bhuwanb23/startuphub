@@ -1,0 +1,14 @@
+﻿kind,role,detail,evidence_status
+CORE TEAM,Product Lead,"Product strategy, roadmap, requirements and stakeholder coordination",UNVERIFIED - no quotation obtained
+CORE TEAM,Technology Team,"Product development, integration and deployment",UNVERIFIED - no quotation obtained
+CORE TEAM,Design Support,User experience and interface refinement,UNVERIFIED - no quotation obtained
+CORE TEAM,Business/Market Lead,"Institutional research, pilots and customer validation",UNVERIFIED - no quotation obtained
+CORE TEAM,Domain Experts,"IPR, incubation, startup ecosystem and institutional processes",UNVERIFIED - no quotation obtained
+CORE TEAM,Mentors/Advisors,"Product, business and market guidance",UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Pilot institutions,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Incubation centre,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,IPR/legal professionals,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Cloud/software providers,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Institutional mentors,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Potential startup users,,UNVERIFIED - no quotation obtained
+EXTERNAL DEPENDENCY,Industry/institutional partners,,UNVERIFIED - no quotation obtained
