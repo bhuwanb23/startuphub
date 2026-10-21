@@ -133,7 +133,8 @@ research/
 ├── 12_Partners_Ecosystem/           reserved — Phase 19 GTM and partners
 ├── 13_Synthesis/                    cross-cutting findings + narrowing candidates
 ├── 14_Assets/                       diagrams, logos, chart sources
-└── 15_Legal_Policy_Tech/            reserved — DPDP, procurement, tenancy, security (Phases 22-26)
+├── 15_Legal_Policy_Tech/            reserved — DPDP, procurement, tenancy, security (Phases 22-26)
+└── 16_Questions_Funding/           side work — funding proposal Q&A, 7 questions, 8 figures
 ```
 
 **Folder numbering.** Phases 7-13 follow one convention: Phase N lands in
@@ -144,6 +145,13 @@ that chain (`01_Evidence_Vault`, `02_Landscape_Map`, `05_Government_Data`,
 predate it. `10_AI_Opportunity` is an empty legacy placeholder. `11_Legal_Policy_Tech`
 was likewise empty and was removed at Phase 13; its reserved home is now
 `15_Legal_Policy_Tech`.
+
+**`16_Questions_Funding` is not a phase.** It is side work: a funding
+proposal expressed as seven questions and their answers, with eight
+figures. It carries no `Source_Registry` ids, cites no interviews, and
+nothing in the research chain depends on it. Every rupee in it is a
+planning estimate — the arithmetic reconciles and is verified on every
+build, but no quotation exists behind any line.
 
 ---
 
@@ -254,6 +262,7 @@ url, publication_date, access_date, geography, customer_segment, notes
 | 31–32 | Evidence DB + source hierarchy | ✅ Done | `Source_Registry.csv` |
 | 33 | Final folder structure | ✅ Done | this file |
 | 34 | 30 final questions | ⬜ Partial (Q12–21 largely answerable now) | `13_Synthesis/` |
+| — | **Funding proposal (side work)** | ✅ **Done — 7 questions, 8 figures, 0 quotations** | `16_Questions_Funding/README.md` |
 
 ---
 
