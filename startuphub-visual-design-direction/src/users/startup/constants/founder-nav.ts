@@ -36,9 +36,9 @@ export const founderNav: FounderGroup[] = [
     label: "My Startup", icon: Rocket, href: "/founder/startup",
     subs: [
       { name: "Startup Profile", href: "/founder/startup" },
-      { name: "Founder Profile", href: "/founder/startup#founder", soon: true },
+      { name: "Founder Profile", href: "/founder/startup/founder-profile" },
       { name: "Team Management", href: "/founder/startup/team" },
-      { name: "Startup Assessment", href: "/founder/startup#assessment", soon: true },
+      { name: "Startup Assessment", href: "/founder/startup/assessment" },
     ],
   },
   {
