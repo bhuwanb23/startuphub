@@ -106,6 +106,26 @@ body {
   background-size: 22px 22px;
 }
 
+/* Dot grid on a light surface — used behind the auth brand column. */
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(11, 18, 32, 0.07) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+/* Dot grid on a dark surface. */
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.09) 1px,
+    transparent 0
+  );
+  background-size: 26px 26px;
+}
+
 .mask-x-fade {
   -webkit-mask-image: linear-gradient(
     to right,

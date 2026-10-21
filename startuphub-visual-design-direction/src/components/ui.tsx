@@ -20,11 +20,23 @@ export function Logo({ className }: { className?: string }) {
   );
 }
 
-export function Wordmark({ className }: { className?: string }) {
+export function Wordmark({
+  className,
+  dark = false,
+}: {
+  className?: string;
+  /* Renders the wordmark for a dark panel (e.g. the auth brand column). */
+  dark?: boolean;
+}) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
       <Logo className="h-7 w-7" />
-      <span className="text-[17px] font-bold tracking-tight text-ink">
+      <span
+        className={cn(
+          "text-[17px] font-bold tracking-tight",
+          dark ? "text-white" : "text-ink",
+        )}
+      >
         Startup<span className="text-accent">Hub</span>
       </span>
     </span>
