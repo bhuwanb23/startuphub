@@ -444,6 +444,15 @@ def doc_roadmap():
     for i, q in enumerate(Q.QUARTERS):
         ws = "\n".join(
             f"| **{l}** | {', '.join(items)} |" for l, items in q["workstreams"])
+        # Only Q1 and Q2 carry an explicit Resources workstream. Q3 and Q4
+        # changed shape, and naming a workstream "resources" would be
+        # inventing one.
+        res = next((items for l, items in q["workstreams"]
+                    if l.lower() == "resources"), None)
+        res_line = (f"\n**Resources consumed.** {', '.join(res)}\n" if res
+                    else "\n**Resources consumed.** Named within the "
+                         "workstreams above, and priced in the quarter's "
+                         "budget line below.\n")
         blocks.append(f"""
 ---
 
@@ -454,14 +463,10 @@ def doc_roadmap():
 | | Workstream | Items |
 |---|---|---|
 {ws}
-
-**Resources consumed.** {', '.join(q['workstreams'][-1][1])} — and, for the
-product itself, the {'technology' if i < 2 else 'market'} line of the
-budget.
-
+{res_line}
 > **Quarter outcome.** {q['outcome']}
 
-**Budget for this quarter.** Rs {Q.computed_quarter_totals()[i]:,}
+**Budget for this quarter.** {Q.rs_in(Q.computed_quarter_totals()[i])}
 """)
     return f"""{banner()}
 # Q1 - What Is The One-Year Roadmap?
@@ -747,6 +752,7 @@ rates are the easiest numbers to guess and the hardest to defend.
 
 
 def doc_evidence():
+    n_artefacts = sum(len(ev["artefacts"]) for ev in Q.FUNDING_EVIDENCE)
     blocks = []
     for ev in Q.FUNDING_EVIDENCE:
         arts = "\n".join(f"- {a}" for a in ev["artefacts"])
@@ -773,7 +779,7 @@ the only part that survives a hostile reading.
 |---|---|---:|---:|
 {chr(10).join(f'| | {ev["category"]} | {len(ev["artefacts"])} | **0** |' for ev in Q.FUNDING_EVIDENCE)}
 
-**Total artefacts required: 24. Obtained: 0.**
+**Total artefacts required: {n_artefacts}. Obtained: 0.**
 
 That zero is the honest state of the document, and it is written on the
 chart and on the budget page rather than buried. A proposal that shows an

@@ -25,13 +25,11 @@ workstreams change shape as the year goes on, because the work does.
 | **Validation** | User interviews, Institutional requirement mapping, Feature prioritisation, Initial usability testing |
 | **Resources** | Product development team, UI/UX support, Cloud/software services, Domain experts and institutional mentors |
 
-**Resources consumed.** Product development team, UI/UX support, Cloud/software services, Domain experts and institutional mentors — and, for the
-product itself, the technology line of the
-budget.
+**Resources consumed.** Product development team, UI/UX support, Cloud/software services, Domain experts and institutional mentors
 
 > **Quarter outcome.** A functional MVP ready for controlled institutional testing.
 
-**Budget for this quarter.** Rs 135,000
+**Budget for this quarter.** Rs 1,35,000
 
 
 ---
@@ -46,13 +44,11 @@ budget.
 | **Validation** | Internal testing, User acceptance testing, Security and reliability checks, Feedback from initial institutions |
 | **Resources** | Development and product team, IPR/legal advisor, Mentors, Pilot institutions |
 
-**Resources consumed.** Development and product team, IPR/legal advisor, Mentors, Pilot institutions — and, for the
-product itself, the technology line of the
-budget.
+**Resources consumed.** Development and product team, IPR/legal advisor, Mentors, Pilot institutions
 
 > **Quarter outcome.** An integrated product ready for pilot deployment.
 
-**Budget for this quarter.** Rs 150,000
+**Budget for this quarter.** Rs 1,50,000
 
 
 ---
@@ -67,13 +63,11 @@ budget.
 | **Refine** | Fix usability issues, Improve workflows, Improve recommendations, Improve dashboards and reporting, Strengthen security and reliability, Prioritise features based on real usage |
 | **Market Validation** | Institutional feedback, Customer interviews, Pricing validation, Willingness-to-pay assessment, Pilot-to-paid conversion assessment |
 
-**Resources consumed.** Institutional feedback, Customer interviews, Pricing validation, Willingness-to-pay assessment, Pilot-to-paid conversion assessment — and, for the
-product itself, the market line of the
-budget.
+**Resources consumed.** Named within the workstreams above, and priced in the quarter's budget line below.
 
 > **Quarter outcome.** Validated product with measurable pilot results and evidence of institutional demand.
 
-**Budget for this quarter.** Rs 165,000
+**Budget for this quarter.** Rs 1,65,000
 
 
 ---
@@ -88,13 +82,11 @@ budget.
 | **Commercial Validation** | Convert pilot institutions into paying customers, Establish institutional partnerships, Demonstrate product outcomes, Prepare expansion strategy |
 | **IP & Business** | Finalise relevant IP protection, Startup registration/compliance, Prepare investor and partnership documentation |
 
-**Resources consumed.** Finalise relevant IP protection, Startup registration/compliance, Prepare investor and partnership documentation — and, for the
-product itself, the market line of the
-budget.
+**Resources consumed.** Named within the workstreams above, and priced in the quarter's budget line below.
 
 > **Quarter outcome.** Market-ready StartupHub with pilot evidence, initial institutional customers and a clear scale-up pathway.
 
-**Budget for this quarter.** Rs 150,000
+**Budget for this quarter.** Rs 1,50,000
 
 ---
 

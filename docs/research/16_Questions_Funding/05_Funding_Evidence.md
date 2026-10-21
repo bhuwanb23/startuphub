@@ -79,7 +79,7 @@ the only part that survives a hostile reading.
 | | Competitions / Exhibitions | 4 | **0** |
 | | Contingency | 1 | **0** |
 
-**Total artefacts required: 24. Obtained: 0.**
+**Total artefacts required: 23. Obtained: 0.**
 
 That zero is the honest state of the document, and it is written on the
 chart and on the budget page rather than buried. A proposal that shows an
