@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FounderShell } from "@/users/startup/startup";
-import { StartupProfile } from "@/users/startup/components/startup/startup";
+import { FounderProfile } from "@/users/startup/components/startup/founder-profile";
 
 export const metadata: Metadata = {
   title: "Founder Profile · Lumen AI",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <FounderShell title="Founder Profile">
-      <StartupProfile />
+      <FounderProfile />
     </FounderShell>
   );
 }
