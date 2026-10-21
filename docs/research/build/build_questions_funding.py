@@ -413,7 +413,7 @@ because the numbers in it should be readable next to everything else.
 
 | | |
 |---|---|
-| Total | **Rs {Q.BUDGET_TOTAL:,}** |
+| Total | **{Q.rs_in(Q.BUDGET_TOTAL)}** |
 | Budget lines | **{S['budget_lines']}** |
 | Quarter totals | **Rs 1,35,000 · Rs 1,50,000 · Rs 1,65,000 · Rs 1,50,000** |
 | Technology share | **Rs 3,00,000 ({Q.TECH_BUDGET_TOTAL / Q.BUDGET_TOTAL:.0%})** |
@@ -509,6 +509,28 @@ pilot institutions Q3 depends on. Compress Q2 and Q3 cannot start.
 
 
 def doc_one_slide():
+    qt = Q.computed_quarter_totals()
+    tech = Q.BUDGET[0]["q"]
+    mkt = Q.BUDGET[1]["q"]
+    peak = max(range(4), key=lambda i: qt[i])
+
+    # What the budget says about each quarter, computed.
+    detail = []
+    for i, q in enumerate(Q.QUARTERS):
+        t_share = tech[i] / qt[i]
+        m_share = mkt[i] / qt[i]
+        if i == 0:
+            bit = f"Rs {qt[i]:,} — {t_share:.0%} of it technology"
+        elif i == 1:
+            bit = f"Rs {qt[i]:,} — {t_share:.0%} technology, {1 - t_share - m_share:.0%} in the other lines"
+        elif i == 2:
+            bit = f"Rs {qt[i]:,} — {m_share:.0%} market research, the year's peak"
+        else:
+            cont = Q.BUDGET[6]["q"][i] / qt[i]
+            bit = f"Rs {qt[i]:,} — {m_share:.0%} market research, {cont:.0%} contingency"
+        detail.append(f"| {q['id']} | **{q['phase_word']}** | {q['slide'][0]}, "
+                      f"{q['slide'][1]} | {bit} |")
+
     rows = "\n".join(
         f"| **{q['id']}** | **{q['phase_word']}** | {q['slide'][0]} | "
         f"{q['slide'][1]} | {q['slide'][2]} | **{q['slide_outcome']}** |"
@@ -545,10 +567,7 @@ checks that the two agree.
 
 | | Quarter | The slide says | The budget says |
 |---|---|---|---|
-| Q1 | BUILD | Define MVP, core workflows | Rs 1,35,000 — 67% of it technology |
-| Q2 | INTEGRATE | Connect ecosystem, AI & matching | Rs 1,50,000 — 53% technology, 40% ecosystem build |
-| Q3 | PILOT | Real institutions, user adoption | Rs 1,65,000 — 21% market research, the year's peak |
-| Q4 | LAUNCH | Market readiness, paying customers | Rs 1,50,000 — 27% market research, 17% contingency |
+{chr(10).join(detail)} |
 
 ## One thing to say out loud
 
@@ -562,12 +581,25 @@ defensible request.
 
 
 def doc_budget():
+    def k(n):
+        return "Rs 0" if n == 0 else f"Rs {n // 1000}K"
+
     rows = "\n".join(
-        f"| {b['name']} | Rs {b['q'][0]//1000}K | Rs {b['q'][1]//1000}K | "
-        f"Rs {b['q'][2]//1000}K | Rs {b['q'][3]//1000}K | "
-        f"**Rs {sum(b['q'])//1000}K** | {sum(b['q'])/Q.BUDGET_TOTAL:.0%} |"
+        f"| {b['name']} | {k(b['q'][0])} | {k(b['q'][1])} | "
+        f"{k(b['q'][2])} | {k(b['q'][3])} | "
+        f"**{k(sum(b['q']))}** | {sum(b['q'])/Q.BUDGET_TOTAL:.0%} |"
         for b in Q.BUDGET)
     qt = Q.computed_quarter_totals()
+
+    # The shape of each quarter, computed rather than asserted.
+    tech_line = Q.BUDGET[0]
+    mkt_line = Q.BUDGET[1]
+    shape = []
+    for i, tot in enumerate(qt):
+        t = tech_line["q"][i]
+        m = mkt_line["q"][i]
+        shape.append(f"| Q{i + 1} | {Q.rs_in(tot)} | {t / tot:.0%} | "
+                     f"{m / tot:.0%} | {(tot - t - m) / tot:.0%} |")
     return f"""{banner()}
 # Q3 - What Does It Cost?
 
@@ -582,7 +614,7 @@ cannot drift away from itself.
 | Particular | Q1 | Q2 | Q3 | Q4 | Total | Share |
 |---|---:|---:|---:|---:|---:|---:|
 {rows}
-| **TOTAL** | **Rs {qt[0]//1000}K** | **Rs {qt[1]//1000}K** | **Rs {qt[2]//1000}K** | **Rs {qt[3]//1000}K** | **Rs {Q.BUDGET_TOTAL//1000}K** | **100%** |
+| **TOTAL** | **{k(qt[0])}** | **{k(qt[1])}** | **{k(qt[2])}** | **{k(qt[3])}** | **{k(Q.BUDGET_TOTAL)}** | **100%** |
 
 ![The budget as a matrix]({CH}/q_03_budget_by_quarter.png)
 
@@ -595,10 +627,7 @@ can check the story against the numbers, and the numbers agree.
 
 | | Quarter | Technology | Market research | The rest |
 |---|---:|---:|---:|---:|
-| Q1 | Rs 1,35,000 | 67% | 7% | 26% |
-| Q2 | Rs 1,50,000 | 53% | 10% | 37% |
-| Q3 | Rs 1,65,000 | 45% | 21% | 34% |
-| Q4 | Rs 1,50,000 | 37% | 27% | 36% |
+{chr(10).join(shape)}
 
 ![What the envelope looks like]({CH}/q_04_budget_shape.png)
 
@@ -685,9 +714,10 @@ can actually answer.
 
 The shape also tells the truth about the year: **core build → ecosystem
 modules → pilot hardening → production**. The money falls from Rs 90,000
-to Rs 55,000 because the work gets cheaper as it gets more specific. A
-reviewer who thinks a 38% fall is suspicious should be told that the fall
-is the *point*: the expensive part of a product is deciding what it is.
+to Rs 55,000 - a fall of {(1 - 55000 / 90000):.0%} - because the work gets
+cheaper as it gets more specific. A reviewer who thinks that fall is
+suspicious should be told that the fall is the *point*: the expensive part
+of a product is deciding what it is.
 
 ## The rule
 

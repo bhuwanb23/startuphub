@@ -454,6 +454,28 @@ def rs(n):
     return f"Rs {n:,.0f}"
 
 
+def rs_in(n):
+    """Indian digit grouping - Rs 1,35,000 rather than Rs 135,000.
+
+    This is an Indian funding proposal, so the lakh/crore grouping is the
+    one a reader will parse fastest.
+    """
+    neg = n < 0
+    s = str(abs(int(n)))
+    if len(s) <= 3:
+        out = s
+    else:
+        head, tail = s[:-3], s[-3:]
+        parts = []
+        while len(head) > 2:
+            parts.insert(0, head[-2:])
+            head = head[:-2]
+        if head:
+            parts.insert(0, head)
+        out = ",".join(parts) + "," + tail
+    return f"{'-' if neg else ''}Rs {out}"
+
+
 def short(n):
     """Compact amount - Rs 1.35L / Rs 90K / Rs 0."""
     if n == 0:

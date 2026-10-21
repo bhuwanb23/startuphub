@@ -58,9 +58,10 @@ can actually answer.
 
 The shape also tells the truth about the year: **core build → ecosystem
 modules → pilot hardening → production**. The money falls from Rs 90,000
-to Rs 55,000 because the work gets cheaper as it gets more specific. A
-reviewer who thinks a 38% fall is suspicious should be told that the fall
-is the *point*: the expensive part of a product is deciding what it is.
+to Rs 55,000 - a fall of 39% - because the work gets
+cheaper as it gets more specific. A reviewer who thinks that fall is
+suspicious should be told that the fall is the *point*: the expensive part
+of a product is deciding what it is.
 
 ## The rule
 
