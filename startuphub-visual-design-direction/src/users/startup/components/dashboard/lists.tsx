@@ -16,7 +16,7 @@ export function MilestonesCard() {
   return (
     <Card
       title="Active milestones"
-      action={<Link href="/founder/incubation#milestones" className="text-[12px] font-semibold text-accent">All milestones</Link>}
+      action={<Link href="/founder/incubation/milestones" className="text-[12px] font-semibold text-accent">All milestones</Link>}
     >
       <div className="space-y-4">
         {milestones.map((m) => (

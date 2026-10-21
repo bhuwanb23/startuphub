@@ -56,8 +56,8 @@ export const founderNav: FounderGroup[] = [
     subs: [
       { name: "Discover Incubators", href: "/founder/incubation/discover" },
       { name: "Applications", href: "/founder/incubation" },
-      { name: "Incubation Workspace", href: "/founder/incubation#workspace", soon: true },
-      { name: "Milestones", href: "/founder/incubation#milestones", soon: true },
+      { name: "Incubation Workspace", href: "/founder/incubation/workspace" },
+      { name: "Milestones", href: "/founder/incubation/milestones" },
     ],
   },
   {
