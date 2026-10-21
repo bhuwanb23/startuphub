@@ -118,15 +118,17 @@ def chart_roadmap_slide():
 
         # The quarter's word - the big thing.
         ax.add_patch(FancyBboxPatch(
-            (x, TOP - 1.30), W, 1.30, boxstyle="round,pad=0.02,rounding_size=0.10",
+            (x, TOP - 1.62), W, 1.62, boxstyle="round,pad=0.02,rounding_size=0.10",
             facecolor=col, edgecolor="none"))
         ax.text(x + W / 2, TOP - 0.46, q["phase_word"], ha="center", va="center",
                 fontsize=17, fontweight="bold", color="white")
-        ax.text(x + W / 2, TOP - 1.00, f'{q["id"]}  ·  {q["name"]}',
-                ha="center", va="center", fontsize=8.4, color="#E2E8F0")
+        qlines = _wrap(f'{q["id"]}  ·  {q["name"]}', 30)
+        for li, ln in enumerate(qlines):
+            ax.text(x + W / 2, TOP - 1.02 - li * 0.24, ln, ha="center",
+                    va="center", fontsize=7.8, color="#E2E8F0")
 
         # The three slide lines.
-        body_y = TOP - 1.55
+        body_y = TOP - 1.85
         for j, line in enumerate(q["slide"]):
             y = body_y - j * 0.72
             ax.add_patch(FancyBboxPatch(
@@ -138,7 +140,7 @@ def chart_roadmap_slide():
                     fontsize=10.2, color="#1E293B")
 
         # The milestone chip.
-        cy = TOP - 4.28
+        cy = TOP - 4.32
         ax.add_patch(FancyBboxPatch(
             (x, cy - 0.34), W, 0.68, boxstyle="round,pad=0.02,rounding_size=0.09",
             facecolor="white", edgecolor=col, linewidth=2.0))
@@ -153,20 +155,21 @@ def chart_roadmap_slide():
                 linewidth=2.0, shrinkA=0, shrinkB=0))
 
     # The story line across the bottom.
-    sy = 1.55
+    sy = 1.52
     ax.add_patch(FancyBboxPatch(
-        (X0, sy - 0.55), 15.5, 1.10, boxstyle="round,pad=0.02,rounding_size=0.10",
+        (X0, sy - 0.62), 15.5, 1.40, boxstyle="round,pad=0.02,rounding_size=0.10",
         facecolor=NAVY, edgecolor="none"))
     for i, s in enumerate(Q.STORY_ARC):
-        cx = X0 + 0.55 + i * 3.85
-        ax.text(cx, sy + 0.16, f'{s["quarter"]}  {s["verb"]}', fontsize=11.5,
-                fontweight="bold", color="white", va="center")
-        ax.text(cx, sy - 0.30, s["phrase"][:44], fontsize=8.6, color="#93C5FD",
-                va="center")
+        cx = X0 + 1.85 + i * 3.85
+        ax.text(cx, sy + 0.52, f'{s["quarter"]}  {s["verb"]}', fontsize=11.5,
+                fontweight="bold", color="white", va="center", ha="center")
+        for li, ln in enumerate(_wrap(s["phrase"], 26)[:3]):
+            ax.text(cx, sy + 0.12 - li * 0.24, ln, fontsize=8.4,
+                    color="#93C5FD", va="center", ha="center")
 
-    ax.text(0.25, 0.62, "Every expense answers one question:", fontsize=10.5,
+    ax.text(0.25, 0.58, "Every expense answers one question:", fontsize=10.5,
             color=SLATE, va="center")
-    ax.text(0.25, 0.22, Q.MILESTONE_QUESTION, fontsize=13, fontweight="bold",
+    ax.text(0.25, 0.20, Q.MILESTONE_QUESTION, fontsize=13, fontweight="bold",
             color=NAVY, va="center")
 
     _save(fig, "q_01_roadmap_slide")
@@ -194,12 +197,14 @@ def chart_roadmap_detail():
         ax.text(0.35, 12.10, q["phase_word"], fontsize=10, color="#E2E8F0",
                 va="center", fontweight="bold")
 
-        for ln in _wrap(q["objective"], 62):
-            ax.text(0.35, 11.10, ln, fontsize=9.4, color="#334155", va="top")
-        ax.text(0.35, 10.30, "OBJECTIVE", fontsize=7.8, color=SLATE,
+        ax.text(0.35, 11.24, "OBJECTIVE", fontsize=7.8, color=SLATE,
                 va="center", fontweight="bold")
+        oy = 10.88
+        for ln in _wrap(q["objective"], 100):
+            ax.text(0.35, oy, ln, fontsize=9.4, color="#334155", va="center")
+            oy -= 0.28
 
-        y = 9.72
+        y = 10.28
         for label, items in q["workstreams"]:
             ax.add_patch(Rectangle((0.35, y - 0.02), 0.09, 0.30, facecolor=col,
                                    edgecolor="none"))
@@ -207,8 +212,10 @@ def chart_roadmap_detail():
                     fontweight="bold", color=NAVY, va="center")
             y -= 0.38
             for it in items:
-                ax.text(0.62, y, "·", fontsize=9, color=GREY, va="center")
-                ax.text(0.85, y, it, fontsize=8.9, color="#334155", va="center")
+                ax.add_patch(Rectangle((0.64, y - 0.045), 0.055, 0.055,
+                                       facecolor=GREY, edgecolor="none"))
+                ax.text(0.85, y - 0.01, it, fontsize=8.9, color="#334155",
+                        va="center")
                 y -= 0.305
             y -= 0.16
 
@@ -235,56 +242,136 @@ def chart_roadmap_detail():
 # 3. The budget, by line and by quarter
 # ==========================================================================
 def chart_budget_by_quarter():
-    fig, ax = plt.subplots(figsize=(15.0, 8.6))
+    """The budget as a matrix - the reconciliation, made visible.
+
+    Rows are the seven lines, columns are the four quarters, and the last
+    row and last column are the totals. A reader can check the arithmetic
+    by eye in the way they would on a printed table, which is the whole
+    point: the criticism of the original sheet was that its totals did not
+    reconcile, and the fix has to be visible rather than asserted.
+    """
+    fig, ax = plt.subplots(figsize=(15.6, 9.2))
+    ax.set_xlim(0, 16.0)
+    ax.set_ylim(0, 10.6)
+    ax.axis("off")
+    ax.grid(False)
+
+    ax.text(0.30, 10.05, "WHERE THE Rs 6,00,000 GOES", fontsize=15,
+            fontweight="bold", color=NAVY, va="center")
+    ax.text(0.30, 9.66, "Seven lines, four quarters. Read the bottom row "
+            "across and the right column down - they agree.",
+            fontsize=10.4, color=SLATE, va="center")
 
     lines = Q.BUDGET
-    n = len(lines)
-    y = np.arange(n)[::-1]
-    h = 0.19
+    cols = Q.computed_quarter_totals()
+    grand = Q.computed_total()
 
-    for qi in range(4):
-        vals = [b["q"][qi] / 1000 for b in lines]
-        off = (1.5 - qi) * h
-        ax.barh(y + off, vals, height=h, color=QCOL[f"Q{qi + 1}"],
-                edgecolor="white", linewidth=0.8, label=f"Q{qi + 1}")
+    # Geometry.
+    LBL_W = 5.35           # label column
+    CELL_W = 1.78          # one quarter column
+    TOT_W = 2.05           # total column
+    X0 = 0.30
+    HEAD_Y = 9.20
+    ROW_H = 0.78
+    GAP = 0.07
 
-    # Row totals, and the grand total.
-    for i, b in enumerate(lines):
-        tot = sum(b["q"])
-        ax.text(tot / 1000 + 4, y[i], f"{tot / 1000:,.0f}K", va="center",
-                fontsize=9.6, fontweight="bold", color=NAVY)
+    qx = [X0 + LBL_W + i * (CELL_W + GAP) for i in range(4)]
+    tot_x = X0 + LBL_W + 4 * (CELL_W + GAP)
 
-    ax.set_yticks(y)
-    ax.set_yticklabels([b["name"] for b in lines], fontsize=9.6, color="#1E293B")
-    ax.set_xlabel("rupees, in thousands")
-    ax.set_xlim(0, 330)
-    ax.set_xticks(range(0, 331, 50))
-    ax.xaxis.set_major_formatter(
-        matplotlib.ticker.FuncFormatter(lambda v, p: f"{v:,.0f}K"))
-    ax.grid(axis="y", visible=False)
-    ax.legend(loc="lower right", fontsize=9.6, ncol=4, title="Quarter",
-              title_fontsize=9.6)
+    # Header.
+    for i, q in enumerate(Q.QUARTERS):
+        ax.add_patch(FancyBboxPatch(
+            (qx[i], HEAD_Y - 0.52), CELL_W, 0.62,
+            boxstyle="round,pad=0.02,rounding_size=0.07",
+            facecolor=QCOL[q["id"]], edgecolor="none"))
+        ax.text(qx[i] + CELL_W / 2, HEAD_Y - 0.21, q["id"], ha="center",
+                va="center", fontsize=12, fontweight="bold", color="white")
+    ax.add_patch(FancyBboxPatch(
+        (tot_x, HEAD_Y - 0.52), TOT_W, 0.62,
+        boxstyle="round,pad=0.02,rounding_size=0.07",
+        facecolor=NAVY, edgecolor="none"))
+    ax.text(tot_x + TOT_W / 2, HEAD_Y - 0.21, "TOTAL", ha="center", va="center",
+            fontsize=11, fontweight="bold", color="white")
 
-    # The shape of the year, annotated.
-    q1_tech = lines[0]["q"][0] / sum(lines[0]["q"])
-    q4_research = lines[1]["q"][3] / sum(lines[1]["q"])
-    ax.annotate("Q1 is development-heavy:\ntechnology is the whole quarter",
-                xy=(95, y[0] + 0.10), xytext=(150, y[0] + 1.35),
-                fontsize=9, color=TEAL, fontweight="bold",
-                arrowprops=dict(arrowstyle="->", color=TEAL, linewidth=1.4))
-    ax.annotate("Q4 is market-heavy:\nresearch is 40% of that line",
-                xy=(42, y[1] - 0.24), xytext=(120, y[1] - 1.35),
-                fontsize=9, color=NAVY, fontweight="bold",
-                arrowprops=dict(arrowstyle="->", color=NAVY, linewidth=1.4))
+    ax.text(X0 + 0.18, HEAD_Y - 0.21, "BUDGET LINE", fontsize=9.2,
+            fontweight="bold", color=NAVY, va="center")
 
-    ax.set_title("Where the Rs 6,00,000 Goes",
-                 fontsize=15, fontweight="bold", color=NAVY, pad=16)
-    fig.text(0.5, 0.915,
-             "Seven lines, four quarters. The row totals reconcile to the "
-             "stated category totals and the grand total of Rs 6,00,000.",
-             ha="center", fontsize=10.5, color=SLATE)
+    # The largest single cell drives the shading scale.
+    vmax = max(max(b["q"]) for b in lines)
+
+    y = HEAD_Y - 0.74
+    for b in lines:
+        col = BCOL[b["name"]]
+        ax.add_patch(FancyBboxPatch(
+            (X0, y - ROW_H + 0.10), LBL_W - GAP, ROW_H,
+            boxstyle="round,pad=0.02,rounding_size=0.06",
+            facecolor="#F8FAFC", edgecolor="#E2E8F0", linewidth=0.9))
+        ax.add_patch(Rectangle((X0, y - ROW_H + 0.10), 0.085, ROW_H,
+                               facecolor=col, edgecolor="none"))
+        ax.text(X0 + 0.24, y - 0.19, b["name"], fontsize=9.0, color="#1E293B",
+                va="center", fontweight="bold")
+
+        for i, v in enumerate(b["q"]):
+            # Shade by magnitude - darker means more money.
+            f = 0.06 + 0.34 * (v / vmax)
+            ax.add_patch(FancyBboxPatch(
+                (qx[i], y - ROW_H + 0.10), CELL_W, ROW_H,
+                boxstyle="round,pad=0.02,rounding_size=0.06",
+                facecolor=QCOL[f"Q{i + 1}"], edgecolor="none", alpha=f + 0.30))
+            ax.text(qx[i] + CELL_W / 2, y - 0.19, Q.short(v), ha="center",
+                    va="center", fontsize=10.4, fontweight="bold",
+                    color="white" if v > 0 else "#94A3B8")
+
+        ax.add_patch(FancyBboxPatch(
+            (tot_x, y - ROW_H + 0.10), TOT_W, ROW_H,
+            boxstyle="round,pad=0.02,rounding_size=0.06",
+            facecolor="white", edgecolor=col, linewidth=1.8))
+        ax.text(tot_x + TOT_W / 2, y - 0.19, Q.short(sum(b["q"])), ha="center",
+                va="center", fontsize=11.4, fontweight="bold", color=col)
+        y -= ROW_H + GAP
+
+    # The totals row - the thing the original sheet got wrong.
+    y -= 0.08
+    ax.add_patch(FancyBboxPatch(
+        (X0, y - ROW_H + 0.10), LBL_W - GAP, ROW_H,
+        boxstyle="round,pad=0.02,rounding_size=0.06",
+        facecolor=NAVY, edgecolor="none"))
+    ax.text(X0 + 0.24, y - 0.19, "TOTAL", fontsize=10.4, fontweight="bold",
+            color="white", va="center")
+    for i, v in enumerate(cols):
+        ax.add_patch(FancyBboxPatch(
+            (qx[i], y - ROW_H + 0.10), CELL_W, ROW_H,
+            boxstyle="round,pad=0.02,rounding_size=0.06",
+            facecolor=NAVY, edgecolor="none"))
+        ax.text(qx[i] + CELL_W / 2, y - 0.19, Q.short(v), ha="center",
+                va="center", fontsize=10.6, fontweight="bold", color="white")
+    ax.add_patch(FancyBboxPatch(
+        (tot_x, y - ROW_H + 0.10), TOT_W, ROW_H,
+        boxstyle="round,pad=0.02,rounding_size=0.06",
+        facecolor=TEAL, edgecolor="none"))
+    ax.text(tot_x + TOT_W / 2, y - 0.19, Q.short(grand), ha="center", va="center",
+            fontsize=12.5, fontweight="bold", color="white")
+
+    # The reconciliation, stated.
+    ax.text(X0, 1.40,
+            "Every row sums to its total. The four column totals sum to the "
+            "same Rs 6,00,000. Nothing is balanced by a rounding line.",
+            fontsize=10.2, color=SLATE, va="center")
+
+    # Where the shape of the year shows up.
+    ax.add_patch(FancyBboxPatch(
+        (X0, 0.25), 15.40, 0.92,
+        boxstyle="round,pad=0.02,rounding_size=0.08",
+        facecolor="#F1F5F9", edgecolor="#CBD5E1", linewidth=1.2))
+    ax.text(X0 + 0.28, 0.87, "The shape of the year", fontsize=9.4,
+            fontweight="bold", color=NAVY, va="center")
+    ax.text(X0 + 0.28, 0.56,
+            "Q1 is development: technology is the whole quarter. Q4 is "
+            "market: research and launch dominate. The money follows the "
+            "work, which is what makes the budget arguable.",
+            fontsize=9.4, color="#334155", va="center")
+
     _prov(fig, y=0.004)
-    fig.tight_layout(rect=[0, 0.045, 1, 0.90])
     _save(fig, "q_03_budget_by_quarter")
 
 
@@ -299,19 +386,20 @@ def chart_budget_shape():
     lines = Q.BUDGET
     names = [b["name"] for b in lines]
     totals = [sum(b["q"]) for b in lines]
-    order = np.argsort(totals)[::-1]
-    y = np.arange(len(lines))[::-1]
-    for i in order:
-        ax1.barh(y[list(order).index(i)], totals[i] / 1000, height=0.62,
+    order = list(np.argsort(totals)[::-1])   # descending by total
+    y = np.arange(len(lines))[::-1]           # top row first
+    for k, i in enumerate(order):
+        ax1.barh(y[k], totals[i] / 1000, height=0.62,
                  color=BCOL[names[i]], edgecolor="white", linewidth=1.0)
     ax1.set_yticks(y)
     ax1.set_yticklabels([names[i] for i in order], fontsize=9.0,
                         color="#1E293B")
-    for i, v in zip(order, totals):
-        ax1.text(v / 1000 + 5, y[list(order).index(i)],
+    for k, i in enumerate(order):
+        v = totals[i]
+        ax1.text(v / 1000 + 5, y[k],
                  f"{v / 1000:,.0f}K  ({v / Q.BUDGET_TOTAL:.0%})",
                  va="center", fontsize=9.2, fontweight="bold", color=NAVY)
-    ax1.set_xlim(0, 400)
+    ax1.set_xlim(0, 390)
     ax1.set_xlabel("rupees, in thousands")
     ax1.grid(axis="y", visible=False)
     ax1.set_title("Share of the envelope", fontsize=13, fontweight="bold",
@@ -331,8 +419,10 @@ def chart_budget_shape():
               markerfacecolor="white", markeredgewidth=2.2, markeredgecolor=AMBER,
               label="Cumulative")
     for xi, v in zip(x, cum):
-        ax2b.text(xi, v + 14, f"{v:,.0f}K", ha="center", fontsize=9.4,
-                  fontweight="bold", color=AMBER)
+        ax2b.text(xi, v + 16, f"{v:,.0f}K", ha="center", fontsize=9.4,
+                  fontweight="bold", color=AMBER,
+                  bbox=dict(boxstyle="round,pad=0.16", fc="white", ec="none",
+                            alpha=0.88))
     ax2b.set_ylim(0, 720)
     ax2b.set_ylabel("cumulative, in thousands", fontsize=9.4, color=AMBER)
     ax2b.tick_params(axis="y", labelcolor=AMBER, labelsize=9)
@@ -352,7 +442,7 @@ def chart_budget_shape():
                  fontsize=15.5, fontweight="bold", color=NAVY, y=0.975)
     fig.text(0.5, 0.928,
              "Technology is half the envelope. Market research rises from "
-             "7% of the ask in Q1 to 27% in Q4. Contingency is a controlled "
+             "7% of Q1's spend to 27% of Q4's. Contingency is a controlled "
              f"reserve at {Q.contingency_share():.1%}.",
              ha="center", fontsize=10.3, color=SLATE)
     _prov(fig, y=0.004)
@@ -364,21 +454,23 @@ def chart_budget_shape():
 # 5. Inside the technology budget
 # ==========================================================================
 def chart_tech_budget():
-    fig, ax = plt.subplots(figsize=(14.6, 7.4))
-    ax.set_xlim(0, 15.0)
-    ax.set_ylim(0, 7.9)
+    fig, ax = plt.subplots(figsize=(15.2, 8.2))
+    ax.set_xlim(0, 15.6)
+    ax.set_ylim(0, 8.6)
     ax.axis("off")
     ax.grid(False)
 
-    ax.text(0.25, 7.45, "INSIDE THE Rs 3,00,000 TECHNOLOGY LINE", fontsize=15,
+    ax.text(0.30, 8.30, "INSIDE THE Rs 3,00,000 TECHNOLOGY LINE", fontsize=15,
             fontweight="bold", color=NAVY, va="center")
-    ax.text(0.25, 7.02, "Half the entire envelope, and the line that has to "
+    ax.text(0.30, 7.90, "Half the entire envelope, and the line that has to "
             "carry the most scrutiny.", fontsize=10.4, color=SLATE, va="center")
 
-    W = 3.52
-    GAP = 0.30
+    W = 3.46
+    GAP = 0.26
     X0 = 0.30
-    TOP = 6.30
+    TOP = 7.20
+    CHIP_H = 0.78
+    STEP = 0.84
 
     for i, t in enumerate(Q.TECH_BUDGET):
         x = X0 + i * (W + GAP)
@@ -387,40 +479,45 @@ def chart_tech_budget():
         ax.add_patch(FancyBboxPatch(
             (x, TOP - 1.15), W, 1.15, boxstyle="round,pad=0.02,rounding_size=0.10",
             facecolor=col, edgecolor="none"))
-        ax.text(x + 0.28, TOP - 0.40, t["quarter"], fontsize=11.5,
+        ax.text(x + 0.28, TOP - 0.38, t["quarter"], fontsize=11.5,
                 fontweight="bold", color="white", va="center")
-        ax.text(x + W - 0.28, TOP - 0.40, Q.short(t["amount"]), fontsize=15,
+        ax.text(x + W - 0.28, TOP - 0.38, Q.short(t["amount"]), fontsize=15,
                 fontweight="bold", color="white", va="center", ha="right")
-        ax.text(x + 0.28, TOP - 0.86, Q.TECH_BUDGET[i].get("label", "") or
-                ["Core build", "Ecosystem modules", "Pilot hardening",
-                 "Production"][i], fontsize=9.2, color="#E2E8F0", va="center")
+        ax.text(x + 0.28, TOP - 0.86, t["label"], fontsize=9.2, color="#E2E8F0",
+                va="center")
 
         y = TOP - 1.52
         for it in t["items"]:
             ax.add_patch(FancyBboxPatch(
-                (x, y - 0.50), W, 0.58, boxstyle="round,pad=0.02,rounding_size=0.07",
+                (x, y - CHIP_H + 0.14), W, CHIP_H,
+                boxstyle="round,pad=0.02,rounding_size=0.07",
                 facecolor="#F8FAFC", edgecolor="#E2E8F0", linewidth=1.0))
-            ax.add_patch(Rectangle((x, y - 0.50), 0.07, 0.58, facecolor=col,
-                                   edgecolor="none"))
-            ax.text(x + 0.22, y - 0.21, it, ha="left", va="center",
-                    fontsize=9.5, color="#1E293B")
-            y -= 0.66
+            ax.add_patch(Rectangle((x, y - CHIP_H + 0.14), 0.07, CHIP_H,
+                                   facecolor=col, edgecolor="none"))
+            # Item text wraps to two lines so it can never leave its box.
+            lines = _wrap(it, 28)[:2]
+            ty = y - 0.25 + (len(lines) - 1) * 0.11
+            for ln in lines:
+                ax.text(x + 0.22, ty, ln, ha="left", va="center",
+                        fontsize=8.6, color="#1E293B")
+                ty -= 0.22
+            y -= STEP
 
         if i < 3:
             ax.add_patch(FancyArrowPatch(
-                (x + W + 0.04, TOP - 0.58), (x + W + GAP - 0.04, TOP - 0.58),
+                (x + W + 0.03, TOP - 0.58), (x + W + GAP - 0.03, TOP - 0.58),
                 arrowstyle="-|>", mutation_scale=14, color="#CBD5E1",
                 linewidth=2.0, shrinkA=0, shrinkB=0))
 
     # The rule, in a box at the bottom.
     ax.add_patch(FancyBboxPatch(
-        (0.30, 0.42), 14.40, 1.12, boxstyle="round,pad=0.02,rounding_size=0.10",
+        (0.30, 0.32), 14.90, 1.12, boxstyle="round,pad=0.02,rounding_size=0.10",
         facecolor="#FEF3C7", edgecolor=AMBER, linewidth=1.8))
-    ax.text(0.62, 1.30, "THE RULE", fontsize=8.6, fontweight="bold",
+    ax.text(0.62, 1.22, "THE RULE", fontsize=8.6, fontweight="bold",
             color=AMBER, va="center")
-    ax.text(0.62, 0.90, "Do not write invented vendor costs.", fontsize=12.5,
+    ax.text(0.62, 0.84, "Do not write invented vendor costs.", fontsize=12.5,
             fontweight="bold", color="#7C2D12", va="center")
-    ax.text(0.62, 0.58, "Obtain actual quotations and estimates, and use "
+    ax.text(0.62, 0.54, "Obtain actual quotations and estimates, and use "
             "those as the evidence.", fontsize=10.2, color="#7C2D12",
             va="center")
 
@@ -431,29 +528,17 @@ def chart_tech_budget():
 # 6. The funding evidence checklist
 # ==========================================================================
 def chart_funding_evidence():
-    fig, ax = plt.subplots(figsize=(15.0, 8.8))
+    fig, ax = plt.subplots(figsize=(15.6, 9.8))
     ax.set_xlim(0, 16.0)
-    ax.set_ylim(0, 10.2)
+    ax.set_ylim(0, 11.2)
     ax.axis("off")
     ax.grid(False)
 
-    ax.text(0.30, 9.80, "HOW WE PROVE EVERY RUPEE", fontsize=15,
+    ax.text(0.30, 10.78, "HOW WE PROVE EVERY RUPEE", fontsize=15,
             fontweight="bold", color=NAVY, va="center")
-    ax.text(0.30, 9.36, "For every line in the budget, the artefact that "
+    ax.text(0.30, 10.40, "For every line in the budget, the artefact that "
             "would substantiate it. None of them exists yet.",
             fontsize=10.4, color=SLATE, va="center")
-
-    # Column headers.
-    ax.text(0.35, 8.92, "BUDGET LINE", fontsize=8.8, fontweight="bold",
-            color=NAVY, va="center")
-    ax.text(4.35, 8.92, "AMOUNT", fontsize=8.8, fontweight="bold", color=NAVY,
-            va="center", ha="right")
-    ax.text(4.85, 8.92, "EVIDENCE REQUIRED", fontsize=8.8, fontweight="bold",
-            color=NAVY, va="center")
-    ax.text(15.55, 8.92, "STATUS", fontsize=8.8, fontweight="bold", color=NAVY,
-            va="center", ha="right")
-    ax.add_patch(Rectangle((0.30, 8.72), 15.40, 0.035, facecolor="#CBD5E1",
-                           edgecolor="none"))
 
     # Map each evidence category back to the budget line it substantiates.
     cat_to_line = {
@@ -467,46 +552,74 @@ def chart_funding_evidence():
     }
     line_by_name = {b["name"]: b for b in Q.BUDGET}
 
-    y = 8.28
+    # Geometry - the columns are fixed so nothing can collide.
+    X0 = 0.30
+    ROW_W = 15.40
+    LBL_X = 0.55
+    AMT_X = 5.60          # right-aligned
+    CHIP_X = 5.90         # chips start here
+    CHIP_LIMIT = 14.25    # and must end before here
+    STATUS_X = 15.50      # right-aligned
+    HEAD_Y = 9.90
+    ROW_H = 1.00
+
+    ax.text(LBL_X, HEAD_Y, "BUDGET LINE", fontsize=8.8, fontweight="bold",
+            color=NAVY, va="center")
+    ax.text(AMT_X, HEAD_Y, "AMOUNT", fontsize=8.8, fontweight="bold",
+            color=NAVY, va="center", ha="right")
+    ax.text(CHIP_X, HEAD_Y, "EVIDENCE REQUIRED", fontsize=8.8,
+            fontweight="bold", color=NAVY, va="center")
+    ax.text(STATUS_X, HEAD_Y, "STATUS", fontsize=8.8, fontweight="bold",
+            color=NAVY, va="center", ha="right")
+    ax.add_patch(Rectangle((X0, HEAD_Y - 0.22), ROW_W, 0.035,
+                           facecolor="#CBD5E1", edgecolor="none"))
+
+    y = HEAD_Y - 0.42
     for ev in Q.FUNDING_EVIDENCE:
         line = cat_to_line[ev["category"]]
         b = line_by_name[line]
         col = BCOL[line]
-        n_art = len(ev["artefacts"])
 
-        ax.add_patch(Rectangle((0.30, y - 0.40), 15.40, 0.92, facecolor="#F8FAFC",
-                               edgecolor="#E2E8F0", linewidth=0.8))
-        ax.add_patch(Rectangle((0.30, y - 0.40), 0.09, 0.92, facecolor=col,
-                               edgecolor="none"))
-        ax.text(0.55, y + 0.06, line, fontsize=9.6, color="#1E293B", va="center",
-                fontweight="bold")
-        ax.text(4.35, y + 0.06, Q.short(sum(b["q"])), fontsize=9.6,
+        ax.add_patch(Rectangle((X0, y - ROW_H + 0.10), ROW_W, ROW_H,
+                               facecolor="#F8FAFC", edgecolor="#E2E8F0",
+                               linewidth=0.8))
+        ax.add_patch(Rectangle((X0, y - ROW_H + 0.10), 0.09, ROW_H,
+                               facecolor=col, edgecolor="none"))
+        # The line name is wrapped so it can never reach the amount column.
+        ll = _wrap(line, 30)[:2]
+        for li, ln in enumerate(ll):
+            ax.text(LBL_X, y - 0.16 - li * 0.24, ln, fontsize=8.2,
+                    color="#1E293B", va="center", fontweight="bold")
+        ax.text(AMT_X, y - 0.16, Q.short(sum(b["q"])), fontsize=9.6,
                 color=NAVY, va="center", ha="right", fontweight="bold")
 
-        # The artefacts, as small chips.
-        cx = 4.95
+        # The artefacts, flowed across the evidence column and wrapped.
+        cx, cy = CHIP_X, y - 0.30
         for art in ev["artefacts"]:
-            w = 0.082 * len(art) + 0.32
+            w = 0.072 * len(art) + 0.30
+            if cx + w > CHIP_LIMIT:
+                cx = CHIP_X
+                cy -= 0.46
             ax.add_patch(FancyBboxPatch(
-                (cx, y - 0.24), w, 0.40,
+                (cx, cy - 0.20), w, 0.40,
                 boxstyle="round,pad=0.02,rounding_size=0.05",
                 facecolor="white", edgecolor="#CBD5E1", linewidth=0.9))
-            ax.text(cx + w / 2, y - 0.04, art, fontsize=8.0, color="#475569",
+            ax.text(cx + w / 2, cy, art, fontsize=7.6, color="#475569",
                     va="center", ha="center")
-            cx += w + 0.16
+            cx += w + 0.14
 
-        ax.text(15.55, y + 0.06, "0 obtained", fontsize=9.0, color=AMBER,
+        ax.text(STATUS_X, y - 0.16, "0 obtained", fontsize=8.8, color=AMBER,
                 va="center", ha="right", fontweight="bold")
-        y -= 1.02
+        y -= ROW_H + 0.06
 
     ax.add_patch(FancyBboxPatch(
-        (0.30, 0.30), 15.40, 0.86, boxstyle="round,pad=0.02,rounding_size=0.08",
+        (X0, 0.22), ROW_W, 0.82, boxstyle="round,pad=0.02,rounding_size=0.08",
         facecolor="#FEF3C7", edgecolor=AMBER, linewidth=1.6))
-    ax.text(0.62, 0.90, "Contingency is not extra money.", fontsize=11,
+    ax.text(X0 + 0.32, 0.82, "Contingency is not extra money.", fontsize=11,
             fontweight="bold", color="#7C2D12", va="center")
-    ax.text(0.62, 0.56, "It is a controlled reserve for essential unforeseen "
-            "MVP/pilot requirements, subject to approval and funding rules.",
-            fontsize=9.6, color="#7C2D12", va="center")
+    ax.text(X0 + 0.32, 0.48, "It is a controlled reserve for essential "
+            "unforeseen MVP/pilot requirements, subject to approval and "
+            "funding rules.", fontsize=9.6, color="#7C2D12", va="center")
 
     _save(fig, "q_06_funding_evidence")
 
@@ -515,27 +628,27 @@ def chart_funding_evidence():
 # 7. Team and dependencies
 # ==========================================================================
 def chart_team_dependencies():
-    fig, ax = plt.subplots(figsize=(14.8, 8.2))
+    fig, ax = plt.subplots(figsize=(14.8, 8.8))
     ax.set_xlim(0, 15.0)
-    ax.set_ylim(0, 8.6)
+    ax.set_ylim(0, 9.2)
     ax.axis("off")
     ax.grid(False)
 
-    ax.text(0.30, 8.18, "THE TEAM FOR THE YEAR", fontsize=15, fontweight="bold",
+    ax.text(0.30, 8.90, "THE TEAM FOR THE YEAR", fontsize=15, fontweight="bold",
             color=NAVY, va="center")
-    ax.text(0.30, 7.76, "What we control on the left. What we depend on on "
+    ax.text(0.30, 8.50, "What we control on the left. What we depend on on "
             "the right.", fontsize=10.4, color=SLATE, va="center")
 
     # Divider.
-    ax.add_patch(Rectangle((6.90, 0.60), 0.022, 6.72, facecolor="#CBD5E1",
+    ax.add_patch(Rectangle((6.90, 1.40), 0.022, 6.20, facecolor="#CBD5E1",
                            edgecolor="none"))
-    ax.text(3.60, 7.20, "CORE TEAM", fontsize=9.6, fontweight="bold",
+    ax.text(3.60, 7.95, "CORE TEAM", fontsize=9.6, fontweight="bold",
             color=TEAL, va="center", ha="center")
-    ax.text(10.90, 7.20, "EXTERNAL DEPENDENCIES", fontsize=9.6,
+    ax.text(10.90, 7.95, "EXTERNAL DEPENDENCIES", fontsize=9.6,
             fontweight="bold", color=NAVY, va="center", ha="center")
 
     # Core team cards.
-    y = 6.62
+    y = 7.45
     for t in Q.TEAM:
         ax.add_patch(FancyBboxPatch(
             (0.30, y - 0.78), 6.30, 0.92,
@@ -547,30 +660,43 @@ def chart_team_dependencies():
                 color=NAVY, va="center")
         ax.text(0.58, y - 0.44, t["detail"], fontsize=8.8, color="#475569",
                 va="center")
-        y -= 1.05
+        y -= 1.00
 
     # Dependencies.
-    y = 6.62
+    y = 7.45
     for d in Q.DEPENDENCIES:
         ax.add_patch(FancyBboxPatch(
-            (7.25, y - 0.40), 7.45, 0.66,
+            (7.25, y - 0.40), 7.45, 0.60,
             boxstyle="round,pad=0.02,rounding_size=0.09",
             facecolor=NAVY, edgecolor="none"))
-        ax.text(7.60, y - 0.07, d, fontsize=10.2, color="white", va="center",
+        ax.text(7.60, y - 0.10, d, fontsize=10.2, color="white", va="center",
                 fontweight="bold")
-        y -= 0.88
+        y -= 0.70
 
     # The dependency that actually gates the plan.
     ax.add_patch(FancyBboxPatch(
-        (7.25, 0.60), 7.45, 1.10,
+        (7.25, 0.35), 7.45, 1.10,
         boxstyle="round,pad=0.02,rounding_size=0.08",
         facecolor="#FEF3C7", edgecolor=AMBER, linewidth=1.6))
-    ax.text(7.55, 1.42, "The one that gates everything", fontsize=9.2,
+    ax.text(7.55, 1.17, "The one that gates everything", fontsize=9.2,
             fontweight="bold", color=AMBER, va="center")
-    ax.text(7.55, 1.02, "Pilot institutions. Q3 cannot start, and Q4 "
-            "cannot be validated,", fontsize=8.8, color="#7C2D12", va="center")
-    ax.text(7.55, 0.80, "without them. Secure them during Q2.",
+    ax.text(7.55, 0.79, "Pilot institutions. Q3 cannot start, and Q4 cannot "
+            "be validated,", fontsize=8.8, color="#7C2D12", va="center")
+    ax.text(7.55, 0.57, "without them. Secure them during Q2.",
             fontsize=8.8, color="#7C2D12", va="center")
+
+    # The mirror note on the internal side.
+    ax.add_patch(FancyBboxPatch(
+        (0.30, 0.35), 6.30, 1.10,
+        boxstyle="round,pad=0.02,rounding_size=0.08",
+        facecolor="#F1F5F9", edgecolor="#CBD5E1", linewidth=1.4))
+    ax.text(0.60, 1.17, "What these roles cost is inside the envelope",
+            fontsize=9.2, fontweight="bold", color=NAVY, va="center")
+    ax.text(0.60, 0.79, "The team is what the technology and market-research "
+            "lines buy. A role here is a", fontsize=8.8, color="#334155",
+            va="center")
+    ax.text(0.60, 0.57, "commitment, not a line item - so the estimate must "
+            "name a quotation.", fontsize=8.8, color="#334155", va="center")
 
     _save(fig, "q_07_team_dependencies")
 
@@ -590,12 +716,12 @@ def chart_investor_story():
 
     # The paragraph, set as a quotation.
     ax.add_patch(FancyBboxPatch(
-        (0.30, 4.70), 14.80, 2.42,
+        (0.30, 4.95), 14.80, 1.62,
         boxstyle="round,pad=0.02,rounding_size=0.10",
         facecolor="#F8FAFC", edgecolor="#E2E8F0", linewidth=1.2))
-    ax.add_patch(Rectangle((0.30, 4.70), 0.10, 2.42, facecolor=NAVY,
+    ax.add_patch(Rectangle((0.30, 4.95), 0.10, 1.62, facecolor=NAVY,
                            edgecolor="none"))
-    y = 6.72
+    y = 6.26
     for ln in _wrap(Q.INVESTOR_STORY, 96):
         ax.text(0.78, y, ln, fontsize=11.4, color="#1E293B", va="center")
         y -= 0.31
