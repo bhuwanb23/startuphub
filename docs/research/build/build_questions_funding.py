@@ -368,7 +368,7 @@ def build_workbook():
 def doc_readme():
     rows = "\n".join(
         f"| **{q['id']}** | {q['phase_word']} | {q['name']} | "
-        f"{Q.rs(Q.computed_quarter_totals()[i])} | {q['slide_outcome']} |"
+        f"{Q.rs_in(Q.computed_quarter_totals()[i])} | {q['slide_outcome']} |"
         for i, q in enumerate(Q.QUARTERS))
     return f"""{banner()}
 # Funding Proposal - Questions and Answers
@@ -401,8 +401,8 @@ because the numbers in it should be readable next to everything else.
 
 ## The plan at a glance
 
-| | Quarter | | Name | Budget | Milestone |
-|---|---|---|---|---|---|
+| Quarter | | Name | Budget | Milestone |
+|---|---|---|---|---|
 {rows}
 
 **Q1 → Build · Q2 → Integrate · Q3 → Validate · Q4 → Launch**
@@ -460,7 +460,7 @@ def doc_roadmap():
 
 **Objective.** {q['objective']}
 
-| | Workstream | Items |
+| Workstream | Items |
 |---|---|---|
 {ws}
 {res_line}
@@ -550,7 +550,7 @@ def doc_one_slide():
 it is that a reader gets the shape of the year in one line and can hold it
 in their head while the detail is explained.
 
-| | | | | | | |
+| | | | | | |
 |---|---|---|---|---|---|
 | **Q1** | **BUILD** | Define MVP | Core workflows | Initial testing | **MVP Ready** |
 | **Q2** | **INTEGRATE** | Connect ecosystem | AI & matching | Pilot preparation | **Pilot Ready** |
@@ -575,7 +575,7 @@ checks that the two agree.
 
 | | Quarter | The slide says | The budget says |
 |---|---|---|---|
-{chr(10).join(detail)} |
+{chr(10).join(detail)}
 
 ## One thing to say out loud
 
@@ -842,7 +842,7 @@ lives.
 
 ## The core team
 
-| | Role | What they own |
+| Role | What they own |
 |---|---|---|
 {team}
 

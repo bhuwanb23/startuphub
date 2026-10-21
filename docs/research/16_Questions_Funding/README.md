@@ -36,12 +36,12 @@ because the numbers in it should be readable next to everything else.
 
 ## The plan at a glance
 
-| | Quarter | | Name | Budget | Milestone |
-|---|---|---|---|---|---|
-| **Q1** | BUILD | Foundation & MVP Definition | Rs 135,000 | MVP Ready |
-| **Q2** | INTEGRATE | Integrated MVP & Pilot Preparation | Rs 150,000 | Pilot Ready |
-| **Q3** | PILOT | Institutional Pilot & Product Refinement | Rs 165,000 | Validated Product |
-| **Q4** | LAUNCH | Launch Readiness & Early Commercialisation | Rs 150,000 | Market Ready |
+| Quarter | | Name | Budget | Milestone |
+|---|---|---|---|---|
+| **Q1** | BUILD | Foundation & MVP Definition | Rs 1,35,000 | MVP Ready |
+| **Q2** | INTEGRATE | Integrated MVP & Pilot Preparation | Rs 1,50,000 | Pilot Ready |
+| **Q3** | PILOT | Institutional Pilot & Product Refinement | Rs 1,65,000 | Validated Product |
+| **Q4** | LAUNCH | Launch Readiness & Early Commercialisation | Rs 1,50,000 | Market Ready |
 
 **Q1 → Build · Q2 → Integrate · Q3 → Validate · Q4 → Launch**
 

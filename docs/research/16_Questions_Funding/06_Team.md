@@ -14,7 +14,7 @@ lives.
 
 ## The core team
 
-| | Role | What they own |
+| Role | What they own |
 |---|---|---|
 | **Product Lead** | Product strategy, roadmap, requirements and stakeholder coordination |
 | **Technology Team** | Product development, integration and deployment |

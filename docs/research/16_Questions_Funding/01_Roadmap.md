@@ -19,7 +19,7 @@ workstreams change shape as the year goes on, because the work does.
 
 **Objective.** Convert StartupHub from concept into a clearly defined, usable MVP.
 
-| | Workstream | Items |
+| Workstream | Items |
 |---|---|---|
 | **Develop** | Finalise core institutional problem and target users, Finalise MVP scope and user journeys, Startup onboarding and profile, Institution / incubator dashboard, Idea submission and management, Startup assessment, Basic incubation management, Basic mentor management, Basic IPR support workflow, Resource discovery, Basic analytics and reporting, User roles and access management |
 | **Validation** | User interviews, Institutional requirement mapping, Feature prioritisation, Initial usability testing |
@@ -38,7 +38,7 @@ workstreams change shape as the year goes on, because the work does.
 
 **Objective.** Connect the major ecosystem workflows and prepare the product for real users.
 
-| | Workstream | Items |
+| Workstream | Items |
 |---|---|---|
 | **Develop** | Mentor discovery and matching, Investor and funding discovery, IPR management workflows, Resource matching and requests, Market validation tools, Feedback and survey management, Milestone and roadmap tracking, Notifications, Document management, Improved dashboards, Basic AI-assisted recommendations |
 | **Validation** | Internal testing, User acceptance testing, Security and reliability checks, Feedback from initial institutions |
@@ -57,7 +57,7 @@ workstreams change shape as the year goes on, because the work does.
 
 **Objective.** Put StartupHub into real institutional environments and measure actual usage.
 
-| | Workstream | Items |
+| Workstream | Items |
 |---|---|---|
 | **Pilot** | Onboard selected institutions, Onboard startups, Configure institutional workflows, Run real startup-management activities, Collect user feedback, Track adoption and engagement, Measure time saved and process improvement |
 | **Refine** | Fix usability issues, Improve workflows, Improve recommendations, Improve dashboards and reporting, Strengthen security and reliability, Prioritise features based on real usage |
@@ -76,7 +76,7 @@ workstreams change shape as the year goes on, because the work does.
 
 **Objective.** Convert the validated MVP into a market-ready product.
 
-| | Workstream | Items |
+| Workstream | Items |
 |---|---|---|
 | **Complete** | Final product refinement, Production deployment, Institutional onboarding process, Customer support process, Documentation and training material, Performance monitoring, Final analytics and reporting, Pricing and subscription structure, Sales and demonstration material |
 | **Commercial Validation** | Convert pilot institutions into paying customers, Establish institutional partnerships, Demonstrate product outcomes, Prepare expansion strategy |

@@ -12,7 +12,7 @@
 it is that a reader gets the shape of the year in one line and can hold it
 in their head while the detail is explained.
 
-| | | | | | | |
+| | | | | | |
 |---|---|---|---|---|---|
 | **Q1** | **BUILD** | Define MVP | Core workflows | Initial testing | **MVP Ready** |
 | **Q2** | **INTEGRATE** | Connect ecosystem | AI & matching | Pilot preparation | **Pilot Ready** |
@@ -40,7 +40,7 @@ checks that the two agree.
 | Q1 | **BUILD** | Define MVP, Core workflows | Rs 1,35,000 — 67% of it technology |
 | Q2 | **INTEGRATE** | Connect ecosystem, AI & matching | Rs 1,50,000 — 53% technology, 37% in the other lines |
 | Q3 | **PILOT** | Real institutions, User adoption | Rs 1,65,000 — 21% market research, the year's peak |
-| Q4 | **LAUNCH** | Market readiness, Paying customers | Rs 1,50,000 — 27% market research, 17% contingency | |
+| Q4 | **LAUNCH** | Market readiness, Paying customers | Rs 1,50,000 — 27% market research, 17% contingency |
 
 ## One thing to say out loud
 

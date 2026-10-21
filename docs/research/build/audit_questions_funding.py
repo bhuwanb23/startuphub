@@ -303,6 +303,28 @@ check("the folder claims no source registry ids", True,
 check("the folder records zero interviews", True,
       re.search(r"interviews? conducted\s*\|?\s*\**0", low) is not None)
 
+# Every markdown table must have a consistent cell count. A header with
+# more cells than its rows is the one layout bug that is invisible in a
+# file listing and loud in a rendered page.
+bad_tables = []
+for p in docs():
+    lines = p.read_text(encoding="utf-8").splitlines()
+    i = 0
+    while i < len(lines):
+        if lines[i].strip().startswith("|") and i + 1 < len(lines) \
+                and set(lines[i + 1].strip().replace("|", "").replace(" ", "")) \
+                <= set("-:") and "-" in lines[i + 1]:
+            ncols = lines[i].count("|") - 1
+            j = i + 2
+            while j < len(lines) and lines[j].strip().startswith("|"):
+                if lines[j].count("|") - 1 != ncols:
+                    bad_tables.append(f"{p.name}:{j + 1}")
+                j += 1
+            i = j
+        else:
+            i += 1
+check("every markdown table has a consistent cell count", [], bad_tables)
+
 # ------------------------------------------------------------------ layering
 print("\n-- layering --")
 stray = [p.relative_to(ROOT / "_exports").as_posix()
