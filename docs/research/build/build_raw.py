@@ -227,7 +227,8 @@ def main() -> int:
                 "02_Landscape_Map", "02_User_Research", "03_Market_Research",
                 "03_Problem_Evidence", "04_Competitor_DeepDive", "05_Government_Data",
                 "05_Market_Sizing", "06_Pricing_Evidence", "08_User_Roles",
-                "09_Market_Data", "13_Synthesis", "14_Assets"):
+                "09_Market_Data", "13_Synthesis", "14_Assets",
+                "16_Questions_Funding"):
         for p in sorted((ROOT / sub).rglob("*.md")):
             manifest["files"].append({
                 "path": str(p.relative_to(ROOT)).replace("\\", "/"),
