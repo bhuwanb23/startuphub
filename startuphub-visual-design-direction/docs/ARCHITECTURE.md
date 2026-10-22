@@ -647,6 +647,7 @@ Follow the codebase and it stays coherent.
 11. **Env vars fail loudly.** `src/db/index.ts` throws on a missing `DATABASE_URL` by design — don't add silent fallbacks.
 12. **Don't fork the sidebar.** If you need to change workspace navigation behaviour, change `src/components/app/app-shell.tsx` — and remember the founder still uses the forked `FounderSidebar` until it is migrated (§5.3).
 13. **Adding a role touches three files:** `src/users/<role>/` + `src/app/(app)/<role>/`, the `workspaces` array in `company-switcher.tsx`, and the `ROLES` array in `views/auth/auth.tsx`.
+14. **Pin dependency versions.** `next`, `eslint-config-next` and `drizzle-kit` are pinned to exact versions and must move together. A bare `npm install <pkg>` can silently drift them and break the lint config — see `WORKING-NOTES.md` §1.
 
 ---
 

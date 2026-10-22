@@ -18,6 +18,31 @@ cache is over 2 GB, so it never slows a normal start.
 **A `.env` (or `.env.local`) with `DATABASE_URL` is required to build.**
 `src/db/index.ts` throws at import time without it. This is deliberate.
 
+### Pin your dependencies — do not let `npm install` drift them
+
+`package.json` pins `next`, `eslint-config-next` and `drizzle-kit` to **exact** versions
+(`16.2.6`, `16.2.6`, `0.31.10`) for a reason: they must move together.
+
+Running a bare `npm install <new-package>` can silently resolve and rewrite the other
+entries — adding `@fontsource-variable/jetbrains-mono` once rewrote `next` to `^16.4.2`,
+`eslint-config-next` to `^14.2.35` and `drizzle-kit` to `^0.18.1`. The downgraded
+`eslint-config-next@14` has no `exports` map, so the ESM import in `eslint.config.mjs`
+fails outright:
+
+```
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '.../eslint-config-next/core-web-vitals'
+```
+
+**After any `npm install` that adds a package:**
+
+```bash
+git diff package.json          # confirm nothing else drifted
+npm install                    # re-resolve against the restored pins
+```
+
+And restart the dev server afterwards — a reinstall invalidates the running
+process's module graph and every route returns 500 until it is restarted.
+
 ### Dev server vs. production build — never run both
 
 `next build` and `next dev` write to the same `.next/` directory. If you run a build
