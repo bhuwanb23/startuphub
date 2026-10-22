@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "build_date": "2026-10-20",
+  "module": "funding proposal Q&A (side work, not a research phase)",
+  "rules": {
+    "interviews_conducted": 0,
+    "quotations_obtained": 0,
+    "source_registry_ids": 0,
+    "evidence_status": "UNVERIFIED - no quotation obtained",
+    "budget_must_reconcile": true,
+    "external_fetches": 0
+  },
+  "quarters": [
+    {
+      "id": "Q1",
+      "name": "Foundation & MVP Definition",
+      "phase_word": "BUILD",
+      "slide_outcome": "MVP Ready"
+    },
+    {
+      "id": "Q2",
+      "name": "Integrated MVP & Pilot Preparation",
+      "phase_word": "INTEGRATE",
+      "slide_outcome": "Pilot Ready"
+    },
+    {
+      "id": "Q3",
+      "name": "Institutional Pilot & Product Refinement",
+      "phase_word": "PILOT",
+      "slide_outcome": "Validated Product"
+    },
+    {
+      "id": "Q4",
+      "name": "Launch Readiness & Early Commercialisation",
+      "phase_word": "LAUNCH",
+      "slide_outcome": "Market Ready"
+    }
+  ],
+  "budget_total": 600000,
+  "quarter_totals": [
+    135000,
+    150000,
+    165000,
+    150000
+  ],
+  "tech_total": 300000,
+  "contingency_share": 0.125,
+  "team_roles": 6,
+  "dependencies": 7,
+  "evidence_categories": 7,
+  "unverified_items": 6,
+  "files": {
+    "budget.csv": "the 7 lines x 4 quarters, with totals",
+    "quarters.csv": "the 4 quarters and what each one delivers",
+    "tech_budget.csv": "the Rs 3,00,000 technology line, broken down",
+    "funding_evidence.csv": "what would substantiate each rupee",
+    "team.csv": "6 core roles and 7 external dependencies",
+    "unverified.csv": "what is not yet verified, and what would settle it",
+    "schema.json": "this file"
+  },
+  "summary": {
+    "schema_version": "1.0",
+    "build_date": "2026-10-20",
+    "quarters": 4,
+    "budget_lines": 7,
+    "budget_total": 600000,
+    "quarter_totals": [
+      135000,
+      150000,
+      165000,
+      150000
+    ],
+    "tech_total": 300000,
+    "tech_share": 0.5,
+    "contingency_share": 0.125,
+    "evidence_categories": 7,
+    "team_roles": 6,
+    "dependencies": 7,
+    "unverified_items": 6,
+    "evidence_status": "UNVERIFIED - no quotation obtained",
+    "interviews": 0,
+    "quotations_obtained": 0
+  }
+}

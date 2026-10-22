@@ -2,8 +2,8 @@
 
 **All machine-readable and presentation-ready outputs live in [`_exports/`](_exports/).** Everything here is **derived** from the markdown research files — change the `.md`, re-run `python build/build_all.py`, and every format regenerates.
 
-**Rebuild everything:** `python build/build_all.py` (40s)
-**Compiled:** 20 October 2026 · 372 manifest files · 20.0 MB in `_exports/`
+**Rebuild everything:** `python build/build_all.py` (44s)
+**Compiled:** 20 October 2026 · 398 manifest files · 20.0 MB in `_exports/`
 
 ---
 
@@ -850,3 +850,66 @@ rows and the four reporting systems.
 | S08 Market Validation and S10 Growth have zero evidence | 12 cells are questions, not answers |
 | Public IIC detail is login-gated | Some portal detail is second-hand |
 | GAP-06/09/11 have no Phase 10 matrix dimension | D3, D4, D6 "0 holders" are asserted, not measured |
+---
+
+## 22. Funding proposal Q&A (side work)
+
+**Not a research phase. 0 quotations obtained. 0 interviews conducted.**
+
+A funding proposal expressed as seven questions and their answers, with the
+one-year roadmap, the Rs 6,00,000 budget and the evidence register that
+would substantiate every rupee in it.
+
+| Asset | What it is |
+|---|---|
+| `16_Questions_Funding/README.md` | The hub - the seven questions, the plan at a glance |
+| `16_Questions_Funding/01_Roadmap.md` | Q1 - the four quarters and what each delivers |
+| `16_Questions_Funding/02_One_Slide_Timeline.md` | Q2 - BUILD / INTEGRATE / PILOT / LAUNCH on one slide |
+| `16_Questions_Funding/03_Budget.md` | Q3 - the seven lines x four quarters, reconciled |
+| `16_Questions_Funding/04_Technology_Budget.md` | Q4 - inside the Rs 3,00,000 technology line |
+| `16_Questions_Funding/05_Funding_Evidence.md` | Q5 - what would substantiate each rupee |
+| `16_Questions_Funding/06_Team.md` | Q6 - 6 core roles, 7 external dependencies |
+| `16_Questions_Funding/07_Investor_Story.md` | Q7 - the one paragraph, and the framing correction |
+| `16_Questions_Funding/07_What_Is_Not_Yet_Verified.md` | Six unverified claims, and what would settle each |
+| `_exports/charts/questions/` | 8 figures - slide, detail, budget matrix, envelope, tech line, evidence, team, story |
+| `_exports/questions/` | 6 CSVs + schema |
+| `_exports/xlsx/16_Questions_Funding.xlsx` | 6 sheets |
+| `_exports/raw/phase16_questions_RAW.json` | Raw extraction layer |
+
+Reproduce: `python build/build_charts_questions.py` then
+`python build/build_questions_funding.py`.
+Audit: `python build/audit_questions_funding.py` - 100 checks.
+
+### The eight figures
+
+| # | File | What it is |
+|---|---|---|
+| 1 | `q_01_roadmap_slide.png` | **The pitch slide.** Four quarters, four words, one milestone each |
+| 2 | `q_02_roadmap_detail.png` | The roadmap quarter by quarter - objective, workstreams, outcome |
+| 3 | `q_03_budget_by_quarter.png` | **The budget as a matrix.** Read the bottom row across and the right column down - they agree |
+| 4 | `q_04_budget_shape.png` | Share of the envelope, and the quarterly burn with the cumulative curve |
+| 5 | `q_05_tech_budget.png` | Inside the Rs 3,00,000 technology line, and the rule about vendor costs |
+| 6 | `q_06_funding_evidence.png` | The evidence register - what would substantiate each line, and that 0 of 23 exist |
+| 7 | `q_07_team_dependencies.png` | What we control on the left, what we depend on on the right |
+| 8 | `q_08_investor_story.png` | The one paragraph, the four beats, and the framing correction |
+
+### The four guards the audit enforces
+
+| Guard | What it protects |
+|---|---|
+| 1 | The budget reconciles - rows, columns, both directions |
+| 2 | The numbers in the prose match the numbers in the data |
+| 3 | The provisional labelling is present and cannot be dropped |
+| 4 | Nothing claims a source, a quotation, an interview or a MIC-approved amount that does not exist |
+
+### Why this is not a research phase
+
+It carries no `Source_Registry` ids, cites no interviews, and nothing in the
+research chain depends on it. It lives here because that is where the work
+happens - and because the numbers in it should be readable next to
+everything else.
+
+**The one rule.** Every figure in it is a planning estimate. The
+arithmetic reconciles and is recomputed on every build; the build fails if
+it stops doing so. The costs themselves have no evidence behind them yet,
+and the folder says so on every page rather than in a footnote.

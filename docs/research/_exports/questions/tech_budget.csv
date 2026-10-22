@@ -1,0 +1,5 @@
+﻿quarter,label,amount,amount_display,share_of_tech,items,evidence_status
+Q1,Core build,90000,"Rs 90,000",30.0%,Core product development; Product architecture and initial implementation; UI/UX; Basic cloud/software services,UNVERIFIED - no quotation obtained
+Q2,Ecosystem modules,80000,"Rs 80,000",26.7%,Additional ecosystem modules; Integration of workflows; AI-assisted functionality; Cloud/software services,UNVERIFIED - no quotation obtained
+Q3,Pilot hardening,75000,"Rs 75,000",25.0%,Pilot-specific improvements; Reliability and security improvements; User feedback implementation; Testing and deployment,UNVERIFIED - no quotation obtained
+Q4,Production,55000,"Rs 55,000",18.3%,Production readiness; Final improvements; Deployment; Performance monitoring; Launch support,UNVERIFIED - no quotation obtained
