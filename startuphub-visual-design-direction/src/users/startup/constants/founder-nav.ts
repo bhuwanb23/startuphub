@@ -101,8 +101,8 @@ export const founderNav: FounderGroup[] = [
     label: "Market Intelligence", icon: BarChart3, href: "/founder/market",
     subs: [
       { name: "Market Overview", href: "/founder/market" },
-      { name: "Reports", href: "/founder/market#reports", soon: true },
-      { name: "Trends", href: "/founder/market#trends", soon: true },
+      { name: "Reports", href: "/founder/market/reports" },
+      { name: "Trends", href: "/founder/market/trends" },
       { name: "Competitor Analysis", href: "/founder/market/competitors" },
     ],
   },
