@@ -33,9 +33,9 @@ export const incubatorNav: AppNavGroup[] = [
     label: "My Organization", icon: Building2, href: "/incubator/organization",
     subs: [
       { name: "Organization Profile", href: "/incubator/organization" },
-      { name: "Team & Staff", href: "/incubator/organization#team", soon: true },
-      { name: "Roles & Permissions", href: "/incubator/organization#roles", soon: true },
-      { name: "Organization Documents", href: "/incubator/organization#docs", soon: true },
+      { name: "Team & Staff", href: "/incubator/organization/team" },
+      { name: "Roles & Permissions", href: "/incubator/organization/roles" },
+      { name: "Organization Documents", href: "/incubator/organization/documents" },
     ],
   },
   {

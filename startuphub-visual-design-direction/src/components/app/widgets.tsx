@@ -32,6 +32,7 @@ import { cn } from "@/lib/utils";
 
 export function Card({
   title,
+  sub,
   action,
   children,
   className,
@@ -39,6 +40,9 @@ export function Card({
   id,
 }: {
   title?: string;
+  /* Optional supporting line under the title — mirrors Panel's `sub` so
+     both widget families share the same header API. */
+  sub?: string;
   action?: ReactNode;
   children: ReactNode;
   className?: string;
@@ -48,8 +52,11 @@ export function Card({
   return (
     <section id={id} className={cn("rounded-2xl border border-line bg-white", className)}>
       {title && (
-        <header className="flex items-center justify-between border-b border-line px-5 py-3.5">
-          <h3 className="text-[13.5px] font-semibold tracking-tight text-ink">{title}</h3>
+        <header className="flex items-center justify-between gap-3 border-b border-line px-5 py-3.5">
+          <div>
+            <h3 className="text-[13.5px] font-semibold tracking-tight text-ink">{title}</h3>
+            {sub && <p className="mt-0.5 text-[11.5px] text-slate-400">{sub}</p>}
+          </div>
           {action}
         </header>
       )}

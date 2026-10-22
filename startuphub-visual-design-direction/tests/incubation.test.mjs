@@ -15,12 +15,24 @@
 import { test, describe, before } from "node:test";
 import assert from "node:assert/strict";
 import { execSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const app = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFileSync(join(app, p), "utf8");
+
+/* Recursively collect every source file under `dir`. Dependency-free so the
+ * suite runs identically on Windows, macOS and Linux. */
+function sourceFiles(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...sourceFiles(full));
+    else if (/\.(tsx?|jsx?)$/.test(entry.name)) out.push(full);
+  }
+  return out;
+}
 
 /* ── The four incubation screens ─────────────────────────────── */
 const routes = {
@@ -102,11 +114,14 @@ describe("sidebar navigation", () => {
   });
 
   test("no stale incubation anchors anywhere in src", () => {
-    const out = execSync(
-      'grep -rn "incubation#" src/ --include=*.tsx --include=*.ts || true',
-      { cwd: app, encoding: "utf8" },
-    );
-    assert.equal(out.trim(), "", `found stale #anchors:\n${out}`);
+    const offenders = [];
+    for (const file of sourceFiles(join(app, "src"))) {
+      const text = readFileSync(file, "utf8");
+      if (text.includes("incubation#")) {
+        offenders.push(file.slice(app.length + 1));
+      }
+    }
+    assert.deepEqual(offenders, [], `found stale #anchors in:\n${offenders.join("\n")}`);
   });
 });
 
