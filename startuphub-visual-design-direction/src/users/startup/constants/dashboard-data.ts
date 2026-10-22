@@ -60,7 +60,9 @@ export const fundingStatus = { round: "Series A", raised: "₹2.4 Cr", investors
 
 export const iprStatus = { assets: 11, filings: 1, upcoming: "Complete spec window — 11 weeks", risk: "Claims review overdue" };
 
-export const resourceStatus = { active: 5, credits: "$21,400", expiring: "GPU cluster grant · 18 days" };
+/* The resource card on the dashboard reads the resource workspace's own
+   ledger (see overview.tsx) so the two screens can never disagree on
+   what is live, what is left, or what is about to lapse. */
 
 export const events = [
   { name: "Demo Day — Cohort VI", when: "Apr 28 · Bengaluru", going: true },

@@ -84,9 +84,9 @@ export const founderNav: FounderGroup[] = [
     label: "Resources", icon: ShoppingBag, href: "/founder/resources",
     subs: [
       { name: "Resource Discovery", href: "/founder/resources" },
-      { name: "Resource Matching", href: "/founder/resources#matching", soon: true },
+      { name: "Resource Matching", href: "/founder/resources/matching" },
       { name: "Resource Requests", href: "/founder/resources/requests" },
-      { name: "Resource Allocation", href: "/founder/resources#allocation", soon: true },
+      { name: "Resource Allocation", href: "/founder/resources/allocation" },
     ],
   },
   {

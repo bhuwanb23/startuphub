@@ -1,7 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Badge, Card, GaugeRing, Progress, Stat } from "@/components/app/widgets";
-import { dashKpis, fundingStatus, iprStatus, resourceStatus } from "@/users/startup/constants/dashboard-data";
+import { dashKpis, fundingStatus, iprStatus } from "@/users/startup/constants/dashboard-data";
+import { resourceStatus } from "@/users/startup/constants/resource-data";
 
 export function DashboardHeader() {
   return (
