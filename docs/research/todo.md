@@ -76,11 +76,11 @@ names the unblocking phase. Do not fill the gap with plausible prose.
 | 27 Policy | ?? Seeded | `05_Government_Data/Funding_Schemes.md` (4 central incubator schemes + state policies) | Policy deep-read not yet done |
 | 28–29 Ecosystem + alternatives | ✅ Done | `01_Evidence_Vault/Diagrams/`, `04_` | — |
 | 30 Validation scorecard | ✅ **0 blanks — every row has a prior + decision rule** | `13_Synthesis/Validation_Scorecard.md`, `_exports/phase35/` | 15 of 53 cells are PRIOR, not evidence |
-| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (141 rows) | — |
+| 31–32 Evidence DB + hierarchy | ✅ Done | `Source_Registry.csv` (143 rows) | — |
 | 33 Final folder structure | ✅ Done | `00_Research_Index/README.md` | — |
 | 34 Final 30 questions | 🟡 Partial | `13_Synthesis/` | — |
 
-**Evidence base:** 141 registered sources (44 GOV, 36 P1, 32 COMP, 12 P2, 11 P3, 6 M5) · 36-document institutional corpus
+**Evidence base:** 143 registered sources (46 GOV, 36 P1, 32 COMP, 12 P2, 11 P3, 6 M5) · 36-document institutional corpus
 · 10 graded problem analyses · 12 verbatim quotes · 20 decisions · 34 open questions.
 
 **Next three actions, in order:**

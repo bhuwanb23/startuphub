@@ -228,11 +228,17 @@ def main() -> int:
                 "03_Problem_Evidence", "04_Competitor_DeepDive", "05_Government_Data",
                 "05_Market_Sizing", "06_Pricing_Evidence", "08_User_Roles",
                 "09_Market_Data", "13_Synthesis", "14_Assets",
-                "16_Questions_Funding"):
+                "16_Questions_Funding", "17_PPT_Assets"):
         for p in sorted((ROOT / sub).rglob("*.md")):
             manifest["files"].append({
                 "path": str(p.relative_to(ROOT)).replace("\\", "/"),
                 "bytes": p.stat().st_size, "sha256": sha256(p)})
+    # 17_PPT_Assets holds its slide images beside the prose that explains
+    # them, so they need hashing too - the loop above only takes markdown.
+    for p in sorted((ROOT / "17_PPT_Assets").rglob("*.png")):
+        manifest["files"].append({
+            "path": str(p.relative_to(ROOT)).replace("\\", "/"),
+            "bytes": p.stat().st_size, "sha256": sha256(p)})
 
     manifest["counts"] = {
         "markdown_research_files": len([f for f in manifest["files"] if f["path"].endswith(".md")]),

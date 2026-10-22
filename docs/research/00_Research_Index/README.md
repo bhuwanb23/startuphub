@@ -134,7 +134,8 @@ research/
 ├── 13_Synthesis/                    cross-cutting findings + narrowing candidates
 ├── 14_Assets/                       diagrams, logos, chart sources
 ├── 15_Legal_Policy_Tech/            reserved — DPDP, procurement, tenancy, security (Phases 22-26)
-└── 16_Questions_Funding/           side work — funding proposal Q&A, 7 questions, 8 figures
+├── 16_Questions_Funding/           side work — funding proposal Q&A, 7 questions, 8 figures
+└── 17_PPT_Assets/               side work — PPT figures for the Market & Opportunity slide
 ```
 
 **Folder numbering.** Phases 7-13 follow one convention: Phase N lands in
@@ -152,6 +153,10 @@ figures. It carries no `Source_Registry` ids, cites no interviews, and
 nothing in the research chain depends on it. Every rupee in it is a
 planning estimate — the arithmetic reconciles and is verified on every
 build, but no quotation exists behind any line.
+
+**`17_PPT_Assets` is not a phase either.** Two slide-ready figures for the
+Market & Opportunity slide, plus the corrected copy for that slide's paragraph.
+Every number in them resolves to a registered source id.
 
 ---
 
@@ -263,6 +268,7 @@ url, publication_date, access_date, geography, customer_segment, notes
 | 33 | Final folder structure | ✅ Done | this file |
 | 34 | 30 final questions | ⬜ Partial (Q12–21 largely answerable now) | `13_Synthesis/` |
 | — | **Funding proposal (side work)** | ✅ **Done — 7 questions, 8 figures, 0 quotations** | `16_Questions_Funding/README.md` |
+| — | **PPT assets (side work)** | ✅ **Done — 2 slide figures, all figures registered** | `17_PPT_Assets/README.md` |
 
 ---
 

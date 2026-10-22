@@ -1,0 +1,524 @@
+#!/usr/bin/env python3
+"""StartupHub - PPT assets for the Market & Opportunity slide.
+
+Two images, built to sit side by side on a slide:
+
+    ppt_01_market_momentum.png   the growth chart
+    ppt_02_ecosystem_metrics.png the three metric cards
+
+    Both are 6.4 x 4.6 inches at 200 DPI, so they tile either way round.
+
+WHY THESE NUMBERS AND NOT OTHERS
+---------------------------------
+Every figure here is official and registered. The annual series comes from
+the Startup India SRF 5.0 National Report (GOV-045, page 20, Figure 1);
+the tier-2/3 share and the Rs 27,000 Cr figure come from the National
+Startup Day 2026 page (GOV-046); the headline 2.23 lakh is the PIB/DPIIT
+figure as of 31 Mar 2026 (GOV-013).
+
+Two of those three are new to the registry, so this script appends them
+idempotently - the same pattern build_phase45.py uses, merged by URL, so
+re-running never duplicates a row.
+
+THE 2026 POINT IS NOT A YEAR-END FIGURE
+---------------------------------------
+2.23 lakh is as of 31 March 2026. The five points before it are 31 December
+figures. Putting them on one line without saying so would be a category
+error, so the 2026 point is drawn as a hollow marker on a dashed segment
+and labelled with its own date. The chart says what it is.
+
+The "3.6x since 2021" caption is computed from the plotted values, never
+typed in.
+
+Usage:  python 17_PPT_Assets/build_ppt_assets.py
+"""
+
+import csv
+import sys
+from pathlib import Path
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt                                   # noqa: E402
+from matplotlib.patches import FancyBboxPatch, Patch, Rectangle   # noqa: E402
+import numpy as np                                                # noqa: E402
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+
+NAVY, TEAL, RED, AMBER, SLATE = "#1E3A5F", "#0F766E", "#B91C1C", "#B45309", "#64748B"
+PURPLE, GREEN, PINK, GREY = "#6D28D9", "#15803D", "#BE185D", "#94A3B8"
+DPI = 200
+GENERATED = "2026-10-20"
+
+# Figure size. 6.4 x 4.6 inches at 200 DPI = 1280 x 920 px. Two of these
+# sit side by side in the lower-left of a 16:9 slide with the TAM/SAM/SOM
+# circles above them.
+FIGSIZE = (6.4, 4.6)
+
+plt.rcParams.update({
+    "font.family": "DejaVu Sans", "font.size": 10,
+    "axes.titlesize": 13.5, "axes.titleweight": "bold", "axes.titlecolor": NAVY,
+    "axes.labelsize": 10, "axes.labelcolor": "#334155",
+    "axes.edgecolor": "#CBD5E1", "axes.grid": True, "grid.color": "#E2E8F0",
+    "grid.linewidth": 0.8, "axes.axisbelow": True,
+    "figure.facecolor": "white", "axes.facecolor": "white", "legend.frameon": False,
+})
+
+
+# ==========================================================================
+# The data
+# ==========================================================================
+# Year-end DPIIT-recognised startups. GOV-045, page 20, Figure 1.
+SERIES = [
+    ("2021", 61974),
+    ("2022", 88569),
+    ("2023", 123411),
+    ("2024", 157705),
+    ("2025", 207137),
+]
+
+# The headline. As of 31 March 2026, so a part-year vintage, not a year-end.
+# GOV-013 (PIB / DPIIT).
+HEADLINE_VALUE = 223000
+HEADLINE_LABEL = "31 Mar 2026"
+HEADLINE_DISPLAY = "2.23 Lakh+"
+
+# The 53% and the Rs 27,000 Cr. GOV-046.
+TIER23_PCT = 0.53
+FUNDING_CR = 27000
+
+SOURCE_CHART = ("Source: Startup India, SRF 5.0 National Report (GOV-045); "
+                "DPIIT / PIB (GOV-013)")
+SOURCE_CARDS = ("Source: Startup India, National Startup Day 2026 (GOV-046); "
+                "DPIIT / PIB (GOV-013)")
+
+
+def lakh(n):
+    """Indian grouping: 123411 -> 1,23,411."""
+    s = str(int(n))
+    if len(s) <= 3:
+        return s
+    head, tail = s[:-3], s[-3:]
+    parts = []
+    while len(head) > 2:
+        parts.insert(0, head[-2:])
+        head = head[:-2]
+    if head:
+        parts.insert(0, head)
+    return ",".join(parts) + "," + tail
+
+
+def short_lakh(n):
+    """Compact form for chart labels: 123411 -> 1.23L."""
+    if n >= 100000:
+        return f"{n / 100000:.2f}L"
+    return f"{n:,}"
+
+
+# ==========================================================================
+# Source registration
+# ==========================================================================
+# Appended by URL so re-running never duplicates a row. Same shape as
+# build_phase45.py::register_sources().
+
+REGISTRY = ROOT / "00_Research_Index" / "Source_Registry.csv"
+
+NEW_SOURCES = [
+    dict(id="GOV-045", research_area="Market",
+         claim_supported=("DPIIT-recognised startups by year: 2021 61,974; "
+                          "2022 88,569; 2023 1,23,411; 2024 1,57,705; "
+                          "2025 2,07,137"),
+         source_org="Startup India / DPIIT (SRF 5.0 National Report)",
+         source_type="government_national_report", tier="T1", reliability="HIGH",
+         url="https://www.startupindia.gov.in/srf/portal/SRF_2022_Result_page/National-Report-15-01-26.pdf",
+         publication_date="2026-01-15", access_date=GENERATED, geography="India",
+         customer_segment="DPIIT-recognised startups",
+         notes=("Page 20, Figure 1, year-wise DPIIT recognition. Figure 1 gives "
+                "2016 = 502 as the series base. NOTE: the same page asserts a "
+                "'394X' increase, which does not reconcile with its own base "
+                "(207,137 / 502 = 412.6x), so the multiple is not repeated "
+                "here. Corroborated by the National Startup Awards 5.0 "
+                "National Report (2,07,137 certificates issued as of "
+                "31 Dec 2025): "
+                "https://www.startupindia.gov.in/nsa5.0results/assets/File/National-Report_NSA%205.0.pdf")),
+    dict(id="GOV-046", research_area="Market",
+         claim_supported=("200,000+ DPIIT-recognised startups; 53% of startups "
+                          "in Tier 2/3 cities; Rs 27,000+ Cr funding through "
+                          "the Startup India Initiative; 244 seed-funded "
+                          "incubators; 6,60,000+ BHASKAR users"),
+         source_org="Startup India (National Startup Day 2026)",
+         source_type="government_programme_page", tier="T1", reliability="HIGH",
+         url="https://www.startupindia.gov.in/national-startup-day-2026/",
+         publication_date="2026-01-16", access_date=GENERATED, geography="India",
+         customer_segment="DPIIT-recognised startups",
+         notes=("Ten-year mark of the Startup India Initiative. The 53% "
+                "Tier-2/3 share and the Rs 27,000+ Cr figure are used on the "
+                "Market & Opportunity slide. Also states 51,000+ Cr of GeM "
+                "orders, 63 regulatory reforms and 48% women-led startups.")),
+]
+
+
+def register_sources():
+    """Add GOV-045 and GOV-046 to Source_Registry.csv.
+
+    Merged by URL so re-running never duplicates a row, and updated by id so
+    a corrected note replaces the old one rather than sitting beside it.
+    """
+    with REGISTRY.open("r", encoding="utf-8-sig", newline="") as fh:
+        existing = list(csv.DictReader(fh))
+    fields = list(existing[0].keys())
+    by_id = {r["id"]: r for r in existing}
+    have_urls = {r["url"] for r in existing if r.get("url")}
+
+    added = 0
+    for new in NEW_SOURCES:
+        if new["id"] in by_id:
+            # Refresh the row in place.
+            by_id[new["id"]].update(new)
+        elif new["url"] not in have_urls:
+            existing.append(new)
+            by_id[new["id"]] = new
+            have_urls.add(new["url"])
+            added += 1
+
+    # Always rewritten, so a corrected note replaces the old one in place.
+    with REGISTRY.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        for r in existing:
+            w.writerow(r)
+    return len(existing), added
+
+
+# ==========================================================================
+# Validation - the numbers in the chart must match the registry
+# ==========================================================================
+
+def validate():
+    checks = []
+    ok = True
+
+    def chk(name, cond, detail=""):
+        nonlocal ok
+        checks.append((cond, name, detail))
+        if not cond:
+            ok = False
+
+    # The registry must actually contain what the chart claims.
+    with REGISTRY.open("r", encoding="utf-8-sig", newline="") as fh:
+        reg = {r["id"]: r for r in csv.DictReader(fh)}
+    chk("GOV-045 registered", "GOV-045" in reg)
+    chk("GOV-046 registered", "GOV-046" in reg)
+    chk("GOV-013 registered", "GOV-013" in reg)
+
+    if "GOV-045" in reg:
+        claim = reg["GOV-045"]["claim_supported"]
+        for _, v in SERIES:
+            chk(f"GOV-045 states {lakh(v)}", lakh(v) in claim, claim[:60])
+    if "GOV-046" in reg:
+        claim = reg["GOV-046"]["claim_supported"]
+        chk("GOV-046 states the 53% tier-2/3 share", "53%" in claim)
+        chk("GOV-046 states the Rs 27,000 Cr figure", "27,000+" in claim)
+
+    # The series must be strictly increasing and match the published points.
+    vals = [v for _, v in SERIES]
+    chk("the series is strictly increasing", all(b > a for a, b in zip(vals, vals[1:])))
+    chk("2021 is 61,974", vals[0] == 61974)
+    chk("2025 is 2,07,137", vals[-1] == 207137)
+    chk("the headline is above the last year-end point",
+        HEADLINE_VALUE > vals[-1])
+    chk("the headline is a March 2026 figure", HEADLINE_LABEL == "31 Mar 2026")
+
+    # The headline display must match the value.
+    chk("the headline display matches its value",
+        HEADLINE_DISPLAY == f"{HEADLINE_VALUE / 100000:.2f} Lakh+",
+        f"{HEADLINE_DISPLAY} vs {HEADLINE_VALUE / 100000:.2f} Lakh+")
+    chk("the tier-2/3 share is 53%", TIER23_PCT == 0.53)
+    chk("the funding figure is Rs 27,000 Cr", FUNDING_CR == 27000)
+
+    return checks, ok
+
+
+# ==========================================================================
+# Image 1 - market momentum
+# ==========================================================================
+
+def chart_market_momentum():
+    fig = plt.figure(figsize=FIGSIZE)
+    ax = fig.add_axes([0.085, 0.215, 0.885, 0.475])
+    ax.set_facecolor("white")
+
+    years = [y for y, _ in SERIES]
+    vals = [v for _, v in SERIES]
+    xs = list(range(len(years)))
+    full_x = xs + [len(xs)]
+    full_v = vals + [HEADLINE_VALUE]
+
+    # --- the chart -----------------------------------------------------
+    ax.plot(xs, vals, color=TEAL, linewidth=2.6, marker="o", markersize=6.5,
+            markerfacecolor="white", markeredgewidth=2.0, markeredgecolor=TEAL,
+            zorder=4, label="31 Dec (year-end)")
+    ax.fill_between(xs, vals, 0, color=TEAL, alpha=0.13, zorder=2)
+
+    # The 2026 point is a different vintage - hollow, dashed, amber.
+    ax.plot([xs[-1], full_x[-1]], [vals[-1], HEADLINE_VALUE], color=AMBER,
+            linewidth=2.0, linestyle=(0, (4, 3)), zorder=3)
+    ax.plot([full_x[-1]], [HEADLINE_VALUE], marker="o", markersize=7.5,
+            markerfacecolor="white", markeredgewidth=2.2, markeredgecolor=AMBER,
+            zorder=5)
+
+    # Point labels.
+    for x, v in zip(xs, vals):
+        ax.annotate(short_lakh(v), (x, v), textcoords="offset points",
+                    xytext=(0, 11), ha="center", fontsize=8.6,
+                    fontweight="bold", color=NAVY)
+    ax.annotate(short_lakh(HEADLINE_VALUE), (full_x[-1], HEADLINE_VALUE),
+                textcoords="offset points", xytext=(0, 12), ha="center",
+                fontsize=8.8, fontweight="bold", color=AMBER)
+    ax.annotate(HEADLINE_LABEL, (full_x[-1], HEADLINE_VALUE),
+                textcoords="offset points", xytext=(0, -18), ha="center",
+                fontsize=7.2, color=AMBER, fontweight="bold")
+
+    ax.set_xticks(full_x)
+    ax.set_xticklabels(years + ["2026"], fontsize=9.2, color="#334155")
+    ax.set_ylim(0, 260000)
+    ax.set_yticks([0, 50000, 100000, 150000, 200000])
+    ax.set_yticklabels(["0", "50K", "1L", "1.5L", "2L"], fontsize=8.4,
+                       color=SLATE)
+    ax.set_xlim(-0.45, len(years) + 0.45)
+    ax.grid(axis="x", visible=False)
+    ax.tick_params(axis="both", length=0)
+    for s in ("top", "right", "left"):
+        ax.spines[s].set_visible(False)
+    ax.spines["bottom"].set_color("#CBD5E1")
+
+    # Legend, so the two vintages are never confused.
+    ax.legend(handles=[
+        Patch(facecolor="white", edgecolor=TEAL, linewidth=2.0,
+              label="31 Dec  ·  year-end"),
+        Patch(facecolor="white", edgecolor=AMBER, linewidth=2.0,
+              label="31 Mar  ·  latest"),
+    ], loc="upper left", fontsize=8.2, bbox_to_anchor=(0.0, 1.16), ncol=2,
+        handlelength=1.6, columnspacing=1.4)
+
+    # --- the headline block --------------------------------------------
+    fig.text(0.085, 0.945, "INDIA'S STARTUP ECOSYSTEM GROWTH", fontsize=9.0,
+             fontweight="bold", color=TEAL, va="center")
+    fig.text(0.085, 0.845, HEADLINE_DISPLAY, fontsize=30, fontweight="bold",
+             color=NAVY, va="center")
+    fig.text(0.085, 0.775, "DPIIT-recognised startups  ·  31 Mar 2026",
+             fontsize=9.2, color=SLATE, va="center")
+
+    # --- the caption ----------------------------------------------------
+    growth = HEADLINE_VALUE / vals[0]
+    fig.text(0.085, 0.135, f"▲  India's startup ecosystem has grown "
+             f"≈{growth:.1f}× since 2021", fontsize=10.2, fontweight="bold",
+             color=TEAL, va="center")
+    fig.text(0.085, 0.075, SOURCE_CHART, fontsize=6.2, color=GREY, va="center")
+
+    out = HERE / "ppt_01_market_momentum.png"
+    fig.savefig(out, dpi=DPI, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return out
+
+
+# ==========================================================================
+# Image 2 - the three metric cards
+# ==========================================================================
+
+def chart_ecosystem_metrics():
+    fig = plt.figure(figsize=FIGSIZE)
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.axis("off")
+    ax.grid(False)
+
+    fig.text(0.055, 0.945, "THE ECOSYSTEM STARTUPHUB SERVES", fontsize=9.0,
+             fontweight="bold", color=TEAL, va="center")
+
+    cards = [
+        (HEADLINE_DISPLAY, "DPIIT-recognised startups", "31 Mar 2026",
+         NAVY, "up from 502 in 2016"),
+        ("53%", "Startups from Tier-II & Tier-III cities", "as of Jan 2026",
+         TEAL, "the reach is not metro-only"),
+        ("₹27,000 Cr+", "Funding through Startup India initiatives",
+         "as of Jan 2026", AMBER, "capital is already flowing"),
+    ]
+
+    top = 8.35
+    h = 2.25
+    gap = 0.30
+    for i, (big, label, sub, col, note) in enumerate(cards):
+        y = top - i * (h + gap)
+
+        ax.add_patch(FancyBboxPatch(
+            (0.55, y - h), 8.90, h, boxstyle="round,pad=0.02,rounding_size=0.16",
+            facecolor="white", edgecolor="#E2E8F0", linewidth=1.4))
+        ax.add_patch(Rectangle((0.55, y - h), 0.13, h, facecolor=col,
+                               edgecolor="none"))
+
+        ax.text(0.98, y - 0.72, big, fontsize=25, fontweight="bold", color=col,
+                va="center", ha="left")
+        ax.text(0.98, y - 1.32, label, fontsize=10.4, color="#1E293B",
+                va="center", ha="left", fontweight="bold")
+        ax.text(0.98, y - 1.78, sub, fontsize=8.4, color=SLATE, va="center",
+                ha="left")
+        ax.text(9.05, y - 1.32, note, fontsize=7.8, color=GREY, va="center",
+                ha="right", style="italic")
+
+    # The cards are laid out in AXES coordinates (ylim 0-10), so the source
+    # line has to be too - putting it in figure coordinates drops it into
+    # the middle of a card.
+    ax.text(0.55, 0.38, SOURCE_CARDS, fontsize=6.2, color=GREY, va="center")
+
+    out = HERE / "ppt_02_ecosystem_metrics.png"
+    fig.savefig(out, dpi=DPI, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return out
+
+
+# ==========================================================================
+# The folder README - the corrected slide copy
+# ==========================================================================
+
+def write_readme():
+    growth = HEADLINE_VALUE / SERIES[0][1]
+    first = SERIES[0][1]
+    last = SERIES[-1][1]
+    body = f"""<!-- GENERATED by 17_PPT_Assets/build_ppt_assets.py on {GENERATED}.
+     DO NOT EDIT BY HAND. Re-run the script instead. -->
+
+# 17 - PPT Assets
+
+> Slide-ready figures for the **Market & Opportunity** slide. Two images,
+> same aspect ratio, drop them side by side or stacked.
+
+## The two images
+
+| File | What it is | Size |
+|---|---|---|
+| `ppt_01_market_momentum.png` | India's startup ecosystem growth | {FIGSIZE[0]} x {FIGSIZE[1]} in, {DPI} DPI |
+| `ppt_02_ecosystem_metrics.png` | Three ecosystem metric cards | {FIGSIZE[0]} x {FIGSIZE[1]} in, {DPI} DPI |
+
+**Both are the same aspect ratio**, so they tile either way round - side by
+side under the TAM/SAM/SOM circles, or stacked in the lower-left.
+
+![Market momentum](ppt_01_market_momentum.png)
+
+![Ecosystem metrics](ppt_02_ecosystem_metrics.png)
+
+## The corrected slide copy
+
+**Replace this** - the current wording says "150,000+ recognised startups",
+which is about four years stale:
+
+> **StartupHub targets the institutions that manage India's expanding
+> innovation ecosystem, including colleges, universities, IICs, incubators
+> and research institutions, while serving the startups within them. India
+> had {HEADLINE_DISPLAY.replace('+', '')} DPIIT-recognised startups by
+> {HEADLINE_LABEL}, highlighting the scale of the ecosystem that these
+> institutions support.** (`GOV-013`)
+
+**And the slide takeaway:**
+
+> **A rapidly expanding startup ecosystem creates a growing need for
+> structured, measurable and connected innovation management.**
+
+That one line connects market growth → institutional problem → StartupHub
+opportunity, which is the chain the slide has to carry.
+
+## What changed, and why
+
+| | Before | Now | Why |
+|---|---|---|---|
+| Headline figure | "150,000+ recognised startups" | **{HEADLINE_DISPLAY}** ({HEADLINE_LABEL}) | The official figure has moved several times since 150,000. The number on the slide was about four years stale. |
+| Who the customer is | "StartupHub targets India's growing ecosystem of ... startups" | StartupHub targets the **institutions** | The paying customer is the institution, not every startup. The ecosystem is the context, not the buyer. |
+| Evidence on the slide | none | Every figure cites a registered id | A number an investor cannot trace is a number they discount. |
+| A claim to avoid | - | Do **not** say "{HEADLINE_DISPLAY.replace('+', '')} is the number of startups in India" | It is the number **DPIIT-recognised** startups, as of {HEADLINE_LABEL}. |
+
+## One thing to know about the chart
+
+**The five teal points are 31 December figures. The sixth, amber point is
+{HEADLINE_LABEL}.**
+
+{last:,} is a year-end figure. {HEADLINE_VALUE:,} is a part-year vintage -
+three months into 2026. Putting them on one line without saying so would be
+a category error, so they are drawn differently: the 2026 point is hollow
+and the segment is dashed, and it carries its own date label.
+
+Do not describe the chart as "annual figures 2021-2026" on the slide. Say
+**"DPIIT-recognised startups, 31 Dec 2021-2025, and {HEADLINE_LABEL}"**.
+
+The caption is computed from the plotted values, not typed in:
+{HEADLINE_VALUE:,} / {first:,} = **{growth:.1f}x** since 2021.
+
+## Sources
+
+| id | What it supports | Source |
+|---|---|---|
+| `GOV-013` | {HEADLINE_DISPLAY} DPIIT-recognised startups, {HEADLINE_LABEL} | PIB / DPIIT |
+| `GOV-045` | The annual series 2021-2025 (61,974 → 2,07,137) | Startup India, SRF 5.0 National Report, p.20 Fig.1 |
+| `GOV-046` | 53% in Tier-2/3 cities · Rs 27,000+ Cr through Startup India · 244 seed-funded incubators | Startup India, National Startup Day 2026 |
+
+All three are registered in
+[`../00_Research_Index/Source_Registry.csv`](../00_Research_Index/Source_Registry.csv).
+`GOV-045` and `GOV-046` were added by this script.
+
+**One flag.** The SRF report's own text asserts a "394X" increase since
+2016, but that does not reconcile with its own Figure 1 base of 502
+(2,07,137 / 502 = 412.6x). The multiple is therefore not used anywhere in
+these assets - only the base figure of 502 is, and only as a supporting
+note on the metric card.
+
+## Regenerate
+
+```bash
+python 17_PPT_Assets/build_ppt_assets.py
+```
+
+The script appends `GOV-045` and `GOV-046` to the registry (idempotent -
+merged by URL, updated by id) and then **fails if the registry and the
+chart disagree**: every plotted value is checked against the registered
+claim text, and the growth multiple is computed from the data rather than
+typed in.
+
+This folder is side work. It is not part of the research programme and
+nothing in the Phase 0-13 chain depends on it.
+"""
+    out = HERE / "README.md"
+    out.write_text(body, encoding="utf-8")
+    return out
+
+
+# ==========================================================================
+# main
+# ==========================================================================
+
+def main():
+    before, added = register_sources()
+    print(f"  Source_Registry.csv  +{added} rows ({before} -> {before + added})")
+
+    checks, ok = validate()
+    fails = [c for c in checks if not c[0]]
+    print(f"  validation: {len(checks) - len(fails)}/{len(checks)} checks passed")
+    for cond, name, detail in fails:
+        print(f"    FAIL  {name}  {detail}")
+    if not ok:
+        sys.exit(1)
+
+    p1 = chart_market_momentum()
+    p2 = chart_ecosystem_metrics()
+    for p in (p1, p2):
+        print(f"  png   {p.relative_to(ROOT)}  ({p.stat().st_size // 1024} KB)")
+    rd = write_readme()
+    print(f"  md    {rd.relative_to(ROOT)}  (the corrected slide copy)")
+    print(f"  growth multiple     : "
+          f"{HEADLINE_VALUE / SERIES[0][1]:.2f}x since 2021 "
+          f"(computed, not typed)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
