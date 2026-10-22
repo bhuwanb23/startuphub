@@ -94,7 +94,7 @@ export const founderNav: FounderGroup[] = [
     subs: [
       { name: "MVP Management", href: "/founder/product" },
       { name: "Product Roadmap", href: "/founder/product/roadmap" },
-      { name: "Product Validation", href: "/founder/product#validation", soon: true },
+      { name: "Product Validation", href: "/founder/product/validation" },
     ],
   },
   {
