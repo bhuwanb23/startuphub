@@ -254,7 +254,7 @@ export const HEALTH_BANDS: HealthBand[] = [
 export const MENTOR_COVERAGE: MentorCoverage[] = [
   { mentor: "Priya Nair", initials: "PN", startups: 34, load: 62, sectors: "Architecture, deep tech", hours: 1420, tone: "accent" },
   { mentor: "Vikram Rao", initials: "VR", startups: 29, load: 78, sectors: "Hardware, climate", hours: 1190, tone: "warn" },
-  { mentor: "Sunita Deshpukh", initials: "SD", startups: 31, load: 68, sectors: "Health, go-to-market", hours: 1340, tone: "accent" },
+  { mentor: "Sunita Deshmukh", initials: "SD", startups: 31, load: 68, sectors: "Health, go-to-market", hours: 1340, tone: "accent" },
   { mentor: "Karan Chadha", initials: "KC", startups: 26, load: 55, sectors: "Fintech, compliance", hours: 980, tone: "default" },
   { mentor: "Arjun Bedekar", initials: "AB", startups: 24, load: 47, sectors: "Deep tech, space", hours: 870, tone: "default" },
   { mentor: "Meera Iyer", initials: "MI", startups: 11, load: 22, sectors: "Programme oversight", hours: 380, tone: "default" },

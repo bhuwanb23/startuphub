@@ -286,12 +286,11 @@ export const COHORT_VI_STARTUPS: CohortStartup[] = [
 ];
 
 export const COHORT_VI_MENTORS: MentorAssignment[] = [
-  { mentor: "Priya Nair", initials: "PN", expertise: "Architecture & scaling", startups: 3, hours: 38, target: 40, tone: "good" },
+  { mentor: "Priya Nair", initials: "PN", expertise: "Architecture & scaling", startups: 5, hours: 38, target: 40, tone: "good" },
   { mentor: "Vikram Rao", initials: "VR", expertise: "Hardware & supply chain", startups: 3, hours: 26, target: 40, tone: "warn" },
-  { mentor: "Sunita Deshpukh", initials: "SD", expertise: "Go-to-market, health", startups: 2, hours: 41, target: 40, tone: "good" },
+  { mentor: "Sunita Deshmukh", initials: "SD", expertise: "Go-to-market, health", startups: 2, hours: 41, target: 40, tone: "good" },
   { mentor: "Karan Chadha", initials: "KC", expertise: "Fintech compliance", startups: 2, hours: 22, target: 40, tone: "bad" },
   { mentor: "Arjun Bedekar", initials: "AB", expertise: "Deep tech, space", startups: 2, hours: 34, target: 40, tone: "good" },
-  { mentor: "Priority Nair", initials: "PN", expertise: "Product & growth", startups: 2, hours: 18, target: 40, tone: "bad" },
 ];
 
 export const COHORT_VI_MILESTONES: MilestoneBurn[] = [

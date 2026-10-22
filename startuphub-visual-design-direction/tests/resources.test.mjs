@@ -19,12 +19,24 @@
 import { test, describe, before } from "node:test";
 import assert from "node:assert/strict";
 import { execSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const app = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFileSync(join(app, p), "utf8");
+
+/* Recursively collect every source file under `dir`. Dependency-free so the
+ * suite runs identically on Windows, macOS and Linux. */
+function sourceFiles(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...sourceFiles(full));
+    else if (/\.(tsx?|jsx?)$/.test(entry.name)) out.push(full);
+  }
+  return out;
+}
 
 const routes = {
   "/founder/resources": {
@@ -132,11 +144,17 @@ describe("resource sidebar navigation", () => {
   });
 
   test("no stale resource anchors anywhere in src", () => {
-    const out = execSync(
-      'grep -rn "founder/resources#" src/ --include=*.tsx --include=*.ts || true',
-      { cwd: app, encoding: "utf8" },
+    const offenders = [];
+    for (const file of sourceFiles(join(app, "src"))) {
+      if (readFileSync(file, "utf8").includes("founder/resources#")) {
+        offenders.push(file.slice(app.length + 1));
+      }
+    }
+    assert.deepEqual(
+      offenders,
+      [],
+      `found stale #anchors in:\n${offenders.join("\n")}`,
     );
-    assert.equal(out.trim(), "", `found stale #anchors:\n${out}`);
   });
 });
 
