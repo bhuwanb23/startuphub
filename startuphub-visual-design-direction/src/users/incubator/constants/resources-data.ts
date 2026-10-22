@@ -72,7 +72,8 @@ export type ResourceRequest = {
   item: string;
   category: ResourceCategory;
   qty: string;
-  value: string;
+  /* Rupees in lakhs — what the request is worth if approved. */
+  value: number;
   submitted: string;
   approver: string;
   status: RequestStatus;

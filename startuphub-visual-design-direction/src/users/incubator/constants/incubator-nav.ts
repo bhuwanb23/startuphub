@@ -87,8 +87,8 @@ export const incubatorNav: AppNavGroup[] = [
     label: "Resources", icon: Layers, href: "/incubator/resources",
     subs: [
       { name: "Resource Inventory", href: "/incubator/resources" },
-      { name: "Resource Requests", href: "/incubator/resources#requests", soon: true },
-      { name: "Resource Allocation", href: "/incubator/resources#allocation", soon: true },
+      { name: "Resource Requests", href: "/incubator/resources/requests" },
+      { name: "Resource Allocation", href: "/incubator/resources/allocation" },
       { name: "Utilization", href: "/incubator/resources/utilization" },
     ],
   },

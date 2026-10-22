@@ -94,7 +94,7 @@ export function ResourceUtilization() {
             <p className="mt-1.5 text-[11.5px] text-slate-400">{k.note}</p>
           </div>
         ))}
-      </Card>
+      </div>
 
       {/* ── 03 · Utilisation trend ───────────────────────────── */}
       <Card

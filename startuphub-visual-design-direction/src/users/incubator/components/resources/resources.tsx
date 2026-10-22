@@ -272,7 +272,7 @@ export function Resources() {
                 <div className="flex w-[140px] shrink-0 items-center gap-2.5">
                   <Progress
                     value={pct}
-                    tone={pct > 80 ? "warn" : pct > 40 ? "accent" : "default"}
+                    tone={pct > 80 ? "warn" : pct > 40 ? "accent" : "good"}
                     className="flex-1"
                   />
                   <span className="w-12 text-right text-[11.5px] font-semibold tabular-nums text-ink">
