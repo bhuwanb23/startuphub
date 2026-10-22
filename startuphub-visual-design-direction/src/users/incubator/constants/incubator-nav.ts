@@ -54,7 +54,7 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Cohort Management", href: "/incubator/cohorts" },
       { name: "Cohort VI (active)", href: "/incubator/cohorts/cohort-vi" },
-      { name: "Cohort Progress", href: "/incubator/cohorts#progress", soon: true },
+      { name: "Cohort Progress", href: "/incubator/cohorts/progress" },
       { name: "Cohort Analytics", href: "/incubator/cohorts/analytics" },
     ],
   },
