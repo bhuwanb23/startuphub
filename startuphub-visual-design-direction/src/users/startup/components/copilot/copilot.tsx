@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Send, Sparkles, User } from "lucide-react";
+import { healthScore, projectedHealth } from "@/users/startup/constants/ipr-data";
 
 const starters = [
   "What should I fix before the Northgate partner meeting?",
@@ -14,7 +15,7 @@ const demoAnswers: [RegExp, string][] = [
   [/northgate|meeting|partner/i, "Three things before Thursday: (1) attach both pilot testimonials to the data room — their team flagged reference customers; (2) the trademark for 'Field Alert' is still unfiled and they'll ask; (3) rehearse the per-acre unit economics slide — your ₹3.2 cost is your strongest argument."],
   [/runway|hiring|burn/i, "You're at 11.2 months with the current ₹38L/mo burn. The hiring plan (2 agronomy + 1 ML eng) adds ₹5.4L/mo, pulling runway to ~9.4 months. Safe if Series B conversations start by August; the GPU grant expiry in 18 days changes this math most — use it before it lapses."],
   [/grant/i, "Two live matches: BIRAC BioIgnite (₹50L, Apr 30) fits your agronomy models, and the Karnataka Startup Window (up to ₹30L) opens Apr 15 — your 14-state footprint qualifies for the max slab. Combined, that's a month and a half of runway with zero dilution."],
-  [/ip|ipr|trademark|patent/i, "Your IP health is 66 — the weakest dimension. Closing the gap this quarter: (1) file the 'Field Alert' trademark before next week's launch, (2) finish patent claims v3 — you're blocking your own complete-spec window, (3) collect the 2 missing contractor IP assignments. That takes you to ~82. Meera can review Thursday."],
+  [/ip|ipr|trademark|patent/i, `Your IP health is ${healthScore} — the weakest dimension. Closing the gap this quarter: (1) file the 'Field Alert' trademark before next week's launch, (2) finish patent claims v3 — you're blocking your own complete-spec window, (3) collect the 2 missing contractor IP assignments. That takes you to ~${projectedHealth}. Meera can review Thursday.`],
 ];
 
 type Msg = { role: "user" | "assistant"; text: string };

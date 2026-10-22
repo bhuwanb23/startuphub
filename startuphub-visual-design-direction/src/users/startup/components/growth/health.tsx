@@ -1,4 +1,5 @@
 import { Badge, Card, GaugeRing, PageHeader, Progress } from "@/components/app/widgets";
+import { healthScore } from "@/users/startup/constants/ipr-data";
 
 const dims = [
   { name: "Financial health", score: 84, note: "Runway solid; collections faster than peers" },
@@ -6,7 +7,7 @@ const dims = [
   { name: "Market health", score: 81, note: "Sector tailwind; whitespace score strong" },
   { name: "Customer health", score: 76, note: "Retention 91%; 2 accounts at renewal risk" },
   { name: "Team health", score: 88, note: "Full founding team intact; hiring on plan" },
-  { name: "IP health", score: 66, note: "Trademark gap + claims review overdue" },
+  { name: "IP health", score: healthScore, note: "Trademark gap + claims review overdue" },
   { name: "Operational health", score: 74, note: "Pilot ops stretched; process docs behind" },
   { name: "Growth health", score: 82, note: "3.1× YoY; Q2 targets established" },
 ];

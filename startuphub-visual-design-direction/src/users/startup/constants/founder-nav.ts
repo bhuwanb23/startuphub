@@ -73,11 +73,11 @@ export const founderNav: FounderGroup[] = [
     subs: [
       { name: "IPR Overview", href: "/founder/ipr" },
       { name: "Patent Management", href: "/founder/ipr/patents" },
-      { name: "Trademark Management", href: "/founder/ipr#trademarks", soon: true },
-      { name: "Copyright Management", href: "/founder/ipr#copyright", soon: true },
+      { name: "Trademark Management", href: "/founder/ipr/trademarks" },
+      { name: "Copyright Management", href: "/founder/ipr/copyright" },
       { name: "IP Portfolio", href: "/founder/ipr/portfolio" },
-      { name: "IP Risk Assessment", href: "/founder/ipr#risk", soon: true },
-      { name: "Compliance Tracking", href: "/founder/ipr#compliance", soon: true },
+      { name: "IP Risk Assessment", href: "/founder/ipr/risk" },
+      { name: "Compliance Tracking", href: "/founder/ipr/compliance" },
     ],
   },
   {
