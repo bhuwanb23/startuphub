@@ -33,9 +33,9 @@ export const incubatorNav: AppNavGroup[] = [
     label: "My Organization", icon: Building2, href: "/incubator/organization",
     subs: [
       { name: "Organization Profile", href: "/incubator/organization" },
-      { name: "Team & Staff", href: "/incubator/organization#team", soon: true },
-      { name: "Roles & Permissions", href: "/incubator/organization#roles", soon: true },
-      { name: "Organization Documents", href: "/incubator/organization#docs", soon: true },
+      { name: "Team & Staff", href: "/incubator/organization/team" },
+      { name: "Roles & Permissions", href: "/incubator/organization/roles" },
+      { name: "Organization Documents", href: "/incubator/organization/documents" },
     ],
   },
   {
@@ -43,9 +43,9 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Program Management", href: "/incubator/programs" },
       { name: "Program Discovery", href: "/incubator/programs/discover" },
-      { name: "Applications", href: "/incubator/programs" },
-      { name: "Applicant Evaluation", href: "/incubator/programs#evaluation", soon: true },
-      { name: "Startup Selection", href: "/incubator/programs#selection", soon: true },
+      { name: "Applications", href: "/incubator/programs/applications" },
+      { name: "Applicant Evaluation", href: "/incubator/programs/evaluation" },
+      { name: "Startup Selection", href: "/incubator/programs/selection" },
       { name: "Program Calendar", href: "/incubator/programs/calendar" },
     ],
   },
@@ -54,7 +54,7 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Cohort Management", href: "/incubator/cohorts" },
       { name: "Cohort VI (active)", href: "/incubator/cohorts/cohort-vi" },
-      { name: "Cohort Progress", href: "/incubator/cohorts#progress", soon: true },
+      { name: "Cohort Progress", href: "/incubator/cohorts/progress" },
       { name: "Cohort Analytics", href: "/incubator/cohorts/analytics" },
     ],
   },
@@ -63,7 +63,7 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Startup Portfolio", href: "/incubator/startups" },
       { name: "Startup Assessment", href: "/incubator/startups/assessment" },
-      { name: "At-Risk Startups", href: "/incubator/startups#risks", soon: true },
+      { name: "At-Risk Startups", href: "/incubator/startups/at-risk" },
       { name: "Interventions", href: "/incubator/startups/interventions" },
     ],
   },

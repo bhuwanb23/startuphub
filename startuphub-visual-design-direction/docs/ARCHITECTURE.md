@@ -67,7 +67,7 @@ src/app/
 │
 ├── (app)/              ← authenticated role workspaces → app shell
 │   ├── layout.tsx      ← deliberately empty (see §3.2)
-│   ├── founder/        ← 37 screens
+│   ├── founder/        ← 45 screens
 │   ├── incubator/      ← 32 screens
 │   ├── ipr-expert/     ← 31 screens
 │   ├── mentor/         ← 21 screens
@@ -123,19 +123,20 @@ export default function Page() {
 | Segment | `page.tsx` files | Kind |
 |---|---|---|
 | `(public)` pages | 34 | marketing / directory / solutions (incl. 2 dynamic) |
-| `(app)` pages | 447 | role workspaces (incl. 1 dynamic) |
-| **Total `page.tsx`** | **481** | |
-| Distinct URLs served | **501** | 478 static + 23 concrete slugs |
+| `(app)` pages | 455 | role workspaces (incl. 1 dynamic) |
+| **Total `page.tsx`** | **489** | |
+| Distinct URLs served | **509** | 486 static + 23 concrete slugs |
 | `api/health` | 1 | `route.ts` (not a page) — JSON health probe |
 
 The three dynamic route files — `events/[slug]`, `explore/startups/[slug]` and
-`admin/ecosystem/[entity]` — expand to 23 concrete URLs via `generateStaticParams`.
+`admin/ecosystem/[entity]` — expand to 23 concrete URLs via `generateStaticParams`
+(8 startups, 7 events, 8 ecosystem entities).
 
 Workspace screens by role:
 
 | Role | Route root | Source dir | Shell | Screens |
 |---|---|---|---|---|
-| **Founder** | `/founder` | `src/users/startup/` | `FounderShell` | 37 |
+| **Founder** | `/founder` | `src/users/startup/` | `FounderShell` | 45 |
 | **Mentor** | `/mentor` | `src/users/mentor/` | `MentorShell` | 21 |
 | **IPR Expert** | `/ipr-expert` | `src/users/ipr-expert/` | `IprShell` | 31 |
 | **Incubator** | `/incubator` | `src/users/incubator/` | `IncubatorShell` | 32 |
@@ -381,21 +382,26 @@ The workspace widgets file carries **four families** that arrived from four diff
 | **Intro** | `PageIntro`, `PanelLink` | talent, university |
 | **Admin** | `Meter`, `Tag` | admin |
 
+Widgets that are shared between families are not exclusive to one — `Progress` is used by
+all eleven roles, `Bar` by eight, `Card` by seven. The table above lists each widget
+**once**, under the family that introduced it.
+
 ### 6.1 How the unions discriminate
 
-Three widgets are shared by more than one family. Each union uses a **disjoint prop set** so the correct style is selected with zero ambiguity:
+Three widgets are shared by more than one family. Each union uses a **disjoint prop set**
+so the correct style is selected with zero ambiguity. Verified against current usage:
 
-| Widget | Discriminator | Resulting style |
-|---|---|---|
-| `Stat` | `tone` is `up`/`down`/`flat` | admin style — plain-text trend (`text-emerald-600` / `text-rose-600`), optional `icon`, `hint` support, `text-[26px]` |
-| | `tone` is `good`/`default`/`warn`/`bad` | card style — chip delta (`bg-emerald-50`), required `icon`, `text-[1.55rem]` |
-| `Panel` | `description` present | admin style — `rounded-2xl`, `shadow-card`, top-aligned header, description line |
-| | `sub` present | panel style — `rounded-xl`, no shadow, `h2` header |
-| | neither | talent/university style — `rounded-xl`, `shadow-[0_1px_2px_rgba(11,18,32,0.03)]`, compact `h3` header |
-| `Bar` | `pct` prop | panel style — `h-[6px]`, `barClass` override |
-| | `value` + `tone` prop | talent/university style — `h-1.5`, tone-mapped fill |
-| `Avatar` | `label` prop | panel style — `rounded-lg bg-ink/[0.06]` |
-| | `name` prop | talent/university style — initials derived from the name |
+| Widget | Discriminator | Count | Resulting style |
+|---|---|---|---|
+| `Stat` | `tone` is `up`/`down`/`flat` | 33 | admin style — plain-text trend (`text-emerald-600` / `text-rose-600`), optional `icon`, `hint` support, `text-[26px]` |
+| | `tone` is `good`/`default`/`warn`/`bad` | 4 | card style — chip delta (`bg-emerald-50`), required `icon`, `text-[1.55rem]` |
+| `Panel` | `description` present | 56 | admin style — `rounded-2xl`, `shadow-card`, top-aligned header, description line |
+| | `sub` present | 221 | panel style — `rounded-xl`, no shadow, `h2` header |
+| | neither | 273 | talent/university style — `rounded-xl`, `shadow-[0_1px_2px_rgba(11,18,32,0.03)]`, compact `h3` header |
+| `Bar` | `pct` prop | — | panel style — `h-[6px]`, `barClass` override |
+| | `value` + `tone` prop | — | talent/university style — `h-1.5`, tone-mapped fill |
+| `Avatar` | `label` prop | — | panel style — `rounded-lg bg-ink/[0.06]` |
+| | `name` prop | — | talent/university style — initials derived from the name |
 
 `StatCard` is a separate export (not a union of `Stat`) and takes `deltaGood`/`sub` **or** `hint`/`up`.
 
@@ -641,6 +647,7 @@ Follow the codebase and it stays coherent.
 11. **Env vars fail loudly.** `src/db/index.ts` throws on a missing `DATABASE_URL` by design — don't add silent fallbacks.
 12. **Don't fork the sidebar.** If you need to change workspace navigation behaviour, change `src/components/app/app-shell.tsx` — and remember the founder still uses the forked `FounderSidebar` until it is migrated (§5.3).
 13. **Adding a role touches three files:** `src/users/<role>/` + `src/app/(app)/<role>/`, the `workspaces` array in `company-switcher.tsx`, and the `ROLES` array in `views/auth/auth.tsx`.
+14. **Pin dependency versions.** `next`, `eslint-config-next` and `drizzle-kit` are pinned to exact versions and must move together. A bare `npm install <pkg>` can silently drift them and break the lint config — see `WORKING-NOTES.md` §1.
 
 ---
 
