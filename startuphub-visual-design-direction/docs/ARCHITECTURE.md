@@ -67,7 +67,7 @@ src/app/
 │
 ├── (app)/              ← authenticated role workspaces → app shell
 │   ├── layout.tsx      ← deliberately empty (see §3.2)
-│   ├── founder/        ← 37 screens
+│   ├── founder/        ← 45 screens
 │   ├── incubator/      ← 32 screens
 │   ├── ipr-expert/     ← 31 screens
 │   ├── mentor/         ← 21 screens
@@ -123,19 +123,20 @@ export default function Page() {
 | Segment | `page.tsx` files | Kind |
 |---|---|---|
 | `(public)` pages | 34 | marketing / directory / solutions (incl. 2 dynamic) |
-| `(app)` pages | 447 | role workspaces (incl. 1 dynamic) |
-| **Total `page.tsx`** | **481** | |
-| Distinct URLs served | **501** | 478 static + 23 concrete slugs |
+| `(app)` pages | 455 | role workspaces (incl. 1 dynamic) |
+| **Total `page.tsx`** | **489** | |
+| Distinct URLs served | **509** | 486 static + 23 concrete slugs |
 | `api/health` | 1 | `route.ts` (not a page) — JSON health probe |
 
 The three dynamic route files — `events/[slug]`, `explore/startups/[slug]` and
-`admin/ecosystem/[entity]` — expand to 23 concrete URLs via `generateStaticParams`.
+`admin/ecosystem/[entity]` — expand to 23 concrete URLs via `generateStaticParams`
+(8 startups, 7 events, 8 ecosystem entities).
 
 Workspace screens by role:
 
 | Role | Route root | Source dir | Shell | Screens |
 |---|---|---|---|---|
-| **Founder** | `/founder` | `src/users/startup/` | `FounderShell` | 37 |
+| **Founder** | `/founder` | `src/users/startup/` | `FounderShell` | 45 |
 | **Mentor** | `/mentor` | `src/users/mentor/` | `MentorShell` | 21 |
 | **IPR Expert** | `/ipr-expert` | `src/users/ipr-expert/` | `IprShell` | 31 |
 | **Incubator** | `/incubator` | `src/users/incubator/` | `IncubatorShell` | 32 |
