@@ -63,7 +63,7 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Startup Portfolio", href: "/incubator/startups" },
       { name: "Startup Assessment", href: "/incubator/startups/assessment" },
-      { name: "At-Risk Startups", href: "/incubator/startups#risks", soon: true },
+      { name: "At-Risk Startups", href: "/incubator/startups/at-risk" },
       { name: "Interventions", href: "/incubator/startups/interventions" },
     ],
   },
