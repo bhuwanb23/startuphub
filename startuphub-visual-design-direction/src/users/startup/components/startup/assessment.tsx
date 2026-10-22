@@ -16,6 +16,7 @@ import {
   Spark,
   Stat,
 } from "@/components/app/widgets";
+import { healthScore } from "@/users/startup/constants/ipr-data";
 
 /* ── Assessment dimensions ──────────────────────────────────
    Scored 0–100 against what the ecosystem expects at this
@@ -26,7 +27,7 @@ const assessment = [
   { dim: "Team", score: 91, note: "28 people, full founding trio in place" },
   { dim: "Traction", score: 72, note: "3 paid pilots, no renewal cycle yet" },
   { dim: "Funding readiness", score: 78, note: "Data room 80% complete" },
-  { dim: "IP & Legal", score: 66, note: "Trademark pending, patent claims open" },
+  { dim: "IP & Legal", score: healthScore, note: "Trademark pending, patent claims open" },
 ];
 
 /* Stage-A cohort averages for the same dimensions. */
@@ -36,7 +37,7 @@ const cohort = [
   { dim: "Team", idea: 91, stage: 74 },
   { dim: "Traction", idea: 72, stage: 64 },
   { dim: "Funding readiness", idea: 78, stage: 69 },
-  { dim: "IP & Legal", idea: 66, stage: 61 },
+  { dim: "IP & Legal", idea: healthScore, stage: 61 },
 ];
 
 const strengths = [

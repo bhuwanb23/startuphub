@@ -15,6 +15,7 @@ import {
   Progress,
   Stat,
 } from "@/components/app/widgets";
+import { healthScore } from "@/users/startup/constants/ipr-data";
 
 const details = [
   ["Founded", "Mar 2023"],
@@ -40,7 +41,7 @@ const assessment = [
   { dim: "Team", score: 91 },
   { dim: "Traction", score: 72 },
   { dim: "Funding readiness", score: 78 },
-  { dim: "IP & Legal", score: 66 },
+  { dim: "IP & Legal", score: healthScore },
 ];
 
 /* ── Company traction ──────────────────────────────────────

@@ -14,7 +14,7 @@ import {
 export const dashKpis = [
   { icon: Target, label: "Readiness score", value: "78", delta: "+6 this month", tone: "good" as const },
   { icon: Layers, label: "Validation score", value: "82%", delta: "4 experiments live", tone: "default" as const },
-  { icon: Scale, label: "IP assets", value: "3", delta: "1 filing in progress", tone: "default" as const },
+  { icon: Scale, label: "IP assets", value: "11", delta: "1 filing in progress", tone: "default" as const },
   { icon: CircleDollarSign, label: "Runway", value: "11.2 mo", delta: "Post Series A", tone: "good" as const },
 ];
 
@@ -58,7 +58,7 @@ export const opportunities = [
 
 export const fundingStatus = { round: "Series A", raised: "₹2.4 Cr", investors: 6, readiness: 78, next: "Follow-on conversations · Q3" };
 
-export const iprStatus = { assets: 3, filings: 1, upcoming: "Complete spec window — 11 weeks", risk: "Claims review overdue" };
+export const iprStatus = { assets: 11, filings: 1, upcoming: "Complete spec window — 11 weeks", risk: "Claims review overdue" };
 
 export const resourceStatus = { active: 5, credits: "$21,400", expiring: "GPU cluster grant · 18 days" };
 
