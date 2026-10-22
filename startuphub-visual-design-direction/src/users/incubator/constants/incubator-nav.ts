@@ -97,8 +97,8 @@ export const incubatorNav: AppNavGroup[] = [
     subs: [
       { name: "Funding Support", href: "/incubator/support/funding" },
       { name: "IPR Support", href: "/incubator/support/ipr" },
-      { name: "Market Support", href: "/incubator/support#market", soon: true },
-      { name: "Investor Connections", href: "/incubator/support#investors", soon: true },
+      { name: "Market Support", href: "/incubator/support/market" },
+      { name: "Investor Connections", href: "/incubator/support/investors" },
     ],
   },
   { label: "Events & Workshops", icon: CalendarDays, href: "/incubator/events" },
