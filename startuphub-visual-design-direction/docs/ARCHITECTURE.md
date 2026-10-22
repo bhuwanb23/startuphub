@@ -2,7 +2,7 @@
 
 How this repository is structured, why it is structured that way, and how to add to it without breaking the pattern.
 
-> **Current state:** 11 role workspaces, 512 routes, 4 widget families, 22 public views.
+> **Current state:** 11 role workspaces, 516 routes, 4 widget families, 22 public views.
 > This document was rewritten after the investor/corporate/government/provider, talent/university,
 > and admin merges. Where a role was merged from another prototype, its own widget family
 > was preserved via a **prop union** rather than a rename — see §6.
@@ -68,7 +68,7 @@ src/app/
 ├── (app)/              ← authenticated role workspaces → app shell
 │   ├── layout.tsx      ← deliberately empty (see §3.2)
 │   ├── founder/        ← 54 screens
-│   ├── incubator/      ← 46 screens
+│   ├── incubator/      ← 50 screens
 │   ├── ipr-expert/     ← 31 screens
 │   ├── mentor/         ← 21 screens
 │   ├── investor/       ← 79 screens
@@ -123,9 +123,9 @@ export default function Page() {
 | Segment | `page.tsx` files | Kind |
 |---|---|---|
 | `(public)` pages | 34 | marketing / directory / solutions (incl. 2 dynamic) |
-| `(app)` pages | 478 | role workspaces (incl. 1 dynamic) |
-| **Total `page.tsx`** | **512** | |
-| Distinct URLs served | **532** | 509 static + 23 concrete slugs |
+| `(app)` pages | 482 | role workspaces (incl. 1 dynamic) |
+| **Total `page.tsx`** | **516** | |
+| Distinct URLs served | **539** | 516 static + 23 concrete slugs |
 | `api/health` | 1 | `route.ts` (not a page) — JSON health probe |
 
 The three dynamic route files — `events/[slug]`, `explore/startups/[slug]` and

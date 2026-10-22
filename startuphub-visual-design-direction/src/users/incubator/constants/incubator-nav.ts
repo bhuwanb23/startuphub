@@ -101,7 +101,16 @@ export const incubatorNav: AppNavGroup[] = [
       { name: "Investor Connections", href: "/incubator/support/investors" },
     ],
   },
-  { label: "Events & Workshops", icon: CalendarDays, href: "/incubator/events" },
+  {
+    label: "Events & Workshops", icon: CalendarDays, href: "/incubator/events",
+    subs: [
+      { name: "Event Management", href: "/incubator/events" },
+      { name: "Event Calendar", href: "/incubator/events/calendar" },
+      { name: "Registrations", href: "/incubator/events/registrations" },
+      { name: "Speakers & Sessions", href: "/incubator/events/speakers" },
+      { name: "Feedback & Outcomes", href: "/incubator/events/feedback" },
+    ],
+  },
   {
     label: "Performance", icon: TrendingUp, href: "/incubator/performance",
     subs: [
