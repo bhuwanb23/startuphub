@@ -17,8 +17,10 @@ import {
   CORPORATE_PILOTS,
   GOV_OPPORTUNITIES,
   MARKET_BLOCKERS,
+  MARKET_COVERAGE,
   MARKET_INTROS,
   MARKET_READINESS,
+  PILOT_FUNNEL,
   SECTOR_DEMAND,
 } from "../../constants/support-data";
 
@@ -356,7 +358,86 @@ export function MarketSupport() {
         </ul>
       </Card>
 
-      {/* ── 08 · Where to go next ────────────────────────────── */}
+      {/* ── 09 · Pilot conversion ────────────────────────────── */}
+      <Card
+        title="Pilot conversion"
+        sub="From a proposed pilot to a signed contract"
+        action={
+          <Badge tone="warn">
+            {Math.round((PILOT_FUNNEL.contract / PILOT_FUNNEL.proposed) * 100)}% convert
+          </Badge>
+        }
+      >
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { l: "Proposed", v: PILOT_FUNNEL.proposed, note: "An intro has been made", tone: "accent" as const },
+            { l: "In pilot", v: PILOT_FUNNEL.pilot, note: "Running against a KPI", tone: "accent" as const },
+            { l: "Signed", v: PILOT_FUNNEL.contract, note: "A commercial contract", tone: "good" as const },
+          ].map((x) => (
+            <div
+              key={x.l}
+              className="rounded-xl border border-line p-4 transition-colors hover:border-accent/25"
+            >
+              <p className="text-[12px] font-medium text-slate-500">{x.l}</p>
+              <p className="mt-2 text-[26px] font-semibold leading-none tracking-[-0.03em] text-ink tabular-nums">
+                {x.v}
+              </p>
+              <Progress
+                value={(x.v / PILOT_FUNNEL.proposed) * 100}
+                tone={x.tone}
+                className="mt-3"
+              />
+              <p className="mt-2.5 text-[11.5px] text-slate-400">{x.note}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 rounded-xl border border-line bg-soft p-4 text-[12.5px] leading-relaxed text-slate-600">
+          <span className="font-semibold text-ink">One pilot in six becomes a contract.</span>{" "}
+          Both losses were a missing success metric agreed before the pilot
+          started — not a product problem.
+        </p>
+      </Card>
+
+      {/* ── 10 · Market coverage ─────────────────────────────── */}
+      <Card
+        title="Market coverage"
+        sub="Where the portfolio is going, and how ready each market is"
+        action={<Badge tone="accent">{MARKET_COVERAGE.length} markets</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {MARKET_COVERAGE.map((m) => (
+            <li
+              key={m.market}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span className="min-w-[160px] flex-1">
+                <span className="block text-[13.5px] font-semibold text-ink">
+                  {m.market}
+                </span>
+                <span className="block text-[11.5px] text-slate-400">{m.note}</span>
+              </span>
+              <span className="w-16 shrink-0 text-right text-[12px] tabular-nums text-slate-500">
+                <b className="font-semibold text-ink">{m.startups}</b> startups
+              </span>
+              <div className="w-32 shrink-0">
+                <Progress
+                  value={m.readiness}
+                  tone={m.tone === "good" ? "good" : m.tone === "warn" ? "warn" : "accent"}
+                />
+              </div>
+              <span className="w-12 text-right text-[12px] font-semibold tabular-nums text-ink">
+                {m.readiness}%
+              </span>
+              <Badge tone={m.tone}>
+                {m.readiness >= 70 ? "Ready" : m.readiness >= 60 ? "Building" : "Early"}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 11 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="From market access to the rest of the stack">
         <div className="grid gap-3 sm:grid-cols-3">
           {[

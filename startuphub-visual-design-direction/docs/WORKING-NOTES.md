@@ -118,6 +118,25 @@ For real slugs, read them from the constants files:
 | `/events/[slug]` | `src/views/events/constants/events.ts` |
 | `/admin/ecosystem/[entity]` | `src/users/admin/constants/ecosystem.ts` |
 
+### Cross-importing a constants file needs the `.ts` extension
+
+The suites `import()` the constants files directly so they can assert on the
+data. Node's ESM loader does **not** resolve an extensionless specifier:
+
+```ts
+// ✗ works in Next, fails in the test runner
+import { PORTFOLIO } from "./startups-data";
+
+// ✓ works in both
+import { PORTFOLIO } from "./startups-data.ts";
+```
+
+The second form needs `"allowImportingTsExtensions": true` in `tsconfig.json`
+(permitted because `noEmit` is already set). Without it the import still
+compiles but the suite dies in its `before` hook with `ERR_MODULE_NOT_FOUND`,
+and every test in that file is reported as *cancelled* rather than failed —
+read the count, not just the red.
+
 ### False-positive error markers
 
 Every page embeds Next.js's preloaded 404 boundary in its RSC flight payload, so
@@ -252,7 +271,22 @@ Custom (non-utility) classes in `globals.css`:
 ```bash
 npm run typecheck   # tsc --noEmit  → must exit 0
 npm run lint        # eslint .      → must exit 0
+npm test            # node --test tests/  → every suite green
 ```
+
+`npm test` is the real gate. Each incubator feature has its own suite under
+`tests/` (`incubator-resources.test.mjs`, `incubator-support.test.mjs`, …) and
+each one asserts three things the eye cannot: that the routes resolve, that the
+sidebar has no dead links, and that the shared dataset is internally consistent.
+A new page without a suite is a page that will silently rot.
+
+The suites also run an HTTP smoke check against `http://localhost:3000`. It
+**skips itself** when the dev server is down, so `npm test` passes locally
+without a server — but that also means a green run proves nothing about the
+pages. Start the dev server and re-run before you trust it.
+
+Then sweep every route against the running server (serially — see §3) so a
+broken deep link in a group you did not touch still surfaces.
 
 Both are clean on `main` today. The lint config is `eslint-config-next` flat config,
 which pulls in `eslint-plugin-react`, `eslint-plugin-react-hooks` and

@@ -20,6 +20,7 @@ import {
   FUNDING_DEALS,
   FUNDING_INTERVENTIONS,
   FUNDING_STATUS,
+  FUNDING_VELOCITY,
   GRANT_SCHEMES,
 } from "../../constants/support-data";
 
@@ -403,6 +404,78 @@ export function FundingSupport() {
         >
           Match these raises to investors →
         </Link>
+      </Card>
+      {/* ── 10 · Funding velocity ────────────────────────────── */}
+      <Card
+        title="Funding velocity"
+        sub="How long each step of a raise actually takes"
+        action={<Badge tone="warn">9 days to first meeting</Badge>}
+      >
+        <div className="space-y-4">
+          {FUNDING_VELOCITY.map((v) => (
+            <div key={v.stage} className="flex items-center gap-3">
+              <span className="w-[190px] shrink-0 text-[12.5px] font-medium text-slate-600">
+                {v.stage}
+              </span>
+              <Progress
+                value={(v.days / 100) * 100}
+                tone={v.tone === "good" ? "good" : v.tone === "warn" ? "warn" : "accent"}
+                className="flex-1"
+              />
+              <span className="w-12 text-right text-[12px] font-semibold tabular-nums text-ink">
+                {v.days}d
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 rounded-xl border border-line bg-soft p-4 text-[12.5px] leading-relaxed text-slate-600">
+          <span className="font-semibold text-ink">The programme answers in two days.</span>{" "}
+          Everything after that is the market — and nine days to a first meeting
+          is the part we still control.
+        </p>
+      </Card>
+
+      {/* ── 11 · Where to go next ────────────────────────────── */}
+      <Card title="Where to go next" sub="From the raise to the rest of the stack">
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            {
+              href: "/incubator/support/investors",
+              title: "Investor connections",
+              body: "Who the network says will actually fund this.",
+              icon: HandCoins,
+            },
+            {
+              href: "/incubator/support/ipr",
+              title: "IPR support",
+              body: "Diligence stops on filings, not on pitch.",
+              icon: FileWarning,
+            },
+            {
+              href: "/incubator/support",
+              title: "All support",
+              body: "The full queue across four pillars.",
+              icon: Target,
+            },
+          ].map((a) => (
+            <Link
+              key={a.href}
+              href={a.href}
+              className="group rounded-xl border border-line p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-soft"
+            >
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                <a.icon className="h-4 w-4" />
+              </span>
+              <p className="mt-3 text-[13.5px] font-semibold text-ink">{a.title}</p>
+              <p className="mt-1.5 text-[12.5px] leading-relaxed text-slate-500">
+                {a.body}
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-accent">
+                Open <ArrowUpRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
       </Card>
     </div>
   );

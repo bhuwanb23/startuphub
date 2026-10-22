@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   Handshake,
   Radio,
+  ShieldAlert,
   Sparkles,
   TrendingUp,
   UserRoundCheck,
@@ -15,11 +16,13 @@ import { Badge, Card, PageHeader, Progress, Stat } from "@/components/app/widget
 import { cn } from "@/lib/utils";
 import { investors } from "@/views/explore/investors/constants/investors";
 import {
+  INTRO_CAPACITY,
   INTRO_FUNNEL,
   INTRO_PIPELINE,
   INVESTOR_DEMAND,
   INVESTOR_MATCHES,
   RELATIONSHIPS,
+  SECTOR_FIT,
 } from "../../constants/support-data";
 
 export function InvestorConnections() {
@@ -344,7 +347,92 @@ export function InvestorConnections() {
         </ul>
       </Card>
 
-      {/* ── 08 · Where to go next ────────────────────────────── */}
+      {/* ── 09 · Intro capacity ──────────────────────────────── */}
+      <Card
+        title="Introduction capacity"
+        sub="How many intros the programme can actually make each month"
+        action={<Badge tone="warn">March ran at 88%</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {INTRO_CAPACITY.map((c) => (
+            <li
+              key={c.month}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span className="w-24 shrink-0 font-mono text-[11px] text-slate-400">
+                {c.month}
+              </span>
+              <div className="w-40 shrink-0">
+                <Progress
+                  value={(c.used / c.capacity) * 100}
+                  tone={c.tone === "good" ? "good" : c.tone === "warn" ? "warn" : "accent"}
+                />
+              </div>
+              <span className="w-12 text-right text-[12px] font-semibold tabular-nums text-ink">
+                {c.used}/{c.capacity}
+              </span>
+              <span className="hidden min-w-[220px] flex-1 text-[12px] text-slate-500 lg:block">
+                {c.note}
+              </span>
+              <Badge tone={c.tone}>
+                {c.used / c.capacity > 0.8 ? "Near limit" : "Headroom"}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+        <p className="border-t border-line px-5 py-3.5 text-[11.5px] text-slate-400">
+          Capacity is 16 a month across the team. March ran at 88% — one more
+          good month like that and the intro queue becomes the bottleneck.
+        </p>
+      </Card>
+
+      {/* ── 10 · Sector fit ──────────────────────────────────── */}
+      <Card
+        title="Sector fit"
+        sub="Where the network covers the portfolio, and where it does not"
+        action={<Badge tone="bad">3 sectors uncovered</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {SECTOR_FIT.map((s) => (
+            <li
+              key={s.sector}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span
+                className={cn(
+                  "grid h-9 w-9 shrink-0 place-items-center rounded-lg",
+                  s.covered
+                    ? "bg-rise-tint text-rise"
+                    : "bg-red-50 text-red-600",
+                )}
+              >
+                {s.covered ? (
+                  <UserRoundCheck className="h-4 w-4" />
+                ) : (
+                  <ShieldAlert className="h-4 w-4" />
+                )}
+              </span>
+              <span className="min-w-[140px] flex-1">
+                <span className="block text-[13.5px] font-semibold text-ink">
+                  {s.sector}
+                </span>
+                <span className="block text-[11.5px] text-slate-400">{s.note}</span>
+              </span>
+              <span className="w-20 shrink-0 text-right text-[12px] tabular-nums text-slate-500">
+                <b className="font-semibold text-ink">{s.investors}</b> investors
+              </span>
+              <span className="w-20 shrink-0 text-right text-[12px] tabular-nums text-slate-500">
+                <b className="font-semibold text-ink">{s.startups}</b> startups
+              </span>
+              <Badge tone={s.tone}>{s.covered ? "Covered" : "Gap"}</Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 11 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="From the network to the rest of the stack">
         <div className="grid gap-3 sm:grid-cols-3">
           {[

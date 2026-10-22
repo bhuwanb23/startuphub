@@ -14,8 +14,10 @@ import { Badge, Card, PageHeader, Progress, Stat } from "@/components/app/widget
 import { cn } from "@/lib/utils";
 import {
   COUNSEL_SLOTS,
+  FILING_TURNAROUND,
   IP_DEADLINES,
   IP_EXPERTS,
+  IP_MATURITY,
   IP_PORTFOLIO,
   IP_RISKS,
   IP_STATUS,
@@ -368,7 +370,83 @@ export function IprSupport() {
         </ul>
       </Card>
 
-      {/* ── 08 · Where to go next ────────────────────────────── */}
+      {/* ── 09 · IP maturity ─────────────────────────────────── */}
+      <Card
+        title="IP maturity"
+        sub="How defensible each startup's position actually is"
+        action={<Badge tone="bad">{IP_MATURITY[3].startups} with no position</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {IP_MATURITY.map((m) => (
+            <li
+              key={m.band}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span
+                className={cn(
+                  "grid h-9 w-9 shrink-0 place-items-center rounded-lg",
+                  m.tone === "good"
+                    ? "bg-rise-tint text-rise"
+                    : m.tone === "warn"
+                      ? "bg-amber-tint text-amber-dim"
+                      : m.tone === "bad"
+                        ? "bg-red-50 text-red-600"
+                        : "bg-accent-soft text-accent",
+                )}
+              >
+                <FileCheck2 className="h-4 w-4" />
+              </span>
+              <div className="min-w-[160px] flex-1">
+                <p className="text-[13.5px] font-semibold text-ink">{m.band}</p>
+                <p className="mt-0.5 text-[11.5px] text-slate-400">{m.note}</p>
+              </div>
+              <span className="hidden min-w-[190px] text-[12px] text-slate-500 lg:block">
+                {m.range}
+              </span>
+              <span className="text-[12px] tabular-nums text-slate-500">
+                <b className="font-semibold text-ink">{m.startups}</b> startups
+              </span>
+              <Badge tone={m.tone}>{m.band}</Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 10 · Filing turnaround ───────────────────────────── */}
+      <Card
+        title="Filing turnaround"
+        sub="How long each kind of filing takes end to end"
+        action={<Badge tone="accent">{FILING_TURNAROUND.length} filing types</Badge>}
+      >
+        <div className="space-y-4">
+          {FILING_TURNAROUND.map((f) => (
+            <div key={f.type} className="flex items-center gap-3">
+              <span className="w-[170px] shrink-0 text-[12.5px] font-medium text-slate-600">
+                {f.type}
+              </span>
+              <Progress
+                value={(f.days / 100) * 100}
+                tone={f.tone === "good" ? "good" : f.tone === "warn" ? "warn" : "accent"}
+                className="flex-1"
+              />
+              <span className="w-12 text-right text-[12px] font-semibold tabular-nums text-ink">
+                {f.days}d
+              </span>
+              <span className="w-14 text-right text-[11.5px] tabular-nums text-slate-400">
+                {f.volume} filed
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 rounded-xl border border-line bg-soft p-4 text-[12.5px] leading-relaxed text-slate-600">
+          <span className="font-semibold text-ink">Design registrations are the slow one</span>{" "}
+          — 47 days, and two of ours are still provisional. Everything else fits
+          inside a grant cycle.
+        </p>
+      </Card>
+
+      {/* ── 11 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="From IP to the rest of the support stack">
         <div className="grid gap-3 sm:grid-cols-3">
           {[

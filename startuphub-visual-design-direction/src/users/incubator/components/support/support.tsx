@@ -13,6 +13,8 @@ import { Badge, Card, PageHeader, Progress, Stat } from "@/components/app/widget
 import { cn } from "@/lib/utils";
 import {
   PILLAR_COVERAGE,
+  SUPPORT_COVERAGE,
+  SUPPORT_FLOW,
   SUPPORT_INTERVENTIONS,
   SUPPORT_KPIS,
   SUPPORT_QUEUE,
@@ -254,7 +256,90 @@ export function Support() {
         </ul>
       </Card>
 
-      {/* ── 06 · Interventions ───────────────────────────────── */}
+      {/* ── 06 · Portfolio coverage ───────────────────────────── */}
+      <Card
+        title="Portfolio coverage"
+        sub="Which pillar each startup is actually drawing on"
+        action={<Badge tone="accent">{SUPPORT_COVERAGE.length} startups</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {SUPPORT_COVERAGE.map((c) => (
+            <li
+              key={c.startupSlug}
+              className="flex flex-wrap items-center gap-4 px-5 py-3.5 transition-colors hover:bg-soft"
+            >
+              <span className="min-w-[150px] flex-1 text-[13px] font-semibold text-ink">
+                {c.startup}
+              </span>
+              {(["funding", "ipr", "market", "investor"] as const).map((p) => (
+                <span
+                  key={p}
+                  className={cn(
+                    "w-20 rounded-md py-1 text-center text-[10.5px] font-semibold uppercase tracking-[0.08em]",
+                    c[p]
+                      ? "bg-rise-tint text-rise"
+                      : "bg-soft text-slate-300",
+                  )}
+                >
+                  {p}
+                </span>
+              ))}
+              <span className="hidden min-w-[210px] text-[11.5px] text-slate-500 lg:block">
+                {c.note}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-4 border-t border-line px-5 py-3.5">
+          <span className="flex items-center gap-1.5 text-[11.5px] text-slate-500">
+            <span className="h-2 w-2 rounded-full bg-rise" /> Active pillar
+          </span>
+          <span className="flex items-center gap-1.5 text-[11.5px] text-slate-500">
+            <span className="h-2 w-2 rounded-full bg-line" /> Not in use
+          </span>
+        </div>
+      </Card>
+
+      {/* ── 07 · Support flow ─────────────────────────────────── */}
+      <Card
+        title="How a support request moves"
+        sub="The path from a founder's sentence to a recorded outcome"
+        action={<Badge tone="accent">{SUPPORT_FLOW.length} steps</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {SUPPORT_FLOW.map((f) => (
+            <li
+              key={f.step}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span
+                className={cn(
+                  "grid h-8 w-8 shrink-0 place-items-center rounded-lg font-mono text-[11px] font-bold",
+                  f.tone === "good"
+                    ? "bg-rise-tint text-rise"
+                    : f.tone === "accent"
+                      ? "bg-accent-soft text-accent"
+                      : "bg-soft text-slate-500",
+                )}
+              >
+                {f.step}
+              </span>
+              <span className="min-w-[170px] flex-1">
+                <span className="block text-[13px] font-semibold text-ink">{f.title}</span>
+                <span className="block text-[11.5px] text-slate-400">{f.action}</span>
+              </span>
+              <span className="min-w-[150px] text-[12.5px] text-slate-600">{f.owner}</span>
+              <span className="w-24 shrink-0 text-right font-mono text-[10.5px] text-slate-400">
+                {f.window}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 08 · Interventions ───────────────────────────────── */}
       <Card
         title="Recent interventions"
         sub="What the programme actually did, and what it moved"
@@ -302,7 +387,7 @@ export function Support() {
         </ul>
       </Card>
 
-      {/* ── 07 · Where to go next ────────────────────────────── */}
+      {/* ── 09 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="Open a pillar directly">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PILLAR_COVERAGE.map((p) => {
@@ -329,7 +414,7 @@ export function Support() {
         </div>
       </Card>
 
-      {/* ── 08 · Copilot insight ─────────────────────────────── */}
+      {/* ── 10 · Copilot insight ─────────────────────────────── */}
       <Card
         title="Copilot insight"
         sub="Where the support load is heading"

@@ -11,7 +11,7 @@
  * the resources pages already promise.
  */
 
-import { PORTFOLIO } from "./startups-data";
+import { PORTFOLIO } from "./startups-data.ts";
 
 /* ── Types ─────────────────────────────────────────────────────── */
 
@@ -67,6 +67,26 @@ export type SupportIntervention = {
   pillar: SupportPillar;
   impact: string;
   status: string;
+  note: string;
+  tone: Tone;
+};
+
+export type SupportFlowStep = {
+  step: number;
+  title: string;
+  owner: string;
+  window: string;
+  action: string;
+  tone: Tone;
+};
+
+export type CoverageCell = {
+  startup: string;
+  startupSlug: string;
+  funding: boolean;
+  ipr: boolean;
+  market: boolean;
+  investor: boolean;
   note: string;
   tone: Tone;
 };
@@ -356,8 +376,31 @@ export const SUPPORT_INTERVENTIONS: SupportIntervention[] = [
   { id: "si-6", action: "Rebuilt the FreshChain runway plan", startup: "FreshChain", startupSlug: "freshchain", pillar: "Funding", impact: "High", status: "In progress", note: "Turned a four-month gap into a twelve-week bridge ask", tone: "warn" },
 ];
 
-/* ── Funding data ─────────────────────────────────────────────── */
+export const SUPPORT_FLOW: SupportFlowStep[] = [
+  { step: 1, title: "Request raised", owner: "Startup founder", window: "Day 0", action: "One sentence on what is needed and by when", tone: "default" },
+  { step: 2, title: "Triaged and assigned", owner: "Programme inbox", window: "Same day", action: "Routed to the pillar owner with the context attached", tone: "accent" },
+  { step: 3, title: "First response", owner: "Pillar owner", window: "2 working days", action: "A decision, not a holding note", tone: "accent" },
+  { step: 4, title: "Action taken", owner: "Pillar owner", window: "1–4 weeks", action: "Clinic, intro, filing or pilot — whatever the pillar is", tone: "good" },
+  { step: 5, title: "Outcome recorded", owner: "Meera Iyer", window: "Quarterly review", action: "Logged so the next request starts further along", tone: "good" },
+];
 
+export const SUPPORT_COVERAGE: CoverageCell[] = [
+  { startup: "Lumen AI", startupSlug: "lumen-ai", funding: true, ipr: true, market: true, investor: true, note: "Full support — no gaps", tone: "good" },
+  { startup: "AquaPure", startupSlug: "aquapure", funding: true, ipr: true, market: true, investor: true, note: "Full support — no gaps", tone: "good" },
+  { startup: "TerraGrid", startupSlug: "terragrid", funding: true, ipr: false, market: true, investor: true, note: "No IPR work needed right now", tone: "default" },
+  { startup: "FinEdge", startupSlug: "finedge", funding: true, ipr: true, market: false, investor: true, note: "No market access yet", tone: "warn" },
+  { startup: "OrbitalWorks", startupSlug: "orbitalworks", funding: true, ipr: true, market: true, investor: true, note: "Full support — IPR is the pinch point", tone: "warn" },
+  { startup: "FreshChain", startupSlug: "freshchain", funding: true, ipr: true, market: false, investor: false, note: "Funding and IP only — everything else is on hold", tone: "bad" },
+  { startup: "GridSense", startupSlug: "gridsense", funding: true, ipr: false, market: true, investor: false, note: "Market is the only active pillar", tone: "bad" },
+  { startup: "MedSync", startupSlug: "medsync", funding: false, ipr: true, market: true, investor: false, note: "Not raising — support is commercial", tone: "default" },
+  { startup: "EduFold", startupSlug: "edufold", funding: true, ipr: true, market: true, investor: true, note: "Full support — IPR gap on curriculum", tone: "warn" },
+  { startup: "HealthLoop", startupSlug: "healthloop", funding: true, ipr: false, market: true, investor: true, note: "Procurement is the blocker", tone: "warn" },
+  { startup: "QuantumLeaf", startupSlug: "quantumleaf", funding: true, ipr: true, market: false, investor: true, note: "No market access yet", tone: "warn" },
+  { startup: "BloomBio", startupSlug: "bloombio", funding: true, ipr: true, market: false, investor: false, note: "Pre-market — validation first", tone: "default" },
+  { startup: "SilkRoute AI", startupSlug: "silkroute", funding: true, ipr: true, market: true, investor: false, note: "Market ready, no raise yet", tone: "default" },
+];
+
+/* ── Funding data ─────────────────────────────────────────────── */
 /* Support-specific fields per startup. Everything else — stage, readiness,
  * health and money raised — is read straight from the portfolio. */
 const FUNDING_DETAIL: Record<
@@ -440,6 +483,13 @@ export const FUNDING_CALENDAR: FundingCalendar[] = [
   { month: "Jun 2026", event: "Demo day — Cohort VI", count: 14, note: "Two raises are pitched on the same day", tone: "accent" },
 ];
 
+export const FUNDING_VELOCITY: { stage: string; days: number; note: string; tone: Tone }[] = [
+  { stage: "Intro to first meeting", days: 9, note: "The longest wait is ours, not theirs", tone: "warn" },
+  { stage: "First meeting to term sheet", days: 41, note: "Normal for a seed round", tone: "accent" },
+  { stage: "Term sheet to first close", days: 58, note: "Legal and diligence, not the programme", tone: "default" },
+  { stage: "Programme response", days: 2, note: "From request to a first answer", tone: "good" },
+];
+
 /* ── IPR data ─────────────────────────────────────────────────── */
 
 const IP_DETAIL: Record<
@@ -514,6 +564,21 @@ export const IP_DEADLINES: IpDeadline[] = [
   { id: "id-6", filing: "Founder assignment — routing patent", startup: "SilkRoute AI", startupSlug: "silkroute", due: "22 Jun 2026", days: 61, owner: "Meera Iyer", note: "One page, but it has to be signed", tone: "default" },
 ];
 
+export const FILING_TURNAROUND: { type: string; days: number; volume: number; note: string; tone: Tone }[] = [
+  { type: "Trademark", days: 21, volume: 9, note: "Standard class 9 and 42 filings", tone: "good" },
+  { type: "Copyright", days: 14, volume: 7, note: "Fastest — the office is largely automated", tone: "good" },
+  { type: "Design", days: 47, volume: 6, note: "Longest, and two are still provisional", tone: "warn" },
+  { type: "Patent (provisional)", days: 9, volume: 11, note: "Provisional only — the real work is the search", tone: "accent" },
+  { type: "Patent (complete)", days: 96, volume: 5, note: "Counsel and the examiner, not the programme", tone: "default" },
+];
+
+export const IP_MATURITY: { band: string; startups: number; range: string; note: string; tone: Tone }[] = [
+  { band: "Exemplar", startups: 2, range: "Filed before launch", note: "HealthLoop and Lumen AI", tone: "good" },
+  { band: "Sound", startups: 4, range: "Filed, one open gap", note: "Progressing normally", tone: "accent" },
+  { band: "Thin", startups: 5, range: "One or two filings", note: "Brand protection only, nothing defensible", tone: "warn" },
+  { band: "Absent", startups: 2, range: "No filings at all", note: "FreshChain and EduFold's curriculum work", tone: "bad" },
+];
+
 /* ── Market data ──────────────────────────────────────────────── */
 
 const MARKET_DETAIL: Record<
@@ -583,6 +648,24 @@ export const MARKET_INTROS: MarketIntro[] = [
   { id: "mi-6", startup: "EduFold", startupSlug: "edufold", partner: "State education department", type: "Pilot", status: "Proposed", value: "₹6 L pilot", note: "Six-week procurement cycle", tone: "default" },
 ];
 
+export const PILOT_FUNNEL = {
+  proposed: 6,
+  pilot: 3,
+  contract: 1,
+};
+
+export const MARKET_COVERAGE: { market: string; startups: number; readiness: number; note: string; tone: Tone }[] = [
+  { market: "AgriTech", startups: 3, readiness: 64, note: "Two raises, one bridge — the most crowded", tone: "warn" },
+  { market: "HealthTech", startups: 2, readiness: 71, note: "One is scaling, one has not chosen its buyer", tone: "accent" },
+  { market: "ClimateTech", startups: 2, readiness: 62, note: "Both converting pilots slowly", tone: "warn" },
+  { market: "Water & clean tech", startups: 1, readiness: 79, note: "A municipal buyer and a corporate VC", tone: "good" },
+  { market: "FinTech", startups: 1, readiness: 63, note: "No reference customer yet", tone: "warn" },
+  { market: "Logistics", startups: 1, readiness: 72, note: "Enterprise cycle, but the product works", tone: "accent" },
+  { market: "Space", startups: 1, readiness: 76, note: "Deep tech, long procurement", tone: "accent" },
+  { market: "BioTech", startups: 1, readiness: 61, note: "Validation before any buyer conversation", tone: "default" },
+  { market: "EdTech", startups: 1, readiness: 71, note: "Two districts would unlock it", tone: "accent" },
+];
+
 export const SECTOR_DEMAND: SectorDemand[] = [
   { sector: "AgriTech", interest: 3, startups: 3, note: "The warmest sector — three funds want more here", tone: "good" },
   { sector: "ClimateTech", interest: 3, startups: 2, note: "Two funds are actively looking", tone: "good" },
@@ -622,6 +705,23 @@ export const INTRO_FUNNEL = {
   met: 22,
   termSheet: 7,
 };
+
+export const INTRO_CAPACITY: { month: string; capacity: number; used: number; note: string; tone: Tone }[] = [
+  { month: "Feb 2026", capacity: 14, used: 9, note: "Meera carried most of the month", tone: "default" },
+  { month: "Mar 2026", capacity: 16, used: 14, note: "Almost at the limit", tone: "warn" },
+  { month: "Apr 2026", capacity: 16, used: 6, note: "Half the month gone — 6 of 16", tone: "good" },
+];
+
+export const SECTOR_FIT: { sector: string; investors: number; startups: number; covered: boolean; note: string; tone: Tone }[] = [
+  { sector: "AgriTech", investors: 3, startups: 3, covered: true, note: "Northgate, Atlas and Samriddhi all invest here", tone: "good" },
+  { sector: "ClimateTech", investors: 2, startups: 2, covered: true, note: "Vertex and Meridian between them", tone: "good" },
+  { sector: "HealthTech", investors: 3, startups: 2, covered: true, note: "Nexus, Vertex and Northgate", tone: "good" },
+  { sector: "DeepTech", investors: 1, startups: 1, covered: true, note: "Atlas is the only specialist", tone: "accent" },
+  { sector: "FinTech", investors: 1, startups: 1, covered: true, note: "Northgate only, and not at pre-seed", tone: "warn" },
+  { sector: "Logistics", investors: 1, startups: 1, covered: false, note: "Vertex is growth-stage — a stretch for us", tone: "bad" },
+  { sector: "EdTech", investors: 1, startups: 1, covered: false, note: "Outside every stated focus in the network", tone: "bad" },
+  { sector: "BioTech", investors: 0, startups: 1, covered: false, note: "No investor in the network looks at biotech", tone: "bad" },
+];
 
 export const INVESTOR_DEMAND: InvestorDemand[] = [
   { stage: "Pre-seed", interest: 74, count: 2, note: "Nexus Angels and Atlas Capital both write here", tone: "good" },
