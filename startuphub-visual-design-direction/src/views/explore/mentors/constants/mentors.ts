@@ -60,11 +60,43 @@ export const mentors: Mentor[] = [
     sessions: 143, availability: "Waitlist",
     bio: "Shipped learning products used by 40M students. Reviews product with brutal kindness and a whiteboard.",
   },
+  {
+    slug: "nikhil-verma",
+    name: "Nikhil Verma", role: "ex-VP Engineering, QuickShip",
+    expertise: ["Architecture", "Logistics", "Team building"],
+    industry: "Logistics", experience: "15 yrs", location: "Hyderabad",
+    sessions: 167, availability: "2 slots / week",
+    bio: "Ran a 400-engineer org through three re-platforms. Teaches founders how to sequence infra work so it survives Series A.",
+  },
+  {
+    slug: "sara-dsouza",
+    name: "Sara D'Souza", role: "Founder, D2C brand (acquired 2021)",
+    expertise: ["Brand", "Retention", "Unit economics"],
+    industry: "D2C / Retail", experience: "10 yrs", location: "Mumbai",
+    sessions: 121, availability: "1 slot / week",
+    bio: "Built a ₹40 Cr D2C brand from a spare room and sold it. Keeps a sharp eye on contribution margin, not vanity revenue.",
+  },
+  {
+    slug: "imran-sheikh",
+    name: "Imran Sheikh", role: "Growth & Performance Marketing Lead",
+    expertise: ["Growth loops", "Paid acquisition", "Analytics"],
+    industry: "D2C / Retail", experience: "9 yrs", location: "Hyderabad",
+    sessions: 88, availability: "2 slots / week",
+    bio: "Runs spend across six brands and knows exactly which CAC numbers were engineered rather than earned.",
+  },
+  {
+    slug: "lakshmi-iyer",
+    name: "Lakshmi Iyer", role: "ex-Head of Supply Chain, BigBasket",
+    expertise: ["Supply chain", "FPO sourcing", "Unit economics"],
+    industry: "AgriTech", experience: "17 yrs", location: "Coimbatore",
+    sessions: 203, availability: "Monthly office hours",
+    bio: "Sourced from 900+ farmer producer organisations. Helps agri founders model harvest cycles before they model growth.",
+  },
 ];
 
 export const mentorFilters = {
-  expertise: ["Product", "Growth loops", "Fundraising", "Patents", "Architecture", "Enterprise sales"],
-  industries: ["FinTech", "Consumer", "Legal / IPR", "SaaS", "Manufacturing", "EdTech"],
-  locations: ["Mumbai", "Bengaluru", "Chennai", "Pune", "Ahmedabad", "Delhi NCR"],
+  expertise: ["Product", "Growth loops", "Fundraising", "Patents", "Architecture", "Enterprise sales", "Supply chain", "Brand", "Analytics"],
+  industries: ["FinTech", "Consumer", "Legal / IPR", "SaaS", "Manufacturing", "EdTech", "Logistics", "AgriTech", "D2C / Retail"],
+  locations: ["Mumbai", "Bengaluru", "Chennai", "Pune", "Ahmedabad", "Delhi NCR", "Hyderabad", "Coimbatore"],
   availability: ["2 slots / week", "1 slot / week", "Monthly office hours", "Waitlist"],
 };
