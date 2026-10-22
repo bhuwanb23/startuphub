@@ -367,11 +367,11 @@ export function ResourceAllocation() {
       <Card
         title="Allocation coverage"
         sub="How the committed budget reaches the portfolio"
-        action={<Badge tone="accent">top 8 of 34</Badge>}
+        action={<Badge tone="accent">top 8 of 13</Badge>}
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { l: "Startups holding a resource", v: "8", n: "of 34 in the portfolio" },
+            { l: "Startups holding a resource", v: "8", n: "of 13 in the portfolio" },
             { l: "Largest single holding", v: "₹3.2 L", n: "Lumen AI — GPU cluster" },
             { l: "Average per startup", v: "₹1.7 L", n: "across the top 8" },
             { l: "Unallocated", v: "₹7.9 L", n: "of the committed budget" },

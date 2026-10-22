@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import {
   APPROVAL_ROUTES,
   COVERAGE_GAPS,
+  ESCALATION,
   REQUEST_TREND,
   RESOURCE_REQUESTS,
   TURNAROUND,
@@ -57,6 +58,12 @@ export function ResourceRequests() {
     TURNAROUND.reduce((s, t) => s + t.days * t.volume, 0) /
       TURNAROUND.reduce((s, t) => s + t.volume, 0),
   );
+  const counts = RESOURCE_REQUESTS.reduce(
+    (acc, r) => ({ ...acc, [r.status]: (acc[r.status] ?? 0) + 1 }),
+    {} as Record<RequestStatus, number>,
+  );
+  const valueOf = (s: RequestStatus) =>
+    RESOURCE_REQUESTS.filter((r) => r.status === s).reduce((t, r) => t + r.value, 0);
 
   return (
     <div className="space-y-6">
@@ -317,10 +324,30 @@ export function ResourceRequests() {
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { l: "Approved in full", v: "3", note: "₹11.5 L of requests" },
-            { l: "Partially approved", v: "1", note: "₹3.0 L of requests" },
-            { l: "Awaiting decision", v: "2", note: "₹5.6 L of requests" },
-            { l: "Rejected", v: "1", note: "₹0.6 L of requests" },
+            {
+              l: "Approved in full",
+              v: String(counts.Approved),
+              note: `₹${valueOf("Approved").toFixed(1)} L of requests`,
+              tone: "good",
+            },
+            {
+              l: "Partially approved",
+              v: String(counts["Partially approved"]),
+              note: `₹${valueOf("Partially approved").toFixed(1)} L of requests`,
+              tone: "accent",
+            },
+            {
+              l: "Awaiting decision",
+              v: String(counts.Pending),
+              note: `₹${valueOf("Pending").toFixed(1)} L of requests`,
+              tone: "warn",
+            },
+            {
+              l: "Rejected",
+              v: String(counts.Rejected),
+              note: `₹${valueOf("Rejected").toFixed(1)} L of requests`,
+              tone: "bad",
+            },
           ].map((x) => (
             <div
               key={x.l}
@@ -336,7 +363,47 @@ export function ResourceRequests() {
         </div>
       </Card>
 
-      {/* ── 08 · Where to go next ────────────────────────────── */}
+      {/* ── 08 · Escalation path ─────────────────────────────── */}
+      <Card
+        title="Escalation path"
+        sub="What happens when a request stalls"
+        action={<Badge tone="bad">{ESCALATION.length} steps</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {ESCALATION.map((e) => (
+            <li
+              key={e.step}
+              className="flex flex-col gap-3 px-5 py-4 transition-colors hover:bg-soft sm:flex-row sm:items-center sm:gap-4"
+            >
+              <span
+                className={cn(
+                  "grid h-8 w-8 shrink-0 place-items-center rounded-lg font-mono text-[11px] font-bold",
+                  e.tone === "bad"
+                    ? "bg-red-50 text-red-600"
+                    : e.tone === "warn"
+                      ? "bg-amber-tint text-amber-dim"
+                      : "bg-soft text-slate-500",
+                )}
+              >
+                {e.step}
+              </span>
+              <div className="min-w-[220px] flex-1">
+                <p className="text-[13px] font-semibold text-ink">{e.trigger}</p>
+                <p className="mt-0.5 text-[11.5px] text-slate-400">{e.action}</p>
+              </div>
+              <span className="min-w-[160px] text-[12.5px] text-slate-600">
+                {e.owner}
+              </span>
+              <span className="w-24 shrink-0 text-right font-mono text-[10.5px] text-slate-400">
+                {e.window}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 09 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="From the queue to the allocation">
         <div className="grid gap-3 sm:grid-cols-3">
           {[

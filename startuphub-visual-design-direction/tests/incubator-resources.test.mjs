@@ -95,9 +95,7 @@ describe("incubator resource routes", () => {
 
     test(`${href} has at least 8 content sections`, () => {
       const src = read(files.component);
-      const sections =
-        (src.match(/<Card[\s>]/g) ?? []).length +
-        (src.match(/className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"/g) ?? []).length;
+      const sections = (src.match(/<Card[\s>]/g) ?? []).length;
       assert.ok(sections >= 8, `${href} has ${sections} sections, expected >= 8`);
     });
   }
@@ -106,9 +104,12 @@ describe("incubator resource routes", () => {
 describe("incubator resources sidebar", () => {
   const nav = read(NAV);
   const start = nav.indexOf('label: "Resources"');
-  const end = nav.indexOf('label: "Support"');
-  const block = nav.slice(start, end);
-  const hrefs = [...block.matchAll(/href: "(\/incubator\/resources[^"]*)"/g)].map(
+  const end = nav.indexOf('label: "Startup Support"');
+  assert.ok(start > -1 && end > start, "could not locate the Resources nav group");
+  /* Only the group's own `subs` — the group-level href sits before them. */
+  const group = nav.slice(start, end);
+  const subs = group.slice(group.indexOf("subs: ["));
+  const hrefs = [...subs.matchAll(/href: "(\/incubator\/resources[^"]*)"/g)].map(
     (m) => m[1],
   );
 
@@ -126,7 +127,7 @@ describe("incubator resources sidebar", () => {
   });
 
   test("no resource sub-page is flagged 'soon'", () => {
-    assert.ok(!/soon:\s*true/.test(block), "a resource sub-page is still flagged 'soon'");
+    assert.ok(!/soon:\s*true/.test(subs), "a resource sub-page is still flagged 'soon'");
   });
 
   test("the four resource links are distinct", () => {
@@ -326,6 +327,66 @@ describe("incubator resources data", () => {
     for (const c of expiring) {
       assert.ok(c.daysLeft > 0, `${c.label} has already expired`);
     }
+  });
+
+  test("every category is covered by the eligibility rules", () => {
+    const eligible = new Set(data.ELIGIBILITY.map((e) => e.category));
+    for (const r of data.INVENTORY) {
+      assert.ok(eligible.has(r.category), `no eligibility rule for "${r.category}"`);
+    }
+    for (const e of data.ELIGIBILITY) {
+      assert.ok(e.criteria.length > 0, `"${e.category}" has no eligibility criteria`);
+      assert.ok(e.who.length > 0, `"${e.category}" has no audience`);
+    }
+  });
+
+  test("the escalation path is ordered and every step has an owner", () => {
+    const steps = data.ESCALATION.map((e) => e.step);
+    assert.deepEqual(steps, [1, 2, 3, 4], `escalation steps are ${steps.join(", ")}`);
+    for (const e of data.ESCALATION) {
+      assert.ok(e.owner.length > 0, `escalation step ${e.step} has no owner`);
+      assert.ok(e.window.length > 0, `escalation step ${e.step} has no window`);
+    }
+  });
+
+  test("team utilisation groups stay in range and match the pool", () => {
+    for (const t of data.TEAM_UTILISATION) {
+      assert.ok(t.pool >= 0 && t.pool <= 100, `${t.group} is ${t.pool}%, out of range`);
+    }
+    /* Workspace and compute must agree with the asset-level figures. */
+    const workspace = data.TEAM_UTILISATION.find((t) => t.group === "Workspace");
+    const desk = data.INVENTORY.find((r) => r.category === "Workspace");
+    assert.equal(workspace.pool, desk.used, "workspace team usage differs from the desk");
+    const compute = data.TEAM_UTILISATION.find((t) => t.group === "Compute & cloud");
+    const gpu = data.INVENTORY.find((r) => r.category === "Compute");
+    assert.equal(compute.pool, gpu.used, "compute team usage differs from the GPU cluster");
+  });
+
+  test("the budget ledger never claims more startups than the portfolio holds", () => {
+    for (const b of data.BUDGET_LEDGER) {
+      assert.ok(
+        b.startups <= portfolio.length,
+        `"${b.team}" claims ${b.startups} startups but the portfolio holds ${portfolio.length}`,
+      );
+    }
+  });
+
+  test("the resource KPI for open requests matches the request data", () => {
+    const inFlight = data.RESOURCE_REQUESTS.filter(
+      (r) => r.status === "Pending" || r.status === "Partially approved",
+    ).length;
+    const kpi = data.RESOURCE_KPIS.find((k) => k.label === "Open requests");
+    assert.ok(kpi, "the KPI set has no open-requests figure");
+    assert.equal(kpi.value, String(inFlight), `the KPI says ${kpi.value}, data says ${inFlight}`);
+  });
+
+  test("the request values add up to what the requests page reports", () => {
+    const total = data.RESOURCE_REQUESTS.reduce((s, r) => s + r.value, 0);
+    const approved = data.RESOURCE_REQUESTS.filter(
+      (r) => r.status === "Approved" || r.status === "Partially approved",
+    ).reduce((s, r) => s + r.value, 0);
+    assert.equal(Number(total.toFixed(1)), 20.3, `request total is ${total}`);
+    assert.equal(Number(approved.toFixed(1)), 14.5, `approved total is ${approved}`);
   });
 });
 

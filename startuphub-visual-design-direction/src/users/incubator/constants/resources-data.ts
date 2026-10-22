@@ -178,6 +178,30 @@ export type ProviderEfficiency = {
   tone: Tone;
 };
 
+export type Eligibility = {
+  category: ResourceCategory;
+  who: string;
+  criteria: string;
+  note: string;
+  tone: Tone;
+};
+
+export type Escalation = {
+  step: number;
+  trigger: string;
+  owner: string;
+  window: string;
+  action: string;
+  tone: Tone;
+};
+
+export type TeamUtilisation = {
+  group: string;
+  pool: number;
+  note: string;
+  tone: Tone;
+};
+
 /* ── The inventory ─────────────────────────────────────────────── */
 
 export const INVENTORY: InventoryItem[] = [
@@ -271,7 +295,7 @@ export const RESOURCE_KPIS: ResourceKpi[] = [
   { label: "Pool size", value: "7 assets", note: "across 5 providers", tone: "accent" },
   { label: "Average utilisation", value: "62%", note: "up 6 pts since Jan", tone: "good" },
   { label: "Credits deployed", value: "₹14.9 L", note: "of ₹24 L committed", tone: "accent" },
-  { label: "Open requests", value: "2", note: "1 awaiting approval", tone: "warn" },
+  { label: "Open requests", value: "3", note: "2 pending, 1 partial", tone: "warn" },
 ];
 
 export const CATEGORY_COVERAGE: CategoryCoverage[] = [
@@ -350,11 +374,11 @@ export const RESOURCE_BUDGET = {
 };
 
 export const BUDGET_LEDGER: BudgetLedger[] = [
-  { team: "Compute & AI", spend: 6.2, pct: 29, startups: 12, note: "GPU hours, edge kits and the credit line", tone: "accent" },
-  { team: "Lab & hardware", spend: 4.8, pct: 22, startups: 8, note: "Wet lab, electronics and test rigs", tone: "accent" },
-  { team: "Workspace", spend: 3.6, pct: 17, startups: 34, note: "Desks, pods and the investor lounge", tone: "warn" },
-  { team: "Legal & IP", spend: 2.1, pct: 10, startups: 9, note: "Pro bono slots and filing support", tone: "warn" },
-  { team: "Data & tooling", spend: 1.9, pct: 9, startups: 11, note: "Seats, licences and public datasets", tone: "default" },
+  { team: "Compute & AI", spend: 6.2, pct: 29, startups: 8, note: "GPU hours, edge kits and the credit line", tone: "accent" },
+  { team: "Lab & hardware", spend: 4.8, pct: 22, startups: 4, note: "Wet lab, electronics and test rigs", tone: "accent" },
+  { team: "Workspace", spend: 3.6, pct: 17, startups: 13, note: "Desks, pods and the investor lounge", tone: "warn" },
+  { team: "Legal & IP", spend: 2.1, pct: 10, startups: 6, note: "Pro bono slots and filing support", tone: "warn" },
+  { team: "Data & tooling", spend: 1.9, pct: 9, startups: 7, note: "Seats, licences and public datasets", tone: "default" },
   { team: "Programme overhead", spend: 2.8, pct: 13, startups: 0, note: "Facilities, partner fees and insurance", tone: "default" },
 ];
 
@@ -438,4 +462,30 @@ export const PROVIDER_EFFICIENCY: ProviderEfficiency[] = [
   { provider: "Nimbus Cloud Research", supplied: 12, utilisation: 62, note: "Responds same-week, but Tier II is unclaimed", tone: "accent" },
   { provider: "ISRO Tech Transfer", supplied: 3, utilisation: 34, note: "Approval delay, not demand — the datasets are free forever", tone: "bad" },
   { provider: "Karnataka Startup Mission", supplied: 9, utilisation: 78, note: "Billed at cost and reliably used", tone: "good" },
+];
+
+/* ── Eligibility, escalation and team roll-up ─────────────────── */
+
+export const ELIGIBILITY: Eligibility[] = [
+  { category: "Compute", who: "Cohort VI · all stages", criteria: "Accepted into a running cohort", note: "GPU hours are capped at 40 a month per startup", tone: "accent" },
+  { category: "Cloud credits", who: "Any enrolled startup", criteria: "Account in good standing with the programme", note: "Credits are drawn from the shared line, not granted per startup", tone: "accent" },
+  { category: "Lab & hardware", who: "Cohort VI · deep-tech track", criteria: "Active experiment with a named mentor", note: "Bench time is booked against the partner quota", tone: "default" },
+  { category: "Legal & IP", who: "Any enrolled startup", criteria: "A specific question — not open-ended counsel", note: "4 pro bono slots a month, first come first served", tone: "warn" },
+  { category: "Workspace", who: "Cohort VI · all stages", criteria: "No desk already assigned to the team", note: "Desks are not transferable between teams", tone: "warn" },
+  { category: "Data", who: "Any enrolled startup", criteria: "Named dataset and a stated use", note: "Approval is quick — the datasets are free forever once granted", tone: "good" },
+];
+
+export const ESCALATION: Escalation[] = [
+  { step: 1, trigger: "Request sits unassigned for a day", owner: "Programme inbox", window: "Same day", action: "Auto-assign to the category approver", tone: "default" },
+  { step: 2, trigger: "Approver has not decided within the SLA", owner: "Kavi Sharma · Operations", window: "SLA + 1 day", action: "Escalate with a decision required, not a request", tone: "warn" },
+  { step: 3, trigger: "Value above ₹1 L, or a partner quota is at risk", owner: "Meera Iyer · Program Director", window: "24 hours", action: "Final call, with the partner informed", tone: "warn" },
+  { step: 4, trigger: "Still unresolved after three working days", owner: "Weekly resource review", window: "Next review", action: "Decide in the review, then fix the process that caused it", tone: "bad" },
+];
+
+export const TEAM_UTILISATION: TeamUtilisation[] = [
+  { group: "Compute & cloud", pool: 78, note: "The AI block is oversubscribed 1.4×", tone: "warn" },
+  { group: "Lab & hardware", pool: 52, note: "Bench time is the idle half of the pool", tone: "bad" },
+  { group: "Legal & IP", pool: 64, note: "3 slots a month go unclaimed", tone: "warn" },
+  { group: "Workspace", pool: 88, note: "A waitlist is forming for desks", tone: "warn" },
+  { group: "Data & tooling", pool: 34, note: "Datasets are free but nobody asks", tone: "bad" },
 ];

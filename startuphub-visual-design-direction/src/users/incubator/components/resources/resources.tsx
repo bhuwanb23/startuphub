@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import {
   CATEGORY_COVERAGE,
   CREDIT_LINES,
+  ELIGIBILITY,
   INVENTORY,
   PROVIDERS,
   RESOURCE_KPIS,
@@ -322,7 +323,38 @@ export function Resources() {
         </div>
       </Card>
 
-      {/* ── 08 · Open requests ────────────────────────────────── */}
+      {/* ── 08 · Eligibility ─────────────────────────────────── */}
+      <Card
+        title="Eligibility — who can draw on the pool"
+        sub="The bar every startup has to clear, category by category"
+        action={<Badge tone="accent">{ELIGIBILITY.length} categories</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {ELIGIBILITY.map((e) => (
+            <li
+              key={e.category}
+              className="flex flex-col gap-2 px-5 py-4 transition-colors hover:bg-soft sm:flex-row sm:items-center sm:gap-4"
+            >
+              <span className="min-w-[130px] shrink-0 text-[13.5px] font-semibold text-ink">
+                {e.category}
+              </span>
+              <span className="min-w-[170px] shrink-0 text-[12.5px] text-slate-600">
+                {e.who}
+              </span>
+              <span className="min-w-[190px] flex-1 text-[12px] text-slate-500">
+                {e.criteria}
+              </span>
+              <span className="min-w-[190px] text-[11.5px] text-slate-400">{e.note}</span>
+              <Badge tone={e.tone}>
+                {e.tone === "warn" ? "Capped" : e.tone === "bad" ? "Blocked" : "Open"}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 09 · Open requests ────────────────────────────────── */}
       <Card
         title="Open requests"
         sub="What is in flight against the pool"
@@ -363,7 +395,7 @@ export function Resources() {
         </Link>
       </Card>
 
-      {/* ── 09 · Copilot insight ──────────────────────────────── */}
+      {/* ── 10 · Copilot insight ──────────────────────────────── */}
       <Card
         title="Copilot insight"
         sub="Where the pool is being wasted, and what to do about it"

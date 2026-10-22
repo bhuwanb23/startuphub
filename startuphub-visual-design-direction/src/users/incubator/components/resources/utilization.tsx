@@ -15,6 +15,7 @@ import {
   INVENTORY,
   PROVIDER_EFFICIENCY,
   STARTUP_ALLOCATIONS,
+  TEAM_UTILISATION,
   UNDERUSED_ASSETS,
   UTILISATION_TREND,
 } from "../../constants/resources-data";
@@ -41,6 +42,58 @@ export function ResourceUtilization() {
   );
   const overall = Math.round((avgPool + avgLab + avgWorkspace) / 3);
   const idleValue = UNDERUSED_ASSETS.reduce((s, a) => s + a.used, 0);
+
+  /* Project each pool forward three months at its own run rate. */
+  const outlook = useMemo(() => {
+    const trend = UTILISATION_TREND;
+    const first = trend[0];
+    const last = trend[trend.length - 1];
+    const span = trend.length - 1 || 1;
+    const project = (key: "pool" | "lab" | "workspace") => {
+      const monthly = (last[key] - first[key]) / span;
+      return Math.round(Math.min(100, last[key] + monthly * 3));
+    };
+    const pool = project("pool");
+    const lab = project("lab");
+    const workspace = project("workspace");
+    return [
+      {
+        label: "Compute & cloud",
+        projected: pool,
+        verdict: pool >= 100 ? "At capacity" : pool > 90 ? "Tight" : "Headroom",
+        note:
+          pool >= 100
+            ? "The AI block hits the ceiling before the next demo day — add a cluster or ration hours."
+            : "Room to absorb two more GPU-heavy startups this quarter.",
+        tone: pool >= 100 ? ("bad" as const) : pool > 90 ? ("warn" as const) : ("good" as const),
+      },
+      {
+        label: "Lab & hardware",
+        projected: lab,
+        verdict: lab < 55 ? "Idle" : lab > 90 ? "Tight" : "Headroom",
+        note:
+          lab < 55
+            ? "Still under half used. Move bench-days rather than buying more."
+            : "Bench time is keeping pace with the bio cohort.",
+        tone: lab < 55 ? ("bad" as const) : lab > 90 ? ("warn" as const) : ("good" as const),
+      },
+      {
+        label: "Workspace",
+        projected: workspace,
+        verdict: workspace >= 100 ? "At capacity" : workspace > 90 ? "Tight" : "Headroom",
+        note:
+          workspace >= 100
+            ? "Desks run out before the quarter ends — add 12 seats or move to pods."
+            : "Desk pressure is building but not yet critical.",
+        tone:
+          workspace >= 100
+            ? ("bad" as const)
+            : workspace > 90
+              ? ("warn" as const)
+              : ("good" as const),
+      },
+    ];
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -274,7 +327,79 @@ export function ResourceUtilization() {
         </ul>
       </Card>
 
-      {/* ── 07 · Underused assets ───────────────────────────── */}
+      {/* ── 07 · Utilisation by team ─────────────────────────── */}
+      <Card
+        title="Utilisation by team"
+        sub="Where the pool is tight, and where it is idle"
+        action={<Badge tone="bad">2 groups under 55%</Badge>}
+        pad={false}
+      >
+        <ul className="divide-y divide-line">
+          {TEAM_UTILISATION.map((t) => (
+            <li
+              key={t.group}
+              className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-soft"
+            >
+              <span className="min-w-[150px] flex-1">
+                <span className="block text-[13.5px] font-semibold text-ink">
+                  {t.group}
+                </span>
+                <span className="block text-[11.5px] text-slate-400">{t.note}</span>
+              </span>
+              <div className="w-40 shrink-0">
+                <Progress
+                  value={t.pool}
+                  tone={t.tone === "bad" ? "bad" : t.tone === "warn" ? "warn" : "accent"}
+                />
+              </div>
+              <span className="w-12 text-right text-[12.5px] font-semibold tabular-nums text-ink">
+                {t.pool}%
+              </span>
+              <Badge tone={t.tone}>
+                {t.pool > 80 ? "Oversubscribed" : t.pool < 55 ? "Idle" : "On plan"}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      {/* ── 08 · Capacity outlook ────────────────────────────── */}
+      <Card
+        title="Capacity outlook"
+        sub="Where each pool lands if the current run rate holds"
+        action={
+          <span className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-400">
+            <TrendingUp className="h-3.5 w-3.5" /> +3 months
+          </span>
+        }
+      >
+        <div className="grid gap-3 sm:grid-cols-3">
+          {outlook.map((o) => (
+            <div
+              key={o.label}
+              className="rounded-xl border border-line p-4 transition-colors hover:border-accent/25"
+            >
+              <div className="flex items-center justify-between">
+                <p className="text-[12.5px] font-semibold text-ink">{o.label}</p>
+                <Badge tone={o.tone}>{o.verdict}</Badge>
+              </div>
+              <p className="mt-2.5 text-[24px] font-semibold leading-none tracking-[-0.03em] text-ink tabular-nums">
+                {o.projected}%
+              </p>
+              <Progress
+                value={Math.min(o.projected, 100)}
+                tone={o.tone === "bad" ? "bad" : o.tone === "warn" ? "warn" : "good"}
+                className="mt-3"
+              />
+              <p className="mt-2.5 text-[11.5px] leading-relaxed text-slate-400">
+                {o.note}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      {/* ── 09 · Underused assets ───────────────────────────── */}
       <Card
         title="Underused assets"
         sub="What is sitting idle, and what to do about it"
@@ -328,7 +453,7 @@ export function ResourceUtilization() {
         </p>
       </Card>
 
-      {/* ── 08 · Where to go next ────────────────────────────── */}
+      {/* ── 10 · Where to go next ────────────────────────────── */}
       <Card title="Where to go next" sub="From the numbers to the actions">
         <div className="grid gap-3 sm:grid-cols-3">
           {[
