@@ -36,19 +36,19 @@ export const founderNav: FounderGroup[] = [
     label: "My Startup", icon: Rocket, href: "/founder/startup",
     subs: [
       { name: "Startup Profile", href: "/founder/startup" },
-      { name: "Founder Profile", href: "/founder/startup#founder", soon: true },
+      { name: "Founder Profile", href: "/founder/startup/founder-profile" },
       { name: "Team Management", href: "/founder/startup/team" },
-      { name: "Startup Assessment", href: "/founder/startup#assessment", soon: true },
+      { name: "Startup Assessment", href: "/founder/startup/assessment" },
     ],
   },
   {
     label: "Idea & Validation", icon: Lightbulb, href: "/founder/idea",
     subs: [
       { name: "Idea Management", href: "/founder/idea" },
-      { name: "Idea Evaluation", href: "/founder/idea#evaluation", soon: true },
-      { name: "Idea Validation", href: "/founder/idea#validation", soon: true },
-      { name: "Customer Discovery", href: "/founder/idea#discovery", soon: true },
-      { name: "Surveys", href: "/founder/idea#surveys", soon: true },
+      { name: "Idea Evaluation", href: "/founder/idea/evaluation" },
+      { name: "Idea Validation", href: "/founder/idea/validation" },
+      { name: "Customer Discovery", href: "/founder/idea/discovery" },
+      { name: "Surveys", href: "/founder/idea/surveys" },
     ],
   },
   {
@@ -56,8 +56,8 @@ export const founderNav: FounderGroup[] = [
     subs: [
       { name: "Discover Incubators", href: "/founder/incubation/discover" },
       { name: "Applications", href: "/founder/incubation" },
-      { name: "Incubation Workspace", href: "/founder/incubation#workspace", soon: true },
-      { name: "Milestones", href: "/founder/incubation#milestones", soon: true },
+      { name: "Incubation Workspace", href: "/founder/incubation/workspace" },
+      { name: "Milestones", href: "/founder/incubation/milestones" },
     ],
   },
   {
