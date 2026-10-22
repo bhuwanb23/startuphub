@@ -381,21 +381,26 @@ The workspace widgets file carries **four families** that arrived from four diff
 | **Intro** | `PageIntro`, `PanelLink` | talent, university |
 | **Admin** | `Meter`, `Tag` | admin |
 
+Widgets that are shared between families are not exclusive to one — `Progress` is used by
+all eleven roles, `Bar` by eight, `Card` by seven. The table above lists each widget
+**once**, under the family that introduced it.
+
 ### 6.1 How the unions discriminate
 
-Three widgets are shared by more than one family. Each union uses a **disjoint prop set** so the correct style is selected with zero ambiguity:
+Three widgets are shared by more than one family. Each union uses a **disjoint prop set**
+so the correct style is selected with zero ambiguity. Verified against current usage:
 
-| Widget | Discriminator | Resulting style |
-|---|---|---|
-| `Stat` | `tone` is `up`/`down`/`flat` | admin style — plain-text trend (`text-emerald-600` / `text-rose-600`), optional `icon`, `hint` support, `text-[26px]` |
-| | `tone` is `good`/`default`/`warn`/`bad` | card style — chip delta (`bg-emerald-50`), required `icon`, `text-[1.55rem]` |
-| `Panel` | `description` present | admin style — `rounded-2xl`, `shadow-card`, top-aligned header, description line |
-| | `sub` present | panel style — `rounded-xl`, no shadow, `h2` header |
-| | neither | talent/university style — `rounded-xl`, `shadow-[0_1px_2px_rgba(11,18,32,0.03)]`, compact `h3` header |
-| `Bar` | `pct` prop | panel style — `h-[6px]`, `barClass` override |
-| | `value` + `tone` prop | talent/university style — `h-1.5`, tone-mapped fill |
-| `Avatar` | `label` prop | panel style — `rounded-lg bg-ink/[0.06]` |
-| | `name` prop | talent/university style — initials derived from the name |
+| Widget | Discriminator | Count | Resulting style |
+|---|---|---|---|
+| `Stat` | `tone` is `up`/`down`/`flat` | 33 | admin style — plain-text trend (`text-emerald-600` / `text-rose-600`), optional `icon`, `hint` support, `text-[26px]` |
+| | `tone` is `good`/`default`/`warn`/`bad` | 4 | card style — chip delta (`bg-emerald-50`), required `icon`, `text-[1.55rem]` |
+| `Panel` | `description` present | 56 | admin style — `rounded-2xl`, `shadow-card`, top-aligned header, description line |
+| | `sub` present | 221 | panel style — `rounded-xl`, no shadow, `h2` header |
+| | neither | 273 | talent/university style — `rounded-xl`, `shadow-[0_1px_2px_rgba(11,18,32,0.03)]`, compact `h3` header |
+| `Bar` | `pct` prop | — | panel style — `h-[6px]`, `barClass` override |
+| | `value` + `tone` prop | — | talent/university style — `h-1.5`, tone-mapped fill |
+| `Avatar` | `label` prop | — | panel style — `rounded-lg bg-ink/[0.06]` |
+| | `name` prop | — | talent/university style — initials derived from the name |
 
 `StatCard` is a separate export (not a union of `Stat`) and takes `deltaGood`/`sub` **or** `hint`/`up`.
 
