@@ -32,7 +32,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS 4**, **Driz
 - **Clean 4-layer architecture** — routes stay thin, screens own their data, components are shared
 - **Data-driven templates** — e.g. one `SolutionView` component renders six audience pages from typed data blobs
 - **Role workspaces without duplication** — a shared `AppShell` renders each role's navigation from its own constants file
-- **Production-shaped database layer** — Drizzle + `pg` pool with dev-mode connection reuse and a `/api/health` probe
+- **Production-shaped database layer** — Drizzle + `pg` pool with dev-mode connection reuse (kept for a future dynamic deploy; the current static export does not touch it)
 - **Custom design system** — brand tokens, motion keyframes, and texture utilities in Tailwind v4 `@theme`
 - **Type-safe** — `strict: true`, `eslint-config-next` flat config
 
@@ -89,8 +89,6 @@ startuphub/
 │   │   │   ├── ipr-expert/      ← 31 screens
 │   │   │   ├── mentor/          ← 21 screens
 │   │   │   └── investor/        ← entry page
-│   │   └── api/
-│   │       └── health/route.ts  ← GET → `select 1` against Postgres
 │   │
 │   ├── views/                   ← PUBLIC SCREENS (22 sections)
 │   │   └── <section>/
