@@ -3,22 +3,37 @@
 
 # 17 - PPT Assets
 
-> Slide-ready figures for the **Market & Opportunity** slide. Two images,
-> same aspect ratio, drop them side by side or stacked.
+> Slide-ready figures for the **Market & Opportunity** slide. Three images:
+> two metric panels that share an aspect ratio, plus a wide rectangle for
+> the funding-requirement block.
 
-## The two images
+## The three images
 
 | File | What it is | Size |
 |---|---|---|
 | `ppt_01_market_momentum.png` | India's startup ecosystem growth | 6.4 x 4.6 in, 200 DPI |
 | `ppt_02_ecosystem_metrics.png` | Three ecosystem metric cards | 6.4 x 4.6 in, 200 DPI |
+| `grant_requirement.png` | MIC/AICTE grant block - 4-up field grid | 12.0 x 4.4 in, 200 DPI |
 
-**Both are the same aspect ratio**, so they tile either way round - side by
-side under the TAM/SAM/SOM circles, or stacked in the lower-left.
+**The two `6.4 x 4.6` panels are the same aspect ratio**,
+so they tile either way round - side by side under the TAM/SAM/SOM circles,
+or stacked in the lower-left. `grant_requirement.png` is a wide rectangle
+and reads as a full-width band instead.
 
 ![Market momentum](ppt_01_market_momentum.png)
 
 ![Ecosystem metrics](ppt_02_ecosystem_metrics.png)
+
+![Grant requirement](grant_requirement.png)
+
+**On `grant_requirement.png`.** It carries the grant application's four
+fields - A (Rs 6 lakhs sought from MIC/AICTE), B (Rs ... from other
+sources), Total A+B (Rs 6 lakhs), Investment/Debt secured (Rs NA) - and
+repeats the ceiling note, Rs 10 lakhs, in the orange callout. Those figures
+are transcribed from the application itself; they are **not** sourced from
+the registry and **not** part of the Phase 0-13 evidence chain. The Rs 6
+lakh ask against a Rs 10 lakh ceiling is a 60% draw - note that only the
+ceiling is a rule, the ask is a decision.
 
 ## The corrected slide copy
 
@@ -87,7 +102,13 @@ note on the metric card.
 
 ```bash
 python 17_PPT_Assets/build_ppt_assets.py
+python 17_PPT_Assets/build_grant_card.py
 ```
+
+The first script rewrites this README and the two metric panels. The second
+regenerates `grant_requirement.png` from the constants at the top of that
+file - the four field values and the ceiling are declared once and printed,
+so the image cannot drift from what the application says.
 
 The script appends `GOV-045` and `GOV-046` to the registry (idempotent -
 merged by URL, updated by id) and then **fails if the registry and the
