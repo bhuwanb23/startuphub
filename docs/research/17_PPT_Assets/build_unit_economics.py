@@ -1,10 +1,15 @@
-"""StartupHub - unit economics infographic pack (square edition).
+"""StartupHub - unit economics infographic pack (square + wide edition).
 
 Three SQUARE PNGs, 10.0 x 10.0 in @ 200 DPI:
 
     ue_01_unit_economics.png   four cards + flow strip + break-even banner
     ue_02_cost_to_serve.png    the Rs 20,000 breakdown, planning allocation
     ue_03_cac_gap.png          CAC shown separately: research vs target
+
+One WIDE PNG, 14.0 x 9.0 in @ 200 DPI:
+
+    ue_04_full_story.png       complete story: waterfall, stacked bar,
+                               scale economics, CAC gap - one slide
 
 PROVENANCE - READ BEFORE PRESENTING
 -----------------------------------
@@ -312,6 +317,236 @@ def ue03(out: Path):
     return _save(fig, out)
 
 
+# ---- ue_04  (wide, complete story) ----------------------------------------
+WIDE = (14.0, 9.0)
+
+
+def _wide_panel(ax, x, y, w, h, fc=WHITE, ec=CARD_EDGE, lw=1.4, z=2):
+    ax.add_patch(FancyBboxPatch(
+        (x, y), w, h, boxstyle="round,pad=0.004,rounding_size=0.012",
+        linewidth=lw, edgecolor=ec, facecolor=fc, zorder=z))
+
+
+def _arrow_right(ax, x1, y, x2, color=GREY):
+    ax.annotate("", xy=(x2, y), xytext=(x1, y),
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=2.0,
+                                shrinkA=0, shrinkB=0), zorder=3)
+
+
+def _arrow_down(ax, x, y1, y2, color=GREY):
+    ax.annotate("", xy=(x, y2), xytext=(x, y1),
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=2.0,
+                                shrinkA=0, shrinkB=0), zorder=3)
+
+
+def ue04(out: Path):
+    fig = plt.figure(figsize=WIDE, dpi=DPI, facecolor=PAGE_BG)
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    # ---- header -----------------------------------------------------------
+    ax.text(0.04, 0.955, "StartupHub  \u00b7  Unit Economics",
+            fontsize=24, fontweight="bold", color=NAVY,
+            va="center", ha="left")
+    ax.text(0.96, 0.955,
+            "per institution  \u00b7  annual  \u00b7  planning model",
+            fontsize=12, color=SLATE, va="center", ha="right")
+    ax.plot([0.04, 0.96], [0.920, 0.920], color=CARD_EDGE, lw=1.4)
+
+    # ---- ROW 1: three-column flow ----------------------------------------
+    # cursor-based, top-down
+    cursor = 0.870          # top of row-1 cards
+
+    col_w, col_h = 0.260, 0.155
+    col_gap = 0.040
+    col_y = cursor - col_h  # bottom of cards
+
+    # Column 1 - REVENUE
+    c1_x = 0.04
+    _wide_panel(ax, c1_x, col_y, col_w, col_h, fc="#EFF6FF", ec=NAVY, lw=2.0)
+    ax.text(c1_x + col_w / 2, col_y + col_h - 0.042,
+            f"\u20b9{ACV/100000:.1f}L", fontsize=28, color=NAVY,
+            fontweight="bold", va="center", ha="center", zorder=3)
+    ax.text(c1_x + col_w / 2, col_y + col_h - 0.085,
+            f"\u20b9{ACV:,}", fontsize=14, color=NAVY,
+            va="center", ha="center", zorder=3)
+    ax.text(c1_x + col_w / 2, col_y + 0.030,
+            "Annual Institutional\nRevenue (ACV)", fontsize=11, color=SLATE,
+            va="center", ha="center", zorder=3, linespacing=1.5)
+
+    # Column 2 - COST
+    c2_x = c1_x + col_w + col_gap
+    _wide_panel(ax, c2_x, col_y, col_w, col_h, fc="#FEF2F2", ec=RED, lw=2.0)
+    ax.text(c2_x + col_w / 2, col_y + col_h - 0.042,
+            f"\u20b9{DIRECT_COST/1000:.0f}K", fontsize=28, color=RED,
+            fontweight="bold", va="center", ha="center", zorder=3)
+    ax.text(c2_x + col_w / 2, col_y + col_h - 0.085,
+            f"\u20b9{DIRECT_COST:,}", fontsize=14, color=RED,
+            va="center", ha="center", zorder=3)
+    ax.text(c2_x + col_w / 2, col_y + 0.030,
+            "Direct Cost\nper Institution / Year", fontsize=11, color=SLATE,
+            va="center", ha="center", zorder=3, linespacing=1.5)
+
+    # Column 3 - CONTRIBUTION
+    c3_x = c2_x + col_w + col_gap
+    _wide_panel(ax, c3_x, col_y, col_w, col_h, fc="#ECFDF5", ec=TEAL, lw=2.0)
+    ax.text(c3_x + col_w / 2, col_y + col_h - 0.042,
+            f"\u20b9{GROSS_PROFIT/100000:.1f}L", fontsize=28, color=TEAL,
+            fontweight="bold", va="center", ha="center", zorder=3)
+    ax.text(c3_x + col_w / 2, col_y + col_h - 0.085,
+            f"\u20b9{GROSS_PROFIT:,}", fontsize=14, color=TEAL,
+            va="center", ha="center", zorder=3)
+    ax.text(c3_x + col_w / 2, col_y + 0.050,
+            "Gross Contribution", fontsize=11.5, color=TEAL,
+            fontweight="bold", va="center", ha="center", zorder=3)
+    ax.text(c3_x + col_w / 2, col_y + 0.018,
+            f"{GROSS_MARGIN*100:.1f}%  Gross Margin",
+            fontsize=12, color=TEAL, va="center", ha="center", zorder=3)
+
+    # arrows between columns
+    _arrow_right(ax, c1_x + col_w + 0.004, col_y + col_h / 2,
+                 c2_x - 0.004)
+    _arrow_right(ax, c2_x + col_w + 0.004, col_y + col_h / 2,
+                 c3_x - 0.004)
+
+    # ---- ROW 2: horizontal stacked bar -----------------------------------
+    sb_top = col_y - 0.040
+    sb_h = 0.038
+    sb_y = sb_top - sb_h
+    sb_x, sb_w = 0.04, 0.92
+
+    ax.text(sb_x, sb_top + 0.018, "Direct Cost Breakdown",
+            fontsize=12, fontweight="bold", color=NAVY,
+            va="center", ha="left", zorder=3)
+    ax.text(sb_x + sb_w, sb_top + 0.018,
+            f"Total  \u20b9{COST_TOTAL:,}   "
+            f"(researched median \u20b9{COST_P50:,} P50)",
+            fontsize=10, color=SLATE, va="center", ha="right", zorder=3)
+
+    seg_x = sb_x
+    for lab, val, col in COST_LINES:
+        seg_w = sb_w * val / COST_TOTAL
+        _wide_panel(ax, seg_x, sb_y, seg_w, sb_h,
+                    fc=col, ec=WHITE, lw=1.0, z=2)
+        pct = val / COST_TOTAL * 100
+        ax.text(seg_x + seg_w / 2, sb_y + sb_h / 2,
+                f"{pct:.0f}%" if pct == int(pct) else f"{pct:.1f}%",
+                fontsize=10, color=WHITE, fontweight="bold",
+                va="center", ha="center", zorder=3)
+        # label below bar
+        ax.text(seg_x + seg_w / 2, sb_y - 0.022,
+                lab.replace("\n", " "), fontsize=8.5, color=SLATE,
+                va="center", ha="center", zorder=3)
+        ax.text(seg_x + seg_w / 2, sb_y - 0.040,
+                f"\u20b9{val:,}", fontsize=9, color=NAVY,
+                fontweight="bold", va="center", ha="center", zorder=3)
+        seg_x += seg_w
+
+    # ---- ROW 3: two panels - scale economics | customer acquisition ------
+    r3_top = sb_y - 0.075
+    r3_h = 0.170
+    r3_y = r3_top - r3_h
+    r3_w = 0.440
+    r3_gap = 0.040
+
+    # --- left: scale economics ---
+    _wide_panel(ax, 0.04, r3_y, r3_w, r3_h, fc=WHITE, ec=CARD_EDGE)
+    ax.text(0.04 + r3_w / 2, r3_y + r3_h - 0.028,
+            "Scale Economics", fontsize=13, fontweight="bold", color=NAVY,
+            va="center", ha="center", zorder=3)
+
+    # six institution boxes
+    box_w = 0.052
+    box_h = 0.038
+    box_gap = 0.008
+    total_boxes_w = 6 * box_w + 5 * box_gap
+    bx_start = 0.04 + (r3_w - total_boxes_w) / 2
+    bx_y = r3_y + r3_h - 0.085
+
+    for i in range(6):
+        bx = bx_start + i * (box_w + box_gap)
+        _wide_panel(ax, bx, bx_y, box_w, box_h,
+                    fc=NAVY if i < 6 else GREY, ec=NAVY, lw=0.8, z=2)
+        ax.text(bx + box_w / 2, bx_y + box_h / 2,
+                f"{i + 1:02d}", fontsize=10, color=WHITE,
+                fontweight="bold", va="center", ha="center", zorder=3)
+
+    ax.text(0.04 + r3_w / 2, bx_y - 0.028,
+            "6 paying institutions", fontsize=12, color=NAVY,
+            fontweight="bold", va="center", ha="center", zorder=3)
+    ax.text(0.04 + r3_w / 2, bx_y - 0.055,
+            f"\u2192  \u20b9{ARR_AT_BREAKEVEN/100000:.1f}L ARR  "
+            f"\u00d7  \u20b9{GROSS_PROFIT/100000:.0f}L contribution  "
+            f"=  \u20b9{FIXED_COST/100000:.0f}L fixed",
+            fontsize=9.5, color=TEAL, va="center", ha="center", zorder=3)
+    ax.text(0.04 + r3_w / 2, bx_y - 0.078,
+            "Operating break-even  (before CAC)",
+            fontsize=9, color=SLATE, style="italic",
+            va="center", ha="center", zorder=3)
+
+    # --- right: customer acquisition ---
+    ca_x = 0.04 + r3_w + r3_gap
+    _wide_panel(ax, ca_x, r3_y, r3_w, r3_h, fc=WHITE, ec=CARD_EDGE)
+    ax.text(ca_x + r3_w / 2, r3_y + r3_h - 0.028,
+            "Customer Acquisition", fontsize=13, fontweight="bold",
+            color=NAVY, va="center", ha="center", zorder=3)
+
+    # three rows: current CAC, target CAC, LTV/CAC
+    ca_rows = [
+        ("Current CAC (researched)",
+         f"\u20b9{CAC_P25/100000:.1f}\u2013{CAC_P50/100000:.1f}L", RED),
+        ("Target CAC", f"\u2264 \u20b9{CAC_TARGET/100000:.0f}L", TEAL),
+        ("LTV / CAC",
+         f"{LTV_CAC_P25:.2f}\u2013{LTV_CAC_P50:.2f}\u00d7  "
+         f"\u2192  \u2265{LTV_CAC_TARGET:.0f}\u00d7", RED),
+    ]
+    crh = 0.036
+    cr_y = r3_y + r3_h - 0.060
+    for i, (lab, val, col) in enumerate(ca_rows):
+        yy = cr_y - i * crh
+        ax.text(ca_x + 0.020, yy, lab, fontsize=10, color=SLATE,
+                va="center", ha="left", zorder=3)
+        ax.text(ca_x + r3_w - 0.020, yy, val, fontsize=11.5, color=col,
+                fontweight="bold", va="center", ha="right", zorder=3)
+
+    ax.text(ca_x + r3_w / 2, r3_y + 0.022,
+            "Commercial priority: reduce CAC to \u2264\u20b91L",
+            fontsize=9.5, color=ORANGE, style="italic",
+            va="center", ha="center", zorder=3)
+
+    # ---- ROW 4: honesty banner -------------------------------------------
+    bh = 0.060
+    by = r3_y - 0.025 - bh
+    _wide_panel(ax, 0.04, by, 0.92, bh, fc=ORANGE_BG, ec=ORANGE_EDGE, lw=2.0)
+    ax.text(0.5, by + bh * 0.72,
+            "83.3% is a CONTRIBUTION margin before CAC and before "
+            "on-premise servicing (Phase 5 on-prem-adjusted P50 = 54%). "
+            "Rs 20,000 is a planning allocation, not a vendor quote.",
+            fontsize=10, color=ORANGE, style="italic",
+            va="center", ha="center", zorder=3)
+    ax.text(0.5, by + bh * 0.28,
+            "ACV Rs 1,20,000 is assumption D-006, UNSOURCED.  "
+            "Rs 1L CAC is a target model, not a result.",
+            fontsize=10.5, color=ORANGE, fontweight="bold",
+            va="center", ha="center", zorder=3)
+
+    # ---- footer -----------------------------------------------------------
+    _foot(ax,
+          f"Cost-to-serve Rs {COST_P50:,} P50 (P25 Rs {COST_P25:,} / P75 "
+          f"Rs {COST_P75:,}), SIMULATED, seed 20261019, from "
+          f"_exports/phase5/unit_economics.csv. CAC Rs {CAC_P25/100000:.2f}L "
+          f"(P25) \u2013 Rs {CAC_P50/100000:.2f}L (P50), LTV/CAC "
+          f"{LTV_CAC_P25:.2f} \u2013 {LTV_CAC_P50:.2f}. "
+          f"Component split is analyst judgement, not observed spend. "
+          f"Fixed cost Rs 6L = the grant ask, not a researched operating "
+          f"budget.",
+          y=0.035, size=9.5, width=130, pad=0.026)
+
+    return _save(fig, out)
+
+
 # ---- validate ------------------------------------------------------------
 def validate():
     check("gross profit = acv - direct", GROSS_PROFIT == 100_000)
@@ -332,6 +567,7 @@ def validate():
     check("ltv/cac target above research", LTV_CAC_TARGET > LTV_CAC_P50)
     check("every cost line positive", all(v > 0 for _, v, _ in COST_LINES))
     check("figsize is square", FIGSIZE[0] == FIGSIZE[1])
+    check("wide figsize rectangular", WIDE[0] != WIDE[1] and WIDE[0] > WIDE[1])
     return CHECKS
 
 
@@ -347,10 +583,13 @@ if __name__ == "__main__":
           f"{GROSS_PROFIT:,}  ({GROSS_MARGIN*100:.1f}%)")
     print(f"  derived    : {FIXED_COST:,} / {GROSS_PROFIT:,} = "
           f"{BREAK_EVEN:.0f} institutions  ->  {ARR_AT_BREAKEVEN:,.0f} ARR")
-    for fn, name in [(ue01, "ue_01_unit_economics.png"),
-                     (ue02, "ue_02_cost_to_serve.png"),
-                     (ue03, "ue_03_cac_gap.png")]:
+    for fn, name, size in [
+        (ue01, "ue_01_unit_economics.png", FIGSIZE),
+        (ue02, "ue_02_cost_to_serve.png", FIGSIZE),
+        (ue03, "ue_03_cac_gap.png", FIGSIZE),
+        (ue04, "ue_04_full_story.png", WIDE),
+    ]:
         p = fn(HERE / name)
         print(f"  png        {p.relative_to(ROOT)}  "
               f"({p.stat().st_size // 1024} KB)  "
-              f"{FIGSIZE[0]}x{FIGSIZE[1]}in @{DPI}DPI")
+              f"{size[0]}x{size[1]}in @{DPI}DPI")
